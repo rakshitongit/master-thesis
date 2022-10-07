@@ -1,0 +1,43 @@
+% Hintergrund-Makro
+\newcommand\BackgroundPic{
+\put(0,0){
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{images/front.png}%
+\vfill
+}}}
+
+\AddToShipoutPicture*{\BackgroundPic}
+\begin{titlepage}
+\makeatletter
+
+\enlargethispage{3cm}
+
+\begin{minipage}[b]{1\linewidth}
+	\sffamily
+	\includegraphics[scale=0.5]{images/upb_logo.pdf}
+  	\vspace*{8cm}
+  	
+	\textbf{\LARGE {\@title}}\\
+  
+	\Large{\@author}\\
+	
+% 	\vspace*{35mm}
+	\vspace{4cm}
+	\normalsize{
+	Exposé/Proposal\@~~--~~\@date\@.\\
+	Our Group Name.\\}
+	\newline
+	\normalsize{
+	\begin{tabular}{@{}ll@{}}
+	Supervisor: 	& Supervisor 1\\
+%					& (if applicable, insert here further supervisors)\\
+	\end{tabular}
+	}
+\end{minipage}
+
+
+\makeatother
+\end{titlepage}
+\ClearShipoutPicture
