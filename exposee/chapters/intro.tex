@@ -1,5 +1,6 @@
 \chapter{Introduction} \label{chap:intro}
 
+\paragraph{Motivation:}
 Over the last decade, Software development had a tremendous impact with increasing customer demand and requirements \cite{article:swdemand:ahmed}. 
 So, the developers have come up with different techniques to meet this requirement criteria. 
 Similarly, increasing product complexity and ambiguity have a significant impact on software development. 
@@ -9,41 +10,55 @@ Different people can have overlapping or contradicting opinions.
 And to reduce these risks, there has to be early detection of the user's needs and requirements. 
 Giving users a ``partially functioning'' system is the most excellent method to determine their requirements \cite{journal:prototyping:davis}.
 This ensures that the developers with high uncertainties in the early product development can validate by testing the underlying assumptions \cite{misc:lean:steve}.
-
 Developers can use this feedback to validate the most critical assumptions about the software product. 
 This validation can be used to decide whether to add, remove or update a feature \cite{article:experiments:lindgren}. 
 This process is called \texttt{Continuous Experimentation (CE)}.
 There has been an increase in interest in the types of experimentation that can take place in product development. 
-Fabijan et al. \cite{paper:controlled: experiments} have shown the benefits of continuous experiments in many use cases with incremental product improvement. 
+Fabijan et al. \cite{article:controlled:experiements} have shown the benefits of continuous experiments in many use cases with incremental product improvement. 
 In CE, the product owner designs different software variants (E.g., Different Subscription fees for registration) of the product, and the developer integrates these variants and assigns them to a distinct group of users. The variant with better results as per some evaluation criteria (more number of user registrations) is deployed for the entire set of users.
 So, an experiment can be valuable when it solves real-world problems.
 Hence, for experiments to be successful, they should offer one or more solutions that will benefit users.
-The developers are responsible for creating the experiments, and the Product owners give the ideas and feedback. 
-This created a problem of a gap between the developers and the product owners and raised a question of how the product owners can be closely associated with the developers.
 
-To solve this problem, the developers focus more on automating the software code rather than coding everything stated in the product requirements \cite{article:prototyping:hoffnagle}.
-This approach is formally known as a \texttt{Low-code} or \texttt{No-code} approach.
+\paragraph{Problem 1:} The developers are responsible for creating the experiments, and the product owners give the ideas and feedback to the developers.
+The main problem is integrating the product owners and the non-developers into the development process to bridge the gap between the developers and the product owners.
+
+\paragraph{Problem 2:} The process of testing the experiment variants is usually not systematically arranged, creating anomalies that give rise to unsuccessful experiments. (Use design principles)
+
+\paragraph{Problem 3:} In a small-scale company containing few users, it is not easy to do experiments and get conclusive feedback on the ``winner'' variant. (Create the Tasks)
+
+\paragraph{Problem 4:} Most often, the software application collects data from the experiments, and not all the data is used in the analysis phase reducing the software applications to improve based on customer feedback. (Use Data-driven development)
+
+\paragraph{Research Approach:} 
+To solve the first problem, the developers focus more on automating the software code rather than coding everything stated in the product requirements \cite{article:prototyping:hoffnagle}.
+This approach is formally known as a \texttt{Low-code} approach.
 So, this approach helps to have a UI interface for the non-developers to understand and develop the software products \cite{paper:lowcode:khorram}.
 One approach to support the product owners in developing the variants is UI Prototyping. 
 UI prototyping creates new UI variants using predefined UI elements (E.g., Drag and drop the UI elements into the screen). 
 This helps product owners to be creative and innovative because it gives them visual feedback.
-So, if UI prototypes are developed in a low-code technique, they would be lightweight software.
-This helps the product owner develop various prototypes and conduct experiments on the users.
-Similarly, it would save a lot of resources and, at the same time, get feedback from the users.
-
-According to Luqi et al. \cite{paper:prototyping:luqi}, Models are used broadly in prototyping because a model represents or describes the aspects of the systems that cannot be described adequately in a system of interest.
-Modeling the system is far more convenient and efficient than the actual development process. 
+So, if UI prototypes are developed in a low-code technique, they would be lightweight software that helps the product owner develop various prototypes and conduct experiments on the users.
+According to Cabot et al. \cite{paper:lowcode:cabot}, the low-code has become more accessible for Model-driven development. 
+Similarly, while creating prototyping, the software should have connections between the screens (E.g., clicking on a button should go to the next screen), and this logic can be achieved using Models.
+Models are used broadly in prototyping because a model represents or describes the aspects of the systems that cannot be described adequately in a system of interest \cite{paper:prototyping:luqi}.
 Moderately accurate models can be created using an iterative approach in software development by getting continuous feedback from the users.
 
-Most often, data is used to measure the success of the experiments by getting significant feedback from the users.
-Promising experiments are designed to better some goal or metric. 
-A worthwhile product experiment's ``secret ingredient'' is meaningful, actionable consumer feedback regarding the effects of your product experiments.
-This can be done using the \texttt{Qualitative and Quantitative} data analysis.
-Using a combination of qualitative and quantitative data can improve an evaluation by ensuring that the strengths of another balance the limitations of one type of data.
-This will ensure that the knowledge is improved by integrating different ways of understanding.
+To solve the third problem, use supervised testing.
+
+To solve the \texttt{second} problem, a design science research (DSR) study should be conducted to obtain some Design Principles (DPs) defined for the whole process of experimentation \cite{paper:designprinciple:vk}. 
+Here, DPs capture and codify that knowledge by focussing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. The DPs explain the design information that develops features for software applications.
+We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{paper:designprinciple:vk} consisting of five iteratively conducted steps.  First, we identify
+the \texttt{(1) Awareness of [the] Problem based on a real-world problem} and provide a
+\texttt{(2) Suggestion of a possible solution}. Next, we work on the \texttt{(3) Development of
+the software artifact} and conduct an \texttt{(4) Evaluation} of it. Based on the evaluation
+results, another iteration is undertaken, and/or our research contributions as \texttt{(5)
+Conclusions are provided}.
+
+To solve the \texttt{fourth} problem, the models should use data to measure the experiments' success for improvement. This process is called a Data-driven development approach. 
+This approach uses meaningful, actionable consumer feedback regarding the effects of the product experiments by using the \texttt{Qualitative and Quantitative} data analysis.
+Using a combination of qualitative and quantitative data can improve an evaluation by ensuring that the strengths of another balance the limitations of one type of data confirming that the knowledge is enhanced by integrating different techniques.
+
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.22]{images/solution-ideas/LEAN.png}
+    \includegraphics[scale=0.15]{images/solution-ideas/LEAN.png}
     \caption{LEAN Development technique}
     \label{intro:fig:lean}
 \end{figure}
