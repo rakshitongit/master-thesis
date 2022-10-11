@@ -22,9 +22,10 @@ Hence, for experiments to be successful, they should offer one or more solutions
 \paragraph{Problem 1:} The developers are responsible for creating the experiments, and the product owners give the ideas and feedback to the developers.
 The main problem is integrating the product owners and the non-developers into the development process to bridge the gap between the developers and the product owners.
 
-\paragraph{Problem 2:} The process of testing the experiment variants is usually not systematically arranged, creating anomalies that give rise to unsuccessful experiments. (Use design principles)
+\paragraph{Problem 2:} The process of creating experiments and testing its variants is usually not systematically arranged, creating anomalies that give rise to unsuccessful experiments. (Use design principles)
 
-\paragraph{Problem 3:} In a small-scale company containing few users, it is not easy to do experiments and get conclusive feedback on the ``winner'' variant. (Create the Tasks)
+\paragraph{Problem 3:} In a small-scale company containing a few users, it is not easy to do experiments and get conclusive feedback on the ``winner'' variant. 
+Because, with a small amount of data, it is impossible to prove one of the variants outperforms the others statistically.
 
 \paragraph{Problem 4:} Most often, the software application collects data from the experiments, and not all the data is used in the analysis phase reducing the software applications to improve based on customer feedback. (Use Data-driven development)
 
@@ -41,16 +42,18 @@ Similarly, while creating prototyping, the software should have connections betw
 Models are used broadly in prototyping because a model represents or describes the aspects of the systems that cannot be described adequately in a system of interest \cite{paper:prototyping:luqi}.
 Moderately accurate models can be created using an iterative approach in software development by getting continuous feedback from the users.
 
-To solve the third problem, use supervised testing.
-
 To solve the \texttt{second} problem, a design science research (DSR) study should be conducted to obtain some Design Principles (DPs) defined for the whole process of experimentation \cite{paper:designprinciple:vk}. 
-Here, DPs capture and codify that knowledge by focussing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. The DPs explain the design information that develops features for software applications.
-We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{paper:designprinciple:vk} consisting of five iteratively conducted steps.  First, we identify
-the \texttt{(1) Awareness of [the] Problem based on a real-world problem} and provide a
-\texttt{(2) Suggestion of a possible solution}. Next, we work on the \texttt{(3) Development of
-the software artifact} and conduct an \texttt{(4) Evaluation} of it. Based on the evaluation
-results, another iteration is undertaken, and/or our research contributions as \texttt{(5)
-Conclusions are provided}.
+Here, DPs capture and codify that knowledge by focussing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. 
+The DPs explain the design information that develops features for software applications.
+We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{paper:designprinciple:vk} consisting of five iteratively conducted steps. 
+First, we identify the 
+\texttt{(1) Awareness of the Problem based on a real-world problem} and provide a
+\texttt{(2) Suggestion of a possible solution}. Next, we work on the 
+\texttt{(3) Development of the software artifact} and conduct an 
+\texttt{(4) Evaluation} of it. Based on the evaluation results, another iteration is undertaken, and/or our research contributions as 
+\texttt{(5) Conclusions} are provided \cite{misc:crowdsourcing:sg}.
+
+To solve the \texttt{third} problem, use supervised testing.
 
 To solve the \texttt{fourth} problem, the models should use data to measure the experiments' success for improvement. This process is called a Data-driven development approach. 
 This approach uses meaningful, actionable consumer feedback regarding the effects of the product experiments by using the \texttt{Qualitative and Quantitative} data analysis.
@@ -63,5 +66,8 @@ Using a combination of qualitative and quantitative data can improve an evaluati
     \label{intro:fig:lean}
 \end{figure}
 \par
-In our solution, we propose to combine the Crowdsourcing Design principles (DP) \cite{misc:crowdsourcing:sg} with model-based and data-driven approaches to solve the problems faced by product owners and developers to have a successful software product.
-For that, we use the \emph{LEAN} development technique (see figure \ref{intro:fig:lean}) by starting with \texttt{(1) Ideation and Creating UI prototypes}, then \texttt{(2) Building the product by developing the Models} and using the \texttt{Low-Code technique}, \texttt{(3) Create Experiments} to have a UI for the users and get feedback from the users and finally \texttt{(4) Analyze the data and Tune the model}.
+
+\paragraph{Solution Approach:} In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development. LEAN development technique can be divided into 3 phases Build, Measure, and Learn. 
+In the \texttt{(1) Build} phase, we plan to create the \texttt{UI Prototypes}, \texttt{Models}, create \texttt{Experiments}, and assign \texttt{Tasks} to the users. 
+In the \texttt{(2) Measure} phase, we plan to measure the \texttt{Task and the Experiment measurements} and perform some analysis on the data received. 
+And finally, in the \texttt{(3) Learn} phase, we would like to Display the \texttt{Experiment results} and \texttt{Tune} our models to decide the better variant among the others. The solution approach is detailed in Chapter \ref{chap:solutionideas}.
