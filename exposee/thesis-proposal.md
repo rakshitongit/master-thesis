@@ -42,6 +42,8 @@ Adding a gnaat chart (usually wrting thesis and developing code go hand in hand)
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8051322
 - https://ieeexplore.ieee.org/abstract/document/7985712
 
+# intro
+problem statement different subsections
 
 # Solution Ideas
 - Build
