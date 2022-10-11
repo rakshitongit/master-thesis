@@ -41,3 +41,19 @@ Adding a gnaat chart (usually wrting thesis and developing code go hand in hand)
 - https://www.sciencedirect.com/science/article/pii/S2405896319309152 (Low code)
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8051322
 - https://ieeexplore.ieee.org/abstract/document/7985712
+
+
+# Solution Ideas
+- Build
+-- Visualising the Prototypes
+-- Modelling the Prototypes
+-- Creating Experiments and Tasks
+
+- Measure
+-- Prototype for testing
+Having a submodel/visualisation of that model to the users for collecting the information
+-- Measuring Experiments and Tasks 
+
+- Learn
+-- Analyses (qualitative, quantitative and task analysis)
+-- Improve the prototype

@@ -20,9 +20,9 @@ So, an experiment can be valuable when it solves real-world problems.
 Hence, for experiments to be successful, they should offer one or more solutions that will benefit users.
 
 \paragraph{Problem 1:} The developers are responsible for creating the experiments, and the product owners give the ideas and feedback to the developers.
-The main problem is integrating the product owners and the non-developers into the development process to bridge the gap between the developers and the product owners.
+The main problem is integrating the product owners and the non-developers into the development process to bridge the gap between the developers and non-developers.
 
-\paragraph{Problem 2:} The process of creating experiments and testing its variants is usually not systematically arranged, creating anomalies that give rise to unsuccessful experiments. (Use design principles)
+\paragraph{Problem 2:} The process of creating experiments and testing their variants is usually not systematically arranged, creating anomalies that give rise to unsuccessful experiments. (Use design principles)
 
 \paragraph{Problem 3:} In a small-scale company containing a few users, it is not easy to do experiments and get conclusive feedback on the ``winner'' variant. 
 Because, with a small amount of data, it is impossible to prove one of the variants outperforms the others statistically.
@@ -53,7 +53,9 @@ First, we identify the
 \texttt{(4) Evaluation} of it. Based on the evaluation results, another iteration is undertaken, and/or our research contributions as 
 \texttt{(5) Conclusions} are provided \cite{misc:crowdsourcing:sg}.
 
-To solve the \texttt{third} problem, use supervised testing.
+To solve the \texttt{third} problem, we use supervised task-based usability testing \cite{article:dataanalysis:supervisedtest}.
+The fundamental principle of usability testing is to have real users attempt to use the software application to do certain activities.
+These activities can be the tasks or scenarios (e.g., Locate a movie M1) for the users to complete and analyze (e.g., the time/clicks required to locate the Movie M1) \cite{misc:usability:tasks}.
 
 To solve the \texttt{fourth} problem, the models should use data to measure the experiments' success for improvement. This process is called a Data-driven development approach. 
 This approach uses meaningful, actionable consumer feedback regarding the effects of the product experiments by using the \texttt{Qualitative and Quantitative} data analysis.
@@ -70,4 +72,4 @@ Using a combination of qualitative and quantitative data can improve an evaluati
 \paragraph{Solution Approach:} In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development. LEAN development technique can be divided into 3 phases Build, Measure, and Learn. 
 In the \texttt{(1) Build} phase, we plan to create the \texttt{UI Prototypes}, \texttt{Models}, create \texttt{Experiments}, and assign \texttt{Tasks} to the users. 
 In the \texttt{(2) Measure} phase, we plan to measure the \texttt{Task and the Experiment measurements} and perform some analysis on the data received. 
-And finally, in the \texttt{(3) Learn} phase, we would like to Display the \texttt{Experiment results} and \texttt{Tune} our models to decide the better variant among the others. The solution approach is detailed in Chapter \ref{chap:solutionideas}.
+And finally, in the \texttt{(3) Learn} phase, we display the \texttt{Experiment results}, \texttt{Tune} our models to decide the better variant among the others, and \texttt{Modify} our product. The solution approach is detailed in Chapter \ref{chap:solutionideas}.
