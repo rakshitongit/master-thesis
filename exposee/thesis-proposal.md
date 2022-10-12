@@ -59,3 +59,5 @@ Having a submodel/visualisation of that model to the users for collecting the in
 - Learn
 -- Analyses (qualitative, quantitative and task analysis)
 -- Improve the prototype
+
+- https://gram.ly/HSMb
