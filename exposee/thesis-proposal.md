@@ -61,3 +61,5 @@ Having a submodel/visualisation of that model to the users for collecting the in
 -- Improve the prototype
 
 - https://gram.ly/HSMb
+
+- For an experiment it could have one task for all the user groups.
