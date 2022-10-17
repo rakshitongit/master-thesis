@@ -3,22 +3,22 @@ This chapter explains the problems faced by the companies during Software develo
 
 \section{Motivation}
 Over the last decade, Software development had a tremendous impact with increasing customer demand and requirements \cite{article:swdemand:ahmed}. 
-The product designers responsible for designing various variants of the product are unsure which variant would be most liked by the customers.
-Similarly, increasing product complexity and ambiguity have a significant impact on software development. 
+The product designers responsible for designing various product variants are unsure which variant would be most liked by the customers.
+Similarly, increasing product complexity and ambiguity significantly impact software development. 
 So, the developers have come up with different techniques to meet this requirement criteria.
 Early user feedback from potential customers in the industry is crucial for creating successful software products because of the growing market uncertainties, and consumers' desire to receive integrated solutions to their issues rather than unique software developments \cite{misc:businessmodels:teece}.
-With the increasing complexity of products, it becomes challenging to determine user requirements making it more difficult for developers to determine their opinions.
+With the increasing complexity of products, it becomes challenging to determine user requirements making it more difficult for developers to assess their opinions.
 As a result, the developers of these products are biased toward some requirements and can ignore what the user wants. 
-To reduce these risks, there has to be early detection of the user's needs and requirements. 
+We must detect the user's needs and requirements to reduce these risks early. 
 Giving users a ``partially functioning'' system is the most excellent method to determine their requirements and suggestions \cite{journal:prototyping:davis}.
 This ensures that the developers with high uncertainties in the early product development can validate by testing the underlying assumptions \cite{misc:lean:steve}.
 Developers can use this feedback to validate the most critical assumptions about the software product. 
 This validation can be used to decide whether to add, remove or update a feature \cite{article:experiments:lindgren}. 
-This process of determining the best fit for the product through user feedback is called Experimentation.
+This process of determining the best fit for the product through user feedback is called experimentation.
 There has been an increase in interest in the types of experimentation that can take place in product development. 
 Software products have shown the benefits of conducting experiments in many use cases with incremental product improvement \cite{article:controlled:experiements}.
 In Experimentation, the product designers design different UI variants (e.g., buttons with different colors), and the developer integrates these variants and assigns them to a distinct group of users. 
-The variant with better results as per some evaluation criteria is deployed for the entire set of users.
+As per some evaluation criteria, the variant with better results is deployed for the entire set of users.
 So, an experiment can be valuable when it improves the software products.
 Hence, for experiments to be successful, they should offer one or more solutions that will benefit users.
 
@@ -27,24 +27,24 @@ Hence, for experiments to be successful, they should offer one or more solutions
 This section explains the current problems faced by developers during software development. 
 We define three problems and determine the research and the solution approach for the same.
 
-\paragraph{Problem 1:} Product designers create many UI prototypes and the developers implement them.
+\paragraph{Problem 1:} Product designers create many UI prototypes, and the developers implement them.
 To determine the best variant, the developers create experiments with the users. 
 This concrete implementation of designs uses a lot of resources and time for the developers.
 Therefore, the product designers need to be integrated into the development process so that they would be able to create experiments independent of the developers.
 
 % \paragraph{Problem 2:} (Use design principles)
 
-\paragraph{Problem 2:} When the product designers develop the prototypes, it is difficult to test them with a large number of users as the product is still not developed.
-Therefore, it is not easy to conclude a ``winner'' variant with a small amount of data as it is statistically not possible to prove one of the variants outperforms the others \cite{article:usability:smalldata}.
-Therefore, it is necessary to come up with an idea that can be used to determine the best prototype or variant with a small group of users.
+\paragraph{Problem 2:} When the product designers develop the prototypes, testing them with many users is difficult as the product is still not developed.
+Therefore, it is not easy to conclude a ``winner'' variant with a small amount of data as it is statistically difficult to prove one of the variants outperforms the others \cite{article:usability:smalldata}.
+Therefore, it is necessary to develop an idea that the designers can use to determine the best prototype or variant with a small group of users.
 
 \paragraph{Problem 3:} Most often, the software application collects data from the experiments. 
-Some data is used in Qualitative analysis while others are in Quantitative analysis.
+Some data is used in Qualitative analysis, while others are in Quantitative analysis.
 Many companies fail to reap the benefits of using both Qualitative and Quantitative analysis.
 Similarly, not all the data is used in the analysis phase reducing the software applications to improve based on customer feedback \cite{article:datadrive:brian}.
-Therefore, it is necessary to find a solution that combines both qualitative and quantitative data analysis.
+Therefore, finding a solution that combines qualitative and quantitative data analysis is necessary.
 
-\section{Research Approach} 
+\section{Research Approach}
 \label{intro:section:research}
 \begin{figure}[ht]
     \centering
@@ -52,9 +52,11 @@ Therefore, it is necessary to find a solution that combines both qualitative and
     \caption{Design Science Research Cycle \cite{paper:designprinciple:vk}}
     \label{intro:fig:dps}
 \end{figure}
+This section identifies the Research Question (RQ) and defines an approach to answer the question.
+\paragraph{RQ:}How to develop a platform suitable for product designers to conduct experiments on UI prototypes, increasing its usability and, at the same time, independent of developers?
 
-The process of creating experiments and testing their variants is usually not systematically arranged, creating anomalies, and leading to unsuccessful experiments.
-To have a standard, we will conduct a design science research (DSR) study to obtain some Design Principles (DPs) defined for the whole process of experimentation \cite{paper:designprinciple:vk}. 
+% The process of creating experiments and testing their variants is usually not systematically arranged, creating anomalies, and leading to unsuccessful experiments.
+To answer this question, we will conduct a design science research (DSR) study to obtain some Design Principles (DPs) defined for the whole process of experimentation \cite{paper:designprinciple:vk}. 
 Here, DPs capture and codify that knowledge by focussing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. 
 The DPs explain the design information that develops features for software applications.
 We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{paper:designprinciple:vk} consisting of five iteratively conducted steps (see figure \ref{intro:fig:dps}). 
@@ -64,15 +66,15 @@ First, we identify the
 \texttt{(3) Development of the software artifact} and conduct an 
 \texttt{(4) Evaluation} of it. Based on the evaluation results, we provide 
 \texttt{(5) Conclusions} \cite{misc:crowdsourcing:sg}.
-From each step of the DSR, we have an iteration cycle and finally have an outcome (e.g., Awareness of the Problem leads to finding Design Requirements) as shown in figure \ref{intro:fig:dps}.
+From each step of the DSR, we have an iteration cycle and an outcome (e.g., Awareness of the Problem leads to finding Design Requirements, Design Principles (DPs) can be found from the Suggestion of the solution, Development of the software artifact leads to finding the Design Features and the Prototype, etc.) as shown in figure \ref{intro:fig:dps}.
 Therefore through the use of DSR, a group of issues is resolved by concentrating on a single issue and abstracting the consequences of the resolution.
 
 
 \section{Solution Approach}
 \label{intro:section:solution}
-To solve the above-mentioned problems, the designers should be able to create UI prototypes and create experiments on their own on a set of users.
+To solve the problems mentioned above, the designers should be able to create UI prototypes and experiments on their own on a set of users.
 Since we do not have a large set of users for testing the prototypes, we use supervised task-based usability testing \cite{article:dataanalysis:supervisedtest}.
-The fundamental principle of task-based usability testing is to have the users attempt to use the prototypes to do certain activities or tasks (e.g., Locate a movie M1) and get significant feedback.
+The fundamental principle of task-based usability testing is to have the users attempt to use the prototypes to do certain activities or tasks (e.g., Locate a movie M1) and get feedback (e.g., the time required for the task to be completed by the user).
 We propose to use \texttt{Low-code} or \texttt{No-Code} approach to achieve this.
 This approach helps to have a UI interface for the designers to understand, develop, and create experiments and tasks with the software prototypes \cite{paper:lowcode:khorram}.
 So, the designers would be able to test the UI prototypes, assign them to the users, get feedback from the users and decide on the best prototype.
@@ -94,7 +96,7 @@ LEAN development technique can be divided into a Build, Measure, and Learn cycle
 In the \texttt{(1) Build} phase, we plan to create the \texttt{UI Prototypes}, \texttt{Models}, \texttt{Experiments}, and \texttt{Tasks} for the users.
 In the \texttt{(2) Measure} phase, we plan to assign the Experiments and Tasks to the users and measure the \texttt{Task and the Experiment measurements} and perform some analysis on the data received. 
 And finally, in the \texttt{(3) Learn} phase, we display the \texttt{Analyses results}, \texttt{Tune} our models to decide the better variant among the others, and \texttt{Modify} the prototype.
-As per the figure \ref{intro:fig:lean}, we complete one cycle of iteration and start a new one.
+As per the figure \ref{intro:fig:lean}, we complete one cycle of iteration and start a new one with the updated prototype.
 The solution approach is explained more in detail in Chapter \ref{chap:solutionideas}.
 
 % To solve the first problem, the developers focus more on automating the software code rather than coding everything stated in the product requirements \cite{article:prototyping:hoffnagle}.

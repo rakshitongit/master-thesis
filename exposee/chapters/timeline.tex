@@ -1,10 +1,10 @@
 \chapter{Work Packages and Timeline}
 \label{chap:wps}
-In this section, we define the work packages, and timeline to fulfill the defined tasks in the next months.
+In this section, we define the work packages and timeline to fulfill the specified tasks in the following months.
 
 \section{Work Packages}
 We divide our thesis into Work packages (WP) or Tasks.
-This can be used to track the progress of the thesis and get feedback.
+We can use this to track the progress of the thesis and get feedback.
 
 \paragraph{WP1 (Introduction):} In this package, we would like to start by introducing the topic, identifying the problems by defining the problem statement, and finally, defining our research and solution approach.
 \begin{enumerate}
@@ -13,42 +13,40 @@ This can be used to track the progress of the thesis and get feedback.
     \item Research and Solution Approach
 \end{enumerate}
 
-\paragraph{WP2 (Related Work):} Here, we would like to find some State-of-the-art research and compare them with the research questions or the requirements that we define for the thesis.
+\paragraph{WP2 (Foundation):} In this package, we would like to define some terminologies according to the research (e.g., Continous Experimentation, Low-Code, etc.)
+
+\paragraph{WP3 (Related Work):} Here, we would like to find some State-of-the-art research and compare them with the research questions or requirements we define for the thesis.
 \begin{enumerate}
     \item State-of-the-art research
-    \item Defining requirements / Research Questions
     \item Comparison
 \end{enumerate}
 
-\paragraph{WP3 (Foundation):} In this package, we would like to define some terminologies according to the research (e.g., Continous Experimentation, Low-Code, etc.)
+\paragraph{WP4 (Design Science Research):} Here, we explain our research approach and the DSR in depth.
+	\begin{itemize}
+		\item DSR Method and Process
+		\item Design Principles (DP): We define various DPs from literature reviews on lean development, UI prototyping, etc.
+		\item Design Features (DF)
+	\end{itemize}
 
-\paragraph{WP4 (Design):} Here, we would like to design our thesis as per the LEAN development cycle, containing Build, Measure and Learn phases.
+\paragraph{WP5 (Design):} Here, we would like to design our tool as per the LEAN development cycle, containing the Build, Measure, and Learn phases.
 \begin{enumerate}
-    \item Build
-    \item Measure
-    \item Learn
+    \item Build: We would like to build the tool for the designers so that they can create prototypes and experiment with the users.
+    \item Measure: In this step, we would assign the experiment variants and assign tasks to the users to measure their feedback.
+    \item Learn: Finally, we would learn from the experiment by analyzing and improving the prototype. This finishes one cycle iteration, and the designers repeat the steps with the updated prototype.
 \end{enumerate}
 
-\paragraph{WP5 (Implementation):} In this package, we would like to implement the prototypes by developing the meta-models, defining the architectures, and coding them for visualization of the prototypes.
-We would also conduct experiments on the users and measure and learn from their feedback.
+\paragraph{WP6 (Implementation):} In this package, we would like to implement the prototypes by developing the meta-models, defining the architectures, and coding them for visualization of the prototypes.
 \begin{enumerate}
-    \item Architecture
-    \item Creating meta models and concrete models for database 
-    \item Visualization of the Prototypes 
+    \item Architecture: We would define the architecture for the experimentation server (containing experimentation and task manager) and the prototypes (containing prototype manager)
+    \item Technologies used: Here, we define the technologies that we use for the implementation of the platform 
+    \item Demonstration: Developing, Testing, and Deployment of the application (using docker\footnote{Docker: \url{https://www.docker.com/}})
 \end{enumerate}
 
-\paragraph{WP6 (Testing the prototypes):} In this package, we would test our prototypes by creating the experiments and the tasks for the users and measuring feedback from them.
+\paragraph{WP7 (Evaluation):} In this package, we would test our prototypes by creating the experiments and the tasks for the users and measuring feedback from them.
 \begin{enumerate}
-    \item Deployment on Server using docker\footnote{Docker: \url{https://www.docker.com/}}
-    \item Create and assign experiments, and tasks to the users 
+    \item Create a user case study and assign experiments and tasks to the users 
     \item Analyze the measurements
-\end{enumerate}
-
-\paragraph{WP7 (Evaluation):} Every research has Opportunities, Risks, and Limitations. In this WP, we would be discussing them.
-\begin{enumerate}
-    \item Opportunities
-    \item Risks
-    \item Limitations
+    \item Limitations and Risks
 \end{enumerate}
 
 \paragraph{WP8 (Conclusion):} Here, we conclude the thesis and write the scope for future work.
