@@ -5,7 +5,7 @@ We propose a Model-based approach using the LEAN development process in our solu
 As mentioned earlier, LEAN contains three phases Build, Measure, and Learn.
 In the \texttt{Build} phase, we plan to create the \texttt{(1) Visualization of Prototypes}, and \texttt{(2) Model} these prototypes for Experiments and Tasks.
 In the \texttt{Measure} phase, we plan to \texttt{(3) Assign these prototypes to the users} and measure the \texttt{(4) Experiment and the Task measurements}.
-Finally, in the \texttt{Learn} phase, we would analyze the results by performing \texttt{(5) Different analyses}, and \texttt{(6) Improve our Prototype} from the analyses feedback.  
+Finally, in the \texttt{Learn} phase, we would analyze the results by performing \texttt{(5) Different analyses}, and \texttt{(6) Improve our Prototype} from the analyses feedback and start a new iteration cycle. 
 
 Consider an example of a \textbf{``A video streaming service''} called \texttt{VideoStreamer (VS)}.
 We divide the different stakeholders of this company into developers (e.g., programmers, etc.) and non-developers (e.g., product designers).
@@ -113,8 +113,8 @@ So, in this section, we explain how they are allocated to the users (see section
 \subsection{Prototypes for User Testing}
 \label{solutionideas:subsection:usertesting}
 
-The product owners continuously investigate new features and product enhancement opportunities. 
-The owners better understand their customers' experiences by creating that feedback loop with users. 
+The product designers continuously investigate new features and product enhancement opportunities. 
+The designers understand their customers' experiences by creating that feedback loop with users. 
 As a result, they need to conduct experiments.
 In these experiments, the population (i.e., all users) is divided into small user groups, each receiving a unique variant. 
 This type of setup is called the ``\texttt{Between-group}'' design experiment. 
@@ -149,7 +149,6 @@ In this section, we do the analyses (see section \ref{solutionideas:section:data
 \subsection{Analysis}
 \label{solutionideas:section:dataanalysis}
 
-In our solution, we focus on data-driven development. 
 To determine the ``Winner'' among the variants of a product's component, we perform data analytics on the feedback data we receive from the \texttt{Task Model} and the \texttt{Experiment Model}.
 We perform the \texttt{Quantitative} (presented in section \ref{solutionideas:paragraph:quantitative}), \texttt{Qualitative} (presented in section \ref{solutionideas:paragraph:qualitative}), and the \texttt{Task} (presented in section \ref{solutionideas:paragraph:taskanalysis}) analyses of the data.
 
@@ -204,5 +203,4 @@ After analyzing the data from experiments, we can conclusively claim with statis
 This helps us to tune our model by adding a ``default'' attribute and setting its value to be of the ``winner'' variant.
 So, in the next iteration cycle, for the component, the ``winner'' variant is selected as default for future experiments.
 After modifying our model, we can visualize the changes by observing the UI Prototypes.
-E.g., In the \texttt{View} component of the \texttt{Videostreamer} app, the \texttt{GridView} is determined to be more usable as per the experiment and is declared the winner. 
-Therefore, in the next iteration, the \texttt{default} attribute in the \texttt{View} component will be set to \texttt{GridView} for the following experiments.
+E.g., In the \texttt{View} component of the \texttt{Videostreamer} app, if the \texttt{GridView} is determined to be more usable as per the experiment and is declared the winner, then in the next iteration, the \texttt{default} attribute in the \texttt{View} component will be set to \texttt{GridView} for the further experiments.

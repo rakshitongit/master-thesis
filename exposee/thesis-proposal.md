@@ -67,3 +67,12 @@ Having a submodel/visualisation of that model to the users for collecting the in
 - http://vovakurbatov.com/articles/prototyping-experiments-in-real-world
 - https://eclature.com/industries-using-ux-ui-development-solutions/
 - https://onix-systems.com/blog/matters-of-the-heart-how-to-measure-ui-and-ux-design
+
+# Comparison:
+## Prototyping 
+
+## Model based approach
+
+## Task based usability testing
+
+## Experimentation
