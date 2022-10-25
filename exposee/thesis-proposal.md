@@ -76,3 +76,30 @@ Having a submodel/visualisation of that model to the users for collecting the in
 ## Task based usability testing
 
 ## Experimentation
+
+# Foundation
+- Continuous Experimentation / Experimental Product Design
+-- Values
+-- Testimonies
+-- Fack door test
+-- Data-driven design
+https://uxdesign.cc/evolving-ux-experimental-product-design-with-a-cxo-2c0865db80cc
+https://uxdesign.cc/experimental-product-design-prototyping-with-live-data-9253c8fbadc5
+- Low Code
+
+- Task based Usability Testing
+(why they are necessary / motivation)
+-- Tasks
+-- Task Scenarios
+1. Make the Task Realistic
+2. Make the Task Actionable
+3. Avoid Giving Clues and Describing the Steps (autonomy)
+https://www.nngroup.com/articles/task-scenarios-usability-testing/
+
+- UI Prototyping
+
+- Model Based Software Engineering
+
+- DSR 
+-- Crowdsourcing
+-- ?
