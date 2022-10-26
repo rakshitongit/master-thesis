@@ -1,0 +1,6 @@
+[submodule "cryptobib"]
+	path = cryptobib
+	url = https://github.com/cryptobib/export
+[submodule "rfcbib"]
+	path = rfcbib
+	url = https://git.scc.kit.edu/TM/rfcbib.git
