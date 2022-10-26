@@ -887,7 +887,7 @@ wish to left align your text}
 \newcommand{\subject}[1]{\renewcommand{\@subject}{#1}}
 
 % Declaration title text
-\newcommand{\@declarationtitle}{Declaration}
+\newcommand{\@declarationtitle}{Official Declaration\\Eidesstattliche Erklärung}
 
 % Acknowledgment title text
 \newcommand{\@acknowledgementstitle}{Acknowledgements}
@@ -1016,9 +1016,9 @@ wish to left align your text}
 \chapter*{\centering \Large \@declarationtitle}
 \thispagestyle{empty}
 }{
-\flushright
-\@author{}\\
-\@degreedate{}
+% \flushright
+% \@author{}\\
+% \@degreedate{}
 \vfill
 }
 
