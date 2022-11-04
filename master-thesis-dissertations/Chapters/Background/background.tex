@@ -96,49 +96,68 @@ A recent method \cite{article:mbse:bexiga} illustrates how to use low-code appro
 %********************************** % Task-based Usability Testing **************************************
 \section{Task-based Usability Testing}
 \label{background:section:task}
+The main focus of usability testing is that seeing someone use an interface is the best approach to determine what functions well and what doesn't. 
+Assigning tasks to the accurate number of participants can help determine the quality of the UI and the problems faced by the users. 
+Overall, the UI design can be improved using the participants' feedback. 
+Task-based usability testing is one way to determine the software's overall usability \cite{article:usability:doesburg} by measuring the percentage of the tasks the users complete.
+To observe the participants, they need to be assigned some ``activities'' or \textit{tasks}. 
+These tasks need to be some scenarios, not just "\textit{do something}", because it sets the users a stage for \textit{why} they would perform the tasks. 
+To get qualitative feedback from the participants, in \cite{misc:usability:tasks}, the authors provide \textit{three good practices} and task-writing tips for designing better task scenarios.
+\textit{(1) Make the Task Realistic}.
+So, the participants should be able to execute the tasks which could be completed efficiently and with the freedom to make their own choices.
+\textit{(2) Make the Task Actionable}.
+Here, the participants should be told what they need to do rather than how they would do it.
+\textit{(3) Avoid Giving Clues and Describing the Steps}.
+The participants should expose the navigation and some features on their own, giving accurate feedback about the interface.
+The task scenario example\footnote{Task based usability: \url{https://www.nngroup.com/articles/task-scenarios-usability-testing/}} below sets a target for the participants to locate a movie from our \textit{Videostreamer} app.
+\begin{itemize}
+  \item[] \textbf{Good and bad example of a task scenario}
+  \item \textbf{User goal:} Find a movie. 
+  \item \textbf{Bad task scenario:} You should watch a movie on Sunday afternoon. Go to\\ \textit{www.videostreamer.com}, navigate to the Movies page, and find the movie as per the schedule.
+  \item \textbf{Good task scenario:} Use \textit{www.videostreamer.com} to find a movie that fits your interest that you'd be interested in watching on Sunday afternoon. 
+\end{itemize}
+In this example, the \textit{bad} task scenario gives detailed information about the navigation, violating the third tip.
 
-%********************************** % Experimental Product Design **************************************
-\section{Experimental Product Design}
+%********************************** % Experimentation **************************************
+\section{Experimentation}
 \label{background:section:experimentproduct}
+Experimental Product Design (EPD) has become integral to optimizing UI and \textit{User Experience (UX)}.
+Experimentation helps product teams test out ideas early in the process with real-world consumers rather than settling on a single solution and executing it in the final phase \cite{misc:CE:miklos}.
+In this section, we discuss the role that experimentation plays in the software development process and how designers can ``prototype with real data'' to improve the usability of the UI.
 
-\section*{Description}
-\begin{description}
-\item[The first topic] is dull
-\item[The second topic] is duller
-\begin{description}
-\item[The first subtopic] is silly
-\item[The second subtopic] is stupid
-\end{description}
-\item[The third topic] is the dullest
-\end{description}
+\paragraph{Continuous Experimentation:} 
+Continuous experimentation (CE) primarily aims to get users' feedback on the software product's evolution.
+CE generally uses A/B/n testing in a primary case of comparing two variants, A and B, which are controlled and test variables in an experiment.
+With CE, developers make evidence-based decisions to direct the progress of their software by continuously measuring the results of multiple variants performed in an experimental context with actual users \cite{article:CE:ros}.
+CE is an extension to the introduction of continuous integration and deployment, and all are summarized as constant software engineering \cite{article:CE:fitzgerald}.
 
 % \clearpage
 
-\begin{landscape}
+% \begin{landscape}
 
-\section{Landscape}
-I can cite Wall-E (see Fig.~\ref{fig:WallE}) and Minions in despicable me (Fig.~\ref{fig:Minnion}) or I can cite the whole figure as Fig.~\ref{fig:animations}
+% \section{Landscape}
+% I can cite Wall-E (see Fig.~\ref{fig:WallE}) and Minions in despicable me (Fig.~\ref{fig:Minnion}) or I can cite the whole figure as Fig.~\ref{fig:animations}
 
 
-\begin{figure}
-  \centering
-  \begin{subfigure}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{minion.png}
-    \caption{Tom and Jerry}
-    \label{fig:TomJerry}   
-  \end{subfigure}             
-  \begin{subfigure}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{minion.png}
-    \caption{Wall-E}
-    \label{fig:WallE}
-  \end{subfigure}             
-  \begin{subfigure}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{minion}
-    \caption{Minions}
-    \label{fig:Minnion}
-  \end{subfigure}
-  \caption{Best Animations}
-  \label{fig:animations}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{minion.png}
+%     \caption{Tom and Jerry}
+%     \label{fig:TomJerry}   
+%   \end{subfigure}             
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{minion.png}
+%     \caption{Wall-E}
+%     \label{fig:WallE}
+%   \end{subfigure}             
+%   \begin{subfigure}[b]{0.3\textwidth}
+%     \includegraphics[width=\textwidth]{minion}
+%     \caption{Minions}
+%     \label{fig:Minnion}
+%   \end{subfigure}
+%   \caption{Best Animations}
+%   \label{fig:animations}
+% \end{figure}
 
-\end{landscape}
+% \end{landscape}
