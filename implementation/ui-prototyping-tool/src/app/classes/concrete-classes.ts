@@ -5,9 +5,16 @@ export class CSSProperty {
     json!: Object;
 }
 
+export class View extends AbstractContainer {
+    isMaster!: boolean
+    children!: View[]
+    parentId!: string
+    override property!: CanvasProperty
+}
+
 export class Component extends AbstractContainer {
     interactions!: Interaction[]
-    uiproperty!: AbstractUIProperty
+    override property!: AbstractUIProperty
 }
 
 export class OnClick extends Interaction {
@@ -29,5 +36,13 @@ export class ButtonElementProperty extends AbstractUIProperty {
 }
 
 export class SelectElementProperty extends AbstractUIProperty {
+
+}
+
+export class OptionElementProperty extends AbstractUIProperty {
+
+}
+
+export class InputElementProperty extends AbstractUIProperty {
 
 }
