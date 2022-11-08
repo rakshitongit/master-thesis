@@ -5,6 +5,7 @@ export abstract class IDClass {
 }
 
 export abstract class AbstractContainer extends IDClass {
+    name!: string
     property!: AbstractProperty
     cssProperty!: CSSProperty['json']
 }

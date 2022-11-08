@@ -10,6 +10,16 @@ export class View extends AbstractContainer {
     children!: View[]
     parentId!: string
     override property!: CanvasProperty
+
+    static getView(isMaster: boolean, name: string): View {
+        let v: View = new View()
+        v.id = ''
+        v.isMaster = isMaster
+        v.name = name
+        v.children = []
+        v.parentId = ''
+        return v
+    }
 }
 
 export class Component extends AbstractContainer {

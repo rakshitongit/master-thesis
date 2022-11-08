@@ -17,7 +17,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import {  } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -40,8 +44,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
         MatCardModule,
         MatDialogModule,
         MatButtonModule,
-        DragDropModule
+        DragDropModule,
+        MatTreeModule,
+        MatSnackBarModule,
+        MatInputModule
     ],
-    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog]
+    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent]
 })
 export class AllComponentModule { }

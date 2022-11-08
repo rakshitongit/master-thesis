@@ -25,7 +25,9 @@ export class RightPanelComponent implements OnInit {
             this.element = val
             console.log(val)
         })
-        // get element property
+        this.shared.getCanvasView().subscribe(val=> {
+            this.elementName = val.name
+        })
     }
 
     getProperties() {

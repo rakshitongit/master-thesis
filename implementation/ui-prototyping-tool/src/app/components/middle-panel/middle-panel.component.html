@@ -1,8 +1,8 @@
 <mat-card>
     <mat-card-title>Canvas</mat-card-title>
-    <mat-card-subtitle>View name</mat-card-subtitle>
-    <mat-card-content style="min-height: 500px;">
+    <mat-card-subtitle>{{canvasName}}</mat-card-subtitle>
+    <mat-card-content>
         Here comes the content for UI elements
-        <div #cardContent></div>
+        <div #cardContent class="card-border" [style.width]="width" [style.height]="height"></div>
     </mat-card-content>
 </mat-card>

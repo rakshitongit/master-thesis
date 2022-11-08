@@ -10,7 +10,7 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
 
     mobileQuery!: MediaQueryList;
 
-    activate: boolean = false
+    activate: boolean = true
 
     private _mobileQueryListener: () => void
 

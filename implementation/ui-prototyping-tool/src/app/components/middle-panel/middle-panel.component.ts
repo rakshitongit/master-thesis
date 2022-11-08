@@ -1,5 +1,5 @@
 import { DragAxis, DragConstrainPosition, DragDrop, DragDropConfig, DragDropModule, DragRef } from '@angular/cdk/drag-drop';
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
 import { CommunicationService } from 'src/app/services/communication.service';
 
 @Component({
@@ -12,6 +12,10 @@ export class MiddlePanelComponent implements OnInit {
     toAddElement!: string
 
     private renderer!: Renderer2;
+
+    height: string = '200px'
+    width: string = ''
+    canvasName: string = ''
 
     @ViewChild('cardContent', { static: false })
     el!: ElementRef
@@ -27,6 +31,11 @@ export class MiddlePanelComponent implements OnInit {
             this.addUIElement()
             // call dynamic caller
         })
+
+        this.shared.getCanvasView().subscribe(val => {
+            this.canvasName = val.name
+            console.log(val)
+        })
     }
 
     clickme(elementName: string) {
@@ -40,6 +49,7 @@ export class MiddlePanelComponent implements OnInit {
         const brel = this.renderer.createElement('br');
         let dragRef: DragRef = this.drag.createDrag(recaptchaContainer)
         this.renderer.setAttribute(recaptchaContainer, 'cdkDrag', '')
+        this.renderer.setAttribute(recaptchaContainer, 'contenteditable', 'true')
         const text = this.renderer.createText(this.toAddElement)
         // this.renderer(recaptchaContainer, 'div elememnt')
         this.renderer.appendChild(recaptchaContainer, text);
@@ -61,6 +71,12 @@ export class MiddlePanelComponent implements OnInit {
     addListener(recaptchaContainer: Element, elName: string) {
         this.renderer.listen(recaptchaContainer, 'click', () => {
             this.clickme(elName)
+        })
+
+        this.renderer.listen(recaptchaContainer, 'keydown', (event) => {
+            if(event.key == 'Delete') {
+                recaptchaContainer.remove()
+            }
         })
     }
 
