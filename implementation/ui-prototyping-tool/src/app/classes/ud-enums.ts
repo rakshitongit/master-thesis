@@ -5,3 +5,7 @@ export enum Connectors {
 export enum Actions {
     NAVIGATE = 'NAVIGATE', OPEN = 'OPEN'
 }
+
+export enum UIElements {
+    BUTTON = "Button", SELECT = "Select", INPUT = "Input"
+}

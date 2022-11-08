@@ -1,12 +1,12 @@
 <p *ngIf="activate">Views</p>
 <ng-container *ngIf="!activate">
     <h2>UI Components</h2>
-    <mat-list>
-        <a routerNav="."><mat-list-item><mat-icon matListIcon>payment</mat-icon> Button </mat-list-item></a>
+    <mat-nav-list>
+        <a (click)="openDialog('Button')"><mat-list-item><mat-icon matListIcon>payment</mat-icon> Button </mat-list-item></a>
         <mat-divider></mat-divider>
-        <a routerNav="."><mat-list-item><mat-icon matListIcon>payment</mat-icon> Input Element </mat-list-item></a>
+        <a (click)="openDialog('Input')"><mat-list-item><mat-icon matListIcon>payment</mat-icon> Input Element </mat-list-item></a>
         <mat-divider></mat-divider>
-        <a routerNav="."><mat-list-item><mat-icon matListIcon>payment</mat-icon> Select Button </mat-list-item></a>
+        <a (click)="openDialog('Select')"><mat-list-item><mat-icon matListIcon>payment</mat-icon> Select Button </mat-list-item></a>
         <mat-divider></mat-divider>
-       </mat-list>
+       </mat-nav-list>
 </ng-container>

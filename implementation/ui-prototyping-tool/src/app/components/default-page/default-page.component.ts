@@ -14,6 +14,9 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
 
     private _mobileQueryListener: () => void
 
+    elementName!: string
+    toAddElement!: string
+
     constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -25,6 +28,16 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.mobileQuery.removeListener(this._mobileQueryListener);
+    }
+
+    updateElement(elementName: string) {
+        console.log(elementName)
+        this.elementName = elementName
+    }
+
+    addElement(elementName: string) {
+        console.log(elementName)
+        this.toAddElement = elementName
     }
 
 }

@@ -30,3 +30,7 @@
     flex: 1 0 auto;
   }
   
+  :host ::ng-deep .mat-grid-tile-content {
+    margin: 10px;
+    display: block;
+  }
