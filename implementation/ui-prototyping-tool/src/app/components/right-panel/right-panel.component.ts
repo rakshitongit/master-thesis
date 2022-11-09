@@ -25,17 +25,21 @@ export class RightPanelComponent implements OnInit {
     ngOnInit() {
         this.element = new ComponentContainer()
         this.shared.getSelectedElement().subscribe(val => {
-            console.log(val)
             this.element = val
             this.elementName = val.name
             this.getProperties()
-            this.selectInteraction = ''
-            this.interactions = []
+            if((this.element as ComponentContainer)?.interactions?.length > 0) {
+                this.selectInteraction = (this.element as ComponentContainer).interactions[0].connectionId
+            } else {
+                this.selectInteraction = ''
+            }
+            // this.selectInteraction = (this.element as ComponentContainer)?.interactions[0]?.connectionId
+            console.log(this.element)
+            this.interactions = (this.element as ComponentContainer).interactions
         })
         this.getProperties()
         this.shared.getCanvasView().subscribe(val => {
             this.element = val
-            console.log(val)
             this.elementName = val.name
         })
     }
@@ -44,7 +48,6 @@ export class RightPanelComponent implements OnInit {
         this.shared.receiveUIProperties().subscribe(val => {
             this.element = val
             this.element.cssProperty = val.cssProperty
-            console.log(val)
         })
     }
 
