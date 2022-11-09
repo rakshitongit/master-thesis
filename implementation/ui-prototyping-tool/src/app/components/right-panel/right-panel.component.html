@@ -1,8 +1,32 @@
-<mat-card>
-    <mat-card-title>Properties</mat-card-title>
-    <mat-card-subtitle>{{elementName}} name</mat-card-subtitle>
-    <mat-card-content>
-        x: {{element?.dropPoint?.x}} <br>
-        y: {{element?.dropPoint?.y}}
-    </mat-card-content>
-</mat-card>
+<mat-card-title>Properties</mat-card-title>
+<mat-card-subtitle>{{elementName}} name</mat-card-subtitle>
+<mat-card-content>
+    <ng-container>
+        <h4>Position</h4>
+        x: {{element.cssProperty?.dropPoint?.x}} <br>
+        y: {{element.cssProperty?.dropPoint?.y}}
+    </ng-container>
+    <br><br>
+    <ng-container *ngIf="displayInteractions()">
+        <h4>Interactions
+            <button class="pull-right" mat-icon-button (click)="addNewInteraction()"
+                *ngIf="doesNotContainInteraction()">
+                <mat-icon mat-card-avatar style="font-size: 25px; margin-top: -10px;">+</mat-icon>
+            </button>
+        </h4>
+        <div *ngFor="let interaction of interactions">
+            <mat-form-field appearance="fill">
+                <h5>Navigate to</h5>
+                <mat-label>On Click</mat-label>
+                <select matNativeControl required [(ngModel)]="selectInteraction" (change)="updateInteraction(interaction)">
+                    <option disabled selected>Select an Option</option>
+                    <option [value]="getMasterData().id">{{getMasterData().name}}</option>
+                    <option *ngFor="let op of getData()" [value]="op.id">{{op.name}}</option>
+                </select>
+            </mat-form-field>
+            <button class="pull-right" mat-icon-button (click)="deleteInteraction(interaction)">
+                <mat-icon mat-card-avatar style="font-size: 25px; margin-top: 10px;">delete</mat-icon>
+            </button>
+        </div>
+    </ng-container>
+</mat-card-content>

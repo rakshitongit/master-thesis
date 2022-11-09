@@ -7,16 +7,18 @@ import { View } from '../classes/concrete-classes';
 })
 export class CommunicationService {
 
-    selectedElement: Subject<string> = new Subject()
+    selectedElement: Subject<any> = new Subject()
     addUIElement: Subject<string> = new Subject()
-    UIProperties: Subject<Object> = new Subject()
+    UIProperties: Subject<any> = new Subject()
     canvasView: Subject<View> = new Subject()
+
+    masterView!: View
 
     getSelectedElement() {
         return this.selectedElement
     }
 
-    setSelectedElement(value: string) {
+    setSelectedElement(value: any) {
         this.selectedElement.next(value)
     }
 

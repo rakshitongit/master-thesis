@@ -2,7 +2,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { ChangeDetectorRef, Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, share } from 'rxjs';
 import { View } from 'src/app/classes/concrete-classes';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -63,6 +63,7 @@ export class LeftPanelComponent implements OnInit {
         } else {
             // master
             let masterView: View = View.getView(true, 'Master View')
+            this.shared.masterView = masterView
             // masterView.children.push(View.getView(false, 'View 1'))
             this.dataSource.data = [masterView];
         }
@@ -75,6 +76,7 @@ export class LeftPanelComponent implements OnInit {
         setTimeout(() => this.dataSource.data = Array.of(master), 10)
         this.changeDetect.detectChanges()
         console.log(this.dataSource.data)
+        this.shared.masterView = master
         this.treeControl.expand(node)
     }
 

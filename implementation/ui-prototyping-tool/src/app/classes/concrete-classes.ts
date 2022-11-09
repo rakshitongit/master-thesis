@@ -1,8 +1,9 @@
 import { AbstractContainer, AbstractProperty, AbstractUIProperty, Interaction } from "./abstract-classes";
 import { Actions, Connectors } from "./ud-enums";
+import { v4 as uuidv4 } from 'uuid';
 
 export class CSSProperty {
-    json!: Object;
+    json!: any;
 }
 
 export class View extends AbstractContainer {
@@ -10,10 +11,11 @@ export class View extends AbstractContainer {
     children!: View[]
     parentId!: string
     override property!: CanvasProperty
+    elements: ComponentContainer[] = []
 
     static getView(isMaster: boolean, name: string): View {
         let v: View = new View()
-        v.id = ''
+        v.id = uuidv4()
         v.isMaster = isMaster
         v.name = name
         v.children = []
@@ -22,15 +24,15 @@ export class View extends AbstractContainer {
     }
 }
 
-export class Component extends AbstractContainer {
+export class ComponentContainer extends AbstractContainer {
     interactions!: Interaction[]
     override property!: AbstractUIProperty
 }
 
-export class OnClick extends Interaction {
+export class OnClickInteraction extends Interaction {
     
-    action!: Actions
-    connector!: Connectors
+    action: Actions = Actions.NAVIGATE
+    connector: Connectors = Connectors.VIEW
 
     canNavigate(): boolean {
         throw new Error("Method not implemented.");
