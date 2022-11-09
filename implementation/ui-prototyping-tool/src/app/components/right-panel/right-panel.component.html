@@ -1,7 +1,7 @@
 <mat-card-title>Properties</mat-card-title>
 <mat-card-subtitle>{{elementName}} name</mat-card-subtitle>
 <mat-card-content>
-    <ng-container>
+    <ng-container *ngIf="element.cssProperty?.dropPoint">
         <h4>Position</h4>
         x: {{element.cssProperty?.dropPoint?.x}} <br>
         y: {{element.cssProperty?.dropPoint?.y}}

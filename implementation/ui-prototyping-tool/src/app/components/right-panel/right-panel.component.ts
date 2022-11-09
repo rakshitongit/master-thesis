@@ -34,7 +34,7 @@ export class RightPanelComponent implements OnInit {
                 this.selectInteraction = ''
             }
             // this.selectInteraction = (this.element as ComponentContainer)?.interactions[0]?.connectionId
-            console.log(this.element)
+            console.log(this.element, this.shared.masterView)
             this.interactions = (this.element as ComponentContainer).interactions
         })
         this.getProperties()

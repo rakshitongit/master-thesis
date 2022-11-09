@@ -57,14 +57,12 @@ export class LeftPanelComponent implements OnInit {
                 this.dataSource = new MatTreeNestedDataSource<View>()
                 setTimeout(() => this.dataSource.data = Array.of(master), 10)
                 this.changeDetect.detectChanges()
-                console.log(this.dataSource.data)
                 this.treeControl.expand(node)
             }
         } else {
             // master
             let masterView: View = View.getView(true, 'Master View')
             this.shared.masterView = masterView
-            // masterView.children.push(View.getView(false, 'View 1'))
             this.dataSource.data = [masterView];
         }
     }
@@ -81,7 +79,6 @@ export class LeftPanelComponent implements OnInit {
     }
 
     openCanvas(node: View) {
-        console.log(node)
         // send the node to canvas
         this.shared.setCanvasView(node)
     }

@@ -2,7 +2,7 @@ import { DragDrop, DragRef } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef, Component, ElementRef, OnInit, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { v4 as uuidv4 } from 'uuid';
-import { ComponentContainer, CSSProperty } from 'src/app/classes/concrete-classes';
+import { ComponentContainer, CSSProperty, View } from 'src/app/classes/concrete-classes';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { ContainerType } from 'src/app/classes/abstract-classes';
 
@@ -19,7 +19,7 @@ export class MiddlePanelComponent implements OnInit {
 
     height: string = '200px'
     width: string = ''
-    canvasName: string = ''
+    currentView!: View
 
     @ViewChild('cardContent', { static: false })
     el!: ElementRef
@@ -31,10 +31,11 @@ export class MiddlePanelComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.currentView = new View()
         this.shared.getAddUIElement().subscribe(val => {
             this.toAddElement = val
             console.log('Add element', this.toAddElement)
-            if (this.canvasName == '' || this.canvasName == undefined) {
+            if (this.currentView.name == '' || this.currentView.name == undefined) {
                 this._snackBar.open('Please select the View!', 'Ok')
             } else {
                 this.addUIElement()
@@ -42,9 +43,11 @@ export class MiddlePanelComponent implements OnInit {
         })
 
         this.shared.getCanvasView().subscribe(val => {
-            this.canvasName = val.name
+            console.log(this.el)
+            // this.el.nativeElement.innerHTML = ''
+            setTimeout(() => this.currentView = val, 100)
+            this.changeDetector.detectChanges()
             console.log("clicked ", val)
-            this.el.nativeElement.textContent = ''
         })
     }
 
@@ -74,6 +77,21 @@ export class MiddlePanelComponent implements OnInit {
         this.elementsOnCanVas.push(component)
         this.addListener(recaptchaContainer, component)
         this.getPosition(dragRef, component.id)
+        this.addElementToView(component)
+    }
+
+    addElementToView(component: ComponentContainer) {
+        if (this.shared.masterView.id == this.currentView.id) {
+            this.shared.masterView.elements.push(component)
+        } else {
+            // check children
+            this.shared.masterView.children.forEach(el => {
+                if (el.id === this.currentView.id) {
+                    el.elements.push(component)
+                }
+            })
+        }
+        console.log(this.shared.masterView)
     }
 
     getPosition(dragRef: DragRef, id: string) {
