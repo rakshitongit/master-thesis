@@ -86,17 +86,17 @@ export class MiddlePanelComponent implements OnInit {
         }
     }
 
-    addListener(recaptchaContainer: Element, elName: ComponentContainer) {
+    addListener(recaptchaContainer: Element, el: ComponentContainer) {
         this.renderer.listen(recaptchaContainer, 'click', () => {
-            this.clickme(elName)
+            this.clickme(el)
         })
 
         this.renderer.listen(recaptchaContainer, 'keydown', (event) => {
             console.log(event.key)
-            if (event.key == 'Delete' || 'Backspace') {
+            if (event.key == 'Delete' || event.key == 'Backspace') {
                 recaptchaContainer.remove()
+                this.shared.sendDeleteElement(el)
             }
         })
     }
-
 }

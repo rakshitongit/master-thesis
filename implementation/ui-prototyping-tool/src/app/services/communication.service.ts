@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { View } from '../classes/concrete-classes';
+import { ComponentContainer, View } from '../classes/concrete-classes';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +11,7 @@ export class CommunicationService {
     addUIElement: Subject<string> = new Subject()
     UIProperties: Subject<any> = new Subject()
     canvasView: Subject<View> = new Subject()
+    private _deleteElement: Subject<ComponentContainer> = new Subject()
 
     masterView!: View
 
@@ -44,5 +45,13 @@ export class CommunicationService {
 
     getCanvasView() {
         return this.canvasView
+    }
+
+    sendDeleteElement(val: ComponentContainer) {
+        this._deleteElement.next(val)
+    }
+
+    getDeleteElement() {
+        return this._deleteElement
     }
 }

@@ -28,7 +28,7 @@ export class RightPanelComponent implements OnInit {
             this.element = val
             this.elementName = val.name
             this.getProperties()
-            if((this.element as ComponentContainer)?.interactions?.length > 0) {
+            if ((this.element as ComponentContainer)?.interactions?.length > 0) {
                 this.selectInteraction = (this.element as ComponentContainer).interactions[0].connectionId
             } else {
                 this.selectInteraction = ''
@@ -41,6 +41,13 @@ export class RightPanelComponent implements OnInit {
         this.shared.getCanvasView().subscribe(val => {
             this.element = val
             this.elementName = val.name
+        })
+
+        this.shared.getDeleteElement().subscribe(val => {
+            // delete properties of that element
+            this.interactions = []
+            this.element = new ComponentContainer()
+            console.log('Deletes')
         })
     }
 
@@ -82,6 +89,7 @@ export class RightPanelComponent implements OnInit {
     deleteInteraction(interaction: Interaction) {
         this.interactions = this.interactions.filter(it => it.id !== interaction.id);
         (this.element as ComponentContainer).interactions = this.interactions
+        this.selectInteraction = ''
     }
 
     updateInteraction(interaction: Interaction) {
