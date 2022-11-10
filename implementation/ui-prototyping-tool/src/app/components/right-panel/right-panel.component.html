@@ -3,8 +3,20 @@
 <mat-card-content>
     <ng-container *ngIf="element.cssProperty?.dropPoint">
         <h4>Position</h4>
-        x: {{element.cssProperty?.dropPoint?.x}} <br>
-        y: {{element.cssProperty?.dropPoint?.y}}
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>X</mat-label>
+            <input matInput type="text" [(ngModel)]="element.cssProperty.dropPoint.x">
+            <button *ngIf="element.cssProperty?.height" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.dropPoint.x=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Y</mat-label>
+            <input matInput type="text" [(ngModel)]="element.cssProperty.dropPoint.y">
+            <button *ngIf="element.cssProperty?.width" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.dropPoint.x=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
     </ng-container>
     <br>
     <ng-container *ngIf="showHeightWidth">
@@ -22,7 +34,7 @@
             <button *ngIf="element.cssProperty?.width" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.width=''">
               <mat-icon>close</mat-icon>
             </button>
-          </mat-form-field>
+        </mat-form-field>
     </ng-container>
     <br><br>
     <ng-container *ngIf="displayInteractions()">

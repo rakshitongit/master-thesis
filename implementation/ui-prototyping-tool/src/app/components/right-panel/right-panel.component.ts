@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AbstractContainer, ContainerType, Interaction } from 'src/app/classes/abstract-classes';
-import { ComponentContainer, CSSProperty, OnClickInteraction, View } from 'src/app/classes/concrete-classes';
+import { AbstractContainer, AbstractUIProperty, ContainerType, Interaction } from 'src/app/classes/abstract-classes';
+import { ButtonElementProperty, ComponentContainer, CSSProperty, InputElementProperty, OnClickInteraction, SelectElementProperty, View } from 'src/app/classes/concrete-classes';
+import { UIElements } from 'src/app/classes/ud-enums';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,7 +15,7 @@ export class RightPanelComponent implements OnInit {
 
     elementName!: string
 
-    element!: AbstractContainer //AbstractProperty
+    element!: AbstractContainer
 
     interactions: Interaction[] = []
 
@@ -26,20 +27,22 @@ export class RightPanelComponent implements OnInit {
 
     ngOnInit() {
         this.element = new ComponentContainer()
-        this.shared.getSelectedElement().subscribe(val => {
-            this.showHeightWidth = false
-            this.element = val
-            this.elementName = val.name
-            this.getProperties()
-            if ((this.element as ComponentContainer)?.interactions?.length > 0) {
-                this.selectInteraction = (this.element as ComponentContainer).interactions[0].connectionId
-            } else {
-                this.selectInteraction = ''
-            }
-            console.log(this.element, this.shared.masterView)
-            this.interactions = (this.element as ComponentContainer).interactions
-        })
+        this.updateSelectedElement()
         this.getProperties()
+        this.updateCanvasView()
+        this.updateDeletionUIElement()
+    }
+
+    updateDeletionUIElement() {
+        this.shared.getDeleteElement().subscribe(val => {
+            // delete properties of that element
+            this.interactions = []
+            this.element = new ComponentContainer()
+            console.log('Deletes')
+        })
+    }
+
+    updateCanvasView() {
         this.shared.getCanvasView().subscribe(val => {
             this.element = val
             this.elementName = val.name
@@ -54,17 +57,40 @@ export class RightPanelComponent implements OnInit {
                 this.showHeightWidth = false
             }
         })
+    }
 
-        this.shared.getDeleteElement().subscribe(val => {
-            // delete properties of that element
-            this.interactions = []
-            this.element = new ComponentContainer()
-            console.log('Deletes')
+    updateSelectedElement() {
+        this.shared.getSelectedElement().subscribe(val => {
+            this.showHeightWidth = false
+            this.element = val
+            this.elementName = val.name
+            this.getProperties()
+            if ((this.element as ComponentContainer)?.interactions?.length > 0) {
+                this.selectInteraction = (this.element as ComponentContainer).interactions[0].connectionId
+            } else {
+                this.selectInteraction = ''
+            }
+            console.log(this.element, this.shared.masterView)
+            this.interactions = (this.element as ComponentContainer).interactions
+            this.addConcreteUIProperties()
         })
     }
 
+    addConcreteUIProperties() {
+        switch (this.element.name) {
+            case UIElements.BUTTON:
+                this.element.property = new ButtonElementProperty()
+                break
+            case UIElements.INPUT:
+                this.element.property = new InputElementProperty()
+                break
+            case UIElements.SELECT:
+                this.element.property = new SelectElementProperty()
+                break
+        }
+    }
+
     updateDimention() {
-        console.log('triggered')
         this.shared.updatePropertyCanvas((this.element as View))
     }
 
@@ -91,7 +117,6 @@ export class RightPanelComponent implements OnInit {
             interaction.id = uuidv4();
             (this.element as ComponentContainer).interactions = [interaction]
             this.interactions = (this.element as ComponentContainer).interactions
-            console.log(this.element)
         } else {
             this.snackbar.open('Please select an element!', 'Ok')
         }
@@ -113,7 +138,6 @@ export class RightPanelComponent implements OnInit {
 
     updateInteraction(interaction: Interaction) {
         interaction.connectionId = this.selectInteraction
-        console.log(this.interactions, this.element)
     }
 
 }

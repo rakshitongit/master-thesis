@@ -64,8 +64,8 @@ export class MiddlePanelComponent implements OnInit {
         console.log(elLeft, elTop)
         for (let el of this.currentView.elements) {
             let dist: any = { x: 0, y: 0 }
-            dist.x = el.cssProperty.x - elLeft - 45
-            dist.y = el.cssProperty.y - elTop - 10
+            dist.x = el.cssProperty?.dropPoint?.x - elLeft - 45
+            dist.y = el.cssProperty?.dropPoint?.y - elTop - 10
             const recaptchaContainer = this.renderer.createElement('div');
             let dragRef: DragRef = this.drag.createDrag(recaptchaContainer)
             dragRef.withBoundaryElement(this.el)
