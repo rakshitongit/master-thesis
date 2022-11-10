@@ -3,7 +3,7 @@ import { Actions, Connectors } from "./ud-enums";
 import { v4 as uuidv4 } from 'uuid';
 
 export class CSSProperty {
-    json!: any;
+    json: any = {};
 }
 
 export class View extends AbstractContainer {

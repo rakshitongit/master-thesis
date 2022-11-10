@@ -12,6 +12,7 @@ export class CommunicationService {
     UIProperties: Subject<any> = new Subject()
     canvasView: Subject<View> = new Subject()
     private _deleteElement: Subject<ComponentContainer> = new Subject()
+    private _updateCanvasProperty: Subject<View> = new Subject()
 
     masterView!: View
 
@@ -53,5 +54,13 @@ export class CommunicationService {
 
     getDeleteElement() {
         return this._deleteElement
+    }
+
+    updatePropertyCanvas(val: View) {
+        this._updateCanvasProperty.next(val)
+    }
+
+    getUpdatePropertyCanvas() {
+        return this._updateCanvasProperty;
     }
 }

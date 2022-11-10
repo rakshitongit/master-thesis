@@ -1,4 +1,4 @@
-import { DragDrop, DragRef } from '@angular/cdk/drag-drop';
+import { DragDrop, DragRef, Point } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef, Component, ElementRef, OnInit, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { v4 as uuidv4 } from 'uuid';
@@ -43,12 +43,44 @@ export class MiddlePanelComponent implements OnInit {
         })
 
         this.shared.getCanvasView().subscribe(val => {
-            console.log(this.el)
-            // this.el.nativeElement.innerHTML = ''
-            setTimeout(() => this.currentView = val, 100)
+            // console.log(this.el)
+            this.el.nativeElement.innerHTML = ''
+            this.currentView = val
+            this.height = (this.currentView.cssProperty?.height || '200') + 'px'
+            this.width = this.currentView.cssProperty?.width + 'px'
+            this.getUIElementsForCurrentView()
             this.changeDetector.detectChanges()
-            console.log("clicked ", val)
         })
+
+        this.shared.getUpdatePropertyCanvas().subscribe((val: View) => {
+            this.height = val.cssProperty.height + 'px'
+            this.width = val.cssProperty.width + 'px'
+        })
+    }
+
+    getUIElementsForCurrentView() {
+        const elLeft = this.el.nativeElement.getBoundingClientRect().left
+        const elTop = this.el.nativeElement.getBoundingClientRect().top
+        console.log(elLeft, elTop)
+        for (let el of this.currentView.elements) {
+            let dist: any = { x: 0, y: 0 }
+            dist.x = el.cssProperty.x - elLeft - 45
+            dist.y = el.cssProperty.y - elTop - 10
+            const recaptchaContainer = this.renderer.createElement('div');
+            let dragRef: DragRef = this.drag.createDrag(recaptchaContainer)
+            dragRef.withBoundaryElement(this.el)
+            dragRef.setFreeDragPosition(dist)
+            this.renderer.setAttribute(recaptchaContainer, 'contenteditable', 'true')
+            const text = this.renderer.createText(el.name)
+            this.renderer.appendChild(recaptchaContainer, text);
+            this.renderer.appendChild(this.el.nativeElement, recaptchaContainer);
+            this.renderer.addClass(recaptchaContainer, 'example-box');
+            this.changeDetector.detectChanges()
+            this.elementsOnCanVas.push(el)
+            this.addListener(recaptchaContainer, el)
+            this.getPosition(dragRef, el.id)
+            // this.addElementToView(el)
+        }
     }
 
     clickme(element: ComponentContainer) {
@@ -69,8 +101,8 @@ export class MiddlePanelComponent implements OnInit {
         this.renderer.setAttribute(recaptchaContainer, 'contenteditable', 'true')
         const text = this.renderer.createText(this.toAddElement)
         this.renderer.appendChild(recaptchaContainer, text);
-        this.renderer.appendChild(this.el.nativeElement, brel);
         this.renderer.appendChild(this.el.nativeElement, recaptchaContainer);
+        this.renderer.appendChild(this.el.nativeElement, brel);
         console.log(recaptchaContainer)
         this.renderer.addClass(recaptchaContainer, 'example-box');
         this.changeDetector.detectChanges()
@@ -113,6 +145,7 @@ export class MiddlePanelComponent implements OnInit {
             console.log(event.key)
             if (event.key == 'Delete' || event.key == 'Backspace') {
                 recaptchaContainer.remove()
+                this.currentView.elements = this.currentView.elements.filter(e => e.id !== el.id)
                 this.shared.sendDeleteElement(el)
             }
         })

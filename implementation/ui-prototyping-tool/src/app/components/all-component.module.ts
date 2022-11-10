@@ -48,7 +48,7 @@ import { FormsModule } from '@angular/forms';
         MatTreeModule,
         MatSnackBarModule,
         MatInputModule,
-        FormsModule
+        FormsModule,
     ],
     exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent]
 })
