@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { firstValueFrom, Subject } from 'rxjs';
 import { ComponentContainer, View } from '../classes/concrete-classes';
+import { ViewsService } from './views.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CommunicationService {
+
+    constructor(private viewService: ViewsService) {}
 
     selectedElement: Subject<any> = new Subject()
     addUIElement: Subject<string> = new Subject()
@@ -14,7 +17,26 @@ export class CommunicationService {
     private _deleteElement: Subject<ComponentContainer> = new Subject()
     private _updateCanvasProperty: Subject<View> = new Subject()
 
-    masterView!: View
+    private _masterView!: View
+
+    set masterView(view: View) {
+        this._masterView = view
+        // this.viewService.saveView(view).subscribe()
+    }
+
+    get masterView(): View {
+        // this.viewService.saveView(this._masterView).subscribe()
+        // this.viewService.getMasterView().subscribe(v => {
+        //   this._masterView = v
+        // })
+        return this._masterView
+    }
+
+    async saveMasterView() {
+        if(this.masterView !== undefined) {
+            await firstValueFrom(this.viewService.saveView(this.masterView))
+        }
+    }
 
     getSelectedElement() {
         return this.selectedElement

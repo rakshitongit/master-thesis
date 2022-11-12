@@ -9,3 +9,7 @@ export enum Actions {
 export enum UIElements {
     BUTTON = "Button", SELECT = "Select", INPUT = "Input"
 }
+
+export enum ContainerType {
+    VIEW = "VIEW", COMPONENT = "COMPONENT"
+}

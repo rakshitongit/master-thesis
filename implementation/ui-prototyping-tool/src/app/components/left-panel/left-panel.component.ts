@@ -6,6 +6,7 @@ import { firstValueFrom, share } from 'rxjs';
 import { View } from 'src/app/classes/concrete-classes';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ViewsService } from 'src/app/services/views.service';
 
 @Component({
     selector: 'app-left-panel',
@@ -19,9 +20,12 @@ export class LeftPanelComponent implements OnInit {
     treeControl = new NestedTreeControl<View>(node => node.children);
     dataSource = new MatTreeNestedDataSource<View>();
 
-    constructor(public dialog: MatDialog, private shared: CommunicationService, private _snackBar: MatSnackBar, private changeDetect: ChangeDetectorRef) { }
+    constructor(public dialog: MatDialog, private shared: CommunicationService, private _snackBar: MatSnackBar, private changeDetect: ChangeDetectorRef, private viewService: ViewsService) { }
 
-    ngOnInit(): void {
+    async ngOnInit() {
+        let master: View = await firstValueFrom(this.viewService.getMasterView())
+        this.shared.masterView = master
+        this.dataSource.data = Array.of(master)
     }
 
     hasChild = (_: number, node: View) => !!node.children && node.children.length > 0;
@@ -65,6 +69,7 @@ export class LeftPanelComponent implements OnInit {
             this.shared.masterView = masterView
             this.dataSource.data = [masterView];
         }
+        this.shared.saveMasterView()
     }
 
     deleteView(node: View) {
@@ -73,8 +78,8 @@ export class LeftPanelComponent implements OnInit {
         this.dataSource = new MatTreeNestedDataSource<View>()
         setTimeout(() => this.dataSource.data = Array.of(master), 10)
         this.changeDetect.detectChanges()
-        console.log(this.dataSource.data)
         this.shared.masterView = master
+        this.shared.saveMasterView()
         this.treeControl.expand(node)
     }
 

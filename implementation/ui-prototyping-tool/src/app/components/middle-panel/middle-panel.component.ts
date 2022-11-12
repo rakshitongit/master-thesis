@@ -1,10 +1,10 @@
-import { DragDrop, DragRef, Point } from '@angular/cdk/drag-drop';
+import { DragDrop, DragRef } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef, Component, ElementRef, OnInit, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { v4 as uuidv4 } from 'uuid';
 import { ComponentContainer, CSSProperty, View } from 'src/app/classes/concrete-classes';
 import { CommunicationService } from 'src/app/services/communication.service';
-import { ContainerType } from 'src/app/classes/abstract-classes';
+import { ContainerType } from 'src/app/classes/ud-enums';
 
 @Component({
     selector: 'app-middle-panel',
@@ -61,7 +61,6 @@ export class MiddlePanelComponent implements OnInit {
     getUIElementsForCurrentView() {
         const elLeft = this.el.nativeElement.getBoundingClientRect().left
         const elTop = this.el.nativeElement.getBoundingClientRect().top
-        console.log(elLeft, elTop)
         for (let el of this.currentView.elements) {
             let dist: any = { x: 0, y: 0 }
             dist.x = el.cssProperty?.dropPoint?.x - elLeft - 45
@@ -123,14 +122,14 @@ export class MiddlePanelComponent implements OnInit {
                 }
             })
         }
-        console.log(this.shared.masterView)
+        this.shared.saveMasterView()
     }
 
     getPosition(dragRef: DragRef, id: string) {
         const toAdd: ComponentContainer | undefined = this.elementsOnCanVas.find(item => item.id == id)
         if (toAdd !== undefined) {
             dragRef.ended.subscribe(val => {
-                toAdd.cssProperty = val
+                toAdd.cssProperty.dropPoint = val.dropPoint
                 this.shared.sendUIProperties(toAdd)
             })
         }
@@ -147,7 +146,19 @@ export class MiddlePanelComponent implements OnInit {
                 recaptchaContainer.remove()
                 this.currentView.elements = this.currentView.elements.filter(e => e.id !== el.id)
                 this.shared.sendDeleteElement(el)
+                this.updateMasterView()
             }
         })
+    }
+
+    updateMasterView() {
+        if(this.currentView.id !== this.shared.masterView.id) {
+            this.shared.masterView.children.forEach(el => {
+                if (el.id === this.currentView.id) {
+                    el = this.currentView
+                }
+            })
+        }
+        this.shared.saveMasterView()
     }
 }

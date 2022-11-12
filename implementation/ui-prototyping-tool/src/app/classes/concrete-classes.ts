@@ -10,7 +10,7 @@ export class View extends AbstractContainer {
     isMaster!: boolean
     children!: View[]
     parentId!: string
-    override property!: CanvasProperty
+    property!: CanvasProperty
     elements: ComponentContainer[] = []
 
     static getView(isMaster: boolean, name: string): View {
@@ -26,7 +26,7 @@ export class View extends AbstractContainer {
 
 export class ComponentContainer extends AbstractContainer {
     interactions!: Interaction[]
-    override property!: AbstractUIProperty
+    property!: AbstractUIProperty
 }
 
 export class OnClickInteraction extends Interaction {

@@ -5,14 +5,14 @@
         <h4>Position</h4>
         <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>X</mat-label>
-            <input matInput type="text" [(ngModel)]="element.cssProperty.dropPoint.x">
+            <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="element.cssProperty.dropPoint.x">
             <button *ngIf="element.cssProperty?.height" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.dropPoint.x=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
           <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Y</mat-label>
-            <input matInput type="text" [(ngModel)]="element.cssProperty.dropPoint.y">
+            <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="element.cssProperty.dropPoint.y">
             <button *ngIf="element.cssProperty?.width" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.dropPoint.x=''">
               <mat-icon>close</mat-icon>
             </button>
