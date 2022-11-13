@@ -31,13 +31,15 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
     }
 
     updateElement(elementName: string) {
-        console.log(elementName)
         this.elementName = elementName
     }
 
     addElement(elementName: string) {
-        console.log(elementName)
         this.toAddElement = elementName
+    }
+
+    deployApp() {
+        
     }
 
 }
