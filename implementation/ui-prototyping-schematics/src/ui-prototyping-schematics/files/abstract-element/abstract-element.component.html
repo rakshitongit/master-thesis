@@ -1,0 +1,4 @@
+<container-element [ngSwitch]="prop.name">
+  <app-input-element [prop]="prop" *ngSwitchCase="'Input'">Switch {{prop.name}}</app-input-element>
+  <app-button-element [prop]="prop" *ngSwitchCase="'Button'">Switch {{prop.name}}</app-button-element>
+</container-element>

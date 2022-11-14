@@ -24,6 +24,9 @@ export class UiPrototypingServerApplication extends BootMixin(
     // Set up default home page
     this.static('/', path.join(__dirname, '../public'));
 
+    // json files
+    this.static('/json', path.join(__dirname, '../public/json'));
+
     // Customize @loopback/rest-explorer configuration here
     this.configure(RestExplorerBindings.COMPONENT).to({
       path: '/explorer',
