@@ -1,0 +1,85 @@
+{
+  "schemaForAngular": {
+    "id": "48f73776-df08-4a5e-be00-50d35a0479e4",
+    "isMaster": true,
+    "parentId": "",
+    "name": "Master View",
+    "elements": [
+      {
+        "type": "COMPONENT",
+        "name": "Input",
+        "id": "ffb52679-833a-41b5-b9d9-36b16113e124",
+        "cssProperty": {
+          "dropPoint": {"x": "589", "y": "227"}
+        },
+        "property": {}
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Button",
+        "id": "33fd832d-82d7-4190-a2ad-cefaa357c5d7",
+        "cssProperty": {"dropPoint": {"x": "589", "y": "267"}},
+        "property": {},
+        "interactions": [
+          {
+            "action": "NAVIGATE",
+            "connector": "VIEW",
+            "id": "99a69a90-3a72-4a0a-b0f5-9289e4211492",
+            "connectionId": "3005378a-1505-453b-87d6-97e7c63d5e38"
+          }
+        ]
+      }
+    ],
+    "children": [
+      {
+        "type": "VIEW",
+        "elements": [],
+        "id": "3005378a-1505-453b-87d6-97e7c63d5e38",
+        "isMaster": false,
+        "name": "v1",
+        "children": [],
+        "parentId": "",
+        "cssProperty": {"height": "200", "width": "500"}
+      },
+      {
+        "type": "VIEW",
+        "elements": [
+          {
+            "type": "COMPONENT",
+            "name": "Button",
+            "id": "6f7248d1-8cdf-44e0-b0b6-8ddcc306db33",
+            "cssProperty": {
+              "dropPoint": {"x": "627", "y": "247"}
+            },
+            "interactions": [
+              {
+                "action": "NAVIGATE",
+                "connector": "VIEW",
+                "id": "7354331e-5dae-4c24-87ef-7735760aa7b4",
+                "connectionId": "9c1e4db5-24bf-4a38-84f3-050313d25beb"
+              }
+            ],
+            "property": {}
+          },
+          {
+            "type": "COMPONENT",
+            "name": "Input",
+            "id": "6225740e-a81b-4296-8266-4554dfc6f3ca",
+            "cssProperty": {
+              "dropPoint": {"x": "627", "y": "303"}
+            },
+            "property": {}
+          }
+        ],
+        "id": "9c1e4db5-24bf-4a38-84f3-050313d25beb",
+        "isMaster": false,
+        "name": "Test",
+        "children": [],
+        "parentId": "",
+        "cssProperty": {"height": "400", "width": "550"}
+      }
+    ],
+    "type": "VIEW",
+    "cssProperty": {"height": "400", "width": "500"}
+  }
+}

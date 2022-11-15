@@ -1,0 +1,36 @@
+import { CSSProperty } from "./concrete-classes"
+import { ContainerType } from "./ud-enums"
+
+export const url: string = 'http://experimentationplatform.cs.uni-paderborn.de/ui-prototyping/api/'
+
+export abstract class IDClass {
+    id!: string
+
+    // get id(): string {
+    //     return this._id
+    // }
+
+    // set id(id: string) {
+    //     this._id = id
+    // }
+}
+
+export abstract class AbstractContainer extends IDClass {
+    name!: string
+    cssProperty!: CSSProperty['json']
+    type: ContainerType = ContainerType.VIEW
+}
+
+export abstract class AbstractProperty extends IDClass {
+    name!: string
+}
+
+export abstract class AbstractUIProperty extends AbstractProperty {
+    value!: string
+    label!: string
+}
+
+export abstract class Interaction extends IDClass {
+    connectionId!: string
+    abstract canNavigate(): boolean
+}
