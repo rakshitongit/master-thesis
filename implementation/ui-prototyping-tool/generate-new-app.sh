@@ -1,3 +1,8 @@
+if test ! -f "generate-new-app.sh"; then
+    printf "Execute this script from the Web-UI directory\n"
+	exit
+fi
+
 cd ..
 ng new $1 --routing --style=scss
 cd $1
