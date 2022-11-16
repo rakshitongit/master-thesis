@@ -2,6 +2,11 @@
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "ui-prototyping-schematics": {
+      "factory": "./ui-prototyping-schematics/index#uiPrototypingSchematics",
+      "description": "A blank schematic.",
+      "schema": "./ui-prototyping-schematics/schematics-schema.json"
+    },
+    "ng-add": {
       "description": "A blank schematic.",
       "factory": "./ui-prototyping-schematics/index#uiPrototypingSchematics",
       "schema": "./ui-prototyping-schematics/schematics-schema.json"
