@@ -5,4 +5,4 @@ npm i @schematics/angular
 ng add @angular/material --skip-confirmation --defaults
 npm i ui-prototyping-schematics
 # npm link ../ui-prototyping-schematics
-schematics ui-prototyping-schematics:ui-prototyping-schematics http://localhost:3000/json/example.json
+schematics ui-prototyping-schematics:ui-prototyping-schematics https://github.com/rakshitongit/ui-prototyping-schematics-files/blob/main/files/example.json

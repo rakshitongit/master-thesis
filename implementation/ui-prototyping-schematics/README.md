@@ -1,28 +1,17 @@
-# Getting Started With Schematics
+# Getting Started With Package
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
+This package is a Schematic implementation that helps to generate a new app for UI prototyping as per the configuration file provided.
 
-### Testing
+### Using the package
 
-To test locally, install `@angular-devkit/schematics-cli` globally and use the `schematics` command line tool. That tool acts the same as the `generate` command of the Angular CLI, but also has a debug mode.
+- To install locally, install `@angular-devkit/schematics-cli` globally and use the `schematics` command line tool.
+- Install the package `npm i ui-prototyping-schematics`
 
-Check the documentation with
+### Use the package
 
+- Must use a JSON file as per the schema [file](https://github.com/rakshitongit/ui-prototyping-schematics-files/blob/main/files/schema_for_angular.json).
+
+- To use the command, go to the angular folder (recommended to create a new angular application, and install the angular materials). 
 ```bash
-schematics --help
+schematics ui-prototyping-schematics:ui-prototyping-schematics https://github.com/rakshitongit/ui-prototyping-schematics-files/blob/main/files/example.json
 ```
-
-### Unit Testing
-
-`npm run test` will run the unit tests, using Jasmine as a runner and test framework.
-
-### Publishing
-
-To publish, simply do:
-
-```bash
-npm run build
-npm publish
-```
-
-That's it!
