@@ -112,25 +112,58 @@ It is necessary to make sure that the product is usable for the end-users and th
 This can be performed in the evaluation phase. 
 
 %********************************** % Low code **************************************
-\clearpage
 \section{Low Code / No Code Development Platform}
 \label{background:section:lowcode}
 Low Code is a technique used by developers to help non-developers design and develop software applications using a \textit{Graphical User Interface} (GUI) supported by a \textit{Low Code Development Platform} (LCDP).
 Similarly, there is another technique called no code supported by the \textit{No Code Development Platform} (NCDP) \cite{article:nocode:miller}.
 Unlike low code, no-code platforms require no programming skills because they offer some prebuild templates for building the apps.
 Using the visual user interface and ready-made automatic tools on these application development platforms, it is feasible to create apps relatively quickly. 
-
-Drag-and-drop technologies offered by no-code development platforms allow companies and non-developers to create software quickly without writing code.
+These technologies are visual app development methods that speed up app creation by using drag-and-drop editors and pre-built components. 
+By allowing software developers to concentrate on challenging coding areas, low code / no code accelerates platform development.
 Due to its simplicity, flexibility and low cost, companies have started using this platform to meet the high demands of software development and digitalization.
 Low code is a software development method that uses less human coding to enable users to construct and manage programs efficiently \cite{article:nocode:sahina}.
 Additionally, it lowers the expenses associated with initial installation, training, distribution, and maintenance \cite{article:nocode:sanchi}.\\ \\
-\textit{Some features that make the LCDP or NCDP favorable for development}
+\textit{Main Steps Of \textbf{Low-Code} App Development}
+\paragraph*{Building:}
+\begin{figure}[htbp!]
+  \centering    
+  \includegraphics[width=0.7\textwidth]{step1-building.png}
+  \caption[Building]{Step 1: Building of Low Code App development}
+  \label{fig:background:building}
+\end{figure}
+In this step (as shown in the figure \ref{fig:background:building}), the platform gives you the freedom to alter the provided code and add hand-written custom code to it to specify more complex features in the app as you create the app step-by-step using visual editors and drag and drop interfaces.
+Modules, components, and chart-builders are already incorporated into low-code applications. 
+Charts may be used to display data from modules, while modules are used to specify the type of data that will be stored in the app. 
+Components and pages provide the type of user experience the app will have.
+These platforms also have a provision for the automation of repetitive tasks in the app.
+\paragraph*{Testing:}
+\begin{figure}[htbp!]
+  \centering    
+  \includegraphics[width=0.9\textwidth]{step2-testing.png}
+  \caption[Testing]{Step 2: Testing of Low Code App development}
+  \label{fig:background:testing}
+\end{figure}
+Testing a software application is an important part of the development cycle.
+However, the low-code development platform decreases the requirement for testing. 
+Pre-build modules and components on low-code platforms are created with a certain level of application security. 
+The developers of the low-code platform constantly monitor these modules, and they have previously gone through several unit tests.
+But (as shown in figure \ref{fig:background:testing}), we still do need to perform the test on the entire application after integration for scrutiny and this is performed in this step.
+\paragraph*{Deploying:}
+\begin{figure}[htbp!]
+  \centering    
+  \includegraphics[width=0.7\textwidth]{step3-deployment.png}
+  \caption[Testing]{Step 3: Deployment of Low Code App development}
+  \label{fig:background:deploying}
+\end{figure}
+In this step, the application is deployed across apps and to the final users.
+In LCDP, the packages for installation, configurations, and application setup are included.
+And, the deployment of the app can be done on various services (see figure \ref{fig:background:deploying}) like Cloud-based services.
+This means that the LCDP gives freedom to the users in deploying the applications for the customers with just one click.  \\\\
+\textit{Some features that make the LCDP or NCDP favorable for development} \cite{article:nocode:sahina, article:nocode:ihirwe, paper:lowcode:cabot}
 \begin{itemize}
-  \item \textbf{Transparency \cite{article:nocode:sahina}:} The platforms are accessible to everyone.
-  \item \textbf{Scalable:} \cite{article:nocode:ihirwe, article:nocode:sahina} These platforms are built to make the software scalable.
-  \item \textbf{Flexible and Model-driven development:} \cite{paper:lowcode:cabot} Low code has become famous among model-driven development.
-  \item \textbf{Easy deployment:} \cite{article:nocode:ihirwe} This feature ensures that the artifacts are created and the platform is ready to deploy.
-  \item \textbf{User Interface:} \cite{article:nocode:sahina} LCDP ensures to have a GUI useful for the non-developers.
+  \item \textbf{Re-usable components:} LCDP usually contains pre-configured components, modules, logic, templates, and many more that can be customized as per customer requirements. This helps to Build apps with consistency and scalability. Also, the scope for testing decreases as the components of the LCDP is pre-tested for security and performance. 
+  \item \textbf{Flexible and Model-driven development:} The drag-and-drop functionality helps developers increase their productivity whereas for citizen developers to build all types of apps. LCDP ensures to have a GUI useful for the non-developers. Therefore, it encourages the stakeholders outside the IT department to participate in development. Low code has become famous in model-driven development. Model-driven development helps to visualize how the app works while it is built.
+  \item \textbf{Easy deployment:} This feature ensures that the artifacts are created and the platform is ready to deploy. LCDP has packages that contain various deployment packages (e.g., \texttt{Dockerfile} to deploy on docker\footnote{Docker: \url{https://www.docker.com/}})
 \end{itemize}
 
 Additionally, a variety of options are provided for developers with little programming experience, those with coding expertise and seasoned programmers who wish to expand the functionality of the current design \cite{article:nocode:sahina}.
