@@ -24,6 +24,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
+import { HelperService } from '../services/helper.service';
 
 @NgModule({
     imports: [
@@ -61,7 +62,9 @@ import { MatInputModule } from '@angular/material/input';
         InputElementComponent,
         ButtonElementComponent
     ],
-    providers: []
+    providers: [
+        HelperService
+    ]
 })
 export class AllComponentsModule { }
 // PLEASE DECLARE THIS MODULE TO YOUR ROOT MODULE FILE IMPORTS

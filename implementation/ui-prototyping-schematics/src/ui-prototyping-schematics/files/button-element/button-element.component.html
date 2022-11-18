@@ -1,1 +1,3 @@
-<button class="example-full-width" color="warn" mat-raised-button>{{prop.name}}</button>
+<div [style.top.px]="position.y" [style.left.px]="position.x" style="position: absolute;">
+    <button class="example-full-width" color="warn" mat-raised-button (click)="goTo()">{{prop.name}}</button>
+</div>

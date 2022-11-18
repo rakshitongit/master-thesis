@@ -29,7 +29,7 @@ function parseJsonFile(options: Schema): Rule {
         rules.push(replaceAppMainPage());
         rules.push(updateModuleImport());
         rules.push(updateModuleFile());
-        // rules.push(createService())
+        rules.push(createService())
         // rules.push(createMeasurementAndParameterComponent())
         rules.push(addDefaultComponent({ children: getChildrenComponents(json.schemaForAngular.children) }))
         rules.push(addAbstractElement())
@@ -134,6 +134,19 @@ function addToModuleFile(options: any) {
         }),
         renameTemplateFiles(),
         move(normalize(FOLDER.COMPONENTS))
+    ])
+    return mergeWith(templateSource, MergeStrategy.Overwrite)
+}
+
+function createService() {
+    const sourceTemplate = url('./files/helper-service');
+
+    const templateSource = apply(sourceTemplate, [
+        template({
+            ...strings,
+        }),
+        renameTemplateFiles(),
+        move(normalize(FOLDER.SERVICES))
     ])
     return mergeWith(templateSource, MergeStrategy.Overwrite)
 }
