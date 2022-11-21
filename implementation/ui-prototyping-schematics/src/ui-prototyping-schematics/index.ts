@@ -35,7 +35,7 @@ function parseJsonFile(options: Schema): Rule {
         rules.push(addAbstractElement())
         rules.push(addButtonElement())
         rules.push(addInputElement())
-        // rules.push(addAuthInterceptorComponent())
+        rules.push(addSelectElement())
         rules.push(addToRoutesFile({ children: componentNames }))
         // componentNames.push('Measurement')
         // componentNames.push('Login')
@@ -107,6 +107,19 @@ function addInputElement(): Rule {
         }),
         renameTemplateFiles(),
         move(normalize(FOLDER.COMPONENTS + 'input-element'))
+    ])
+    return mergeWith(templateSource, MergeStrategy.Overwrite)
+}
+
+function addSelectElement(): Rule {
+    const sourceTemplate = url('./files/select-element');
+
+    const templateSource = apply(sourceTemplate, [
+        template({
+            ...strings,
+        }),
+        renameTemplateFiles(),
+        move(normalize(FOLDER.COMPONENTS + 'select-element'))
     ])
     return mergeWith(templateSource, MergeStrategy.Overwrite)
 }

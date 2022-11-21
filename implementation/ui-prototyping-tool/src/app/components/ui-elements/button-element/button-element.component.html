@@ -1,0 +1,11 @@
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Button text</mat-label>
+    <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="prop.btnName">
+</mat-form-field>
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Is disabled</mat-label>
+    <select matNativeControl required [(ngModel)]="prop.isDisabled" (change)="updateMasterView()">
+        <option [value]="false">False</option>
+        <option [value]="true">True</option>
+    </select>
+</mat-form-field>

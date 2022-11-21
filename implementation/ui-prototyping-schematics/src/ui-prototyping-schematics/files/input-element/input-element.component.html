@@ -1,6 +1,6 @@
 <div [style.top.px]="position.y" [style.left.px]="position.x" style="position: absolute;">
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex." value="">
+    <mat-label>{{prop.property.labelText}}</mat-label>
+    <input matInput placeholder="Ex." value="" [type]="prop.property.type">
   </mat-form-field>
 </div>

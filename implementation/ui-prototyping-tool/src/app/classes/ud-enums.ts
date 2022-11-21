@@ -13,3 +13,7 @@ export enum UIElements {
 export enum ContainerType {
     VIEW = "VIEW", COMPONENT = "COMPONENT"
 }
+
+export enum InputType {
+    TEXT = 'text', PASSWORD = 'password', EMAIL = 'email', NUMBER = 'number'
+}

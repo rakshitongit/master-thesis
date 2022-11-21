@@ -9,6 +9,7 @@ import { DefaultComponent } from './default/default.component';
 import { AbstractElementComponent } from './abstract-element/abstract-element.component';
 import { InputElementComponent } from './input-element/input-element.component';
 import { ButtonElementComponent } from './button-element/button-element.component';
+import { SelectElementComponent } from './select-element/select-element.component';
 import { HttpClientModule } from '@angular/common/http';
 
 // Material design
@@ -44,7 +45,8 @@ import { HelperService } from '../services/helper.service';
         MatTreeModule,
         MatSnackBarModule,
         MatInputModule,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule
     ],
 
     declarations: [<% for (let c of children) { %>
@@ -52,7 +54,8 @@ import { HelperService } from '../services/helper.service';
         DefaultComponent,
         AbstractElementComponent,
         InputElementComponent,
-        ButtonElementComponent
+        ButtonElementComponent,
+        SelectElementComponent
     ],
 
     exports: [<% for (let c of children) { %>
@@ -60,7 +63,8 @@ import { HelperService } from '../services/helper.service';
         DefaultComponent,
         AbstractElementComponent,
         InputElementComponent,
-        ButtonElementComponent
+        ButtonElementComponent,
+        SelectElementComponent
     ],
     providers: [
         HelperService

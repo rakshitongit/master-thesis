@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { DefaultPageComponent } from './default-page/default-page.component';
 import { AbstractUiComponentComponent } from './abstract-ui-component/abstract-ui-component.component';
-import { ButtonElementComponent } from './button-element/button-element.component';
+import { ButtonElementComponent } from './ui-elements/button-element/button-element.component';
 import { DialogOverviewExampleDialog, LeftPanelComponent } from './left-panel/left-panel.component';
 import { RightPanelComponent } from './right-panel/right-panel.component';
 import { MiddlePanelComponent } from './middle-panel/middle-panel.component';
@@ -22,6 +22,8 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { AddOptionDialogComponent, SelectElementComponent } from './ui-elements/select-element/select-element.component';
+import { InputElementComponent } from './ui-elements/input-element/input-element.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +34,10 @@ import { FormsModule } from '@angular/forms';
         LeftPanelComponent,
         RightPanelComponent,
         MiddlePanelComponent,
-        DialogOverviewExampleDialog
+        DialogOverviewExampleDialog,
+        InputElementComponent,
+        SelectElementComponent,
+        AddOptionDialogComponent
     ],
     imports: [
         CommonModule,
@@ -50,6 +55,6 @@ import { FormsModule } from '@angular/forms';
         MatInputModule,
         FormsModule,
     ],
-    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent]
+    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent, AddOptionDialogComponent]
 })
 export class AllComponentModule { }

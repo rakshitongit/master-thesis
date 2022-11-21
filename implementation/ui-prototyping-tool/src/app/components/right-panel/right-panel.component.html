@@ -2,7 +2,7 @@
 <mat-card-subtitle>{{elementName}} name</mat-card-subtitle>
 <mat-card-content>
     <ng-container *ngIf="element.cssProperty?.dropPoint">
-        <h4>Position</h4>
+        <h4><b>Position</b></h4>
         <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>X</mat-label>
             <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="element.cssProperty.dropPoint.x">
@@ -17,10 +17,10 @@
               <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
+      <hr>
     </ng-container>
-    <br>
     <ng-container *ngIf="showHeightWidth">
-        <h4>Screen dimentions</h4>
+        <h4><b>Screen dimentions</b></h4>
         <mat-form-field class="example-form-field" appearance="fill">
             <mat-label>Input Height</mat-label>
             <input matInput type="text" [(ngModel)]="element.cssProperty.height" (keyup)="updateDimention()">
@@ -36,9 +36,9 @@
             </button>
         </mat-form-field>
     </ng-container>
-    <br><br>
+    <app-abstract-ui-component *ngIf="showElementProperty" [name]="element.name" [prop]="getUIProperty()"></app-abstract-ui-component>
     <ng-container *ngIf="displayInteractions()">
-        <h4>Interactions
+        <h4><b>Interactions</b>
             <button class="pull-right" mat-icon-button (click)="addNewInteraction()"
                 *ngIf="doesNotContainInteraction()">
                 <mat-icon mat-card-avatar style="font-size: 25px; margin-top: -10px;">+</mat-icon>

@@ -18,7 +18,7 @@ export class MiddlePanelComponent implements OnInit {
     private renderer!: Renderer2;
 
     height: string = '200px'
-    width: string = ''
+    width: string = '200px'
     currentView!: View
 
     @ViewChild('cardContent', { static: false })
@@ -46,15 +46,15 @@ export class MiddlePanelComponent implements OnInit {
             // console.log(this.el)
             this.el.nativeElement.innerHTML = ''
             this.currentView = val
-            this.height = (this.currentView.cssProperty?.height || '200') + 'px'
-            this.width = this.currentView.cssProperty?.width + 'px'
+            this.height = (this.currentView.cssProperty?.height || '200')
+            this.width = this.currentView.cssProperty?.width || '200'
             this.getUIElementsForCurrentView()
             this.changeDetector.detectChanges()
         })
 
         this.shared.getUpdatePropertyCanvas().subscribe((val: View) => {
-            this.height = val.cssProperty.height + 'px'
-            this.width = val.cssProperty.width + 'px'
+            this.height = val.cssProperty.height
+            this.width = val.cssProperty.width
         })
     }
 
