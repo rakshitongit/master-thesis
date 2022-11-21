@@ -27,8 +27,8 @@ function parseJsonFile(options: Schema): Rule {
         const componentNames: string[] = []
         createFromValidJson([json.schemaForAngular], rules, json.schemaForAngular.id || '', componentNames)
         rules.push(replaceAppMainPage());
-        rules.push(updateModuleImport());
         rules.push(updateModuleFile());
+        rules.push(updateModuleImport());
         rules.push(createService())
         // rules.push(createMeasurementAndParameterComponent())
         rules.push(addDefaultComponent({ children: getChildrenComponents(json.schemaForAngular.children) }))
@@ -51,10 +51,13 @@ function updateModuleImport(): Rule {
     return (tree: Tree, _context: SchematicContext) => {
         const content: Buffer | null = tree.read(FOLDER.ROOT + 'app.module.ts')
         if (content != null) {
-            let appendIndex = content.toString().indexOf("import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n")
-            let content2Append: string = "import { AllComponentsModule } from './components/all-components.module';\n";
-            let updatedContent = content.slice(0, appendIndex) + content2Append + content.slice(appendIndex)
-            tree.overwrite(FOLDER.ROOT + 'app.module.ts', updatedContent);
+            let content2Append: string = "import { AllComponentsModule } from './components/all-components.module';"
+            if(content.toString().indexOf(content2Append) == -1) {
+                let appendIndex = content.toString().indexOf("import { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n")
+                content2Append += "\n";
+                let updatedContent = content.slice(0, appendIndex) + content2Append + content.slice(appendIndex)
+                tree.overwrite(FOLDER.ROOT + 'app.module.ts', updatedContent);   
+            }
         }
     }
 }
@@ -63,10 +66,12 @@ function updateModuleFile() {
     return (tree: Tree, _context: SchematicContext) => {
         const content: Buffer | null = tree.read(FOLDER.ROOT + 'app.module.ts')
         if (content != null) {
-            const appendIndex = content.toString().indexOf("AppRoutingModule,\n")
+            if(content.toString().indexOf("AllComponentsModule") === -1) {
+                const appendIndex = content.toString().indexOf("AppRoutingModule,\n")
             const content2Append = "AllComponentsModule,\n";
             const updatedContent = content.slice(0, appendIndex) + content2Append + content.slice(appendIndex)
             tree.overwrite(FOLDER.ROOT + 'app.module.ts', updatedContent);
+            }
         }
     }
 }
