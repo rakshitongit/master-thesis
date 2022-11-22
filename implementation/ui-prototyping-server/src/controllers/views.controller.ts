@@ -19,6 +19,9 @@ import {
 } from '@loopback/rest';
 import { View } from '../models';
 import { ViewRepository } from '../repositories';
+const jsonFileDir = require('../../public/json/example.json').dirname
+import fs from 'fs-extra'
+import path from 'path';
 
 export class ViewsController {
     constructor(
@@ -45,12 +48,23 @@ export class ViewsController {
         view: View,
     ): Promise<View | void> {
         const views = await this.viewRepository.find()
-        if(views.length > 0) {
+        this.saveToJson(view)
+        if (views.length > 0) {
             return this.viewRepository.updateById(view.id, view);
         } else {
             return this.viewRepository.create(view);
         }
-        
+
+    }
+
+    saveToJson(view: View) {
+        const myPath = path.join(__dirname, '..', '..', 'public/json/example.json')
+        let jsonFile = fs.readJSONSync(myPath, { encoding: 'utf-8' })
+        if(typeof jsonFile == 'string') {
+            jsonFile = JSON.parse(jsonFile)
+        }
+        jsonFile.schemaForAngular = view
+        fs.writeJSONSync(myPath, jsonFile)
     }
 
     @get('/views/count')

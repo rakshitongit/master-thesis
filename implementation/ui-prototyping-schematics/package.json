@@ -1,6 +1,6 @@
 {
   "name": "ui-prototyping-schematics",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "description": "A blank schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -8,11 +8,18 @@
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
-    "schematics"
+    "schematics",
+    "prototyping",
+    "experimentation",
+    "usability",
+    "angular"
   ],
-  "author": "",
+  "author": "Rakshit Bhat",
   "license": "MIT",
   "schematics": "./src/collection.json",
+  "ng-add": {
+    "save": false
+  },
   "dependencies": {
     "@angular-devkit/core": "^14.2.9",
     "@angular-devkit/schematics": "^14.2.9",

@@ -3,10 +3,7 @@
     <mat-card-subtitle>{{currentView.name}}</mat-card-subtitle>
     <mat-card-content>
         Here comes the content for UI elements
-        <div #cardContent class="card-border" [style.width]="width" [style.height]="height">
-            <!-- <div id="elfromdb" *ngFor="let el of currentView.elements" class="example-box">
-                {{el.name}} Someting
-            </div> -->
+        <div #cardContent class="card-border" [style.width.px]="width" [style.height.px]="height">
         </div>
     </mat-card-content>
 </mat-card>

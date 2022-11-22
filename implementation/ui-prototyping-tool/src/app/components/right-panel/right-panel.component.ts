@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AbstractContainer, Interaction } from 'src/app/classes/abstract-classes';
+import { AbstractContainer, AbstractUIProperty, Interaction } from 'src/app/classes/abstract-classes';
 import { ButtonElementProperty, ComponentContainer, CSSProperty, InputElementProperty, OnClickInteraction, SelectElementProperty, View } from 'src/app/classes/concrete-classes';
 import { ContainerType, UIElements } from 'src/app/classes/ud-enums';
 import { CommunicationService } from 'src/app/services/communication.service';
@@ -23,6 +23,8 @@ export class RightPanelComponent implements OnInit {
     selectInteraction!: string
 
     showHeightWidth: boolean = false
+
+    showElementProperty: boolean = false
 
     constructor(private shared: CommunicationService, private snackbar: MatSnackBar, private viewService: ViewsService) { }
 
@@ -53,8 +55,10 @@ export class RightPanelComponent implements OnInit {
                     this.element.cssProperty.height = '200'
                 }
                 setTimeout(() => this.showHeightWidth = true, 100)
+                this.showElementProperty = false
             } else {
                 this.showHeightWidth = false
+                this.showElementProperty = true
             }
             this.shared.saveMasterView()
         })
@@ -75,20 +79,23 @@ export class RightPanelComponent implements OnInit {
             // this.shared.saveMasterView()
             this.interactions = (this.element as ComponentContainer).interactions
             this.addConcreteUIProperties()
+            this.showElementProperty = true
         })
     }
 
     addConcreteUIProperties() {
-        switch (this.element.name) {
-            case UIElements.BUTTON:
-                (this.element as ComponentContainer).property = new ButtonElementProperty()
-                break
-            case UIElements.INPUT:
-                (this.element as ComponentContainer).property = new InputElementProperty()
-                break
-            case UIElements.SELECT:
-                (this.element as ComponentContainer).property = new SelectElementProperty()
-                break
+        if(this.element.property == undefined) {
+            switch (this.element.name) {
+                case UIElements.BUTTON:
+                    (this.element as ComponentContainer).property = new ButtonElementProperty()
+                    break
+                case UIElements.INPUT:
+                    (this.element as ComponentContainer).property = new InputElementProperty()
+                    break
+                case UIElements.SELECT:
+                    (this.element as ComponentContainer).property = new SelectElementProperty()
+                    break
+            }
         }
     }
 
@@ -148,6 +155,10 @@ export class RightPanelComponent implements OnInit {
     updateInteraction(interaction: Interaction) {
         interaction.connectionId = this.selectInteraction
         this.shared.saveMasterView()
+    }
+    
+    getUIProperty(): AbstractUIProperty {
+        return (this.element.property as AbstractUIProperty)
     }
 
 }

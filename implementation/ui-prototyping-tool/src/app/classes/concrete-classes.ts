@@ -1,5 +1,5 @@
 import { AbstractContainer, AbstractProperty, AbstractUIProperty, Interaction } from "./abstract-classes";
-import { Actions, Connectors } from "./ud-enums";
+import { Actions, Connectors, InputType } from "./ud-enums";
 import { v4 as uuidv4 } from 'uuid';
 
 export class CSSProperty {
@@ -10,7 +10,7 @@ export class View extends AbstractContainer {
     isMaster!: boolean
     children!: View[]
     parentId!: string
-    property!: CanvasProperty
+    override property!: CanvasProperty
     elements: ComponentContainer[] = []
 
     static getView(isMaster: boolean, name: string): View {
@@ -26,7 +26,7 @@ export class View extends AbstractContainer {
 
 export class ComponentContainer extends AbstractContainer {
     interactions!: Interaction[]
-    property!: AbstractUIProperty
+    override property!: AbstractUIProperty
 }
 
 export class OnClickInteraction extends Interaction {
@@ -44,11 +44,13 @@ export class CanvasProperty extends AbstractProperty {
 }
 
 export class ButtonElementProperty extends AbstractUIProperty {
-
+    btnName!: string
+    isDisabled!: boolean
 }
 
 export class SelectElementProperty extends AbstractUIProperty {
-
+    options: OptionElementProperty[] = []
+    labelText!: string;
 }
 
 export class OptionElementProperty extends AbstractUIProperty {
@@ -56,5 +58,6 @@ export class OptionElementProperty extends AbstractUIProperty {
 }
 
 export class InputElementProperty extends AbstractUIProperty {
-
+    type!: InputType
+    labelText!: string
 }

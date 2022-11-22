@@ -1,0 +1,8 @@
+<div [style.top.px]="position.y" [style.left.px]="position.x" style="position: absolute;">
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>{{prop.property.labelText}}</mat-label>
+        <select matNativeControl required>
+            <option *ngFor="let t of prop.property.options" [value]="t.value">{{t.label}}</option>
+        </select>
+    </mat-form-field>
+</div>

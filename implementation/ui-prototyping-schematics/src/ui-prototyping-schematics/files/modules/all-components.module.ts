@@ -9,6 +9,7 @@ import { DefaultComponent } from './default/default.component';
 import { AbstractElementComponent } from './abstract-element/abstract-element.component';
 import { InputElementComponent } from './input-element/input-element.component';
 import { ButtonElementComponent } from './button-element/button-element.component';
+import { SelectElementComponent } from './select-element/select-element.component';
 import { HttpClientModule } from '@angular/common/http';
 
 // Material design
@@ -24,6 +25,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
+import { HelperService } from '../services/helper.service';
 
 @NgModule({
     imports: [
@@ -43,7 +45,8 @@ import { MatInputModule } from '@angular/material/input';
         MatTreeModule,
         MatSnackBarModule,
         MatInputModule,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule
     ],
 
     declarations: [<% for (let c of children) { %>
@@ -51,7 +54,8 @@ import { MatInputModule } from '@angular/material/input';
         DefaultComponent,
         AbstractElementComponent,
         InputElementComponent,
-        ButtonElementComponent
+        ButtonElementComponent,
+        SelectElementComponent
     ],
 
     exports: [<% for (let c of children) { %>
@@ -59,9 +63,12 @@ import { MatInputModule } from '@angular/material/input';
         DefaultComponent,
         AbstractElementComponent,
         InputElementComponent,
-        ButtonElementComponent
+        ButtonElementComponent,
+        SelectElementComponent
     ],
-    providers: []
+    providers: [
+        HelperService
+    ]
 })
 export class AllComponentsModule { }
 // PLEASE DECLARE THIS MODULE TO YOUR ROOT MODULE FILE IMPORTS

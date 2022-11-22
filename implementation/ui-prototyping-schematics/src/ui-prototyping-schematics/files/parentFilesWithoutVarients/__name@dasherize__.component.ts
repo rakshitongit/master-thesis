@@ -26,7 +26,9 @@ export class <%= classify(name) %>Component implements OnInit {
 	
     async ngOnInit() {
         try {
-            
+            this.property.height = (parseInt(this.property.height) * 2).toString()
+            this.property.width = (parseInt(this.property.width) * 2).toString()
+            // this.property.width = this.property.width * 2 
         } catch(e) {
             console.error(e)
         }
