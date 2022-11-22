@@ -12,5 +12,5 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=node /app/dist/no-code-built-app /usr/share/nginx/html
 
-# Expose port 8083
+# Expose port 8084
 EXPOSE 8084
