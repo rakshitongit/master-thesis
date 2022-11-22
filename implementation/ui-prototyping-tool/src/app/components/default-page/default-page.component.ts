@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { url } from '../../classes/abstract-classes'
+import { baseUrl } from '../../classes/abstract-classes'
 
 @Component({
     selector: 'app-default-page',
@@ -40,7 +40,8 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
     }
 
     deployApp() {
-        window.open(url + 'download/generate-new-app.sh', '_blank')
+        // window.open(url + 'download/generate-new-app.sh', '_blank')
+        window.open(baseUrl + 'no-code-app', '_blank')
     }
 
 }
