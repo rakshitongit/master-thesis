@@ -1,6 +1,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Interaction } from 'src/app/classes/abstract-classes';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
@@ -26,9 +27,9 @@ export class InputElementComponent implements OnInit {
 
     async goTo() {
         if(this.prop.interactions?.length > 0) {
-            const interaction = this.prop.interactions[0]
+            const interaction: Interaction = this.prop.interactions[0]
             console.log(interaction)
-            this.router.navigateByUrl('/default/' + await this.service.getRoutingData(interaction.connectionId))
+            this.router.navigateByUrl('/default/' + interaction.connectionId)
         }
     }
 

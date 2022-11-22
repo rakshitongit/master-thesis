@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './default/default.component';
 
-import {MasterViewComponent} from './master-view/master-view.component';
-import {V1Component} from './v1/v1.component';
-import {TestComponent} from './test/test.component';
-import {V2Component} from './v2/v2.component';
+import { MasterViewComponent } from './master-view/master-view.component';
 import { AbstractViewComponent } from './abstract-view/abstract-view.component';
 import { ViewResolver } from '../resolvers/view.resolver';
 
@@ -18,7 +15,7 @@ const routes: Routes = [
     {
         path: 'default',
         component: DefaultComponent,
-        children: [            
+        children: [
             {
                 path: ':id',
                 component: AbstractViewComponent,

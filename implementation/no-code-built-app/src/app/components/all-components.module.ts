@@ -3,10 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRouteSnapshot, RouterModule } from '@angular/router';
 
-import {MasterViewComponent} from './master-view/master-view.component';
-import {V1Component} from './v1/v1.component';
-import {TestComponent} from './test/test.component';
-import {V2Component} from './v2/v2.component';
+import { MasterViewComponent } from './master-view/master-view.component';
 import { AllComponentRoutingModule } from './all-components.routing';
 import { DefaultComponent } from './default/default.component';
 import { AbstractElementComponent } from './ui-elements/abstract-element/abstract-element.component';
@@ -56,9 +53,6 @@ import { ViewResolver } from '../resolvers/view.resolver';
 
     declarations: [
         MasterViewComponent,
-        V1Component,
-        TestComponent,
-        V2Component,
         DefaultComponent,
         AbstractElementComponent,
         InputElementComponent,
@@ -69,9 +63,6 @@ import { ViewResolver } from '../resolvers/view.resolver';
 
     exports: [
         MasterViewComponent,
-        V1Component,
-        TestComponent,
-        V2Component,
         DefaultComponent,
         AbstractElementComponent,
         InputElementComponent,
