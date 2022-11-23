@@ -21,8 +21,12 @@ export class MiddlePanelComponent implements OnInit {
     width: string = '200px'
     currentView!: View
 
+    currentVariant!: View
+
     @ViewChild('cardContent', { static: false })
     el!: ElementRef
+
+    variantBtn: boolean = false
 
     elementsOnCanVas: ComponentContainer[] = []
 
@@ -33,8 +37,8 @@ export class MiddlePanelComponent implements OnInit {
     ngOnInit() {
         this.currentView = new View()
         this.shared.getAddUIElement().subscribe(val => {
+            // Want to add UI Component
             this.toAddElement = val
-            console.log('Add element', this.toAddElement)
             if (this.currentView.name == '' || this.currentView.name == undefined) {
                 this._snackBar.open('Please select the View!', 'Ok')
             } else {
@@ -43,12 +47,10 @@ export class MiddlePanelComponent implements OnInit {
         })
 
         this.shared.getCanvasView().subscribe(val => {
-            // console.log(this.el)
-            this.el.nativeElement.innerHTML = ''
+            // Clicked on canvas
             this.currentView = val
-            this.height = (this.currentView.cssProperty?.height || '200')
-            this.width = this.currentView.cssProperty?.width || '200'
-            this.getUIElementsForCurrentView()
+            this.getUIElementsForCurrentView(this.currentView)
+            this.variantBtn = true
             this.changeDetector.detectChanges()
         })
 
@@ -58,10 +60,13 @@ export class MiddlePanelComponent implements OnInit {
         })
     }
 
-    getUIElementsForCurrentView() {
+    getUIElementsForCurrentView(view: View) {
+        this.el.nativeElement.innerHTML = ''
+        this.height = (view.cssProperty?.height || '200')
+        this.width = view.cssProperty?.width || '200'
         const elLeft = this.el.nativeElement.getBoundingClientRect().left
         const elTop = this.el.nativeElement.getBoundingClientRect().top
-        for (let el of this.currentView.elements) {
+        for (let el of view.elements) {
             let dist: any = { x: 0, y: 0 }
             dist.x = el.cssProperty?.dropPoint?.x - elLeft - 45
             dist.y = el.cssProperty?.dropPoint?.y - elTop - 10
@@ -78,7 +83,6 @@ export class MiddlePanelComponent implements OnInit {
             this.elementsOnCanVas.push(el)
             this.addListener(recaptchaContainer, el)
             this.getPosition(dragRef, el.id)
-            // this.addElementToView(el)
         }
     }
 
@@ -112,15 +116,24 @@ export class MiddlePanelComponent implements OnInit {
     }
 
     addElementToView(component: ComponentContainer) {
-        if (this.shared.masterView.id == this.currentView.id) {
-            this.shared.masterView.elements.push(component)
-        } else {
-            // check children
+        if (this.currentVariant) {
             this.shared.masterView.children.forEach(el => {
-                if (el.id === this.currentView.id) {
-                    el.elements.push(component)
+                if (el.variants?.map(t => t.id).includes(this.currentVariant.id)) {
+                    const variant = el.variants.filter(v => v.id == this.currentVariant.id)[0]
+                    variant.elements.push(component)
                 }
             })
+        } else {
+            if (this.shared.masterView.id == this.currentView.id) {
+                this.shared.masterView.elements.push(component)
+            } else {
+                // check children
+                this.shared.masterView.children.forEach(el => {
+                    if (el.id === this.currentView.id) {
+                        el.elements.push(component)
+                    }
+                })
+            }
         }
         this.shared.saveMasterView()
     }
@@ -152,7 +165,7 @@ export class MiddlePanelComponent implements OnInit {
     }
 
     updateMasterView() {
-        if(this.currentView.id !== this.shared.masterView.id) {
+        if (this.currentView.id !== this.shared.masterView.id) {
             this.shared.masterView.children.forEach(el => {
                 if (el.id === this.currentView.id) {
                     el = this.currentView
@@ -161,4 +174,24 @@ export class MiddlePanelComponent implements OnInit {
         }
         this.shared.saveMasterView()
     }
+
+    showVariantButton(): boolean {
+        return this.variantBtn && this.currentView.id != this.shared.masterView.id
+    }
+
+    addVariant() {
+        if (this.currentView.variants == undefined) {
+            this.currentView.variants = []
+        }
+        const newVariant = new View(this.currentView)
+        this.currentView.variants.push(newVariant)
+        console.log(this.currentView)
+        this.shared.saveMasterView()
+    }
+
+    showVariant(variant: View) {
+        this.currentVariant = variant
+        this.getUIElementsForCurrentView(variant)
+    }
+
 }

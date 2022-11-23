@@ -12,6 +12,17 @@ export class View extends AbstractContainer {
     parentId!: string
     override property!: CanvasProperty
     elements: ComponentContainer[] = []
+    variants: View[] = []
+
+    constructor(v?: View) {
+        super()
+        if (v != undefined) {
+            this.id = uuidv4()
+            this.name = v.name
+            this.elements = []
+            this.cssProperty = v.cssProperty
+        }
+    }
 
     static getView(isMaster: boolean, name: string): View {
         let v: View = new View()
@@ -30,7 +41,7 @@ export class ComponentContainer extends AbstractContainer {
 }
 
 export class OnClickInteraction extends Interaction {
-    
+
     action: Actions = Actions.NAVIGATE
     connector: Connectors = Connectors.VIEW
 
