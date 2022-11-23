@@ -1,0 +1,27 @@
+<mat-card style="margin: 50px;">
+    <mat-card-title>
+        Experiments
+        <button class="pull-right" mat-icon-button><mat-icon>add</mat-icon></button>
+    </mat-card-title>
+    <mat-card-subtitle>Create and update experiments</mat-card-subtitle>
+    <mat-card-content style="margin: 20px;">
+        <table class="mat-elevation-z8 demo-table">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Experiment name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let experiment of experiments; let i=index;">
+                    <td style="text-align: center;">{{i + 1}}</td>
+                    <td style="text-align: center;">{{experiment.name}}</td>
+                    <td style="text-align: center;"><button mat-stroked-button color="primary">View</button></td>
+                    <td style="text-align: center;"><button mat-stroked-button color="warn">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

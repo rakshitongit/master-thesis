@@ -24,6 +24,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { AddOptionDialogComponent, SelectElementComponent } from './ui-elements/select-element/select-element.component';
 import { InputElementComponent } from './ui-elements/input-element/input-element.component';
+import { ExperimentsComponent } from './experiments/experiments.component';
+import { PrototypingComponent } from './prototyping/prototyping.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
     declarations: [
@@ -37,7 +40,9 @@ import { InputElementComponent } from './ui-elements/input-element/input-element
         DialogOverviewExampleDialog,
         InputElementComponent,
         SelectElementComponent,
-        AddOptionDialogComponent
+        AddOptionDialogComponent,
+        ExperimentsComponent,
+        PrototypingComponent
     ],
     imports: [
         CommonModule,
@@ -54,6 +59,7 @@ import { InputElementComponent } from './ui-elements/input-element/input-element
         MatSnackBarModule,
         MatInputModule,
         FormsModule,
+        AppRoutingModule
     ],
     exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent, AddOptionDialogComponent]
 })

@@ -14,6 +14,7 @@ export class CommunicationService {
     addUIElement: Subject<string> = new Subject()
     UIProperties: Subject<any> = new Subject()
     canvasView: Subject<View> = new Subject()
+    private _activateViews: Subject<boolean> = new Subject()
     private _deleteElement: Subject<ComponentContainer> = new Subject()
     private _updateCanvasProperty: Subject<View> = new Subject()
 
@@ -84,5 +85,13 @@ export class CommunicationService {
 
     getUpdatePropertyCanvas() {
         return this._updateCanvasProperty;
+    }
+
+    activateView(val: boolean) {
+        this._activateViews.next(val)
+    }
+
+    getActiveView(): Subject<boolean> {
+        return this._activateViews
     }
 }

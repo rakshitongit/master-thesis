@@ -157,7 +157,11 @@ export class MiddlePanelComponent implements OnInit {
             console.log(event.key)
             if (event.key == 'Delete' || event.key == 'Backspace') {
                 recaptchaContainer.remove()
-                this.currentView.elements = this.currentView.elements.filter(e => e.id !== el.id)
+                if(this.currentVariant) {
+                    this.currentVariant.elements = this.currentVariant.elements.filter(e => e.id !== el.id)
+                } else {
+                    this.currentView.elements = this.currentView.elements.filter(e => e.id !== el.id)
+                }
                 this.shared.sendDeleteElement(el)
                 this.updateMasterView()
             }
@@ -192,6 +196,12 @@ export class MiddlePanelComponent implements OnInit {
     showVariant(variant: View) {
         this.currentVariant = variant
         this.getUIElementsForCurrentView(variant)
+    }
+
+    deleteVariant(view: View) {
+        this.currentView.variants = this.currentView.variants.filter(v=> v.id !== view.id)
+        this.currentVariant = new View()
+        this.shared.saveMasterView()
     }
 
 }

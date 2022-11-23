@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { baseUrl } from '../../classes/abstract-classes'
+import { Router } from '@angular/router';
+import { CommunicationService } from 'src/app/services/communication.service';
 
 @Component({
     selector: 'app-default-page',
@@ -11,14 +13,12 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
 
     mobileQuery!: MediaQueryList;
 
-    activate: boolean = true
-
     private _mobileQueryListener: () => void
 
     elementName!: string
     toAddElement!: string
 
-    constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private shared: CommunicationService) {
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         this.mobileQuery.addListener(this._mobileQueryListener);
@@ -42,6 +42,18 @@ export class DefaultPageComponent implements OnInit, OnDestroy {
     deployApp() {
         // window.open(url + 'download/generate-new-app.sh', '_blank')
         window.open(baseUrl + 'no-code-app', '_blank')
+    }
+
+    openExperiments() {
+        this.router.navigateByUrl('/experiments')   
+    }
+
+    activate(val: boolean) {
+        this.shared.activateView(val)
+    }
+
+    openPrototyping() {
+        this.router.navigateByUrl('/')
     }
 
 }
