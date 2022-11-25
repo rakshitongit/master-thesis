@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultPageComponent } from './components/default-page/default-page.component';
-import { ExperimentsComponent } from './components/experiments/experiments.component';
+import { ExperimentDetailComponent } from './components/experiment-components/experiment-detail/experiment-detail.component';
+import { ExperimentVariantsComponent } from './components/experiment-components/experiment-variants/experiment-variants.component';
+import { ExperimentsComponent } from './components/experiment-components/experiments/experiments.component';
 import { PrototypingComponent } from './components/prototyping/prototyping.component';
+import { UsersComponent } from './components/users/users.component';
+import { SingleExperimentResolver } from './resolvers/single-experiment.resolver';
 
 const routes: Routes = [
     {
@@ -16,6 +20,21 @@ const routes: Routes = [
             {
                 path: '',
                 component: PrototypingComponent
+            },
+            {
+                path: 'experiments/:id',
+                component: ExperimentVariantsComponent,
+                resolve: {
+                    experiment: SingleExperimentResolver
+                }
+            },
+            {
+                path: 'experiments/:id/:variantId',
+                component: ExperimentDetailComponent
+            },
+            {
+                path: 'users',
+                component: UsersComponent
             }
         ]
     }

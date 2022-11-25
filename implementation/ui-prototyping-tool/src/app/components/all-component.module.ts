@@ -21,12 +21,18 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddOptionDialogComponent, SelectElementComponent } from './ui-elements/select-element/select-element.component';
 import { InputElementComponent } from './ui-elements/input-element/input-element.component';
-import { ExperimentsComponent } from './experiments/experiments.component';
 import { PrototypingComponent } from './prototyping/prototyping.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ExperimentDetailComponent } from './experiment-components/experiment-detail/experiment-detail.component';
+import { ExperimentsComponent } from './experiment-components/experiments/experiments.component';
+import { ExperimentLeftPanelComponent } from './experiment-components/experiment-left-panel/experiment-left-panel.component';
+import { ExperimentMiddlePanelComponent } from './experiment-components/experiment-middle-panel/experiment-middle-panel.component';
+import { ExperimentRightPanelComponent } from './experiment-components/experiment-right-panel/experiment-right-panel.component';
+import { ExperimentVariantsComponent } from './experiment-components/experiment-variants/experiment-variants.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +48,13 @@ import { AppRoutingModule } from '../app-routing.module';
         SelectElementComponent,
         AddOptionDialogComponent,
         ExperimentsComponent,
-        PrototypingComponent
+        PrototypingComponent,
+        ExperimentDetailComponent,
+        ExperimentLeftPanelComponent,
+        ExperimentMiddlePanelComponent,
+        ExperimentRightPanelComponent,
+        ExperimentVariantsComponent,
+        UsersComponent
     ],
     imports: [
         CommonModule,
@@ -59,8 +71,10 @@ import { AppRoutingModule } from '../app-routing.module';
         MatSnackBarModule,
         MatInputModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule
+
     ],
-    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent, AddOptionDialogComponent]
+    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent, AddOptionDialogComponent, ExperimentsComponent, ExperimentDetailComponent]
 })
 export class AllComponentModule { }

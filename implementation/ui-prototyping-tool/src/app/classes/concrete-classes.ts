@@ -72,3 +72,33 @@ export class InputElementProperty extends AbstractUIProperty {
     type!: InputType
     labelText!: string
 }
+
+export class Experiment {
+    id!: string
+    name!: string
+    start!: string
+    end!: string
+    priority!: number
+    evaluationType!: EvaluationType
+    experimentVarients: Variant[] = []
+}
+
+export class Variant {
+    id!: string
+    name!: string
+    percentage!: number
+    masterView!: View
+
+    static createVariant(percentage: number, name: string): Variant {
+        const v: Variant = new Variant()
+        v.name = name
+        v.percentage = percentage
+        v.id = uuidv4()
+        v.masterView = new View()
+        return v
+    }
+}
+
+export enum EvaluationType {
+    MIN = 'MIN', MAX = 'MAX', MEDIAN = 'MEDIAN', AVERAGE = 'AVERAGE', SUM = 'SUM'
+}
