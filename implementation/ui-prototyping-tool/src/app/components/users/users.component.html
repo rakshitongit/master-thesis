@@ -1,1 +1,31 @@
-<p>users works!</p>
+<mat-card style="margin: 50px;">
+    <mat-card-title>
+        Users
+        <button class="pull-right" mat-icon-button (click)="createNewUsers()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-subtitle>Add and update Users</mat-card-subtitle>
+    <mat-card-content>
+        <table class="mat-elevation-z8 demo-table">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Name</th>
+                    <th>Experiments</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i=index;">
+                    <td style="text-align: center;">{{i + 1}}</td>
+                    <!-- <td style="text-align: center;"><a routerLink="/experiments/{{experiment.id}}">{{experiment.name}}</a></td> -->
+                    <!-- <td style="text-align: center;">{{experiment.start +' - '+ experiment.end}}</td> -->
+                    <!-- <td style="text-align: center;">{{experiment.priority}}</td> -->
+                    <!-- <td style="text-align: center;">{{experiment.evaluationType}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

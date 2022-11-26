@@ -102,3 +102,7 @@ export class Variant {
 export enum EvaluationType {
     MIN = 'MIN', MAX = 'MAX', MEDIAN = 'MEDIAN', AVERAGE = 'AVERAGE', SUM = 'SUM'
 }
+
+export class User {
+    
+}

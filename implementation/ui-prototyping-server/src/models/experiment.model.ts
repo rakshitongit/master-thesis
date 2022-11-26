@@ -71,6 +71,6 @@ export enum EvaluationType {
 export class ExperimentVariant {
     id: string
     varientName: string
-    varientPercentage: number
+    percentage: number
     masterView: View
 }

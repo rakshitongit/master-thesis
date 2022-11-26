@@ -16,6 +16,7 @@ import {
     del,
     requestBody,
     response,
+    HttpErrors,
 } from '@loopback/rest';
 import { Experiment } from '../models';
 import { ExperimentRepository } from '../repositories';
@@ -126,6 +127,15 @@ export class ExperimentController {
         })
         experiment: Experiment,
     ): Promise<void> {
+        const total: number = experiment.experimentVarients.map(v => parseInt(v.percentage.toString())).reduce((acc, cur) => acc + cur, 0)
+
+        if (total > 100) {
+            throw new HttpErrors.UnprocessableEntity('Sum of all varients cannot be greater than 100%');
+        }
+        if (experiment.experimentVarients.find((v) => v.percentage == 0)) {
+            throw new HttpErrors.UnprocessableEntity('Percentage cannot be 0');
+        }
+
         await this.experimentRepository.updateById(id, experiment);
     }
 

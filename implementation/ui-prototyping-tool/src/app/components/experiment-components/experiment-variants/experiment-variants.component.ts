@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Experiment, Variant } from 'src/app/classes/concrete-classes';
@@ -17,7 +18,7 @@ export class ExperimentVariantsComponent implements OnInit {
     updateVariant: boolean = false
     currentVariant!: Variant
 
-    constructor(private fb: FormBuilder, private router: Router, private routerData: ActivatedRoute, private exService: ExperimentsService) { }
+    constructor(private fb: FormBuilder, private router: Router, private routerData: ActivatedRoute, private exService: ExperimentsService, private matSnackbar: MatSnackBar) { }
 
     ngOnInit(): void {
         this.experiment = this.routerData.snapshot.data['experiment']
@@ -25,9 +26,9 @@ export class ExperimentVariantsComponent implements OnInit {
     }
 
     async submitExperimentVariant() {
-        if(this.updateVariant) {
-            for(let v of this.experiment.experimentVarients) {
-                if(v.id === this.currentVariant.id) {
+        if (this.updateVariant) {
+            for (let v of this.experiment.experimentVarients) {
+                if (v.id === this.currentVariant.id) {
                     v.name = this.experimentVariantForm.value.variantName
                     v.percentage = this.experimentVariantForm.value.variantPercentage
                 }
@@ -35,9 +36,15 @@ export class ExperimentVariantsComponent implements OnInit {
         } else {
             this.experiment.experimentVarients.push(Variant.createVariant(this.experimentVariantForm.value.variantPercentage, this.experimentVariantForm.value.variantName))
         }
-        await lastValueFrom(this.exService.createNewExperimentVariant(this.experiment))
-        this.experimentVariantForm.reset()
-        this.updateVariant = false
+        try {
+            await lastValueFrom(this.exService.createNewExperimentVariant(this.experiment))
+            this.experimentVariantForm.reset()
+            this.updateVariant = false
+        } catch (e: any) {
+            console.error(e.error.error)
+            this.matSnackbar.open(e.error.error.message, 'Ok')
+            this.experiment = await lastValueFrom(this.exService.getExperiment(this.experiment.id))
+        }
     }
 
     gotToVariantsDetailsPage(variant: Variant) {
