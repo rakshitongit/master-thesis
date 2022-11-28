@@ -9,6 +9,9 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
+import { AuthenticationComponent } from '@loopback/authentication';
+import { JWTAuthenticationComponent, UserServiceBindings } from '@loopback/authentication-jwt';
+import { MongoDataSource } from './datasources'
 
 export {ApplicationConfig};
 
@@ -33,6 +36,7 @@ export class UiPrototypingServerApplication extends BootMixin(
     this.configure(RestExplorerBindings.COMPONENT).to({
       path: '/explorer',
     });
+
     this.component(RestExplorerComponent);
 
     this.projectRoot = __dirname;
@@ -45,5 +49,12 @@ export class UiPrototypingServerApplication extends BootMixin(
         nested: true,
       },
     };
+
+    this.component(AuthenticationComponent);
+    // Mount jwt component
+    this.component(JWTAuthenticationComponent);
+    // Bind datasource
+    this.dataSource(MongoDataSource, UserServiceBindings.DATASOURCE_NAME);
+    
   }
 }

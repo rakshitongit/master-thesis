@@ -31,7 +31,7 @@ export class ExperimentLeftPanelComponent implements OnInit {
         if(this.currentVariant.masterView == undefined) {
             this.currentVariant.masterView = master
         }
-        this.dataSource.data = Array.of(master)
+        this.dataSource.data = Array.of(this.currentVariant.masterView)
     }
 
     openCanvas(node: View) {

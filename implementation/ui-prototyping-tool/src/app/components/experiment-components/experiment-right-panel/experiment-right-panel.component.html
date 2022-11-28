@@ -1,1 +1,55 @@
-<p>experiment-right-panel works!</p>
+<mat-card-title>Properties</mat-card-title>
+<mat-card-subtitle>{{elementName}} name</mat-card-subtitle>
+<mat-card-content>
+    <ng-container *ngIf="element.cssProperty?.dropPoint">
+        <h4><b>Position</b></h4>
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>X</mat-label>
+            <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="element.cssProperty.dropPoint.x">
+            <button *ngIf="element.cssProperty?.height" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.dropPoint.x=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Y</mat-label>
+            <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="element.cssProperty.dropPoint.y">
+            <button *ngIf="element.cssProperty?.width" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.dropPoint.x=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+      <hr>
+    </ng-container>
+    <ng-container *ngIf="showHeightWidth">
+        <h4><b>Screen dimentions</b></h4>
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Input Height</mat-label>
+            <input matInput type="text" [(ngModel)]="element.cssProperty.height" (keyup)="updateDimention()">
+            <button *ngIf="element.cssProperty?.height" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.height=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Input Width</mat-label>
+            <input matInput type="text" [(ngModel)]="element.cssProperty.width" (keyup)="updateDimention()">
+            <button *ngIf="element.cssProperty?.width" matSuffix mat-icon-button aria-label="Clear" (click)="element.cssProperty.width=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </ng-container>
+    <app-abstract-ui-component *ngIf="showElementProperty" [name]="element.name" [prop]="getUIProperty()"></app-abstract-ui-component>
+    <ng-container *ngIf="displayInteractions()">
+        <h4><b>Interactions</b>
+        </h4>
+        <div *ngFor="let interaction of interactions">
+            <mat-form-field appearance="fill">
+                <h5>Navigate to</h5>
+                <mat-label>On Click</mat-label>
+                <select matNativeControl required [(ngModel)]="selectInteraction" (change)="updateInteraction(interaction)">
+                    <option disabled selected>Select an Option</option>
+                    <option [value]="getMasterData().id">{{getMasterData().name}}</option>
+                    <option *ngFor="let op of getData()" [value]="op.id">{{op.name}}</option>
+                </select>
+            </mat-form-field>
+        </div>
+    </ng-container>
+</mat-card-content>

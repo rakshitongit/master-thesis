@@ -2,6 +2,7 @@ import { DragDrop, DragRef } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef, Component, ElementRef, Input, OnInit, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
 import { ComponentContainer, Variant, View } from 'src/app/classes/concrete-classes';
 import { CommunicationService } from 'src/app/services/communication.service';
+import { ExperimentsService } from 'src/app/services/experiments.service';
 
 @Component({
     selector: 'app-experiment-middle-panel',
@@ -25,8 +26,9 @@ export class ExperimentMiddlePanelComponent implements OnInit {
 
     elementsOnCanVas: ComponentContainer[] = []
 
-    constructor(private shared: CommunicationService, private changeDetector: ChangeDetectorRef, private rendererFactory: RendererFactory2, private drag: DragDrop,) {
+    constructor(private shared: CommunicationService, private changeDetector: ChangeDetectorRef, private rendererFactory: RendererFactory2, private drag: DragDrop, private eService: ExperimentsService) {
         this.getExperimentCanvasView()
+        this.updateCanvas()
         this.renderer = this.rendererFactory.createRenderer(null, null);
     }
 
@@ -39,6 +41,13 @@ export class ExperimentMiddlePanelComponent implements OnInit {
             this.getUIElementsForCurrentView(this.currentView)
             // this.variantBtn = true
             this.changeDetector.detectChanges()
+        })
+    }
+
+    updateCanvas() {
+        this.shared.getExperimentPropertyCanvas().subscribe((val: View) => {
+            this.height = val.cssProperty.height
+            this.width = val.cssProperty.width
         })
     }
 
@@ -74,13 +83,14 @@ export class ExperimentMiddlePanelComponent implements OnInit {
             dragRef.ended.subscribe(val => {
                 toAdd.cssProperty.dropPoint = val.dropPoint
                 // this.shared.sendUIProperties(toAdd)
+                this.updateMasterView()
             })
         }
     }
 
     addListener(recaptchaContainer: Element, el: ComponentContainer) {
         this.renderer.listen(recaptchaContainer, 'click', () => {
-            // this.clickme(el)
+            this.shared.setExperimentSelectedElement(el)
         })
 
         this.renderer.listen(recaptchaContainer, 'keydown', (event) => {
@@ -93,17 +103,22 @@ export class ExperimentMiddlePanelComponent implements OnInit {
                 //     this.currentView.elements = this.currentView.elements.filter(e => e.id !== el.id)
                 // }
                 // this.shared.sendDeleteElement(el)
-                // this.updateMasterView()
+                this.updateMasterView()
             }
         })
     }
 
+    updateMasterView() {
+        console.log(this.currentVariant)
+        this.shared.saveVariantExperiment(this.currentVariant)
+    }
+
     showVariantButton(): boolean {
-        return false
+        return this.currentView.variants?.length > 0
     }
 
     showVariant(v: View) {
-
+        
     }
 
 }

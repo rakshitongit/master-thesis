@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { firstValueFrom, Subject } from 'rxjs';
-import { ComponentContainer, View } from '../classes/concrete-classes';
+import { firstValueFrom, lastValueFrom, Subject } from 'rxjs';
+import { ComponentContainer, Experiment, Variant, View } from '../classes/concrete-classes';
+import { ExperimentsService } from './experiments.service';
 import { ViewsService } from './views.service';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { ViewsService } from './views.service';
 })
 export class CommunicationService {
 
-    constructor(private viewService: ViewsService) {}
+    constructor(private viewService: ViewsService, private eService: ExperimentsService) {}
 
     selectedElement: Subject<any> = new Subject()
     addUIElement: Subject<string> = new Subject()
@@ -20,6 +21,13 @@ export class CommunicationService {
 
     // For experiments
     private _canvasView: Subject<View> = new Subject()
+    private _updateExperimentCanvasProperty: Subject<View> = new Subject()
+    private _updateExperimentSelectedElement: Subject<any> = new Subject()
+    private _experiment!: Experiment
+
+    set experiment(ex: Experiment) {
+        this._experiment = ex
+    }
 
     private _masterView!: View
 
@@ -104,5 +112,31 @@ export class CommunicationService {
 
     getExperimentCanvasView(): Subject<View> {
         return this._canvasView
+    }
+
+    updateExperimentPropertyCanvas(val: View) {
+        this._updateExperimentCanvasProperty.next(val)
+    }
+
+    getExperimentPropertyCanvas() {
+        return this._updateExperimentCanvasProperty
+    }
+
+    getExperimentSelectedElement() {
+        return this._updateExperimentSelectedElement
+    }
+
+    setExperimentSelectedElement(value: any) {
+        this._updateExperimentSelectedElement.next(value)
+    }
+
+    async saveVariantExperiment(variant: Variant) {
+        const experiment = this._experiment
+        experiment.experimentVarients.forEach(v=> {
+            if(v.id === variant.id) {
+                v.masterView = variant.masterView
+            }
+        })
+        await lastValueFrom(this.eService.createNewExperimentVariant(experiment))
     }
 }

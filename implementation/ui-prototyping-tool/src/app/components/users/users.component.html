@@ -11,16 +11,15 @@
             <thead>
                 <tr>
                     <th>Nr.</th>
-                    <th>Name</th>
+                    <th>Email / Username</th>
                     <th>Experiments</th>
-                    <th>Username</th>
-                    <th>Password</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let user of users; let i=index;">
                     <td style="text-align: center;">{{i + 1}}</td>
-                    <!-- <td style="text-align: center;"><a routerLink="/experiments/{{experiment.id}}">{{experiment.name}}</a></td> -->
+                    <td style="text-align: center;">{{user.email}}</td>
+                    <td style="text-align: center;"></td>
                     <!-- <td style="text-align: center;">{{experiment.start +' - '+ experiment.end}}</td> -->
                     <!-- <td style="text-align: center;">{{experiment.priority}}</td> -->
                     <!-- <td style="text-align: center;">{{experiment.evaluationType}}</td> -->

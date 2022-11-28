@@ -103,5 +103,5 @@ export enum EvaluationType {
 }
 
 export class User {
-    
+    email!: string
 }

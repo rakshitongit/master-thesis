@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Variant } from 'src/app/classes/concrete-classes';
+import { Experiment, Variant } from 'src/app/classes/concrete-classes';
+import { CommunicationService } from 'src/app/services/communication.service';
 
 @Component({
     selector: 'app-experiment-detail',
@@ -9,13 +10,15 @@ import { Variant } from 'src/app/classes/concrete-classes';
 })
 export class ExperimentDetailComponent implements OnInit {
 
-    constructor(private router: ActivatedRoute) { }
+    constructor(private router: ActivatedRoute, private shared: CommunicationService) { }
 
     currentVariant!: Variant
+    currentExperiment!: Experiment
 
     ngOnInit(): void {
         this.currentVariant = this.router.snapshot.data["variant"]
-        console.info(this.currentVariant)
+        this.currentExperiment = this.router.snapshot.data["experiment"]
+        this.shared.experiment = this.currentExperiment
     }
 
 }
