@@ -94,7 +94,6 @@ export class Variant {
         v.name = name
         v.percentage = percentage
         v.id = uuidv4()
-        v.masterView = new View()
         return v
     }
 }

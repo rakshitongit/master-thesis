@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { url } from '../classes/abstract-classes';
-import { Experiment } from '../classes/concrete-classes';
+import { Experiment, Variant } from '../classes/concrete-classes';
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +17,10 @@ export class ExperimentsService {
 
     getExperiment(id: string): Observable<Experiment> {
         return this.http.get<Experiment>(url + 'experiments/' + id)
+    }
+
+    getExperimentVariant(eId: string, vId: string): Observable<Variant> {
+        return this.http.get<Variant>(url + 'experiments/' + eId + '/' + vId)
     }
 
     createNewExperiment(experiment: Experiment) {

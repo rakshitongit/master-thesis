@@ -7,6 +7,7 @@ import { ExperimentsComponent } from './components/experiment-components/experim
 import { PrototypingComponent } from './components/prototyping/prototyping.component';
 import { UsersComponent } from './components/users/users.component';
 import { SingleExperimentResolver } from './resolvers/single-experiment.resolver';
+import { SingleVariantResolver } from './resolvers/single-variant.resolver';
 
 const routes: Routes = [
     {
@@ -30,7 +31,11 @@ const routes: Routes = [
             },
             {
                 path: 'experiments/:id/:variantId',
-                component: ExperimentDetailComponent
+                component: ExperimentDetailComponent,
+                resolve: {
+                    experiment: SingleExperimentResolver,
+                    variant: SingleVariantResolver
+                }                
             },
             {
                 path: 'users',

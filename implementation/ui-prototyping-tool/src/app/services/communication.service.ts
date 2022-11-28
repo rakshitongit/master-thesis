@@ -18,6 +18,9 @@ export class CommunicationService {
     private _deleteElement: Subject<ComponentContainer> = new Subject()
     private _updateCanvasProperty: Subject<View> = new Subject()
 
+    // For experiments
+    private _canvasView: Subject<View> = new Subject()
+
     private _masterView!: View
 
     set masterView(view: View) {
@@ -93,5 +96,13 @@ export class CommunicationService {
 
     getActiveView(): Subject<boolean> {
         return this._activateViews
+    }
+    
+    setExperimentCanvasView(node: View) {
+        this._canvasView.next(node)
+    }
+
+    getExperimentCanvasView(): Subject<View> {
+        return this._canvasView
     }
 }

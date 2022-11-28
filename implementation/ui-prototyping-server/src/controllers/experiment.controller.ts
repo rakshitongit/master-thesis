@@ -18,7 +18,7 @@ import {
     response,
     HttpErrors,
 } from '@loopback/rest';
-import { Experiment } from '../models';
+import { Experiment, ExperimentVariant } from '../models';
 import { ExperimentRepository } from '../repositories';
 
 export class ExperimentController {
@@ -127,7 +127,7 @@ export class ExperimentController {
         })
         experiment: Experiment,
     ): Promise<void> {
-        const total: number = experiment.experimentVarients.map(v => parseInt(v.percentage.toString())).reduce((acc, cur) => acc + cur, 0)
+        const total: number = experiment.experimentVarients.map(v => parseFloat(v.percentage.toString())).reduce((acc, cur) => acc + cur, 0)
 
         if (total > 100) {
             throw new HttpErrors.UnprocessableEntity('Sum of all varients cannot be greater than 100%');
@@ -156,5 +156,21 @@ export class ExperimentController {
     })
     async deleteById(@param.path.string('id') id: string): Promise<void> {
         await this.experimentRepository.deleteById(id);
+    }
+
+    @get('/experiments/{eId}/{vId}')
+    @response(200, {
+        description: 'Experiment model instance',
+        content: {
+            'application/json': {
+                schema: getModelSchemaRef(Experiment, { includeRelations: true }),
+            },
+        },
+    })
+    async findVariantById(
+        @param.path.string('eId') eId: string,
+        @param.path.string('vId') vId: string,
+    ): Promise<ExperimentVariant> {
+        return (await this.experimentRepository.findById(eId)).experimentVarients.filter(v=> v.id == vId)[0];
     }
 }
