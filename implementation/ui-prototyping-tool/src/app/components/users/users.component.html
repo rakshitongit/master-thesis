@@ -19,7 +19,7 @@
                 <tr *ngFor="let user of users; let i=index;">
                     <td style="text-align: center;">{{i + 1}}</td>
                     <td style="text-align: center;">{{user.email}}</td>
-                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;">{{getVariants(user)}}</td>
                     <!-- <td style="text-align: center;">{{experiment.start +' - '+ experiment.end}}</td> -->
                     <!-- <td style="text-align: center;">{{experiment.priority}}</td> -->
                     <!-- <td style="text-align: center;">{{experiment.evaluationType}}</td> -->

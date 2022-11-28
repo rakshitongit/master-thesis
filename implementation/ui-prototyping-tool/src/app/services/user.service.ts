@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { url } from '../classes/abstract-classes';
-import { User } from '../classes/concrete-classes';
+import { User, UserSet } from '../classes/concrete-classes';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,7 @@ export class UserService {
         return this.http.get<User[]>(url + 'users')
     }
 
-    createSetofUsers() {
-        return this.http.post(url + 'users/newSet', null)
+    createSetofUsers(set: UserSet) {
+        return this.http.post(url + 'users/newSet', set)
     }
 }

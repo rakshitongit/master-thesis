@@ -104,4 +104,16 @@ export enum EvaluationType {
 
 export class User {
     email!: string
+    experimentVariants!: ExperimentUser[];
 }
+
+export class ExperimentUser {
+    exp_id!: string
+    variant_id!: string
+    variant_name!: string
+}
+
+export class UserSet {
+    number_of_users!: number
+    password!: string
+  }

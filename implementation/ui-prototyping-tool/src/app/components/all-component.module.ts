@@ -32,7 +32,7 @@ import { ExperimentLeftPanelComponent } from './experiment-components/experiment
 import { ExperimentMiddlePanelComponent } from './experiment-components/experiment-middle-panel/experiment-middle-panel.component';
 import { ExperimentRightPanelComponent } from './experiment-components/experiment-right-panel/experiment-right-panel.component';
 import { ExperimentVariantsComponent } from './experiment-components/experiment-variants/experiment-variants.component';
-import { UsersComponent } from './users/users.component';
+import { DialogForConfirmation, UsersComponent } from './users/users.component';
 
 @NgModule({
     declarations: [
@@ -54,7 +54,8 @@ import { UsersComponent } from './users/users.component';
         ExperimentMiddlePanelComponent,
         ExperimentRightPanelComponent,
         ExperimentVariantsComponent,
-        UsersComponent
+        UsersComponent,
+        DialogForConfirmation
     ],
     imports: [
         CommonModule,
@@ -75,6 +76,18 @@ import { UsersComponent } from './users/users.component';
         ReactiveFormsModule
 
     ],
-    exports: [AbstractUiComponentComponent, SideBarComponent, DefaultPageComponent, ButtonElementComponent, DialogOverviewExampleDialog, LeftPanelComponent, RightPanelComponent, AddOptionDialogComponent, ExperimentsComponent, ExperimentDetailComponent]
+    exports: [
+        AbstractUiComponentComponent, 
+        SideBarComponent, 
+        DefaultPageComponent, 
+        ButtonElementComponent, 
+        DialogOverviewExampleDialog, 
+        LeftPanelComponent, 
+        RightPanelComponent, 
+        AddOptionDialogComponent, 
+        ExperimentsComponent, 
+        ExperimentDetailComponent, 
+        DialogForConfirmation
+    ]
 })
 export class AllComponentModule { }
