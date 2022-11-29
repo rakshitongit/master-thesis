@@ -38,4 +38,8 @@ export class ExperimentLeftPanelComponent implements OnInit {
         this.shared.setExperimentCanvasView(node)
     }
 
+    openDialog(element: string) {
+        this.shared.setAddUIElementExperiment(element)
+    }
+
 }

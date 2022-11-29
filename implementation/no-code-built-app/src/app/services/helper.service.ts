@@ -15,7 +15,7 @@ export class HelperService {
     constructor(private http: HttpClient) { }
 
     getData(): Observable<View> {
-        return this.http.get<any>(url + "json/example.json").pipe(map(t => t.schemaForAngular))
+        return this.http.get<any>(url + 'user/experiments').pipe(map(t => t.masterView))
     }
 
     async getRoutingData(id: string) {

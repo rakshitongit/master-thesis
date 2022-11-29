@@ -1,8 +1,8 @@
 import { CSSProperty } from "./concrete-classes"
 import { ContainerType } from "./ud-enums"
 
-export const url: string = 'http://experimentationplatform.cs.uni-paderborn.de/ui-prototyping/api/'
-// export const url: string = 'http://localhost:3000/'
+// export const url: string = 'http://experimentationplatform.cs.uni-paderborn.de/ui-prototyping/api/'
+export const url: string = 'http://localhost:3000/'
 
 export abstract class IDClass {
     id!: string

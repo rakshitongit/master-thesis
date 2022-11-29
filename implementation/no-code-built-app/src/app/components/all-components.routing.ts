@@ -5,6 +5,8 @@ import { DefaultComponent } from './default/default.component';
 import { MasterViewComponent } from './master-view/master-view.component';
 import { AbstractViewComponent } from './abstract-view/abstract-view.component';
 import { ViewResolver } from '../resolvers/view.resolver';
+import { AuthGuard } from '../guards/auth.guard';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     {
@@ -21,16 +23,22 @@ const routes: Routes = [
                 component: AbstractViewComponent,
                 resolve: {
                     view: ViewResolver
-                }
+                },
+                canActivate: [AuthGuard]
             },
             {
                 path: 'master/view',
                 component: MasterViewComponent,
                 resolve: {
                     view: ViewResolver
-                }
+                },
+                canActivate: [AuthGuard]
             }
         ]
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     }
 ]
 

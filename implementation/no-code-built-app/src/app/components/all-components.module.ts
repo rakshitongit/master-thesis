@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRouteSnapshot, RouterModule } from '@angular/router';
 
 import { MasterViewComponent } from './master-view/master-view.component';
@@ -28,6 +28,7 @@ import { ButtonElementComponent } from './ui-elements/button-element/button-elem
 import { SelectElementComponent } from './ui-elements/select-element/select-element.component';
 import { AbstractViewComponent } from './abstract-view/abstract-view.component';
 import { ViewResolver } from '../resolvers/view.resolver';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     imports: [
@@ -48,7 +49,7 @@ import { ViewResolver } from '../resolvers/view.resolver';
         MatSnackBarModule,
         MatInputModule,
         RouterModule,
-        ReactiveFormsModule
+        FormsModule
     ],
 
     declarations: [
@@ -58,7 +59,8 @@ import { ViewResolver } from '../resolvers/view.resolver';
         InputElementComponent,
         ButtonElementComponent,
         SelectElementComponent,
-        AbstractViewComponent
+        AbstractViewComponent,
+        LoginComponent
     ],
 
     exports: [
@@ -67,7 +69,8 @@ import { ViewResolver } from '../resolvers/view.resolver';
         AbstractElementComponent,
         InputElementComponent,
         ButtonElementComponent,
-        SelectElementComponent
+        SelectElementComponent,
+        LoginComponent
     ],
     providers: [
         HelperService,

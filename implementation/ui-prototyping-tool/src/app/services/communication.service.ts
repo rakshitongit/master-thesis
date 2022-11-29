@@ -23,6 +23,7 @@ export class CommunicationService {
     private _canvasView: Subject<View> = new Subject()
     private _updateExperimentCanvasProperty: Subject<View> = new Subject()
     private _updateExperimentSelectedElement: Subject<any> = new Subject()
+    private _addExperimentUIElement: Subject<any> = new Subject()
     private _experiment!: Experiment
 
     set experiment(ex: Experiment) {
@@ -138,5 +139,13 @@ export class CommunicationService {
             }
         })
         await lastValueFrom(this.eService.createNewExperimentVariant(experiment))
+    }
+
+    setAddUIElementExperiment(el: string) {
+        this._addExperimentUIElement.next(el)
+    }
+
+    getAddUIElementExperiment(): Subject<any> {
+        return this._addExperimentUIElement
     }
 }

@@ -21,7 +21,7 @@ import { SecurityBindings, securityId, UserProfile } from '@loopback/security';
 import { genSalt, hash } from 'bcryptjs';
 import { randomUUID } from 'crypto';
 import _ from 'lodash';
-import { Experiment, MyUser } from '../models';
+import { Experiment, ExperimentVariant, MyUser } from '../models';
 import { ExperimentRepository } from '../repositories';
 
 class UsersSet {
@@ -59,7 +59,7 @@ export class UserController {
     @inject(UserServiceBindings.USER_SERVICE)
     public userService: MyUserService,
     @inject(SecurityBindings.USER, { optional: true })
-    public user: UserProfile,
+    public user: MyUser,
     @repository(UserRepository) protected userRepository: UserRepository,
     @repository(ExperimentRepository) protected experimentRepository: ExperimentRepository,
   ) { }
@@ -184,7 +184,7 @@ export class UserController {
     experiments.forEach(experiment => {
       assign_experiment_to_users(experiment, users)
     })
-    console.log(users.forEach(u=> console.log(u.experimentVarients)))
+    console.log(users.forEach(u => console.log(u.experimentVarients)))
     users.forEach(async u => await this.userRepository.updateById(u.id, u))
     return true
   }
@@ -203,6 +203,28 @@ export class UserController {
   })
   async find(): Promise<User[]> {
     return this.userRepository.find();
+  }
+
+  @authenticate('jwt')
+  @get('/user/experiments')
+  @response(200, {
+    description: 'Experiment Variant data',
+    content: {
+      'application/json': {
+        schema: {
+          type: 'object',
+          items: getModelSchemaRef(ExperimentVariant, { includeRelations: true }),
+        },
+      },
+    },
+  })
+  async getExperimentVariant(
+    @inject(SecurityBindings.USER)
+    currentUserProfile: UserProfile
+  ): Promise<ExperimentVariant> {
+    const user: any = await this.userService.findUserById(currentUserProfile[securityId])
+    console.log(user)
+    return (await this.experimentRepository.findById(user.experimentVariants[0].exp_id)).experimentVarients.filter(v => v.id == user.experimentVariants[0].variant_id)[0];
   }
 }
 
