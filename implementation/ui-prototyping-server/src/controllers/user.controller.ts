@@ -8,7 +8,7 @@ import {
   UserServiceBindings,
 } from '@loopback/authentication-jwt';
 import { inject } from '@loopback/core';
-import { model, property, repository } from '@loopback/repository';
+import { repository } from '@loopback/repository';
 import {
   get,
   getModelSchemaRef,
