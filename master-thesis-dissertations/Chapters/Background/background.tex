@@ -171,11 +171,30 @@ Additionally, a variety of options are provided for developers with little progr
 %********************************** % Model-Based Software Engineering **************************************
 \section{Model-based Software Engineering}
 \label{background:section:mbse}
+\begin{figure}[htbp!]
+  \centering    
+  \includegraphics[width=0.9\textwidth]{meta-models.png}
+  \caption[Meta models]{Meta models and Models}
+  \label{fig:background:m1m2}
+\end{figure}
+
 Model-based Software Engineering (MBSE) refers to maintaining and developing software while reusing existing code.
 Similarly, Model-driven software engineering (MDSE) is the term used to cover various techniques for creating software using codified models.
 The development of domain-specific languages (DSLs) is becoming essential in language engineering due to the growth in model-driven engineering (MDE) \cite{article:mbse:cuadrado}.
-MDSE has become an integral part of developing User interfaces, and they have been named Model-driven User Interfaces (MUIs).
-Based on that, adaptive model-driven user interface development systems are developed \cite{article:mbse:akiki}.
+At the same time, for creating models, the Model Object Facility (MOF) has defined three levels separating the reality, models, meta-models and meta-meta-models (as shown in the figure \ref{fig:background:moflevels}).
+\begin{figure}[htbp!]
+  \centering    
+  \includegraphics[width=0.5\textwidth]{mof-meta-modelling.png}
+  \caption[MOF levels]{Model Object Facility (MOF) levels}
+  \label{fig:background:moflevels}
+\end{figure}
+\paragraph{Meta Models:} Meta-model is defined as a model of a model or a simplified version of an actual model of a system of interest or a software application.
+Meta models can act as an intermediary between the input and the output relations and can represent mathematical relations or algorithms.
+A model is usually defined as an abstraction of real-world entities, and a metamodel is another abstraction of the models. 
+Similarly, metamodelling is a process of analysis and development of the rules, theories and models useful for constructing meta-models.
+From figure \ref{fig:background:m1m2}, the meta-models are very similar to the UML class diagrams and the models are instances of them. 
+
+Adaptive model-driven user interface development systems are developed \cite{article:mbse:akiki}.
 In this research, the authors defined twenty properties challenges for the Model-driven User interface and compared some tools that implement these properties.
 
 Companies use different modeling languages to codify the UIs.
@@ -211,21 +230,42 @@ The task scenario example\footnote{Task based usability: \url{https://www.nngrou
   \item \textbf{Good task scenario:} Use \textit{www.videostreamer.com} to find a movie that fits your interest that you'd be interested in watching on Sunday afternoon. 
 \end{itemize}
 In this example, the \textit{bad} task scenario gives detailed information about the navigation, violating the third tip.
-
+\clearpage
 %********************************** % Experimentation **************************************
 \section{Experimentation}
 \label{background:section:experimentproduct}
 Experimental Product Design (EPD) has become integral to optimizing UI and \textit{User Experience (UX)}.
 Experimentation helps product teams test out ideas early in the process with real-world consumers rather than settling on a single solution and executing it in the final phase \cite{misc:CE:miklos}.
 In this section, we discuss the role that experimentation plays in the software development process and how designers can ``prototype with real data'' to improve the usability of the UI.
+\begin{figure}[htbp!]
+  \centering    
+  \includegraphics[width=0.5\textwidth]{ab-testing.png}
+  \caption[A/B Testing]{A/B Testing}
+  \label{fig:background:abtesting}
+\end{figure}
+For conducting experiments, various steps like \textbf{Users distribution}, \textbf{Continuous Experimentation}, \textbf{Variants distribution}, \textbf{Measurements}, and \textbf{Refining the model} exist.  
 
-\paragraph{Continuous Experimentation:} 
+\paragraph{User distribution:} To conduct a successful experiment, the size of the study, or the number of participants, must be considered first.
+Statistics suggest that the more people you include in the investigation, the greater its statistical power, which impacts your level of confidence in your findings \cite{misc:experimentation:users}.
+The next step is to allocate the participants to treatment groups at random. 
+There are several levels of treatment given to each group (e.g., some prerequisites to the participants before experimenting).
+For assigning the subjects to groups, users are divided into a \textit{between-subjects design} vs a \textit{within-subjects design}.
+In a between-subjects design, individuals receive only one of the possible levels of an experimental treatment whereas, in a within-subjects design, every individual receives each of the experimental treatments consecutively, and their responses to each treatment are measured.
+In figure \ref{fig:background:abtesting}, a between-subject design is used where only one of the variants is assigned to the user.
+
+\paragraph{Continuous Experimentation and Variants distribution:} 
 Continuous experimentation (CE) primarily aims to get users' feedback on the software product's evolution.
-CE generally uses A/B/n testing in a primary case of comparing two variants, A and B, which are controlled and test variables in an experiment.
-With CE, developers make evidence-based decisions to direct the progress of their software by continuously measuring the results of multiple variants performed in an experimental context with actual users \cite{article:CE:ros}.
+As per figure \ref{fig:background:abtesting}, CE generally uses A/B/n testing in a primary case of comparing two variants, A and B, which are controlled and test variables in an experiment.
+First, the users or the participants of the study are separated into groups and are assigned one of the two variants.
+Since we have \texttt{GridView} and the \texttt{ListView}, one group of the users are assigned with List and one with Grid View (see figure \ref{fig:background:abtesting}).
+Then both users would be given some tasks (see Section \ref{background:section:task}), and the analysis of these tasks gives the winner among the variants.  
+And in the end, developers make evidence-based decisions to direct the progress of their software by continuously measuring the results of multiple variants performed in an experimental context with actual users \cite{article:CE:ros}.
 CE is an extension to the introduction of continuous integration and deployment, and all are summarized as constant software engineering \cite{article:CE:fitzgerald}.
 
-% \clearpage
+\paragraph{Examples of A/B Testing:}
+Some tools conduct A/B Testing and are used to improve User Interface. \textit{Optimizely}\footnote{Optimizely: \url{https://www.optimizely.com/}}, \textit{Adobe Target}\footnote{Adobe Target: \url{https://business.adobe.com/in/products/target/adobe-target.html}}, \textit{Petri}\footnote{Petri: \url{https://github.com/wix-incubator/petri}}, \textit{Google Analytics and Google Optimize}\footnote{Google Analytics and Google Optimize: \url{https://vwo.com/compare/google-optimize/}} are some of the research tools which can be used to conduct A/B Testing.
+
+\clearpage
 
 % \begin{landscape}
 
