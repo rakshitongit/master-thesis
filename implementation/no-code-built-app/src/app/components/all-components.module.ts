@@ -29,6 +29,7 @@ import { SelectElementComponent } from './ui-elements/select-element/select-elem
 import { AbstractViewComponent } from './abstract-view/abstract-view.component';
 import { ViewResolver } from '../resolvers/view.resolver';
 import { LoginComponent } from './login/login.component';
+import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-iterator.component';
 
 @NgModule({
     imports: [
@@ -60,7 +61,8 @@ import { LoginComponent } from './login/login.component';
         ButtonElementComponent,
         SelectElementComponent,
         AbstractViewComponent,
-        LoginComponent
+        LoginComponent,
+        SimpleIteratorComponent
     ],
 
     exports: [

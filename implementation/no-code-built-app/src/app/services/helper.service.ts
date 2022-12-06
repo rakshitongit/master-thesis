@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom, lastValueFrom, map, Observable } from 'rxjs';
 import { url } from '../classes/abstract-classes';
-import { View } from '../classes/concrete-classes';
+import { DataModel, View } from '../classes/concrete-classes';
 var dasherize = require('dasherize');
 
 @Injectable({
@@ -46,5 +46,9 @@ export class HelperService {
             }
         }
         return new View()
+    }
+
+    getDataFromKey(key: string): Observable<DataModel | undefined> {
+        return this.http.get<DataModel[]>(url + 'data-models').pipe(map(items => items.find(item => item.key === key)))
     }
 }

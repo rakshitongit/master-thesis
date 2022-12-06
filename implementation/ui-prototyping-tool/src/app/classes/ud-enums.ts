@@ -7,7 +7,7 @@ export enum Actions {
 }
 
 export enum UIElements {
-    BUTTON = "Button", SELECT = "Select", INPUT = "Input"
+    BUTTON = "Button", SELECT = "Select", INPUT = "Input", SIMPLE_ITERATOR = "SI"
 }
 
 export enum ContainerType {

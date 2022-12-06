@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import { DefaultPageComponent } from './default-page/default-page.component';
+import { DataModelModalComponent, DefaultPageComponent } from './default-page/default-page.component';
 import { AbstractUiComponentComponent } from './abstract-ui-component/abstract-ui-component.component';
 import { ButtonElementComponent } from './ui-elements/button-element/button-element.component';
 import { DialogOverviewExampleDialog, LeftPanelComponent } from './left-panel/left-panel.component';
@@ -33,6 +33,9 @@ import { ExperimentMiddlePanelComponent } from './experiment-components/experime
 import { ExperimentRightPanelComponent } from './experiment-components/experiment-right-panel/experiment-right-panel.component';
 import { ExperimentVariantsComponent } from './experiment-components/experiment-variants/experiment-variants.component';
 import { DialogForConfirmation, UsersComponent } from './users/users.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { DataModelComponent } from './data-model/data-model.component';
+import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-iterator.component';
 
 @NgModule({
     declarations: [
@@ -55,7 +58,11 @@ import { DialogForConfirmation, UsersComponent } from './users/users.component';
         ExperimentRightPanelComponent,
         ExperimentVariantsComponent,
         UsersComponent,
-        DialogForConfirmation
+        DialogForConfirmation,
+        DataModelModalComponent,
+        DataModelComponent,
+        DataModelComponent,
+        SimpleIteratorComponent
     ],
     imports: [
         CommonModule,
@@ -73,8 +80,8 @@ import { DialogForConfirmation, UsersComponent } from './users/users.component';
         MatInputModule,
         FormsModule,
         AppRoutingModule,
-        ReactiveFormsModule
-
+        ReactiveFormsModule,
+        NgxMatFileInputModule
     ],
     exports: [
         AbstractUiComponentComponent, 
@@ -87,7 +94,10 @@ import { DialogForConfirmation, UsersComponent } from './users/users.component';
         AddOptionDialogComponent, 
         ExperimentsComponent, 
         ExperimentDetailComponent, 
-        DialogForConfirmation
+        DialogForConfirmation,
+        DataModelModalComponent,
+        DataModelComponent,
+        SimpleIteratorComponent
     ]
 })
 export class AllComponentModule { }

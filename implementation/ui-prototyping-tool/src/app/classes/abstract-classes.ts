@@ -8,13 +8,9 @@ export const url: string = 'http://localhost:3000/'
 export abstract class IDClass {
     id!: string
 
-    // get id(): string {
-    //     return this._id
-    // }
-
-    // set id(id: string) {
-    //     this._id = id
-    // }
+    getId(): string {
+        return this.id
+    }
 }
 
 export abstract class AbstractContainer extends IDClass {

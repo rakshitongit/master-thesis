@@ -18,4 +18,10 @@ export class UserService {
     createSetofUsers(set: UserSet) {
         return this.http.post(url + 'users/newSet', set)
     }
+
+    uploadData(file: any, key: string) {
+        const formData = new FormData();
+        formData.append('file', file, "customfile.csv");
+        return this.http.post(url + 'files/' + key, formData)
+    }
 }

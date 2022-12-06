@@ -1,4 +1,4 @@
-import { AbstractContainer, AbstractProperty, AbstractUIProperty, Interaction } from "./abstract-classes";
+import { AbstractContainer, AbstractProperty, AbstractUIProperty, IDClass, Interaction } from "./abstract-classes";
 import { Actions, Connectors, InputType } from "./ud-enums";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -64,6 +64,11 @@ export class SelectElementProperty extends AbstractUIProperty {
     labelText!: string;
 }
 
+export class SimpleIteratorProperty extends AbstractUIProperty {
+    titleText!: string
+    dataModelKey!: string
+}
+
 export class OptionElementProperty extends AbstractUIProperty {
 
 }
@@ -116,4 +121,9 @@ export class ExperimentUser {
 export class UserSet {
     number_of_users!: number
     password!: string
-  }
+}
+
+export class DataModel extends IDClass {
+    key!: string
+    data!: any
+}

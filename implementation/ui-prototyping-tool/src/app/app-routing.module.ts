@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DataModelComponent } from './components/data-model/data-model.component';
 import { DefaultPageComponent } from './components/default-page/default-page.component';
 import { ExperimentDetailComponent } from './components/experiment-components/experiment-detail/experiment-detail.component';
 import { ExperimentVariantsComponent } from './components/experiment-components/experiment-variants/experiment-variants.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
             {
                 path: 'users',
                 component: UsersComponent
+            },
+            {
+                path: 'data-model',
+                component: DataModelComponent
             }
         ]
     }
