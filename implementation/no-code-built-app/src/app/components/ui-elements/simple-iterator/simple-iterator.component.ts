@@ -29,7 +29,6 @@ export class SimpleIteratorComponent implements OnInit {
     async getData() {
         this.dataModel = await lastValueFrom(this.helper.getDataFromKey(this.prop.property.dataModelKey))
         this.ths = Object.keys(this.dataModel.data[0])
-        console.log(this.ths)
     }
 
 }
