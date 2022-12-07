@@ -78,6 +78,7 @@ export class FileUploadController {
                 dataModel.data = csvDataColl
                 dataModel.key = key
                 await this.dataModelRepository.create(dataModel)
+                fs.unlinkSync(uriFile)
             });
     }
 
