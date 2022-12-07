@@ -42,7 +42,7 @@ export class ExperimentMiddlePanelComponent implements OnInit {
     }
 
     addUIElementEvent() {
-        this.shared.getAddUIElementExperiment().subscribe(val=> {
+        this.shared.getAddUIElementExperiment().subscribe(val => {
             this.toAddElement = val
             if (this.currentView.name == '' || this.currentView.name == undefined) {
                 this._snackBar.open('Please select the View!', 'Ok')
@@ -114,6 +114,7 @@ export class ExperimentMiddlePanelComponent implements OnInit {
             console.log(event.key)
             if (event.key == 'Delete' || event.key == 'Backspace') {
                 recaptchaContainer.remove()
+                this.currentView.elements = this.currentView.elements.filter(e => e.id !== el.id)
                 // if(this.currentVariant) {
                 //     this.currentVariant.elements = this.currentVariant.elements.filter(e => e.id !== el.id)
                 // } else {
