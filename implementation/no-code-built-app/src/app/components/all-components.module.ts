@@ -30,6 +30,7 @@ import { AbstractViewComponent } from './abstract-view/abstract-view.component';
 import { ViewResolver } from '../resolvers/view.resolver';
 import { LoginComponent } from './login/login.component';
 import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-iterator.component';
+import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator.component';
 
 @NgModule({
     imports: [
@@ -62,7 +63,8 @@ import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-it
         SelectElementComponent,
         AbstractViewComponent,
         LoginComponent,
-        SimpleIteratorComponent
+        SimpleIteratorComponent,
+        GridIteratorComponent
     ],
 
     exports: [

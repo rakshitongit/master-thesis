@@ -127,7 +127,6 @@ export class ExperimentMiddlePanelComponent implements OnInit {
     }
 
     updateMasterView() {
-        console.log(this.currentVariant)
         this.shared.saveVariantExperiment(this.currentVariant)
     }
 

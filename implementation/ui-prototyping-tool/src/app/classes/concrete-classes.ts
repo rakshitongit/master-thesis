@@ -69,6 +69,11 @@ export class SimpleIteratorProperty extends AbstractUIProperty {
     dataModelKey!: string
 }
 
+export class GridIteratorProperty extends AbstractUIProperty {
+    titleText!: string
+    dataModelKey!: string
+}
+
 export class OptionElementProperty extends AbstractUIProperty {
 
 }

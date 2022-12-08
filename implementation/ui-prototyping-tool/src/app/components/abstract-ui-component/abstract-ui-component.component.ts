@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractUIProperty } from 'src/app/classes/abstract-classes';
-import { ButtonElementProperty, InputElementProperty, SelectElementProperty, SimpleIteratorProperty } from 'src/app/classes/concrete-classes';
+import { ButtonElementProperty, GridIteratorProperty, InputElementProperty, SelectElementProperty, SimpleIteratorProperty } from 'src/app/classes/concrete-classes';
 
 @Component({
     selector: 'app-abstract-ui-component',
@@ -34,6 +34,10 @@ export class AbstractUiComponentComponent implements OnInit {
 
     getSimpleIteratorProperty(): SimpleIteratorProperty {
         return this.prop as SimpleIteratorProperty
+    }
+    
+    getGridIteratorProperty(): GridIteratorProperty {
+        return this.prop as GridIteratorProperty
     }
 
 }

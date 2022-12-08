@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AbstractContainer, AbstractUIProperty, Interaction } from 'src/app/classes/abstract-classes';
-import { ButtonElementProperty, ComponentContainer, CSSProperty, InputElementProperty, OnClickInteraction, SelectElementProperty, SimpleIteratorProperty, View } from 'src/app/classes/concrete-classes';
+import { ButtonElementProperty, ComponentContainer, CSSProperty, GridIteratorProperty, InputElementProperty, OnClickInteraction, SelectElementProperty, SimpleIteratorProperty, View } from 'src/app/classes/concrete-classes';
 import { ContainerType, UIElements } from 'src/app/classes/ud-enums';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { ViewsService } from 'src/app/services/views.service';
@@ -97,6 +97,9 @@ export class RightPanelComponent implements OnInit {
                     break
                 case UIElements.SIMPLE_ITERATOR:
                     (this.element as ComponentContainer).property = new SimpleIteratorProperty()
+                    break
+                case UIElements.GRID_ITERATOR:
+                    (this.element as ComponentContainer).property = new GridIteratorProperty()
                     break
             }
         }

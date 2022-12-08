@@ -36,6 +36,7 @@ import { DialogForConfirmation, UsersComponent } from './users/users.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { DataModelComponent } from './data-model/data-model.component';
 import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-iterator.component';
+import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator.component';
 
 @NgModule({
     declarations: [
@@ -62,7 +63,8 @@ import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-it
         DataModelModalComponent,
         DataModelComponent,
         DataModelComponent,
-        SimpleIteratorComponent
+        SimpleIteratorComponent,
+        GridIteratorComponent
     ],
     imports: [
         CommonModule,
@@ -97,7 +99,8 @@ import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-it
         DialogForConfirmation,
         DataModelModalComponent,
         DataModelComponent,
-        SimpleIteratorComponent
+        SimpleIteratorComponent,
+        GridIteratorComponent
     ]
 })
 export class AllComponentModule { }

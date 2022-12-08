@@ -1,0 +1,12 @@
+<div [style.top.px]="position.y" [style.left.px]="position.x" style="position: absolute;">
+    <div style="max-height: 300px; overflow-y: scroll;">
+        <h3>{{prop.property.titleText}}</h3>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell border-custom" *ngFor="let data of dataModel.data; let i=index;">
+                    <div *ngFor="let th of ths">{{th}} : {{data[th]}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
