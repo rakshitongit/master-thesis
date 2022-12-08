@@ -1,0 +1,49 @@
+<mat-card style="margin: 50px;">
+    <mat-card-title>
+        Tasks for '{{experiment.name}}'
+        <button class="pull-right" mat-icon-button>
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-subtitle>Create and update experiments</mat-card-subtitle>
+    <mat-card-content style="margin: 20px;">
+        <table class="mat-elevation-z8 demo-table">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Task name</th>
+                    <th>Task description</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of experiment.experimentTasks; let i=index;">
+                    <td style="text-align: center;">{{i + 1}}</td>
+                    <td style="text-align: center;">{{task.name}}</td>
+                    <td style="text-align: center;">{{task.description}}</td>
+                    <td style="text-align: center;"><button mat-icon-button color="warn" (click)="deleteExperimentTask(task)"><mat-icon>delete</mat-icon></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
+
+<mat-card style="margin: 50px;">
+    <mat-card-title>
+        Add an Experiment
+    </mat-card-title>
+    <mat-card-subtitle>Create your experiments</mat-card-subtitle>
+    <mat-card-content>
+        <form [formGroup]="experimentForm" (ngSubmit)="submitExperimentTask()">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Task Name</mat-label>
+                <input matInput type="text" formControlName="experimentTaskName" [(ngModel)]="addTask.name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Task Description</mat-label>
+                <input matInput type="text" formControlName="experimentTaskDescription" [(ngModel)]="addTask.description">
+            </mat-form-field>
+            <button class="example-full-width" [disabled]="!experimentForm.valid" mat-flat-button color="primary">Submit</button>
+        </form>
+    </mat-card-content>
+</mat-card>

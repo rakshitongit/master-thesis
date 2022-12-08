@@ -5,6 +5,7 @@ import { DefaultPageComponent } from './components/default-page/default-page.com
 import { ExperimentDetailComponent } from './components/experiment-components/experiment-detail/experiment-detail.component';
 import { ExperimentVariantsComponent } from './components/experiment-components/experiment-variants/experiment-variants.component';
 import { ExperimentsComponent } from './components/experiment-components/experiments/experiments.component';
+import { TasksComponent } from './components/experiment-components/tasks/tasks.component';
 import { PrototypingComponent } from './components/prototyping/prototyping.component';
 import { UsersComponent } from './components/users/users.component';
 import { SingleExperimentResolver } from './resolvers/single-experiment.resolver';
@@ -26,6 +27,13 @@ const routes: Routes = [
             {
                 path: 'experiments/:id',
                 component: ExperimentVariantsComponent,
+                resolve: {
+                    experiment: SingleExperimentResolver
+                }
+            },
+            {
+                path: 'experiments/:id/tasks/view',
+                component: TasksComponent,
                 resolve: {
                     experiment: SingleExperimentResolver
                 }

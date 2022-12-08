@@ -37,6 +37,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { DataModelComponent } from './data-model/data-model.component';
 import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-iterator.component';
 import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator.component';
+import { TasksComponent } from './experiment-components/tasks/tasks.component';
 
 @NgModule({
     declarations: [
@@ -64,7 +65,8 @@ import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator
         DataModelComponent,
         DataModelComponent,
         SimpleIteratorComponent,
-        GridIteratorComponent
+        GridIteratorComponent,
+        TasksComponent
     ],
     imports: [
         CommonModule,
@@ -100,7 +102,8 @@ import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator
         DataModelModalComponent,
         DataModelComponent,
         SimpleIteratorComponent,
-        GridIteratorComponent
+        GridIteratorComponent,
+        TasksComponent
     ]
 })
 export class AllComponentModule { }

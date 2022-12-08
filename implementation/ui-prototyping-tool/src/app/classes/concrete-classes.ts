@@ -91,6 +91,7 @@ export class Experiment {
     priority!: number
     evaluationType!: EvaluationType
     experimentVarients: Variant[] = []
+    experimentTasks!: ExperimentTask[]
 }
 
 export class Variant {
@@ -131,4 +132,9 @@ export class UserSet {
 export class DataModel extends IDClass {
     key!: string
     data!: any
+}
+
+export class ExperimentTask extends IDClass {
+    name!: string
+    description!: string
 }

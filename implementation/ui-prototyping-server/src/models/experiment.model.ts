@@ -47,6 +47,14 @@ export class Experiment extends Entity {
     })
     experimentVarients: ExperimentVariant[];
 
+    @property({
+        type: 'array',
+        itemType: 'object',
+        required: false,
+        default: []
+    })
+    experimentTasks: ExperimentTask[]
+
     // Define well-known properties here
 
     // Indexer property to allow additional data
@@ -73,4 +81,8 @@ export class ExperimentVariant {
     name: string
     percentage: number
     masterView: View
+}
+
+export class ExperimentTask {
+    
 }

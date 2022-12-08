@@ -12,6 +12,7 @@
                 <tr>
                     <th>Nr.</th>
                     <th>Experiment name</th>
+                    <th>Experiment tasks</th>
                     <th>Time range</th>
                     <th>Priority</th>
                     <th>Evaluation</th>
@@ -23,6 +24,7 @@
                 <tr *ngFor="let experiment of experiments; let i=index;">
                     <td style="text-align: center;">{{i + 1}}</td>
                     <td style="text-align: center;"><a routerLink="/experiments/{{experiment.id}}">{{experiment.name}}</a></td>
+                    <td style="text-align: center;"><a routerLink="/experiments/{{experiment.id}}/tasks/view">User Tasks</a></td>
                     <td style="text-align: center;">{{experiment.start +' - '+ experiment.end}}</td>
                     <td style="text-align: center;">{{experiment.priority}}</td>
                     <td style="text-align: center;">{{experiment.evaluationType}}</td>
