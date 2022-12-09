@@ -7,6 +7,7 @@ import { AbstractViewComponent } from './abstract-view/abstract-view.component';
 import { ViewResolver } from '../resolvers/view.resolver';
 import { AuthGuard } from '../guards/auth.guard';
 import { LoginComponent } from './login/login.component';
+import { UserTasksComponent } from './tasks/user-tasks/user-tasks.component';
 
 const routes: Routes = [
     {
@@ -33,6 +34,10 @@ const routes: Routes = [
                     view: ViewResolver
                 },
                 canActivate: [AuthGuard]
+            },
+            {
+                path: 'user-tasks/view',
+                component: UserTasksComponent
             }
         ]
     },

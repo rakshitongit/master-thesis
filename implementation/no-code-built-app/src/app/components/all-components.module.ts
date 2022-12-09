@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRouteSnapshot, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { MasterViewComponent } from './master-view/master-view.component';
 import { AllComponentRoutingModule } from './all-components.routing';
@@ -31,6 +31,7 @@ import { ViewResolver } from '../resolvers/view.resolver';
 import { LoginComponent } from './login/login.component';
 import { SimpleIteratorComponent } from './ui-elements/simple-iterator/simple-iterator.component';
 import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator.component';
+import { UserTasksComponent } from './tasks/user-tasks/user-tasks.component';
 
 @NgModule({
     imports: [
@@ -64,7 +65,8 @@ import { GridIteratorComponent } from './ui-elements/grid-iterator/grid-iterator
         AbstractViewComponent,
         LoginComponent,
         SimpleIteratorComponent,
-        GridIteratorComponent
+        GridIteratorComponent,
+        UserTasksComponent,
     ],
 
     exports: [

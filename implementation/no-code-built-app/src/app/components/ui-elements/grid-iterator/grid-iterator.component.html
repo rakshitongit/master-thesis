@@ -4,7 +4,7 @@
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner" style="max-height: 300px; overflow-y: scroll;">
                 <div class="mdc-layout-grid__cell border-custom" *ngFor="let data of dataModel.data; let i=index;">
-                    <div *ngFor="let th of ths">{{th}} : {{data[th]}}</div>
+                    <div *ngFor="let th of ths">{{data[th]}}</div>
                 </div>
             </div>
         </div>

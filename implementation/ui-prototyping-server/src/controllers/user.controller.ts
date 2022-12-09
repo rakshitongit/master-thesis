@@ -224,7 +224,10 @@ export class UserController {
   ): Promise<ExperimentVariant> {
     const user: any = await this.userService.findUserById(currentUserProfile[securityId])
     console.log(user)
-    return (await this.experimentRepository.findById(user.experimentVariants[0].exp_id)).experimentVarients.filter(v => v.id == user.experimentVariants[0].variant_id)[0];
+    const experimentOfUser: Experiment = await this.experimentRepository.findById(user.experimentVariants[0].exp_id)
+    const expVariant: ExperimentVariant = experimentOfUser.experimentVarients.filter(v => v.id == user.experimentVariants[0].variant_id)[0]
+    expVariant.experimentTasks = experimentOfUser.experimentTasks
+    return expVariant
   }
 }
 

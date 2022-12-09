@@ -137,4 +137,5 @@ export class DataModel extends IDClass {
 export class ExperimentTask extends IDClass {
     name!: string
     description!: string
+    dataModel!: string
 }

@@ -10,9 +10,20 @@ var dasherize = require('dasherize');
 })
 export class HelperService {
 
+    private _timer: { time: number } = { time: 0 }
+    get timer() {
+        return this._timer
+    }
+
+    private interval: any;
+
     private _masterView!: View
 
     constructor(private http: HttpClient) { }
+
+    getExperimentData(): Observable<any> {
+        return this.http.get<any>(url + 'user/experiments')
+    }
 
     getData(): Observable<View> {
         return this.http.get<any>(url + 'user/experiments').pipe(map(t => t.masterView))
@@ -50,5 +61,35 @@ export class HelperService {
 
     getDataFromKey(key: string): Observable<DataModel | undefined> {
         return this.http.get<DataModel[]>(url + 'data-models').pipe(map(items => items.find(item => item.key === key)))
+    }
+
+    analyseKeyFromDatModel(key: string, tasks: any[]): boolean {
+        const toRet: boolean = false
+        if (key.trim() !== '') {
+            for (let t of tasks) {
+                if (t.description.toString().indexOf(key) != -1) {
+                    return true
+                }
+            }
+        }
+        return toRet
+    }
+
+    canStartTimer(): boolean {
+        if (this.interval == undefined) {
+            return true
+        }
+        return false
+    }
+
+    startTimer() {
+        this.interval = setInterval(() => {
+            this._timer.time++;
+        }, 1000)
+    }
+
+    stopTimer() {
+        clearInterval(this.interval)
+        this.interval = undefined
     }
 }

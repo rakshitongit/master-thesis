@@ -81,6 +81,7 @@ export class ExperimentVariant {
     name: string
     percentage: number
     masterView: View
+    experimentTasks: ExperimentTask[]
 }
 
 export class ExperimentTask {

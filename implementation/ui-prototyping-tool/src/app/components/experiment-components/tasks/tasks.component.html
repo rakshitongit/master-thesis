@@ -43,6 +43,12 @@
                 <mat-label>Task Description</mat-label>
                 <input matInput type="text" formControlName="experimentTaskDescription" [(ngModel)]="addTask.description">
             </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Task Dependent Data model</mat-label>
+                <select formControlName="dataModel" matNativeControl required [(ngModel)]="addTask.dataModel">
+                    <option *ngFor="let eval of dataModels;" [value]="eval.key">{{eval.key}}
+                </select>
+            </mat-form-field>
             <button class="example-full-width" [disabled]="!experimentForm.valid" mat-flat-button color="primary">Submit</button>
         </form>
     </mat-card-content>
