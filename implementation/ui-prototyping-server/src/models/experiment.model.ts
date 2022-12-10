@@ -9,7 +9,7 @@ export class Experiment extends Entity {
         id: true,
         generated: true
     })
-    id?: string;
+    id: string;
 
     @property({
         type: 'string',

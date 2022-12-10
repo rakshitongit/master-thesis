@@ -1,8 +1,10 @@
+import { User, UserRepository } from '@loopback/authentication-jwt';
 import {
     Count,
     CountSchema,
     Filter,
     FilterExcludingWhere,
+    model,
     repository,
     Where,
 } from '@loopback/repository';
@@ -18,13 +20,14 @@ import {
     response,
     HttpErrors,
 } from '@loopback/rest';
-import { Experiment, ExperimentVariant } from '../models';
+import { Experiment, ExperimentVariant, ExperimentTask } from '../models';
 import { ExperimentRepository } from '../repositories';
 
 export class ExperimentController {
     constructor(
         @repository(ExperimentRepository)
         public experimentRepository: ExperimentRepository,
+        @repository(UserRepository) protected userRepository: UserRepository,
     ) { }
 
     @post('/experiments')
@@ -135,7 +138,10 @@ export class ExperimentController {
         if (experiment.experimentVarients.find((v) => v.percentage == 0)) {
             throw new HttpErrors.UnprocessableEntity('Percentage cannot be 0');
         }
-
+        if (experiment.addtask) {
+            // add the tasks to the user directory
+            await this.addExperimentTaskToUsers(experiment.id, experiment.newTask)
+        }
         await this.experimentRepository.updateById(id, experiment);
     }
 
@@ -171,6 +177,29 @@ export class ExperimentController {
         @param.path.string('eId') eId: string,
         @param.path.string('vId') vId: string,
     ): Promise<ExperimentVariant> {
-        return (await this.experimentRepository.findById(eId)).experimentVarients.filter(v=> v.id == vId)[0];
+        return (await this.experimentRepository.findById(eId)).experimentVarients.filter(v => v.id == vId)[0];
     }
+
+    async addExperimentTaskToUsers(expId: string, task: ExperimentTask) {
+        const users: User[] = await this.userRepository.find()
+        for (let u of users) {
+            u.experimentVariants.forEach(async (v: any) => {
+                if (v.exp_id == expId) {
+                    console.log('Comes here')
+                    if (v.experimentTasks) {
+                        v.experimentTasks.push(task)
+                    } else {
+                        v.experimentTasks = [task]
+                    }
+                }
+                await this.userRepository.updateById(u.id, u)
+            })
+        }
+    }
+}
+
+
+class AddTask extends Experiment {
+    addtask: boolean
+    newTask: ExperimentTask
 }

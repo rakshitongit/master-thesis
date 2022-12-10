@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom, lastValueFrom, map, Observable } from 'rxjs';
 import { url } from '../classes/abstract-classes';
-import { DataModel, View } from '../classes/concrete-classes';
+import { DataModel, TaskProgress, View } from '../classes/concrete-classes';
 var dasherize = require('dasherize');
 
 @Injectable({
@@ -23,6 +23,10 @@ export class HelperService {
 
     getExperimentData(): Observable<any> {
         return this.http.get<any>(url + 'user/experiments')
+    }
+
+    updateExperimentData(experiment: any): Observable<any> {
+        return this.http.post<any>(url + 'user/experiments', experiment)
     }
 
     getData(): Observable<View> {
@@ -65,9 +69,15 @@ export class HelperService {
 
     analyseKeyFromDatModel(key: string, tasks: any[]): boolean {
         const toRet: boolean = false
+        if(this.canStartTimer()) {
+            return false
+        }
         if (key.trim() !== '') {
             for (let t of tasks) {
                 if (t.description.toString().indexOf(key) != -1) {
+                    // task completed
+                    t.status = TaskProgress.COMPLETED
+                    t.timeTaken = this.timer
                     return true
                 }
             }

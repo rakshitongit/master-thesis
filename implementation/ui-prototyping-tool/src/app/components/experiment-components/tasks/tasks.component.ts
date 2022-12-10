@@ -59,7 +59,7 @@ export class TasksComponent implements OnInit {
             this.experiment.experimentTasks = [task]
         }
         try {
-            await firstValueFrom(this.service.createNewExperimentVariant(this.experiment))
+            await firstValueFrom(this.service.createNewExperimentVariant(this.experiment, true, task))
             this.experimentForm.reset()
         } catch(e) {
             console.error(e)

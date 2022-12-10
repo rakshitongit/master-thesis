@@ -62,3 +62,7 @@ export class DataModel {
     key!: string
     data!: any
 }
+
+export enum TaskProgress {
+    NOT_STARTED = "NOT_STARTED", IN_PROGRESS = "IN_PROGRESS", COMPLETED = "COMPLETED"
+}

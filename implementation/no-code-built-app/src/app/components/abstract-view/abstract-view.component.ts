@@ -17,6 +17,8 @@ export class AbstractViewComponent implements OnInit {
 
     tasks!: any[]
 
+    experiment: any
+
     constructor(private route: ActivatedRoute, private helper: HelperService, private snackbar: MatSnackBar) {
         this.route.data.subscribe(data => {
             this.view = data['view']
@@ -26,18 +28,21 @@ export class AbstractViewComponent implements OnInit {
     }
 
     @HostListener('click', ['$event.target'])
-    onClick(el: any) {
+    async onClick(el: any) {
         if (this.helper.analyseKeyFromDatModel(el.innerHTML, this.tasks)) {
             this.snackbar.open("Found what you are looking for, Task completed!", "Close")
             this.helper.stopTimer()
             console.log("Time required: ", this.helper.timer)
+            // update experiment user
+            await firstValueFrom(this.helper.updateExperimentData(this.experiment))
         } else {
             console.log("Not found!")
         }
     }
 
     async ngOnInit() {
-        this.tasks = (await firstValueFrom(this.helper.getExperimentData())).experimentTasks
+        this.experiment = await firstValueFrom(this.helper.getExperimentData())
+        this.tasks = this.experiment.experimentTasks
     }
 
 }

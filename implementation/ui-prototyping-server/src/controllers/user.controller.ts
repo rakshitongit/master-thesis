@@ -19,6 +19,7 @@ import {
 } from '@loopback/rest';
 import { SecurityBindings, securityId, UserProfile } from '@loopback/security';
 import { genSalt, hash } from 'bcryptjs';
+import exp from 'constants';
 import { randomUUID } from 'crypto';
 import _ from 'lodash';
 import { Experiment, ExperimentVariant, MyUser } from '../models';
@@ -226,8 +227,32 @@ export class UserController {
     console.log(user)
     const experimentOfUser: Experiment = await this.experimentRepository.findById(user.experimentVariants[0].exp_id)
     const expVariant: ExperimentVariant = experimentOfUser.experimentVarients.filter(v => v.id == user.experimentVariants[0].variant_id)[0]
-    expVariant.experimentTasks = experimentOfUser.experimentTasks
+    expVariant.experimentTasks = user.experimentVariants[0].experimentTasks
     return expVariant
+  }
+
+  @authenticate('jwt')
+  @post('/user/experiments')
+  @response(200, {
+    responses: {
+      '200': {
+        description: 'Users updated'
+      },
+    },
+  })
+  async updateExperimentVariant(
+    @inject(SecurityBindings.USER)
+    currentUserProfile: UserProfile,
+    @requestBody()
+    userExp: ExperimentVariant
+  ): Promise<User> {
+    const user: any = await this.userService.findUserById(currentUserProfile[securityId])
+    user.experimentVariants.forEach((ex: any) => {
+      ex.variant_id === userExp.id
+      ex.experimentTasks = userExp.experimentTasks
+    })
+    await this.userRepository.save(user)
+    return user
   }
 }
 

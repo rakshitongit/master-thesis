@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { url } from '../classes/abstract-classes';
-import { Experiment, Variant } from '../classes/concrete-classes';
+import { Experiment, ExperimentTask, Variant } from '../classes/concrete-classes';
 
 @Injectable({
     providedIn: 'root'
@@ -31,7 +31,7 @@ export class ExperimentsService {
         return this.http.delete(url + 'experiments/' + experiment.id)
     }
 
-    createNewExperimentVariant(experiment: Experiment) {
-        return this.http.patch(url + 'experiments/' + experiment.id, {...experiment})
+    createNewExperimentVariant(experiment: Experiment, addtask: boolean = false, newTask?: ExperimentTask) {
+        return this.http.patch(url + 'experiments/' + experiment.id, {...experiment, addtask, newTask})
     }
 }
