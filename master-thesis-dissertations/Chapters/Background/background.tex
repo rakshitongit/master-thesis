@@ -9,7 +9,7 @@
 \else
     \graphicspath{{Chapters/Background/Figs/}{Chapters/Background/Figs/}}
 \fi
-To build the foundation of our approach, we present UI Prototyping (see section \ref{background:section:uiprototyping}), Low and No code (see section \ref{background:section:lowcode}), Model-Based Software Engineering (MBSE) (see section \ref{background:section:mbse}), Task-Based Usability Testing (see section \ref{background:section:task}), and Experimental Product Design (see section \ref{background:section:experimentproduct}).
+To build the foundation of our approach, we present UI Prototyping (see section \ref{background:section:uiprototyping}), Low and No code (see section \ref{background:section:lowcode}), Model-Based Software Engineering (MBSE) (see section \ref{background:section:mbse}), Task-Based Usability Testing (see section \ref{background:section:task}), and Experimental Product Design (see section \ref{background:section:experimentproduct}) and derive some Design Requirements (see section \ref{background:section:designReqs}).
 %********************************** % Crowdsourcing of Software Products **************************************
 % \section{Crowdsourcing of Software Products}
 % \label{background:section:crowdsourcing}
@@ -189,6 +189,9 @@ At the same time, for creating models, the Model Object Facility (MOF) has defin
 
 \paragraph{Meta Models:} 
 A meta-model is defined as a model of a model or a simplified version of an actual model of a system of interest or a software application.
+They can be used to understand how a model works or to improve the performance of a model by making it more efficient or accurate. 
+In software development, meta-models are models used to represent a software system's structure and behavior.
+Meta models are often used in model-driven development, focusing on creating and using high-level abstractions to design and implement software systems. By using meta-models, developers can create a high-level view of a system and then use that view to generate code automatically, which can help improve the development process's efficiency and reliability.
 Meta models can act as an intermediary between the input and the output relations and represent mathematical relations or algorithms.
 A model is usually defined as an abstraction of real-world entities, and a meta-model is another abstraction of the models. 
 Similarly, metamodelling is analyzing and developing the rules, theories, and models helpful in constructing meta-models.
@@ -199,13 +202,18 @@ This offers a consistent semantic approach for Model Driven Architecture (MDA) a
 \paragraph{Models: } 
 As shown in figure \ref{fig:background:moflevels}, a \textit{Model} is a simplified representation of the real world or an unavoidable reality.
 Before any code is written, the model is a schematic that describes how the software system should function.
+In software development, a model is a representation of a software system. 
+It can be used to visualize the structure and behavior of a system or to analyze the system for potential issues or improvements. 
+Models can take many forms, such as diagrams, graphs, or mathematical equations, and they can be created using various tools and techniques. 
+Models are often used in model-driven development, focusing on creating and using high-level abstractions to design and implement software systems. 
+By using models, developers can better understand a system and identify potential problems or areas for improvement before they start writing code.
 From the example \ref{fig:background:m1m2}, we need to create models for every entity of reality (e.g., An employee and a CEO both are \textit{Person} in meta-model but are separate entities in models).
 Using models, various adaptive model-driven user interface development systems are developed \cite{article:mbse:akiki}.
 In this research, the authors defined twenty properties challenges for the Model-driven User interface and compared some tools that implement these properties.
 Similarly, modeling is a process and method of building models for some purpose or related to some domain.
 Therefore, modeling languages are used to codify the UIs in different companies. 
-Cameleon \cite{article:cameleon:balme} is a framework that divides the UI into several elements to maximize the parts' reusability in various user, platform, and environment situations.
-A platform-independent abstract UI, a platform-dependent concrete UI, and a device-dependent final UI are the layers the framework offers to accomplish this.
+% Cameleon \cite{article:cameleon:balme} is a framework that divides the UI into several elements to maximize the parts' reusability in various user, platform, and environment situations.
+% A platform-independent abstract UI, a platform-dependent concrete UI, and a device-dependent final UI are the layers the framework offers to accomplish this.
 
 However, these modeling languages do not emphasize offering visual notations to aid non-developers in creating such interfaces. 
 For our research, we use a recent method \cite{article:mbse:bexiga}, which illustrates how to use low-code and Model-driven approaches to close the gap between designers and developers.
@@ -277,6 +285,10 @@ There should also be a section to analyze some insights about the software that 
 \label{background:section:experimentproduct}
 Experimental Product Design (EPD) has become integral to optimizing UI and \textit{User Experience (UX)}.
 Experimentation helps product teams test out ideas early in the process with real-world consumers rather than settling on a single solution and executing it in the final phase \cite{misc:CE:miklos}.
+Experimentation in UI prototypes refers to repeatedly testing and iterating on the user interface of a product or service over time. This approach allows designers and developers to gather user feedback, analyze the results, and make improvements to the design based on the data. 
+This approach allows designers and developers to gather user feedback, analyze the results, and make improvements to the design based on the data.
+It can be an effective way to improve the usability and effectiveness of a product or service.
+
 In this section, we discuss the role that experimentation plays in the software development process and how designers can ``prototype with real data'' to improve the usability of the UI.
 \begin{figure}[htbp!]
   \centering    
@@ -302,10 +314,12 @@ Since we have \texttt{GridView} and the \texttt{ListView}, one group of the user
 Then both users would be given some tasks (see Section \ref{background:section:task}), and the analysis of these tasks gives the winner among the variants.  
 And in the end, developers make evidence-based decisions to direct the progress of their software by continuously measuring the results of multiple variants performed in an experimental context with actual users \cite{article:CE:ros}.
 CE is an extension to the introduction of continuous integration and deployment, and all are summarized as constant software engineering \cite{article:CE:fitzgerald}.
-
+Additionally, continuous experimentation can help designers and developers stay up-to-date with the latest design trends and best practices. By regularly testing and iterating on the design, they can learn from the feedback they receive and incorporate new ideas and techniques into their design. 
+This can help keep the product or service relevant and competitive.
 \paragraph{Examples of A/B Testing:}
-Some tools conduct A/B Testing and are used to improve User Interface. \textit{Optimizely}\footnote{Optimizely: \url{https://www.optimizely.com/}}, \textit{Adobe Target}\footnote{Adobe Target: \url{https://business.adobe.com/in/products/target/adobe-target.html}}, \textit{Petri}\footnote{Petri: \url{https://github.com/wix-incubator/petri}}, \textit{Google Analytics and Google Optimize}\footnote{Google Analytics and Google Optimize: \url{https://vwo.com/compare/google-optimize/}} are some of the research tools which can be used to conduct A/B Testing.
+Some tools conduct A/B Testing and are used to improve User Interface. \textit{Optimizely}\footnote{Optimizely: \url{https://www.optimizely.com/}}, \textit{Adobe Target}\footnote{Adobe Target: \url{https://business.adobe.com/in/products/target/adobe-target.html}}, \textit{Petri}\footnote{Petri: \url{https://github.com/wix-incubator/petri}}, \textit{Google Analytics and Google Optimize}\footnote{Google Analytics and Google Optimize: \url{https://vwo.com/compare/google-optimize/}} are some of the research tools which can be used to conduct A/B Testing. \\
 
+Overall, continuous experimentation is a critical approach to take when developing user interfaces for products and services. It allows designers and developers to gather valuable feedback and data and use it to improve their products' design and user experience.
 \clearpage
 
 \section{Design requirements}
@@ -332,13 +346,25 @@ Furthermore, the interviews can also be used to improve and evaluate the designe
 
 \paragraph*{Other Methods:}
 Design requirements can also be generated using other methods or combinations of methods.
-Other methods include simulations, experiments, case studies, ethnography, and the grounded theory approach \cite{misc:dsr:nickerson, misc:dsr:varshney}. \\ \\
-
-For our approach, we are using the systematic literature review technique to generate the Design Requirements (DRs)
+Other methods include simulations, experiments, case studies, ethnography, and the grounded theory approach \cite{misc:dsr:nickerson, misc:dsr:varshney}. \\ \\\\
+\clearpage
+For our approach, we are using the systematic literature review technique to generate the Design Requirements (DRs).
 \begin{itemize}
-  \item \textbf{DR1} Heterogeneous Users: 
-  \item \textbf{DR2} something 
+  \item \textbf{DR1} \textit{Heterogeneous Users:} While using the prototyping, we should use different users for better research results in the research \cite{article:prototyping:weichbroth,misc:lean:steve, misc:lean:burmeister}. This is because different users may have different needs, preferences, and levels of technical expertise. By including a diverse group of users, you can get a broader range of feedback and insights into how the software performs for different users.
+  \item \textbf{DR2} \textit{Different stakeholders for designing and developing software:} Involve project stakeholders by providing them with the necessary communication tools for exchanging and codifying knowledge \cite{article:prototyping:weichbroth, misc:prorotypes:lauff}. Stakeholders will have their perspectives and requirements, and their input can help shape the product's design.
+  \item \textbf{DR3} \textit{Diversity in the GUI:} Do not use the commonly used GUIs for testing. This provides diversity while creating the prototypes and gathers requirements from prospective users \cite{article:prototyping:weichbroth}. CE should be added
+  \item \textbf{DR4} \textit{Diversity in testing:} Testing of the GUI must be automated, and use functional and usability tests. Functional testing helps ensure the GUI works according to specification and usability testing helps ensure users can use the GUI effectively. And this helps in the identification and preliminary validation of user requirements in the early stages of development \cite{article:prototyping:weichbroth}.
+  \item \textbf{DR5} \textit{Governance Mechanisms:} The solution must incorporate governance elements into the process so the platform owner can take the appropriate action against developers and users who abuse the validation process. Therefore, good governance will make sure that the users stay with the platform for a longer period \cite{misc:prototypes:evans,misc:dps:parker}. 
+  \item \textbf{DR6} \textit{Different UI Properties:} The UI should be clear, concise, familiar, responsive, consistent, attractive, efficient and forgiving \cite{article:prototyping:weichbroth}. If the UI has the following properties, then it gives a better User Experience (UX).
+  \item \textbf{DR7} \textit{Provide users with tasks:} Having users perform specific tasks and observing how they interact with the application helps improve the usability of the software applications. So, we can use task-based usability testing for achieving this. 
+  \item \textbf{DR8} \textit{Design Models for software:} The model should be complete, consistent, and correct. Thus, modeling can help developers better understand the project's requirements, identify potential problems and design solutions, and communicate their ideas to other development team members. This helps in creating model-based prototypes with many benefits.
+  \item \textbf{DR9} \textit{Diversity in feedback mechanism:} Including qualitative and quantitative feedback when evaluating a product or service is generally a good idea. Qualitative feedback is based on customers' or users' opinions and perceptions, providing insight into their experiences and feelings about the product. This type of feedback can help identify areas where the product is excelling and areas where it can be improved. Quantitative feedback, on the other hand, is based on numerical data and measurements, and it provides a more objective view of the product's performance. This type of feedback can help track trends and make comparisons over time.
+  \item \textbf{DR10} \textit{Software product should be easily built:} Using Low/No-code, we can use the visual interfaces and pre-built modules to create software without writing code. This can help users build simple software applications without programming knowledge. This approach can make it easier for non-technical people to build software and automate tasks.
 \end{itemize}
+
+In conclusion, the background section of the thesis is an integral part of the overall content. 
+It provides context and background information on the topic being discussed and helps the reader understand the purpose and significance of the thesis. 
+This section ensures the reader has the necessary information to understand and engage with the rest of the document completely.
 % \begin{landscape}
 
 % \section{Landscape}
