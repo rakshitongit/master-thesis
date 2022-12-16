@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom, lastValueFrom, map, Observable } from 'rxjs';
 import { url } from '../classes/abstract-classes';
-import { View } from '../classes/concrete-classes';
+import { DataModel, TaskProgress, View } from '../classes/concrete-classes';
 var dasherize = require('dasherize');
 
 @Injectable({
@@ -10,12 +10,27 @@ var dasherize = require('dasherize');
 })
 export class HelperService {
 
+    private _timer: { time: number } = { time: 0 }
+    get timer() {
+        return this._timer
+    }
+
+    private interval: any;
+
     private _masterView!: View
 
     constructor(private http: HttpClient) { }
 
+    getExperimentData(): Observable<any> {
+        return this.http.get<any>(url + 'user/experiments')
+    }
+
+    updateExperimentData(experiment: any): Observable<any> {
+        return this.http.post<any>(url + 'user/experiments', experiment)
+    }
+
     getData(): Observable<View> {
-        return this.http.get<any>(url + "json/example.json").pipe(map(t => t.schemaForAngular))
+        return this.http.get<any>(url + 'user/experiments').pipe(map(t => t.masterView))
     }
 
     async getRoutingData(id: string) {
@@ -46,5 +61,45 @@ export class HelperService {
             }
         }
         return new View()
+    }
+
+    getDataFromKey(key: string): Observable<DataModel | undefined> {
+        return this.http.get<DataModel[]>(url + 'data-models').pipe(map(items => items.find(item => item.key === key)))
+    }
+
+    analyseKeyFromDatModel(key: string, tasks: any[]): boolean {
+        const toRet: boolean = false
+        if(this.canStartTimer()) {
+            return false
+        }
+        if (key.trim() !== '') {
+            for (let t of tasks) {
+                if (t.description.toString().indexOf(key) != -1) {
+                    // task completed
+                    t.status = TaskProgress.COMPLETED
+                    t.timeTaken = this.timer
+                    return true
+                }
+            }
+        }
+        return toRet
+    }
+
+    canStartTimer(): boolean {
+        if (this.interval == undefined) {
+            return true
+        }
+        return false
+    }
+
+    startTimer() {
+        this.interval = setInterval(() => {
+            this._timer.time++;
+        }, 1000)
+    }
+
+    stopTimer() {
+        clearInterval(this.interval)
+        this.interval = undefined
     }
 }

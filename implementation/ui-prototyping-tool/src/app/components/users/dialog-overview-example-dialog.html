@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Hi!</h1>
+<form [formGroup]="form">
+  <div mat-dialog-content>
+    <p>Do you want to add new users?</p>
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>No. of users</mat-label>
+      <input matInput type="number" formControlName="number_of_users" [(ngModel)]="user.number_of_users">
+    </mat-form-field>
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="text" formControlName="password" [(ngModel)]="user.password">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button type="submit" [disabled]="!form.valid" [mat-dialog-close]="user" cdkFocusInitial>Yes</button>
+  </div>
+</form>

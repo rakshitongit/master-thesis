@@ -43,6 +43,11 @@ export class SelectElementProperty extends AbstractUIProperty {
     labelText!: string;
 }
 
+export class SimpleIteratorProperty extends AbstractUIProperty {
+    titleText!: string
+    dataModelKey!: string
+}
+
 export class OptionElementProperty extends AbstractUIProperty {
 
 }
@@ -50,4 +55,14 @@ export class OptionElementProperty extends AbstractUIProperty {
 export class InputElementProperty extends AbstractUIProperty {
     type!: InputType
     labelText!: string
+}
+
+export class DataModel {
+    id!: string
+    key!: string
+    data!: any
+}
+
+export enum TaskProgress {
+    NOT_STARTED = "NOT_STARTED", IN_PROGRESS = "IN_PROGRESS", COMPLETED = "COMPLETED"
 }

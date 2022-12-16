@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AbstractContainer, AbstractUIProperty, Interaction } from 'src/app/classes/abstract-classes';
-import { ButtonElementProperty, ComponentContainer, CSSProperty, InputElementProperty, OnClickInteraction, SelectElementProperty, View } from 'src/app/classes/concrete-classes';
+import { ButtonElementProperty, ComponentContainer, CSSProperty, GridIteratorProperty, InputElementProperty, OnClickInteraction, SelectElementProperty, SimpleIteratorProperty, View } from 'src/app/classes/concrete-classes';
 import { ContainerType, UIElements } from 'src/app/classes/ud-enums';
 import { CommunicationService } from 'src/app/services/communication.service';
 import { ViewsService } from 'src/app/services/views.service';
@@ -84,7 +84,7 @@ export class RightPanelComponent implements OnInit {
     }
 
     addConcreteUIProperties() {
-        if(this.element.property == undefined) {
+        if (this.element.property == undefined) {
             switch (this.element.name) {
                 case UIElements.BUTTON:
                     (this.element as ComponentContainer).property = new ButtonElementProperty()
@@ -94,6 +94,12 @@ export class RightPanelComponent implements OnInit {
                     break
                 case UIElements.SELECT:
                     (this.element as ComponentContainer).property = new SelectElementProperty()
+                    break
+                case UIElements.SIMPLE_ITERATOR:
+                    (this.element as ComponentContainer).property = new SimpleIteratorProperty()
+                    break
+                case UIElements.GRID_ITERATOR:
+                    (this.element as ComponentContainer).property = new GridIteratorProperty()
                     break
             }
         }
@@ -156,7 +162,7 @@ export class RightPanelComponent implements OnInit {
         interaction.connectionId = this.selectInteraction
         this.shared.saveMasterView()
     }
-    
+
     getUIProperty(): AbstractUIProperty {
         return (this.element.property as AbstractUIProperty)
     }

@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Hi!</h1>
+<form [formGroup]="form" (submit)="submitData()" enctype="multipart/form-data">
+    <div mat-dialog-content>
+        <p>Do you want to add data using CSV file?</p>
+        <mat-form-field class="example-form-field full-width" appearance="fill" style="width: 100%">
+            <mat-label>Add Key</mat-label>
+            <input matInput formControlName="key" type="text" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-form-field" appearance="fill" style="width: 100%">
+            <ngx-mat-file-input formControlName="importCsv" [multiple]="false" accept="csv">
+                <mat-icon ngxMatFileInputIcon>folder</mat-icon>
+            </ngx-mat-file-input>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button type="submit" [disabled]="!form.valid" [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+    </div>
+</form>

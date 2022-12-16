@@ -2,19 +2,15 @@ import { CSSProperty } from "./concrete-classes"
 import { ContainerType } from "./ud-enums"
 
 export const baseUrl: string = 'http://experimentationplatform.cs.uni-paderborn.de/'
-export const url: string =  baseUrl + 'ui-prototyping/api/'
-// export const url: string = 'http://localhost:3000/'
+export const url: string = 'http://localhost:3000/'
+// export const url: string =  baseUrl + 'ui-prototyping/api/'
 
 export abstract class IDClass {
     id!: string
 
-    // get id(): string {
-    //     return this._id
-    // }
-
-    // set id(id: string) {
-    //     this._id = id
-    // }
+    getId(): string {
+        return this.id
+    }
 }
 
 export abstract class AbstractContainer extends IDClass {

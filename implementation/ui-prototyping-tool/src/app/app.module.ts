@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllComponentModule } from './components/all-component.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DefaultPageComponent } from './components/default-page/default-page.component';
 
 @NgModule({
     declarations: [
