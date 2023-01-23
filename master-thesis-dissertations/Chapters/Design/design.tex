@@ -22,7 +22,7 @@ In software development, solution design is a step in the software development l
 This step is essential to ensure that the final solution meets the requirements and objectives and can be developed and tested efficiently.
 To ensure that our study results can be applied to other contexts, we have created abstract design knowledge based on the \ac{dr} (see section \ref{design:section:designReqs}), codify our knowledge into \ac{dp} (see section \ref{design:section:designprinciple}) and the overall solution design.
 %********************************** % Design Requirements **************************************
-\subsection{Design Requirements}
+\subsection{Design Requirements (DRs)}
 \label{design:section:designReqs}
 Design requirements in \ac{dsr} are typically defined as a set of constraints and specifications that must be met by the design artifact to be considered a successful solution. 
 These requirements can be functional, such as the specific features or capabilities that the design must have, or non-functional, such as performance, usability, or scalability.
@@ -97,9 +97,9 @@ In literature, this is reasoned by the fact that a product can be tested against
 At the same time, continuously improve \cite{article:CE:ros} the product based on the feedback of the best-fit variant.
 
 %********************************** % Design Principles **************************************
-\subsection{Design Principles}
+\subsection{Design Principles (DPs)}
 \label{design:section:designprinciple}
-Design principles are guidelines or rules used to guide the design process in \ac{dsr} \cite{misc:dsr:henver}. 
+Design Principles (DPs) are guidelines or rules used to guide the design process in \ac{dsr} \cite{misc:dsr:henver}. 
 They provide a framework for making design decisions \cite{paper:designprinciple:gregor} and help to ensure that the final solution meets the goals and objectives of the research. 
 \ac{dp}s are used for breaking down complex problems into smaller, more manageable parts.
 This section codifies our knowledge during the design study and derives \ac{dp}s from abstract \ac{dr}s from the iteration cycle of the \ac{dsr}.
@@ -111,45 +111,45 @@ The following shows the \textit{Eight \ac{dp}s} and references to literature and
   \label{fig:design:table-drs-dps}
 \end{figure}
 
-\paragraph{DP1: User Variety:} \textit{Users with diverse requirements, objectives, and abilities should be able to use the product, and it should be able to accommodate both internal and external users within the organization.}
+\paragraph{\ac{dp}1: User Variety:} \textit{Users with diverse requirements, objectives, and abilities should be able to use the product, and it should be able to accommodate both internal and external users within the organization.}
 
 Developers have many unclear generalities early in the product development process \cite{misc:lean:steve} that they can clarify by testing the underlying assumptions using different types of users (i.e., \textit{DR1: Heterogenous Users}), and involving various product stakeholders (i.e., \textit{DR4: Engage Stakeholders}).
 This helps to gather the user requirements smoothly, thus improving the product's usability.
 
-\paragraph{DP2: Split Tests:} \textit{Split tests can improve a software product by continuously testing different \ac{ui} versions or variants with shuffled users to get a winner or a best-fit variant from the users' feedback and improve the product.}
+\paragraph{\ac{dp}2: Split Tests:} \textit{Split tests can improve a software product by continuously testing different \ac{ui} versions or variants with shuffled users to get a winner or a best-fit variant from the users' feedback and improve the product.}
 
 Split Tests (also known as A/B Testing) are performed on a randomly divided sample group of different users (i.e., \textit{DR1: Heterogenous Users}) by exposing each group to the \ac{ui} of different versions (i.e., \textit{DR11: Classified UI Versions}) to find out the feature that is most usable and functional for the users.
 The results of the test are then used to determine which version is more effective by combining the feedback (i.e., \textit{DR8: Combined Feedback}) from the user groups and finally optimizing the whole product interatively (i.e., \textit{DR2: Iterative Refinement}).
 
-\paragraph{DP3: Continuous Incremental Improvement:} \textit{A software product broken down into minor, incremental phases in the software development process helps quickly improve software delivery and also helps to make product changes and improvements based on customer feedback.}
+\paragraph{\ac{dp}3: Continuous Incremental Design:} \textit{A software product broken down into minor, incremental phases in the software development process helps quickly improve software delivery and also helps to make product changes and improvements based on customer feedback.}
 
 Using a continuous incremental approach, we can continuously improve software products by delivering value to customers as quickly as possible \cite{misc:lean:toyota}, constantly refining and improving the product \cite{misc:lean:planning}, and delivering the product as soon as possible.
 Here, the iterative design should be used (i.e, \textit{DR2: Iterative Refinement}) to get continuous feedback from a variety of users (i.e., \textit{DR1: Heterogenous Users}).
 The feedback which is collected should be a combination (i.e., \textit{DR8: Combined Feedback}) of various feedback helping significantly improve the application.
 
-\paragraph{DP4: Varied Design Systems:} \textit{A product should be developed using Design Systems innovatively by the citizen developers without complete reliance and dependence on the \ac{it} department.}
+\paragraph{\ac{dp}4: Varied Design Systems:} \textit{A product should be developed using Design Systems innovatively by the citizen developers without complete reliance and dependence on the \ac{it} department.}
 
 A \texttt{\ac{desy}}\footnote{Design Systems: \url{https://www.invisionapp.com/inside-design/guide-to-design-systems/}} is a collection of reusable components governed by some standards that can be assembled in many ways to make different applications.
 A \ac{ui} Prototyping tool is helpful when different interactive (i.e., \textit{DR3: Interactive Design}) re-usable components are used as a drag-and-drop element (i.e., \textit{DR5: Diverse Re-usable Components}) while creating the prototypes by engaging various stakeholders' contributions (i.e., \textit{DR4: Engage Stakeholders}). 
 It helps to get more feedback (i.e., \textit{DR8: Combined Feedback}) from the users or the customers, improving the product's usability and Functionality.
 % In many tools, we saw the use of many \ac{desy} like \texttt{Design System Components} (e.g., buttons, forms etc.), \texttt{Design System Patterns} (e.g., patterns for communication and data transfer between components), \texttt{Accessibility standards} (e.g., some guidelines to promote accessibility).
 
-\paragraph{DP5: Usability Tests:} \textit{Usability testing can provide valuable insights into how users interact with a product and can help to improve the \ac{ux}. It's an effective method to detect usability issues early in the development process and to ensure the product is user-friendly, efficient, and easy to use.}
+\paragraph{\ac{dp}5: Usability Tests:} \textit{Usability testing can provide valuable insights into how users interact with a product and can help to improve the \ac{ux}. It's an effective method to detect usability issues early in the development process and to ensure the product is user-friendly, efficient, and easy to use.}
 
 We can improve the usability of software by observing different users (i.e., \textit{DR1: Heterogenous Users}) as they interact with the product and measuring how well they can accomplish specific tasks or goals (i.e., \textit{DR6: Enhanced Evaluation}).
 Moreover, the users can provide valuable insights into how easy or difficult it is to use the product and help identify areas where developers could improve the UI or design using user feedback (i.e., \textit{DR8: Combined Feedback}). 
 
-\paragraph{DP6: Feedback Diversity:} \textit{Diversity in software development feedback mechanisms helps ensure that a wide range of perspectives and experiences are considered when designing and testing software.}
+\paragraph{\ac{dp}6: Feedback Diversity:} \textit{Diversity in software development feedback mechanisms helps ensure that a wide range of perspectives and experiences are considered when designing and testing software.}
 
 Performing various tests (e.g., usability testing) with diverse users (i.e., \textit{DR1: Heterogenous Users}) ensures that the software is accessible and easy to use for different groups of people with an accurate evaluation of the task provided to the users (i.e., \textit{DR6: Enhanced Evaluation}).
 Moreover, diversity in software development feedback mechanisms (i.e., \textit{DR8: Combined Feedback}), received by testing different UI versions (i.e., \textit{DR11: Classified UI Versions}), helps ensure the software is inclusive and accessible.
 
-\paragraph{DP7: Modeling for Verification} \textit{Modeling provides a clear and concise representation of the system being developed, thereby increasing communication among team members and stakeholders.}
+\paragraph{\ac{dp}7: Modeling for Verification} \textit{Modeling provides a clear and concise representation of the system being developed, thereby increasing communication among team members and stakeholders.}
 
 A model-based approach increases transparency among various stakeholders, increasing their contribution to the product (i.e., \textit{DR4: Engage Stakeholders}) due to their excellent visualization capability (i.e., \textit{DR9: Visualization}).
 Furthermore, modeling tools can automatically generate code or other documentation from the models, which can help reduce errors, improve efficiency, and decrease development time (i.e., \textit{DR10: Quick Delivery}).
 
-\paragraph{DP8: Rapid Solution Delivery:} \textit{Rapid solution delivery in software development refers to the quick development and deployment of software solutions that meet the needs of users and stakeholders.}
+\paragraph{\ac{dp} 8: Rapid Solution Delivery:} \textit{Rapid solution delivery in software development refers to the quick development and deployment of software solutions that meet the needs of users and stakeholders.}
 
 We can achieve rapid solution delivery through the use of agile development methodologies and iterative design of the software (i.e., \textit{DR2: Iterative Refinement}).
 With rapid solution delivery, software development teams can get feedback from users and stakeholders more quickly (i.e., \textit{DR10: Quick Delivery}) and adjust from the feedback increasing accessibility (i.e., \textit{DR7: Improved Accessibility}).
