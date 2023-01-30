@@ -13,7 +13,7 @@
 The design of software systems is a critical aspect of \ac{se}, as it determines how the system will function and how well it will meet the needs of its users.
 The following chapter will detail the design and methodology used in the research and provide a thorough understanding of the research design and methods used in this study, and how it relates to the research question and objectives.
 This chapter will discuss the solution design (see section \ref{design:section:soldesign}) which involves analyzing the problem by identifying the requirements and creating a detailed plan for how to address it.
-Then, in the next section, we explain our tool (see section \ref{design:section:solutionconcept}) in terms of architecture, components, interfaces, and data models using the concrete requirements and solution approach developed in the previous section. 
+Then, in the next section, we explain the design of our tool (see section \ref{design:section:solutionconcept}) in terms of architecture, components, interfaces, and data models using the concrete requirements and solution approach developed in the previous section. 
 This chapter will thoroughly explain the research design and methods used in this study and how it relates to the research question and objectives.
 %********************************** % Solution Design **************************************
 \section{Solution Design}
@@ -48,8 +48,8 @@ The following section presents \textit{eleven \ac{dr}s} and their corresponding 
 
 \paragraph{\ac{dr}1: Heterogeneous Users} states that \textit{The product should support diverse users with different needs, goals, and capabilities and integrate internal and external users.} 
 In literature, this is reasoned by the fact that different users may have different needs, preferences, and levels of technical expertise \cite{misc:lean:steve}.
-By including a diverse group of users, you can get a broader range of feedback and insights into how the software performs for different users \cite{article:prototyping:weichbroth}, simultaneously reducing the biases among developers \cite{misc:lean:burmeister}.
-In this context, the users can be from internal sources, such as employees, or external sources, like Amazon Mechanical Turk\footnote{Amazon Mechanical Turk: \url{https://www.mturk.com/}}.
+By including a diverse group of users, you can get a broader range of feedback and insights into how the software performs for different users \cite{article:prototyping:weichbroth}, and reduces the biases among developers \cite{misc:lean:burmeister}.
+In this context, the users can be from internal sources, such as employees, or external sources, like Amazon Mechanical Turk\footnote{Amazon Mechanical Turk: \url{https://www.mturk.com/}} for using the software.
 
 \paragraph{\ac{dr}2: Iterative Refinement} states that \textit{The product should be designed and developed in an iterative, incremental approach with some continuous feedback mechanism.} 
 In literature, this is reasoned by the fact that the iterative approach involves the idea of breaking down development into small, incremental cycles of work rather than trying to deliver a complete product all at once \cite{misc:lean:tutorial}.
@@ -159,7 +159,7 @@ With rapid solution delivery, software development teams can get feedback from u
 \section{Solution Concept}
 \label{design:section:solutionconcept}
 As shown in figure \ref{fig:design:solutiondesign}, we conceptualize the solution design from our codified \ac{dp}s.
-The software platform consists of three roles of the \textit{Product Owners}, the \textit{Designers}, and the \textit{Users}.
+The software platform consists of two types of roles consisting of the Stakeholders for creating the Prototyping tool (E.g., \textit{Product Owners}, the \textit{Designers}) and the \textit{Users or Participants} for testing the tool.
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.9\textwidth]{Sol-design.png}
