@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "generateApp",
+    "title": "Command line args for schematics",
+    "type": "object",
+    "description": "Reads from a json file",
+    "properties": {
+        "pathJson": {
+            "type": "string",
+            "description": "uri path for the json file",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "What is the path of the json file?"
+        }
+    },
+    "required": [
+        "pathJson"
+    ]
+}

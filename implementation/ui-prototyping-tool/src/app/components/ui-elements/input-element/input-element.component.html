@@ -1,0 +1,10 @@
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Label text</mat-label>
+    <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="prop.labelText">
+</mat-form-field>
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Input type</mat-label>
+    <select matNativeControl required [(ngModel)]="prop.type" (change)="updateMasterView()">
+        <option *ngFor="let t of inputTypes" [value]="t">{{t}}</option>
+    </select>
+</mat-form-field>

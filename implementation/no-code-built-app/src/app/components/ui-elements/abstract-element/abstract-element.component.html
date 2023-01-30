@@ -1,0 +1,7 @@
+<container-element [ngSwitch]="prop.name">
+  <app-input-element [prop]="prop" *ngSwitchCase="'Input'">Switch {{prop.name}}</app-input-element>
+  <app-button-element [prop]="prop" *ngSwitchCase="'Button'">Switch {{prop.name}}</app-button-element>
+  <app-select-element [prop]="prop" *ngSwitchCase="'Select'">Switch {{prop.name}}</app-select-element>
+  <app-simple-iterator [prop]="prop" *ngSwitchCase="'SI'">Switch {{prop.name}}</app-simple-iterator>
+  <app-grid-iterator [prop]="prop" *ngSwitchCase="'GI'">Switch {{prop.name}}</app-grid-iterator>
+</container-element>

@@ -1,0 +1,19 @@
+<mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Label text</mat-label>
+    <input matInput type="text" (keyup)="updateMasterView()" [(ngModel)]="prop.labelText">
+</mat-form-field>
+
+<ng-container>
+    <h4><b>Options</b>
+        <button class="pull-right" mat-icon-button (click)="addNewOption()">
+            <mat-icon mat-card-avatar style="font-size: 25px; margin-top: -10px;">+</mat-icon>
+        </button>
+    </h4>
+    <h4 *ngFor="let option of prop.options">
+        <b>-</b> {{option.label}}
+        <button class="pull-right" mat-icon-button (click)="deleteOption(option)">
+            <mat-icon mat-card-avatar style="font-size: 20px;">delete</mat-icon>
+        </button>
+        <br>
+    </h4>
+</ng-container>

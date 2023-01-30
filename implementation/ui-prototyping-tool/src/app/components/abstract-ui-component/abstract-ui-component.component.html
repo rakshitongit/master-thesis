@@ -1,0 +1,9 @@
+<h3><b>UI Element <i>{{name}}</i> Property</b></h3>
+<container-element [ngSwitch]="name">
+    <app-input-element [prop]="getInputElementProperty()" *ngSwitchCase="'Input'"></app-input-element>
+    <app-button-element [prop]="getButtonElementProperty()" *ngSwitchCase="'Button'"></app-button-element>
+    <app-select-element [prop]="getSelectElementProperty()" *ngSwitchCase="'Select'"></app-select-element>
+    <app-simple-iterator [prop]="getSimpleIteratorProperty()" *ngSwitchCase="'SI'"></app-simple-iterator>
+    <app-grid-iterator [prop]="getGridIteratorProperty()" *ngSwitchCase="'GI'"></app-grid-iterator>
+</container-element>
+<hr>

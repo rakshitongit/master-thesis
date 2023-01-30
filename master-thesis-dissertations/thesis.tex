@@ -1,7 +1,7 @@
 % ******************************* Ph.D. Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
-\documentclass[a4paper,12pt,times,numbered,print,index,oneside]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,times,numbered,print,index,twoside]{PhDThesisPSnPDF}
 % ******************************************************************************
 % ******************************* Class Options ********************************
 % *********************** See README for more details **************************
@@ -82,7 +82,7 @@
 \input{Preamble/preamble}
 
 % ********************************** Acronyms **********************************
-% \input{Acronyms/acronyms}
+\input{Acronyms/acronyms}
 
 % ************************ Thesis Information & Meta-data **********************
 % Thesis title and author information, reference file for biblatex
@@ -138,10 +138,10 @@
 
 \include{Chapters/Introduction/introduction}
 \include{Chapters/Background/background}
-\include{Chapters/Related-work/related-work}
 \include{Chapters/Design/design}
 \include{Chapters/Implementation/solution-implementation}
 \include{Chapters/Evaluation/evaluation}
+\include{Chapters/Related-work/related-work}
 \include{Chapters/Conclusion/conclusion}
 
 
@@ -162,7 +162,7 @@
 \cleardoublepage
 \bibliography{References/references} % Path to your References.bib file
 
-
+\printacronyms
 % If you would like to use BibLaTeX for your references, pass `custombib' as
 % as an option in the document class. The location of 'reference.bib' should be
 % specified in the preamble.tex file in the custombib section.

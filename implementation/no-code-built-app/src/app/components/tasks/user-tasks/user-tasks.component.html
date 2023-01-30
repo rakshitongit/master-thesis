@@ -1,0 +1,34 @@
+<div style="padding: 10px; margin: 40px; max-height: 300px; overflow-y: scroll;">
+    <table class="mat-elevation-z8 demo-table">
+        <thead>
+            <tr>
+                <th>Nr.</th>
+                <th>Task Name</th>
+                <th>Task Description</th>
+                <th>Start Task</th>
+                <th>Stop Task</th>
+                <th>Task status</th>
+                <th>Time taken</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of tasks; let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.description}}</td>
+                <td>
+                    <button mat-icon-button color="primary" (click)="startTask(data)">
+                        <mat-icon>play_circle_outline</mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button mat-icon-button color="primary" (click)="stopTask(data)">
+                        <mat-icon>pause_circle_outline</mat-icon>
+                    </button>
+                </td>
+                <td>{{data.status || '----'}}</td>
+                <td>{{(data?.timeTaken?.time || '0') + 's'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

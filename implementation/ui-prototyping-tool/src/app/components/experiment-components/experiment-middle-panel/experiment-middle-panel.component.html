@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Canvas  </mat-card-title>
+    <mat-card-subtitle>{{currentView.name}}</mat-card-subtitle>
+    <mat-card-content>
+        Here comes the content for UI elements
+        <div #cardContent class="card-border" [style.width.px]="width" [style.height.px]="height">
+        </div>
+        <!-- <span *ngIf="showVariantButton()">
+            Variants:
+            <span *ngFor="let v of currentView.variants; let i=index;">
+                <button mat-button (click)="showVariant(v)">Activate variant {{i+1}}</button>
+            </span>
+        </span> -->
+    </mat-card-content>
+</mat-card>

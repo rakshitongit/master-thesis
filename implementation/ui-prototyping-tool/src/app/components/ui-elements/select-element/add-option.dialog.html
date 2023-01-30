@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Hi!</h1>
+<div mat-dialog-content>
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Label / Display text</mat-label>
+        <input matInput type="text" [(ngModel)]="option.label">
+    </mat-form-field>
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Value text</mat-label>
+        <input matInput type="text" [(ngModel)]="option.value">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="option" cdkFocusInitial>Yes</button>
+</div>

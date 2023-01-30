@@ -1,0 +1,17 @@
+<div [style.top.px]="position.y" [style.left.px]="position.x" style="position: absolute;">
+    <div style="padding: 10px; max-height: 300px; overflow-y: scroll;">
+        <h3>{{prop.property.titleText}}</h3>
+            <table class="mat-elevation-z8 demo-table">
+                <thead>
+                    <tr>
+                        <th *ngFor="let th of ths">{{th}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of dataModel.data; let i=index;">
+                        <td *ngFor="let th of ths">{{data[th]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

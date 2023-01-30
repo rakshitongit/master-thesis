@@ -1,0 +1,6 @@
+<mat-card class="example-form" [style.height]="view.cssProperty.height + 'px'" [style.width]="view.cssProperty.width + 'px'">
+    <h3 style="margin: 20px;">{{view.name}} View</h3>
+    <div *ngFor="let e of view.elements">
+        <app-abstract-element [prop]="e"></app-abstract-element>
+    </div>
+</mat-card>

@@ -1,0 +1,57 @@
+<mat-card style="margin: 50px;">
+    <mat-card-title>
+        Experiments
+        <button class="pull-right" mat-icon-button (click)="updateVariant = false; experimentVariantForm.reset()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-subtitle>Create and update experiments</mat-card-subtitle>
+    <mat-card-content style="margin: 20px;">
+        <table class="mat-elevation-z8 demo-table">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Experiment Variant name</th>
+                    <th>Percentage</th>
+                    <th>Edit</th>
+                    <th>Variants</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let variant of experiment.experimentVarients; let i=index;">
+                    <td style="text-align: center;">{{i + 1}}</td>
+                    <td style="text-align: center;">{{variant.name}}</td>
+                    <td style="text-align: center;">{{variant.percentage}}%</td>
+                    <td style="text-align: center;"><button mat-icon-button color="primary" (click)="editVariant(variant)"><mat-icon>edit</mat-icon></button></td>
+                    <td style="text-align: center;"><button mat-stroked-button color="tertiary" (click)="gotToVariantsDetailsPage(variant)"><mat-icon>domain</mat-icon></button></td>
+                    <td style="text-align: center;"><button mat-icon-button color="warn" (click)="deleteExperimentVariant(variant)"><mat-icon>delete</mat-icon></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
+
+<mat-card style="margin: 50px;">
+    <mat-card-title *ngIf="!updateVariant">
+        Add an Experiment Variant
+    </mat-card-title>
+    <mat-card-title *ngIf="updateVariant">
+        Update Experiment Variant
+    </mat-card-title>
+    <mat-card-subtitle *ngIf="!updateVariant">Create your experiment variants</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="updateVariant">Update experiment variants</mat-card-subtitle>
+    <mat-card-content>
+        <form [formGroup]="experimentVariantForm" (ngSubmit)="submitExperimentVariant()">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Variant Name</mat-label>
+                <input matInput type="text" formControlName="variantName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Variant Percentage</mat-label>
+                <input matInput type="number" formControlName="variantPercentage">
+            </mat-form-field>
+            <button class="example-full-width" [disabled]="!experimentVariantForm.valid" mat-flat-button color="primary">Submit</button>
+        </form>
+    </mat-card-content>
+</mat-card>
