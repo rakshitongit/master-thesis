@@ -11,8 +11,8 @@
     \graphicspath{{Chapters/Design/Figs/}{Chapters/Design/Figs/}}
 \fi
 The design of software systems is a critical aspect of \ac{se}, as it determines how the system will function and how well it will meet the needs of its users.
-The following chapter will detail the design and methodology used in the research and provide a thorough understanding of the research design and methods used in this study, and how it relates to the research question and objectives.
-This chapter will discuss the solution design (see section \ref{design:section:soldesign}) which involves analyzing the problem by identifying the requirements and creating a detailed plan for how to address it.
+The following chapter will detail the design and methodology used in the research and provide a thorough understanding of the research design and methods used in this study and how it relates to the research question and objectives.
+This chapter will discuss the solution design (see section \ref{design:section:soldesign}), which involves analyzing the problem by identifying the requirements and creating a detailed plan for addressing it.
 Then, in the next section, we explain the design of our tool (see section \ref{design:section:solutionconcept}) in terms of architecture, components, interfaces, and data models using the concrete requirements and solution approach developed in the previous section. 
 This chapter will thoroughly explain the research design and methods used in this study and how it relates to the research question and objectives.
 %********************************** % Solution Design **************************************
@@ -96,10 +96,12 @@ Adding new features, scaling up, and making changes, as needed, make the tool mo
 In literature, this is reasoned by the fact that a product can be tested against different design solutions and variations \cite{article:CE:fitzgerald} to see which variant performs the best in terms of usability, aesthetics, and other characteristics \cite{article:controlled:experiements}. 
 At the same time, continuously improve \cite{article:CE:ros} the product based on the feedback of the best-fit variant.
 
-\paragraph*{\ac{dr}12 Assistance for Qualitative Feedback} states that \textit{A Software product should help the citizen developers with the qualitative analysis by guiding them on what questions should be asked to the participants.}
+\paragraph*{\ac{dr}12 Provide feedback assistance} states that \textit{A Software product should help the citizen developers with the analysis by guiding them on what questions should be asked to the participants.}
 In literature, this is reasoned by the fact that there are many ways of creating qualitative analysis questions \cite{misc:dsr:mayring} confusing the citizen developers on deciding the correct approach \cite{misc:qualitative:qualitative}.
 Therefore, there should be a recommendation system for suggesting the relevant questions called post-task questionnaires.
 Some examples\footnote{Examples post-task questionnaires: \url{https://uxpsychology.substack.com/p/standardized-usability-questionnaires-ccb}} are ASQ\footnote{ASQ (After Scenario Questions): \url{https://ehealth.uvic.ca/resources/tools/UsabilityBenchmarking/05a-2011.02.15-ASQ_and_PSSUQ_Questionnaires-no_supplements-v3.0.pdf}} (After Scenario Questionnaire) which consists of 3 questions, SMEQ (Subjective Mental Effort Questionnaire) which is composed of 1 question, etc. 
+
+\clearpage
 %********************************** % Design Principles **************************************
 \subsection{Design Principles (DPs)}
 \label{design:section:designprinciple}
@@ -110,8 +112,8 @@ This section codifies our knowledge during the design study and derives \ac{dp}s
 The following shows the \textit{Eight \ac{dp}s} and references to literature and tools that build the foundation for the mapped \ac{dr}s (see figure \ref{fig:design:table-drs-dps}). 
 \begin{figure}[htbp!]
   \centering    
-  \includegraphics[width=0.86\textwidth]{Table-drs-dps.png}
-  \caption[A map between \ac{dr}s and \ac{dp}s]{A map between Design Requirements and Design Principles}
+  \includegraphics[width=0.85\textwidth]{Table-drs-dps.png}
+  \caption[A map between \ac{dr}s and \ac{dp}s]{A map between Design Requirements (\ac{dr}s) and Design Principles (\ac{dp}s)}
   \label{fig:design:table-drs-dps}
 \end{figure}
 
@@ -138,7 +140,7 @@ A \ac{ui} Prototyping tool is helpful when different interactive (i.e., \textit{
 It helps to get more feedback (i.e., \textit{DR8: Combined Feedback}) from the users or the customers, improving the product's usability and Functionality.
 % In many tools, we saw the use of many \ac{desy} like \texttt{Design System Components} (e.g., buttons, forms etc.), \texttt{Design System Patterns} (e.g., patterns for communication and data transfer between components), \texttt{Accessibility standards} (e.g., some guidelines to promote accessibility).
 
-\paragraph{\ac{dp}5: Usability Tests:} \textit{Usability testing can provide valuable insights into how users interact with a product and can help to improve the \ac{ux}. It's an effective method to detect usability issues early in the development process and to ensure the product is user-friendly, efficient, and easy to use.}
+\paragraph{\ac{dp}5: Task-based Usability Tests:} \textit{Usability testing can provide valuable insights into how users interact with a product and can help to improve the \ac{ux}. It's an effective method to detect usability issues early in the development process by assigning tasks to the participants and ensuring the product is user-friendly, efficient, and easy to use, utilizing the feedback from the tasks.}
 
 We can improve the usability of software by observing different users (i.e., \textit{DR1: Heterogenous Users}) as they interact with the product and measuring how well they can accomplish specific tasks or goals (i.e., \textit{DR6: Enhanced Evaluation}).
 Moreover, the users can provide valuable insights into how easy or difficult it is to use the product and help identify areas where developers could improve the UI or design using user feedback (i.e., \textit{DR8: Combined Feedback}). 
@@ -158,23 +160,30 @@ Furthermore, modeling tools can automatically generate code or other documentati
 We can achieve rapid solution delivery through the use of agile development methodologies and iterative design of the software (i.e., \textit{DR2: Iterative Refinement}).
 With rapid solution delivery, software development teams can get feedback from users and stakeholders more quickly (i.e., \textit{DR10: Quick Delivery}) and adjust from the feedback increasing accessibility (i.e., \textit{DR7: Improved Accessibility}).
 
+\paragraph{\ac{dp}9: Feedback assistance for qualitative research:} \textit{By providing guidelines on what type of questions (rating based or open-ended) to ask of the participants, the software product should aid citizen developers with qualitative analysis.}
+
+We can provide a feedback assistance system (i.e., \textit{\ac{dr}12: Assistance for Feedback}) for qualitative analysis helping the citizen developers formulate a qualitative questionnaire. 
+These questions can be asked to the participants either during the tasks or after the completion of the task (i.e., \textit{\ac{dr}6: Enhanced Evaluation}) as a post-survey questionnaire. 
+Thus, having a predefined qualitative questionnaire helps to automate the feedback mechanism (i.e., \textit{\ac{dr}8: Combined Feedback}).
+
 \clearpage
 %********************************** % Solution Concept **************************************
 \section{Solution Concept}
 \label{design:section:solutionconcept}
-As shown in figure \ref{fig:design:solutiondesign}, we conceptualize the solution design from our codified \ac{dp}s.
+As shown in figure \ref{fig:design:lean}, we conceptualize the solution design from our codified \ac{dp}s.
 The software platform consists of two types of roles consisting of the Stakeholders for creating the Prototyping tool (E.g., \textit{Product Owners}, the \textit{Designers}) and the \textit{Users or Participants} for testing the tool.
-\begin{figure}[htbp!]
-  \centering    
-  \includegraphics[width=0.9\textwidth]{Sol-design.png}
-  \caption[Solution Design]{Solution Design for a UI Prototyping tool}
-  \label{fig:design:solutiondesign}
-\end{figure}
+We plan to design our tool using a LEAN development approach, a cycle consisting of \textit{Build} (see section \ref{design:section:build}), \textit{Measure} (see section \ref{design:section:measure}), \textit{Learn} (see section \ref{design:section:learn}) steps and continuous improvement throughout the process.
+% \begin{figure}[htbp!]
+%   \centering    
+%   \includegraphics[width=0.9\textwidth]{Sol-design.png}
+%   \caption[Solution Design]{Solution Design for a UI Prototyping tool}
+%   \label{fig:design:solutiondesign}
+% \end{figure}
 
 \begin{figure}[htbp!]
   \centering    
-  \includegraphics[width=0.6\textwidth]{LEAN-DPs.png}
-  \caption[Solution Design]{Solution Design for a UI Prototyping tool}
+  \includegraphics[width=1\textwidth]{LEAN-DPs.png}
+  \caption[Solution Concept]{Solution Concept for a UI Prototyping tool using LEAN development}
   \label{fig:design:lean}
 \end{figure}
 
