@@ -3,32 +3,28 @@
 %****************************** Design Chapter *********************************
 %*******************************************************************************
 
-\chapter{Design}
+\chapter{Solution Design}
 
 \ifpdf
     \graphicspath{{Chapters/Design/Figs/}{Chapters/Design/Figs/}{Chapters/Design/Figs/}}
 \else
     \graphicspath{{Chapters/Design/Figs/}{Chapters/Design/Figs/}}
 \fi
-The design of software systems is a critical aspect of \ac{se}, as it determines how the system will function and how well it will meet the needs of its users.
-The following chapter will detail the design and methodology used in the research and provide a thorough understanding of the research design and methods used in this study and how it relates to the research question and objectives.
-This chapter will discuss the solution design (see section \ref{design:section:soldesign}), which involves analyzing the problem by identifying the requirements and creating a detailed plan for addressing it.
-Then, in the next section, we explain the design of our tool (see section \ref{design:section:solutionconcept}) in terms of architecture, components, interfaces, and data models using the concrete requirements and solution approach developed in the previous section. 
-This chapter will thoroughly explain the research design and methods used in this study and how it relates to the research question and objectives.
-%********************************** % Solution Design **************************************
-\section{Solution Design}
-\label{design:section:soldesign}
-In software development, solution design is a step in the software development life cycle that defines a detailed technical design for building the software solution.
-This step is essential to ensure that the final solution meets the requirements and objectives and can be developed and tested efficiently.
-To ensure that our study results can be applied to other contexts, we have created abstract design knowledge based on the \ac{dr} (see section \ref{design:section:designReqs}), codify our knowledge into \ac{dp} (see section \ref{design:section:designprinciple}) and the overall solution design.
+Design is a critical aspect of \ac{se}, providing the blueprint for implementing functional and non-functional requirements. 
+The design phase is crucial in ensuring that software systems are developed efficiently, effectively, and with high quality. 
+In this chapter, we will explore the \ac{dr} (see section \ref{design:section:designReqs}) and \ac{dp} (see section \ref{design:section:designprinciple}) that guide the creation of our software tool.
+We develop our design approach based on the principles of \ac{dsr}.
+We also explore different design architectures (see section \ref{design:section:architecture}) and meta-modeling techniques (see section \ref{design:section:metaModeling}) to create efficient, scalable, and maintainable software systems. 
+Through this exploration, we will provide an in-depth understanding of the design process, highlighting the key factors that must be considered to create effective software solutions.
+
 %********************************** % Design Requirements **************************************
-\subsection{Design Requirements (DRs)}
+\section{Design Requirements (DRs)}
 \label{design:section:designReqs}
-Design requirements in \ac{dsr} are typically defined as a set of constraints and specifications that must be met by the design artifact to be considered a successful solution. 
-These requirements can be functional, such as the specific features or capabilities that the design must have, or non-functional, such as performance, usability, or scalability.
-To derive a solution, we define some \ac{dr}s with the help of the literature review and comparison of some tools.
-In this context, each \ac{dr} refers to a generalized requirement that can be standardized and applied to future software applications. 
-These requirements are abstract and cover a wide range of software needs.
+\ac{dr}s in \ac{dsr} are typically defined as a set of constraints and specifications that must be met by the design artifact to be considered a successful solution. 
+These requirements can be functional, such as the specific features or capabilities that the design/tool must have, or non-functional, such as performance, usability, or scalability.
+In our findings of the \ac{dr}s, we focus more on the functional requirements and ignore the non-functional.
+To derive a solution, we define some \ac{dr}s with the help of the literature review\footnote{It was a non-systematic literature review by reading research papers and looking at some renowned UI prototyping tools. The related literature is available in Appendix \ref{appendix:two:definations}} and comparison of some tools.
+In this context, each \ac{dr} refers to a generalized requirement that can be standardized and applied to future software applications.
 We covered a wide range of topics including \textit{\ac{ui} Prototyping}, \textit{Low-Code/No-Code development}, \textit{Model-Based Software Engineering}, \textit{Continuous Experimentation}, \textit{Task-Based Usability Testing}, and the \textit{LEAN development process}.
 The following section presents \textit{eleven \ac{dr}s} and their corresponding references in literature and tools.
 % \paragraph*{Systematic literature reviews:} 
@@ -46,58 +42,64 @@ The following section presents \textit{eleven \ac{dr}s} and their corresponding 
 % Design requirements can also be generated using other methods or combinations of methods.
 % Other methods include simulations, experiments, case studies, ethnography, and the grounded theory approach \cite{misc:dsr:nickerson, misc:dsr:varshney}. \\\\
 
-\paragraph{\ac{dr}1: Heterogeneous Users} states that \textit{The product should support diverse users with different needs, goals, and capabilities and integrate internal and external users.} 
-In literature, this is reasoned by the fact that different users may have different needs, preferences, and levels of technical expertise \cite{misc:lean:steve}.
+\paragraph{\ac{dr}1: Heterogeneous Users} states that \textit{the tool should support diverse users with different needs, goals, and capabilities and integrate internal and external users.} 
+It is supported by literature indicating that different users may have different needs, preferences, and levels of technical expertise \cite{misc:lean:steve}.
 By including a diverse group of users, you can get a broader range of feedback and insights into how the software performs for different users \cite{article:prototyping:weichbroth}, and reduces the biases among developers \cite{misc:lean:burmeister}.
 In this context, the users can be from internal sources, such as employees, or external sources, like Amazon Mechanical Turk\footnote{Amazon Mechanical Turk: \url{https://www.mturk.com/}} for using the software.
 
-\paragraph{\ac{dr}2: Iterative Refinement} states that \textit{The product should be designed and developed in an iterative, incremental approach with some continuous feedback mechanism.} 
-In literature, this is reasoned by the fact that the iterative approach involves the idea of breaking down development into small, incremental cycles of work rather than trying to deliver a complete product all at once \cite{misc:lean:tutorial}.
+\paragraph{\ac{dr}2: Iterative Design} states that \textit{the tool should be designed in an iterative, incremental approach with some continuous feedback mechanism.} 
+It is supported by literature indicating that the iterative approach involves the idea of breaking down development into small, incremental cycles of work rather than trying to deliver a complete product all at once \cite{misc:lean:tutorial}.
 The key benefit of an iterative approach is that it allows the development team to get feedback from users and stakeholders early in the development process and to make adjustments \cite{article:experiments:lindgren} to the product as needed.
 
-\paragraph{\ac{dr}3: Interactive Design} states that \textit{User-friendly, frictionless, interactive and intuitive interfaces are essential for the software products helping the users improve the User Experience (\ac{ux}).} 
-In literature, this is reasoned by the fact that a tool should have easy navigation \cite{article:prototyping:hoffnagle}, clear and concise labels, icons, easy-to-use drag-and-drop functionality, collaboration capabilities (e.g., Figma\footnote{Figma Prototyping tool: \url{https://www.figma.com/}} has a feature where more than one person can access the prototype), reviewing and refinement \cite{paper:prototyping:luqi} features.
-Various live examples like Figma, Invision\footnote{Invision: \url{https://www.invisionapp.com/}}, Axure\footnote{Axure Rapid Prototyping: \url{https://www.axure.com/}} have shown how user-friendly, interactive and intuitive tools have an impact on the users and improve the product.
+\paragraph{\ac{dr}3: Easy Development} states that \textit{the tool should be easy to develop and operatable by non-technical individuals with drag-and-drop interfaces and pre-built components to create applications without extensive programming knowledge.} 
+It is supported by literature indicating that a tool should have a UI that helps non-technical individuals to build software without including the developers. 
+It can be achieved if the tool provides drag-and-drop interfaces \cite{article:nocode:miller}, reusable pre-built components \cite{article:prototyping:lowcode} (e.g., buttons, textbox, and other \ac{ui} components, data models for data transfer between components) and a logical flow (E.g., \textit{Screen1} is followed by \textit{Screen2} and so on.). 
+In many tools like \texttt{Figma\footnote{Figma Prototyping tool: \url{https://www.figma.com/}}}, \texttt{Invision\footnote{Invision: \url{https://www.invisionapp.com/}}}, and \texttt{Axure\footnote{Axure Rapid Prototyping: \url{https://www.axure.com/}}}, we saw these features.
 
-\paragraph{\ac{dr}4: Engage Stakeholders} states that \textit{Various stakeholders (e.g., designers, product managers, developers, etc.) must contribute to the quick development of the product.}
-In literature, this is reasoned by the fact that involving different project stakeholders and providing them with the necessary communication tools helps exchange and codify knowledge \cite{article:prototyping:weichbroth}. 
+\paragraph{\ac{dr}4: Integrate Data Models} states that \textit{the tool should be designed to make it easier to integrate data models by providing pre-built connectors and APIs that can be used to connect to various data sources.} 
+It is supported by literature indicating that by using the tool, citizen developers can easily access and integrate data models from multiple sources, including databases, APIs, and external systems \cite{paper:lowcode:khorram}, without having to write complex code or build custom integrations from scratch \cite{article:lowcode:modeldriven}.
+It accelerates the development process, reduces the risk of errors \cite{misc:lowcode:platforms}, and improves the software tool's overall quality.
+In many tools like \texttt{Figma}, \texttt{Invision}, and \texttt{Axure}, we saw the use of data models\footnote{These tools either have their own implementation or depend on some third-party data model tool.}.
+
+\paragraph{\ac{dr}5: Engage Stakeholders} states that \textit{Various stakeholders (e.g., designers, product managers, developers, etc.) must contribute to the quick development of the product.}
+It is supported by literature indicating that involving different project stakeholders and providing them with the necessary communication tools helps exchange and codify knowledge \cite{article:prototyping:weichbroth}. 
 This makes sure that the stakeholders' perspectives, requirements \cite{misc:prorotypes:lauff}, and their input helps shape the product's design.
 
-\paragraph{\ac{dr}5: Diverse Re-usable components} states that \textit{Collaboration between different team members and usage of the reusable components of various disciplines should make the tool easy for anyone to use on any platform and share their work quickly.} 
-In literature, this is reasoned by developers' ability to create more consistent, user-friendly prototypes that adhere to the re-usable components' established style and principles \cite{paper:prototyping:luqi} and help improve the overall design process and product development \cite{article:prototyping:hoffnagle}.
-In many tools, we saw the use of many reusable components like buttons, textbox, and other \ac{ui} components, data models for data transfer between components, and some guidelines to promote accessibility and usability of the tools.
+% \paragraph{\ac{dr}5: Diverse Re-usable components} states that \textit{Collaboration between different team members and usage of the reusable components of various disciplines should make the tool easy for anyone to use on any platform and share their work quickly.} 
+% It is supported by literature indicating developers' ability to create more consistent, user-friendly prototypes that adhere to the re-usable components' established style and principles \cite{paper:prototyping:luqi} and help improve the overall design process and product development \cite{article:prototyping:hoffnagle}.
+% In many tools, we saw the use of many reusable components like buttons, textbox, and other \ac{ui} components, data models for data transfer between components, and some guidelines to promote accessibility and usability of the tools.
 
 \paragraph{\ac{dr}6: Enhanced Evaluation} states that \textit{The software product should be evaluated using various means by having users perform specific tasks, collect feedback, and improve the product.} 
-In literature, this is reasoned by the fact that testing of the \ac{gui} of a software application is done using functional and usability tests \cite{misc:usability:tasks}. 
+It is supported by literature indicating that testing of the \ac{gui} of a software application is done using functional and usability tests \cite{misc:usability:tasks}. 
 This helps the developers to identify any usability issues \cite{article:tbup:kari} and improve them continuously \cite{article:prototyping:gould}.
 And this helps in the identification and preliminary validation of user requirements in the early stages of development \cite{article:prototyping:weichbroth}. 
 
-\paragraph{\ac{dr}7: Improved Accessibility} states that \textit{The tool should be a web-based application making it accessible and independent of any software, platforms (e.g., Macbooks, Windows \ac{pc}s, Linux machines, Chromebooks) and have an auto-save feature to store the work on Cloud.}
-In literature, this is reasoned by the fact that Web-based tools have several advantages \cite{misc:cloud} over traditional application-based tools.
-In many tools like \texttt{Figma}, \texttt{Invision}, and \texttt{Axure}, we saw features\footnote{Some more features: \url{https://redrocksoftware.com.au/10-benefits-of-web-based-applications-systems/}} like \texttt{Accessibility} i.e., can be accessed from any device with an internet connection, \texttt{Collaboration} i.e., have built-in collaboration features, making it easy for team members to work on the same prototype simultaneously, \texttt{Updates} i.e., automatically updated.
+% \paragraph{\ac{dr}7: Improved Accessibility} states that \textit{The tool should be a web-based application making it accessible and independent of any software, platforms (e.g., Macbooks, Windows \ac{pc}s, Linux machines, Chromebooks) and have an auto-save feature to store the work on Cloud.}
+% It is supported by literature indicating that Web-based tools have several advantages \cite{misc:cloud} over traditional application-based tools.
+% In many tools like \texttt{Figma}, \texttt{Invision}, and \texttt{Axure}, we saw features\footnote{Some more features: \url{https://redrocksoftware.com.au/10-benefits-of-web-based-applications-systems/}} like \texttt{Accessibility} i.e., can be accessed from any device with an internet connection, \texttt{Collaboration} i.e., have built-in collaboration features, making it easy for team members to work on the same prototype simultaneously, \texttt{Updates} i.e., automatically updated.
 
 % \textbf{DR9: Get user feedback} \textit{} Having users perform specific tasks and observe how they interact with the application helps improve the usability of the software applications. So, we can use task-based usability testing for achieving this. 
-\paragraph{\ac{dr}8: Combined feedback} states that \textit{The software product should gather user feedback and combine them to make improvements to the application.} 
-In literature, this is reasoned by the fact that \texttt{Qualitative analysis} gathers an in-depth understanding of underlying reasons, opinions, and motivations \cite{misc:dsr:mayring}.
+\paragraph{\ac{dr}7: Aggregated feedback} states that \textit{The software product should gather user feedback and aggregate them to make improvements to the application.} 
+It is supported by literature indicating that \texttt{Qualitative analysis} gathers an in-depth understanding of underlying reasons, opinions, and motivations \cite{misc:dsr:mayring}.
 Whereas \texttt{Quantitative analysis} measures and understands numerical data and helps identify patterns and trends \cite{article:qqa:young}.
 And together, qualitative and quantitative analysis can provide a more complete picture of a situation and can be used to validate or disprove findings from one type of analysis \cite{article:qq:helena}.
 
-\paragraph{\ac{dr}9: Visualization} states that \textit{There should be a visualization tool for prototyping to help different stakeholders see and interact with the design and gather feedback.} 
-In literature, this is reasoned by the fact that visualization helps in prototyping by allowing designers and stakeholders to see and understand the design in a way that is easy to understand \cite{article:comparative:prototypes}.
+\paragraph{\ac{dr}8: Visualization} states that \textit{There should be a visualization tool for prototyping to help different stakeholders see and interact with the design and gather feedback.} 
+It is supported by literature indicating that visualization helps in prototyping by allowing designers and stakeholders to see and understand the design in a way that is easy to understand \cite{article:comparative:prototypes}.
 It also allows designers to identify usability issues \cite{article:prototyping:gould} early in the design process to make the end product user-friendly and easy to use.
 In tools, various methods, like creating \texttt{Wireframes}, \texttt{Mockups}, and \texttt{Interactive prototypes}, are used for visualization.
 
-\paragraph{\ac{dr}10 Quick delivery} states that \textit{A software product should be easily deliverable, reducing the complexity and deployment time and increasing the product's usability.} 
-In literature, this is reasoned by the fact that when software is easy to build, development teams can be more productive and efficient, leading to lower development costs \cite{misc:lowcode:platforms} and can be quickly delivered. 
-It's also easy for different development team members to understand and work on the code, thereby improving collaboration \cite{misc:prorotypes:lauff} and generating high-quality code.
-Adding new features, scaling up, and making changes, as needed, make the tool more accessible and helpful \cite{article:prototyping:lowcode} to ensure that the product is developed and deployed with minimum effort \cite{article:prototyping:lowcode}.
+% \paragraph{\ac{dr}10 Quick delivery} states that \textit{A software product should be easily deliverable, reducing the complexity and deployment time and increasing the product's usability.} 
+% It is supported by literature indicating that when software is easy to build, development teams can be more productive and efficient, leading to lower development costs \cite{misc:lowcode:platforms} and can be quickly delivered. 
+% It's also easy for different development team members to understand and work on the code, thereby improving collaboration \cite{misc:prorotypes:lauff} and generating high-quality code.
+% Adding new features, scaling up, and making changes, as needed, make the tool more accessible and helpful \cite{article:prototyping:lowcode} to ensure that the product is developed and deployed with minimum effort \cite{article:prototyping:lowcode}.
 
-\paragraph*{\ac{dr}11 Classified UI versions} states that \textit{A Software product should be tested with various \ac{ui} versions or variants to analyze the best-fit variant for the product.}
-In literature, this is reasoned by the fact that a product can be tested against different design solutions and variations \cite{article:CE:fitzgerald} to see which variant performs the best in terms of usability, aesthetics, and other characteristics \cite{article:controlled:experiements}. 
+\paragraph*{\ac{dr}9: Classified UI versions} states that \textit{A Software product should be tested with various \ac{ui} versions or variants to analyze the best-fit variant for the product.}
+It is supported by literature indicating that a product can be tested against different design solutions and variations \cite{article:CE:fitzgerald} to see which variant performs the best in terms of usability, aesthetics, and other characteristics \cite{article:controlled:experiements}. 
 At the same time, continuously improve \cite{article:CE:ros} the product based on the feedback of the best-fit variant.
 
-\paragraph*{\ac{dr}12 Provide feedback assistance} states that \textit{A Software product should help the citizen developers with the analysis by guiding them on what questions should be asked to the participants.}
-In literature, this is reasoned by the fact that there are many ways of creating qualitative analysis questions \cite{misc:dsr:mayring} confusing the citizen developers on deciding the correct approach \cite{misc:qualitative:qualitative}.
+\paragraph*{\ac{dr}10: Provide feedback assistance} states that \textit{A Software product should help the citizen developers with the analysis by guiding them on what questions should be asked to the participants.}
+It is supported by literature indicating that there are many ways of creating qualitative analysis questions \cite{misc:dsr:mayring} confusing the citizen developers on deciding the correct approach \cite{misc:qualitative:qualitative}.
 Therefore, there should be a recommendation system for suggesting the relevant questions called post-task questionnaires.
 Some examples\footnote{Examples post-task questionnaires: \url{https://uxpsychology.substack.com/p/standardized-usability-questionnaires-ccb}} are ASQ\footnote{ASQ (After Scenario Questions): \url{https://ehealth.uvic.ca/resources/tools/UsabilityBenchmarking/05a-2011.02.15-ASQ_and_PSSUQ_Questionnaires-no_supplements-v3.0.pdf}} (After Scenario Questionnaire) which consists of 3 questions, SMEQ (Subjective Mental Effort Questionnaire) which is composed of 1 question, etc. 
 
@@ -197,3 +199,9 @@ We plan to design our tool using a LEAN development approach, a cycle consisting
 %********************************** % Learn **************************************
 \subsection{Learn}
 \label{design:section:learn}
+
+\section{Architecture}
+\label{design:section:architecture}
+
+\section{Meta-Modeling}
+\label{design:section:metaModeling}
