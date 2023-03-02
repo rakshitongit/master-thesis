@@ -23,24 +23,55 @@ Through this chapter, readers will understand how we brought the proposed soluti
 \label{implementation:section:designfeatures}
 \ac{dsr} aims to produce a tangible outcome, such as a new software tool, a process improvement, or a theoretical framework.
 It often involves multiple cycles of design, evaluation, and redesign, allowing for constant improvement of the artifact.
-In this thesis, we perform the \textit{first} iteration of the cycle.
-Using the \ac{df}s, we represent the features of our platform. 
-\ac{df}s is used for the creation of a new artifact, method, or system.
-Each \ac{dp}s is translated into a set of \ac{df}s that we can directly implement into the tool or platform.
-In the following, we describe the \ac{df}s for each of the derived \ac{dp}s.
+Since we perform the \textit{first} iteration of the cycle, we derive the features of our software tool using the \ac{df}s.
+In this section, we translate each \ac{dp}s (we defined in chapter \ref{chap:design}) into a set of \ac{df}s that we can directly implement into the tool or solution approach and we describe the \ac{df}s for each of the derived \ac{dp}s.
+\clearpage
+Based on the \textbf{\ac{dp}1: User Variety}, the key features of our solution approach for the \ac{ui} prototyping tool will include registration for diverse users using a registration form (\textit{\ac{df}1}) and user management, i.e., features that enable team members to create and manage user accounts (\textit{\ac{df}2}), assign different levels of access and permissions (\textit{\ac{df}3}). 
 
-\begin{figure}[htbp!]
-    \centering    
-    \includegraphics[width=0.8\textwidth]{Table-dps-dfs.png}
-    \caption[A map between \ac{dp}s and \ac{df}s]{A map between Design Principles and Design Features}
-    \label{fig:implementation:table-dps-dfs}
-\end{figure}
+Based on the \textbf{\ac{dp}4: Pre-Designed Interactive UI Elements}, the privileged user would be able to prototype using the features of our solution approach, which includes the creation of different screens (\textit{\ac{df}4}) and reusable \ac{ui} elements using a drag and drop interface (\textit{\ac{df}4}). The tool also provides a feature to add custom data. i.e., creating data models table (\textit{\ac{df}5}), revising structures of data model table (\textit{\ac{df}6}), adding and deleting data from the table (\textit{\ac{df}7}).
 
-\section{System Architecture}
-\label{implementation:section:architecture}
+Based on the \textbf{\ac{dp}2: Split Tests}, the privileged user would be able to create A/B tests or UI experimentation using the features of our solution approach, which includes creating and modifying the experiments (\textit{\ac{df}8}), creating and updating the UI variants (\textit{\ac{df}9}), and modifying the variants' prototypes such that each variant has a unique view (\textit{\ac{df}10}). 
+
+Based on the \textbf{\ac{dp}5: User tasks Refinement}, the privileged user would be able to create Tasks for the participants using the features of our solution approach, which includes creating tasks for participants depending on the data model (\textit{\ac{df}11}) and independent of data models (\textit{\ac{df}12}), and assign the task to the experiments (\textit{\ac{df}13}).
+
+Based on the \textbf{\ac{dp}6: Qualitative Analysis}, the privileged user would be able to do qualitative analysis on the participants using the features of our solution approach, which includes creating the custom qualitative questionnaire (\textit{\ac{df}14}) with options in the answering formats like Scale based, i.e., the participants will have to choose from options 1 to 10 (\textit{\ac{df}15}) and open-ended questions, i.e., the participants will have the freedom to answer whatever they think (\textit{\ac{df}16}). Similarly, the participants will answer these questions after finishing the tasks with a modal appearing with different questions (\textit{\ac{df}17}). 
+
+Based on the \textbf{\ac{dp}7: Quantitative Analysis}, the privileged user would be able to do quantitative analysis on the participants using the features of our solution approach, which includes collecting the task data feedback, i.e., collecting the time taken to finish the task, number of unsuccessful attempts, the path taken by the users to complete the task, etc. (\textit{\ac{df}18}), and aggregating these feedback data (\textit{\ac{df}19}. 
+
+Based on the \textbf{\ac{dp}8: Diversity in Analysis}, the privileged user would be able to compare the statistics using the features of our solution approach, which includes showing the results of the experiment (\textit{\ac{df}20}), combining qualitative and quantitative analysis of each variant (\textit{\ac{df}21}), and a graphical view to see the results (\textit{\ac{df}22}). 
+
+Based on the \textbf{\ac{dp}3: Continuous Design}, the solution approach would provide features including LEAN development cycle (\textit{\ac{df}23}). The privileged user should be able to update the original prototype with the results from the experiment (\textit{\ac{df}24}) for continuous improvement. 
+
+Based on the \textbf{\ac{dp}9: Modeling}, the solution approach would provide features for creating the models (\textit{\ac{df}25}) useful for persisting data in the database and updating them (\textit{\ac{df}26}) with the results of the experiments.
 
 \section{Technologies Used}
 \label{implementation:section:technologies}
+We have created a software tool that allows us to test the features (\ac{df}s) and underlying principles of the developed DFs with actual users.
+To test our solution approach, we developed a rapid prototyping tool for the first cycle of our \ac{dsr}. 
+
+The implementation of our \textit{UI Prototyping Tool with Experimentation (UPTE)} platform uses various technologies.
+Our UI prototyping tool was developed using Angular\footnote{A framework of javascript: \url{https://angular.io/}}, Loopback\footnote{A framework of the NodeJS \url{https://loopback.io/}}, and MongoDB\footnote{A non-relational database \url{https://www.mongodb.com/}}.
+Angular is a JavaScript framework used for building web-based applications.
+It provides comprehensive tools for creating dynamic and responsive UI components and handling user interactions.
+With angular, we are using several other UI components which are available on Node package manager (npm)\footnote{NPM: \url{https://www.npmjs.com/}}.
+
+Loopback is a Node.js\footnote{NodeJS: \url{https://nodejs.org/en/}} framework used for building RESTful APIs. 
+It provides an intuitive interface for creating API endpoints and managing data persistence. 
+Loopback's support for various data sources, including relational and NoSQL databases, makes it a versatile choice for web applications. 
+We connect our database using the data managers provided by the loopback framework.
+The framework's ability to generate API documentation and testing tools simplifies our development process.
+
+MongoDB is a NoSQL document-oriented database used for storing unstructured data. 
+We store our prototyping tool's data using a JSON\footnote{What is JSON: \url{https://developer.mozilla.org/en-US/docs/Glossary/JSON}} format in an unstructured manner.
+It provides a scalable and flexible solution for managing volumes of data. 
+MongoDB's support for automatic sharding and replication ensures high availability and fault tolerance. 
+The database's dynamic schema and rich query language make it easy to adapt to changing data requirements.
+
+By leveraging these technologies, our UI prototyping tool delivered a powerful and user-friendly interface while ensuring efficient data retrieval and storage.
+Based on these technologies, we build a microservice architecture explained in the next section so that our \ac{dp}s and \ac{df}s can be easily implemented. 
+
+\section{Solution Architecture}
+\label{implementation:section:architecture}
 
 \section{Frontend Implementation}
 \label{implementation:section:frontend}
