@@ -11,9 +11,11 @@
 \else
     \graphicspath{{Chapters/Design/Figs/}{Chapters/Design/Figs/}}
 \fi
+In the previous chapter, we defined various terminologies and concepts that we are using for our thesis.
+Based on that, in this chapter, we derive some design concepts required for our \ac{dsr}.
+Therefore, we explore the \ac{dr} (see section \ref{design:section:designReqs}), \ac{dp} (see section \ref{design:section:designprinciple}), and an overall solution design (see section \ref{design:section:solutiondesign} which gives an incite of the creation of our solution approach) to guide the result of our software tool.
 Design is a critical aspect of \ac{se}, providing the blueprint for implementing functional and non-functional requirements. 
 The design phase is crucial in ensuring that software systems are developed efficiently, effectively, and with high quality. 
-In this chapter, we will explore the \ac{dr} (see section \ref{design:section:designReqs}), \ac{dp} (see section \ref{design:section:designprinciple}), and an overall solution design (see section \ref{design:section:solutiondesign} which gives an incite of the creation of our solution approach) that guide the result of our software tool.
 We develop our design approach based on the principles of \ac{dsr}. 
 Through this exploration, we will provide an in-depth understanding of the design process, highlighting the key factors that must be considered to create effective software solutions.
 
@@ -26,7 +28,7 @@ In our findings of the \ac{dr}s, we focus more on the functional requirements an
 To derive a solution, we define some \ac{dr}s with the help of the literature review\footnote{It was a non-systematic literature review by reading research papers and looking at some renowned UI prototyping tools. The related literature is available in Appendix \ref{appendix:two:definations}} and comparison of some tools.
 In this context, each \ac{dr} refers to a generalized requirement that can be standardized and applied to future software applications.
 We covered a wide range of topics including \textit{\ac{ui} Prototyping}, \textit{Low-Code/No-Code development}, \textit{Model-Based Software Engineering}, \textit{Continuous Experimentation}, \textit{Task-Based Usability Testing}, and the \textit{LEAN development process}.
-The following section presents \textit{eleven \ac{dr}s} that explains the requirements for the approach and their corresponding references in literature and tools.
+The following section presents \textit{nine \ac{dr}s} that explains the requirements for the approach \textit{(solution approach)} and their corresponding references in literature and tools.
 % \paragraph*{Systematic literature reviews:} 
 % Systematic literature reviews establish a solid basis for knowledge creation. 
 % They help create theories and identify areas that require more research.
@@ -113,8 +115,8 @@ At the same time, continuously improve \cite{article:CE:ros} the product based o
 \label{design:section:designprinciple}
 \ac{dp}s are guidelines or rules used to guide the design process in \ac{dsr} \cite{misc:dsr:henver}. 
 They provide a framework for making design decisions \cite{paper:designprinciple:gregor} and help to ensure that the final solution meets the goals and objectives of the research. 
-This section codifies our knowledge during the design study and derives \ac{dp}s from abstract \ac{dr}s from the iteration cycle of the \ac{dsr}.
-The following shows the \textit{9 \ac{dp}s} and references to literature and tools that build the foundation for the mapped \ac{dr}s (see figure \ref{fig:design:table-drs-dps}). 
+This section codifies our knowledge during the design study and derives \ac{dp}s from abstract \ac{dr}s in the iteration cycle of the \ac{dsr}.
+The following shows the \textit{nine \ac{dp}s} for \textit{our solution approach} that is built on the foundation of the mapped \ac{dr}s (see figure \ref{fig:design:table-drs-dps}). 
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.85\textwidth]{Table-drs-dps.png}
@@ -180,7 +182,7 @@ Furthermore, modeling tools can automatically generate code or other documentati
 \section{Overall Solution Design}
 \label{design:section:solutiondesign}
 As shown in figure \ref{fig:design:lean}, we conceptualize the solution design from our codified \ac{dp}s.
-The software platform consists of two types of roles consisting of the Stakeholders for creating the Prototyping tool (E.g., \textit{Product Owners}, the \textit{Designers}) and the \textit{Users or Participants} for testing the tool.
+The software platform consists of two types of roles consisting of the Stakeholders for creating the Prototyping tool (Admin users like, \textit{Product Owners}, the \textit{Designers}) and the \textit{Users or Participants} for testing the tool.
 In this section, we arrange our \ac{dp}s using a LEAN development approach\footnote{Adopted from LEAN process development: \url{https://www.lean.org/explore-lean/product-process-development/}}, a cycle consisting of \textit{Build}, \textit{Measure}, \textit{Learn} phases.
 
 \begin{figure}[htbp!]
@@ -201,15 +203,16 @@ After creating split tests, users would create various tasks simulating real-wor
 %********************************** % Measure **************************************
 \paragraph{Measure:}
 \label{design:paragraph:measure}
-In this phase, we measure the data we receive from the tasks by conducting Qualitative (i.e., \ac{dp}6) and Quantitative (i.e., \ac{dp}7) analysis.
+In this phase, we measure the data we receive from the tasks by conducting qualitative (i.e., \ac{dp}6) and quantitative (i.e., \ac{dp}7) analysis.
 The quantitative analysis is done from the data we collect from the tasks (e.g., the time taken, successfully finished tasks, etc.).
 Similarly, the qualitative analysis is done by colleting the comments, open-ended questions etc. after the task is finished. 
 %********************************** % Learn ****************************************
 \paragraph{Learn:}
 \label{design:paragraph:learn}
-In this phase, the data received from the analysis is processed and visualized. The data is processed by aggregating and combining the results of the qualitative and the quantitative analysis (i.e., \ac{dp}9). 
-Finally, the models are given feedback from the data analysis, improving the UI prototype and updating it with the winner variant as the default UI component.
-The refined product can be deployed for the entire population (or all the users) using deployment module of low code development platform.
+In this phase, the data received from the analysis is processed and visualized. 
+The data is processed by aggregating and combining the results of the qualitative and the quantitative analysis (i.e., \ac{dp}8). 
+Finally, the models are given feedback from the data analysis, improving the UI prototype and updating it with the winner variant (i.e., \ac{dp}9) as the default UI component.
+The refined product can be deployed for the entire population (or all the users) using the deployment module of a no-code development platform.
 
 \section{Summary}
 \label{design:section:summary}

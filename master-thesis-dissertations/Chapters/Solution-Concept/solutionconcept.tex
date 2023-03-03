@@ -32,32 +32,32 @@ In section \ref{sc:section:experimentation}, we explain how to create experiment
     \label{fig:sc:componentD}
 \end{figure}
 The component diagram shows the different modules and components of the UI prototyping tool and how they interact with each other during the execution of the tool.
-To better understand our component diagram, we explain with the help of a Movie streaming software\footnote{Similar to the famous movie streaming services.}.
+To better understand our component diagram, we explain with the help of a Movie streaming software\footnote{Similar to the famous movie streaming services like Netflix}.
 
-As shown in figure \ref{fig:sc:componentD}, the \textit{Users Component} is first used to create an \textit{Admin} user. 
-Next, you create a UI prototype using the UI prototype Management with that admin user. 
-This component represents the prototyping tool's UI consisting of different screens in a Views component. 
+As shown in figure \ref{fig:sc:componentD}, the \textit{Users Component} is first used to create an \textit{admin} user. 
+Next, you create a UI prototype using the UI prototype Management with that \textit{admin} user. 
+This component represents the prototyping tool's UI consisting of different screens in a \textit{Views} component. 
 Each screen can contain UI elements (e.g., Buttons, TextBox, Input, etc.) used to navigate different screens.
-From our movies example, we create different views like HomePage (which is the starting point of the application), SearchMoviesPage (used to search movies), and ViewPage (view to display various movies), and with the help of \textit{Button} \ac{ui} element navigate to various screens.
+From our movies example, we create different views like \textit{HomePage} (which is the starting point of the application), SearchMoviesPage (used to search movies), and ViewPage (view to display various movies), and with the help of \textit{Button} \ac{ui} element navigate to various screens.
 It is important to note that the \textit{Data Module component} sends custom data to the \textit{Views component} (e.g., sending different movies to screen ViewPage).
 The \textit{Data Module} component is used to store and provide various custom data for displaying them on screens.
 Once the UI prototype is ready, the admin user can create UI experiments using the \textit{UI Experimentation Management}.
 
 First, we create an experiment and its different variants (e.g., \textit{ViewExperiment} as an experiment with its variants \textit{GridViewMode} and \textit{ListViewMode} displaying the movies in a grid and list view respectively). 
-While creating the variants, we need to specify the percentage used to distribute the participant groups while conducting the experiment (e.g., The variant \textit{GridViewMode} with 40\% means that of the participants 40\% will be allocated to this variant and the rest to \textit{ListViewMode}).
+While creating the variants, we need to specify the percentage used to distribute the participant groups while experimenting (e.g., The variant \textit{GridViewMode} with 40\% means that of the participants 40\% will be allocated to this variant and the rest to \textit{ListViewMode}).
 Since our solution approach includes a task-based usability test to get user feedback, the admin user must create various tasks supported by the \textit{Tasks} component (e.g., Navigate to a movie titled ``Transformers'').
 With this, we collect participants' quantitative data (like the time to complete the task, the path taken by the participant, and the number of unsuccessful attempts). 
 Additionally, the admin user should add qualitative questions to collect qualitative feedback for our solution approach (e.g., ``How satisfied are you with the ease of completing this task?'').
 Next, we create the participants for our experiment, which can be done using the \textit{User} component, which provides users for participation.
 
-When the admin users have configured everything, they can start with the experimentation using the \textit{Deployment} infrastructure. 
+When the admin users have configured everything, they can start with the \ac{ui} experimentation using the \textit{Deployment} infrastructure. 
 The deployment infrastructure uses the microservice architecture to deploy all the components as they are independently built. 
 The admin should deploy all the components using one button click and ask users to participate in the experiment. 
-After the experiment, the admin user can get analytics using the \textit{Analysis} component. 
+After the experiment, the admin user can get analytics collected and stored in the \textit{Analysis} component. 
 It provides graphical results of the quantitative analysis of different participants. 
 We can also analyze the qualitative analysis using that same component and then decide on the winner variant. 
 The results are then passed on to the UI prototype management component, which revises its model for the entire population.  
-For the whole application, the \textit{Data Persistance} infrastructure represents the module that manages data persistence in the UI prototyping tool, and \textit{Security} infrastructure is used for access control of the participants and admin users.
+For the whole application, the \textit{Data Persistance} infrastructure (see section \ref{sc:section:persistance}) represents the module that manages data persistence in the UI prototyping tool, and \textit{Security} infrastructure (see section \ref{sc:section:security}) is used for access control of the participants and admin users.
 
 \clearpage
 \section{Persistance Infrastructure}
@@ -96,13 +96,13 @@ Then, the code generator takes input data, including configuration files, databa
 Finally, the code will be generated using the templates and rules defined in the previous steps, and we will containerize the generated code. 
 
 \paragraph{Containerization}
-The deployment infrastructure plays an even more important role in using a microservice architecture. 
-It must support the deployment of many independent microservices that may be deployed across multiple servers or data centers (for databases).
+Containerization plays an even more important role in using a microservice architecture. 
+It must support the deployment of many independent microservices that may be deployed across multiple servers or databases.
 From our component diagram, we first identify the system's microservices and their dependencies, such as database components, UI prototyping management, and UI experimentation management. 
 It helps determine how the microservices should be deployed and how they should communicate.
 Next, we create Docker images for each microservice and its dependencies.
-Then, we define docker-compose files\footnote{A Docker Compose file is a YAML file that specifies the microservices, their dependencies, and how they should be deployed and connected.} that describe how the docker containers should be deployed and connected.
-Finally, we build the Docker images and deploy them as containers using the docker-compose file. \\\\
+Then, we define docker-compose files\footnote{A Docker Compose file is a YAML file that specifies the microservices, their dependencies, and how they should be deployed and connected.} in yaml\footnote{YAML format for files: \url{https://www.redhat.com/en/topics/automation/what-is-yaml}} that describe how the docker containers should be deployed and connected.
+Finally, we build the \textit{docker images} and deploy them as \textit{docker containers}. \\\\
 In summary, implementing a deployment infrastructure for a microservice architecture can simplify the deployment and management of microservices, making it easier to build and maintain complex systems.
 
 \clearpage
