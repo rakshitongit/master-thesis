@@ -16,19 +16,19 @@ The Solution Concept chapter in software engineering provides a comprehensive un
 This chapter bridges the gap between the solution design and the actual implementation of the solution by providing a detailed description of the solution approach. 
 It lays the groundwork for the development process, including the design decisions, and technologies used to build the software implementation. 
 Overall, in this chapter, our solution approach is based on the LEAN development cycle we defined in the previous chapter.
-To visualize the system's architecture and interactions between components, we have defined a component diagram (see section \ref{sc:section:componentD}) to facilitate better planning and implementation decisions.
+To visualize the system's architecture and interactions between components, we have defined a component diagram (see section \ref{sc:section:architecture}) to facilitate better planning and implementation decisions.
 In the next sections, we explain the different components we used for building our solution approach (our UI Prototyping tool). 
 In section \ref{sc:section:persistance}, we explain how data is stored in our database. 
 In section \ref{sc:section:deployment}, we explain the code generation and other deployment processes required to build our tool from a prototype to working software.
 In section \ref{sc:section:security}, we explain how access control for various users is managed in our security infrastructure. 
 In section \ref{sc:section:experimentation}, we explain how to create experiments and connect participant users to experiments using our tool. 
 
-\section{Component Diagram}
-\label{sc:section:componentD}
+\section{Software Core Architecture}
+\label{sc:section:architecture}
 \begin{figure}[htbp!]
     \centering    
-    \includegraphics[width=1.1\textwidth]{Component_Diagram.png} 
-    \caption[Component Diagram]{Component Diagram of our UI Prototyping tool}
+    \includegraphics[width=0.9\textwidth]{MVC.png} 
+    \caption[MVC Architecture of System]{MVC Architecture of our UI Prototyping tool}
     \label{fig:sc:componentD}
 \end{figure}
 The component diagram shows the different modules and components of the UI prototyping tool and how they interact with each other during the execution of the tool.
