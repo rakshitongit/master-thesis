@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  
+  ui-prototyping:
+    container_name: ui-prototyping-app-docker
+    build: ./ui-prototyping-tool/
+    restart: unless-stopped
+    ports:
+      - 8083:8083
+    networks:
+      - myNetwork
+
+  ui-prototyping-no-code-app:
+    container_name: ui-prototyping-no-code-app-docker
+    build: ./no-code-built-app/
+    restart: unless-stopped
+    ports:
+      - 8084:8084
+    networks:
+      - myNetwork
+  
+  ui-prototyping-server:
+    container_name: ui-prototyping-server-docker
+    build: ./ui-prototyping-server/
+    ports:
+      - 3001:3001
+    networks:
+      - myNetwork
+
+  nginx:
+    container_name: nginx-final-docker
+    restart: unless-stopped
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - myNetwork
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - server
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: helloworld
+    networks:
+      - myNetwork
+    depends_on:
+      - ui-prototyping-server
+
+networks:
+  myNetwork:
+    external: false
+    name: myNetwork

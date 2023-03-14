@@ -10,20 +10,28 @@
 \else
     \graphicspath{{Chapters/Solution-Concept/Figs/}{Chapters/Solution-Concept/Figs/}}
 \fi
-In the previous chapter, we defined different design requirements and principles for our solution approach. 
+In the previous chapter, we defined different \ac{dr}s and \ac{dp}s for our solution approach. 
 Based on that, in this chapter, we present the conceptual design of the solution, which outlines the system's key features, components, and functionalities. 
+For that, the introduction section (see section \ref{sc:section:introduction}) introduces the reader to the chapter details completing our solution concept, next section explains the core architecture of our solution approach and then the next sections explains the architecture in details. 
+
+\section{Introduction}
+\label{sc:section:introduction}
 The Solution Concept chapter in software engineering provides a comprehensive understanding of the proposed solution approach. 
 This chapter bridges the gap between the solution design and the actual implementation of the solution by providing a detailed description of the solution approach. 
 It lays the groundwork for the development process, including the design decisions, and technologies used to build the software implementation. 
 Overall, in this chapter, our solution approach is based on the LEAN development cycle we defined in the previous chapter.
-To visualize the system's architecture and interactions between components, we have defined a component diagram (see section \ref{sc:section:architecture}) to facilitate better planning and implementation decisions.
+To visualize the system's architecture and interactions between components, we have defined software architecture (see section \ref{sc:section:architecture}) to facilitate better planning and implementation decisions.
 In the next sections, we explain the different components we used for building our solution approach (our UI Prototyping tool). 
-In section \ref{sc:section:persistance}, we explain how data is stored in our database. 
-In section \ref{sc:section:deployment}, we explain the code generation and other deployment processes required to build our tool from a prototype to working software.
-In section \ref{sc:section:security}, we explain how access control for various users is managed in our security infrastructure. 
-In section \ref{sc:section:experimentation}, we explain how to create experiments and connect participant users to experiments using our tool. 
+In section \ref{sc:section:persistance}, we explain how data is stored in our database using the data models. 
+% In section \ref{sc:section:security}, we explain how access control for various users is managed in our security infrastructure. 
+In section \ref{sc:section:experimentation}, we explain the \ac{ui} of the tool on how to create experiments and connect participant users to experiments using our tool.
+In section \ref{sc:section:security}, we explain \ac{ui} interacts with the database. 
+Finally, in section \ref{sc:section:deployment}, we explain the code generation and other deployment processes required to build our tool from a prototype to working software.
 
-\section{Software Core Architecture}
+\section{Software Architecture}
+In this section, we will discuss the software architecture of a \ac{ui} prototyping tool with provisions for split and task-based usability tests. 
+The software tool uses the \ac{mvc} architecture, with the main views being the \ac{ui} prototyping management and the \ac{ui} experiments management. 
+The models used in the architecture are the \ac{ui} view for prototyping and the \ac{ui} experiment for split tests. 
 \label{sc:section:architecture}
 \begin{figure}[htbp!]
     \centering    
@@ -31,42 +39,38 @@ In section \ref{sc:section:experimentation}, we explain how to create experiment
     \caption[MVC Architecture of System]{MVC Architecture of our UI Prototyping tool}
     \label{fig:sc:componentD}
 \end{figure}
-The component diagram shows the different modules and components of the UI prototyping tool and how they interact with each other during the execution of the tool.
-To better understand our component diagram, we explain with the help of a Movie streaming software\footnote{Similar to the famous movie streaming services like Netflix}.
+The diagram (see figure \ref{fig:sc:componentD}) shows the different modules and components of the \ac{ui} prototyping tool and how they interact with each other during the execution of the tool.
+We chose the \ac{mvc} architecture for this tool because it separates the application logic into three interconnected components. 
+The model component represents the data and the business logic of the application. 
+The view component represents the application's \ac{ui}, and the controller component handles the user input and updates the model and the view. 
+The separation of these components allows for easier application maintenance, scalability, and modifiability.
 
-As shown in figure \ref{fig:sc:componentD}, the \textit{Users Component} is first used to create an \textit{admin} user. 
-Next, you create a UI prototype using the UI prototype Management with that \textit{admin} user. 
-This component represents the prototyping tool's UI consisting of different screens in a \textit{Views} component. 
-Each screen can contain UI elements (e.g., Buttons, TextBox, Input, etc.) used to navigate different screens.
-From our movies example, we create different views like \textit{HomePage} (which is the starting point of the application), SearchMoviesPage (used to search movies), and ViewPage (view to display various movies), and with the help of \textit{Button} \ac{ui} element navigate to various screens.
-It is important to note that the \textit{Data Module component} sends custom data to the \textit{Views component} (e.g., sending different movies to screen ViewPage).
-The \textit{Data Module} component is used to store and provide various custom data for displaying them on screens.
-Once the UI prototype is ready, the admin user can create UI experiments using the \textit{UI Experimentation Management}.
+As shown in figure \ref{fig:sc:componentD}, the \textit{UI prototype management} and the \textit{UI experiments management} are the two main views of the tool.
+The \textit{UI prototype management} view manages the prototyping process, while the \textit{UI experiments management} view manages split tests and task-based usability tests. 
+The \textit{UI View} model is connected to the prototyping view, and the \textit{UI experiment} model is used for split tests. 
+The \textit{UI prototyping} and \textit{Experiment} controllers are the main controllers for handling user input and updating the models and views accordingly.
+For the database, we use a NoSQL database that provides flexibility and scalability for applications with changing data requirements. 
 
-First, we create an experiment and its different variants (e.g., \textit{ViewExperiment} as an experiment with its variants \textit{GridViewMode} and \textit{ListViewMode} displaying the movies in a grid and list view respectively). 
-While creating the variants, we need to specify the percentage used to distribute the participant groups while experimenting (e.g., The variant \textit{GridViewMode} with 40\% means that of the participants 40\% will be allocated to this variant and the rest to \textit{ListViewMode}).
-Since our solution approach includes a task-based usability test to get user feedback, the admin user must create various tasks supported by the \textit{Tasks} component (e.g., Navigate to a movie titled ``Transformers'').
-With this, we collect participants' quantitative data (like the time to complete the task, the path taken by the participant, and the number of unsuccessful attempts). 
-Additionally, the admin user should add qualitative questions to collect qualitative feedback for our solution approach (e.g., ``How satisfied are you with the ease of completing this task?'').
-Next, we create the participants for our experiment, which can be done using the \textit{User} component, which provides users for participation.
+The \textit{admin} user is responsible for prototyping and creating user experiments and scenarios. 
+The \textit{admin} user can access all the tool's features and create, edit, and delete prototypes and experiments.
+Finally, for deployment, we have one component that includes all the files and dependencies required to run the application. 
+This component contains the server-side code, the client-side code, and the necessary libraries and dependencies. 
+The deployment component is responsible for packaging the application and deploying it to the target environment.
 
-When the admin users have configured everything, they can start with the \ac{ui} experimentation using the \textit{Deployment} infrastructure. 
-The deployment infrastructure uses the microservice architecture to deploy all the components as they are independently built. 
-The admin should deploy all the components using one button click and ask users to participate in the experiment. 
-After the experiment, the admin user can get analytics collected and stored in the \textit{Analysis} component. 
-It provides graphical results of the quantitative analysis of different participants. 
-We can also analyze the qualitative analysis using that same component and then decide on the winner variant. 
-The results are then passed on to the UI prototype management component, which revises its model for the entire population.  
-For the whole application, the \textit{Data Persistance} infrastructure (see section \ref{sc:section:persistance}) represents the module that manages data persistence in the UI prototyping tool, and \textit{Security} infrastructure (see section \ref{sc:section:security}) is used for access control of the participants and admin users.
+In summary, the software architecture for our \ac{ui} prototyping tool is designed using the \ac{mvc} architecture, with the details explained in the next sections. 
+Similarly, the role of the \textit{admin}, the user responsible for prototyping and creating user experiments and scenarios, is also explained in the next section in detail.
 
 \clearpage
-\section{Persistance Infrastructure}
+\section{Models}
 \label{sc:section:persistance}
+
+\paragraph{View Model}
+
+\paragraph{Experiment Model}
+
+\paragraph{Persistance infrastructure}
 A persistence infrastructure is often necessary for a component diagram to manage a system's data storage and retrieval. 
-When a component needs to store data for later use or retrieve data that has been previously stored, a persistence infrastructure can provide the necessary functionality to accomplish this.
-Our solution approach uses a persistence infrastructure that provides ``Database connection'' and ``Data persistence'' services for a non-relational MongoDB.
-Therefore, the implementation of the persistence infrastructure will be different compared to a traditional relational database. 
-MongoDB is a document-oriented database, meaning that data is stored as documents in collections rather than tables with rows and columns.
+When a model needs to store data for later use or retrieve data that has been previously stored, a persistence infrastructure can provide the necessary functionality to accomplish this.
 
 \paragraph{Database connection}
 Our persistence infrastructure provides database connectivity for a non-relational database by using a MongoDB driver or library to interact with the database. 

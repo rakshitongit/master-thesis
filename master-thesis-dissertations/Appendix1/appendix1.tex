@@ -1,132 +1,61 @@
 %!TEX root = ../thesis.tex
 % ******************************* Thesis Appendix A ****************************
-\chapter{How to install our Low-code Application} 
+\chapter{How to install our Application} 
+\ifpdf
+    \graphicspath{{Appendix1/Figs/}{Appendix1/Figs/}{Appendix1/Figs/}}
+\else
+    \graphicspath{{Appendix1/Figs/}{Appendix1/Figs/}}
+\fi
+Our UI Prototyping tool (as shown in figure \ref{fig:appendix:installation:tool}) utilizes AngularCLI\footnote{Website of AngularCLI: \url{https://angular.io/cli}}, MongoDB\footnote{Website of MongoDB: \url{https://www.mongodb.com/}}, and NodeJS\footnote{Website of NodeJS: \url{https://nodejs.org/en/}} in conjunction with a microcontroller architecture that employs docker containers. 
+To use the tool, you will need to download and install these technologies beforehand.
+NodeJS serves as a runtime environment for executing JavaScript code and comes with the Node Package Manager (NPM), which can be used to include external JavaScript code packages in the software. 
+Moreover, you need to install Loopback\footnote{Website of Loopback: \url{https://loopback.io/doc/en/lb4/Getting-started.html}} which is a framework for NodeJS.
+AngularCLI, on the other hand, is a command-line interface (CLI) used to develop and maintain Angular applications. 
+Additionally, MongoDB drivers can be installed or can also be the cloud version of MongoDB. 
+\begin{figure}[htbp!]
+	\centering    
+	\includegraphics[width=0.8\textwidth]{tool.png}
+	\caption[UI Prototyping tool]{Index page of our UI Prototyping tool}
+	\label{fig:appendix:installation:tool}
+\end{figure}
+Lastly, for cloning the repository, you can install the Git\footnote{Website of Git installation: \url{https://git-scm.com/downloads}}.\\
+Based on these prerequisites, there are additional instructions for installing the tool.
 
-\section*{Windows OS}
+\begin{figure}[htbp]
+	\begin{subfigure}[b]{0.55\textwidth}
+	  \centering
+	  \includegraphics[width=1\textwidth]{docker-compose.png}
+	\caption[Docker configuration]{A configuration file for docker-compose file}
+	\label{fig:appendix:installation:dockerCompose}   
+	\end{subfigure}
+	\begin{subfigure}[b]{0.55\textwidth}
+	  \centering
+	  \includegraphics[width=0.838\textwidth]{nginx.png}
+	\caption[Nginx Configuration]{Nginx Configuration for our tool}
+	\label{fig:appendix:installation:nginx}
+	\end{subfigure} 
+	\caption{Configuration settings}
+	\label{fig:appendix:configuration}
+\end{figure}
 
-\subsection*{TeXLive package - full version}
+\paragraph{Tool configuration steps:}
+
 \begin{enumerate}
-\item	Download the TeXLive ISO (2.2GB) from\\
-\href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
-\item	Download WinCDEmu (if you don't have a virtual drive) from \\
-\href{http://wincdemu.sysprogs.org/download/}
-{http://wincdemu.sysprogs.org/download/}
-\item	To install Windows CD Emulator follow the instructions at\\
-\href{http://wincdemu.sysprogs.org/tutorials/install/}
-{http://wincdemu.sysprogs.org/tutorials/install/}
-\item	Right-click the iso and mount it using the WinCDEmu as shown in \\
-\href{http://wincdemu.sysprogs.org/tutorials/mount/}{
-http://wincdemu.sysprogs.org/tutorials/mount/}
-\item	Open your virtual drive and run setup.pl
-\end{enumerate}
-
-or
-
-\subsection*{Basic MikTeX - \TeX~ distribution}
+\item \textbf{Install Docker:} To begin with, you need to install Docker on your computer. 
+You can download it from the official website\footnote{Website of Docker Installation: \url{https://www.docker.com/}} based on your operating system.
+\clearpage
+\item \textbf{Clone Repository:} Get the latest version of the tool from GitLab repository\footnote{Link for repo: \url{https://git.cs.uni-paderborn.de/rakshitb/thesis}}. We use GitLab which is hosted by the University of Paderborn.
 \begin{enumerate}
-\item	Download Basic-MiK\TeX (32bit or 64bit) from\\
-\href{http://miktex.org/download}{http://miktex.org/download}
-\item	Run the installer 
-\item	To add a new package go to Start >> All Programs >> MikTex >> Maintenance (Admin) and choose Package Manager
-\item	Select or search for packages to install
+	\item Clone the GitLab repository directly from GitLab\footnote{Website for cloning repository instructions: \url{https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html}}.
+	\item You can fork the repository\footnote{Website for forking a repository: \url{https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html}} 
 \end{enumerate}
-
-\subsection*{TexStudio - \TeX~ editor}
-\begin{enumerate}
-\item	Download TexStudio from\\
-\href{http://texstudio.sourceforge.net/\#downloads}
-{http://texstudio.sourceforge.net/\#downloads} 
-\item	Run the installer
+% \begin{figure}[htbp!]
+% 	\centering    
+% 	\includegraphics[width=0.4\textwidth]{nginx.png}
+% 	\caption[Nginx Configuration]{Nginx Configuration for our tool}
+% 	\label{fig:appendix:installation:nginx}
+% \end{figure}
+\item \textbf{Start docker:} Start the docker engine or the service for running the docker containers.
+\item \textbf{Run Application:} Run the script file (\texttt{./restart-docker.sh}) which is available to run the docker containers. This also runs the \texttt{docker-compose.yml} file internally. You can update the file if you want to change the ports or add TLS signatures (see figure \ref{fig:appendix:installation:dockerCompose}).
+\item \textbf{Check on Browser:} Use the UI Prototyping tool to develop the UI prototypes, create experiments and improve the prototype by opening \texttt{\url{http://localhost}} in your web browser.
 \end{enumerate}
-
-\section*{Mac OS X}
-\subsection*{MacTeX - \TeX~ distribution}
-\begin{enumerate}
-\item	Download the file from\\
-\href{https://www.tug.org/mactex/}{https://www.tug.org/mactex/}
-\item	Extract and double click to run the installer. It does the entire configuration, sit back and relax.
-\end{enumerate}
-
-\subsection*{TexStudio - \TeX~ editor}
-\begin{enumerate}
-\item	Download TexStudio from\\
-\href{http://texstudio.sourceforge.net/\#downloads}
-{http://texstudio.sourceforge.net/\#downloads} 
-\item	Extract and Start
-\end{enumerate}
-
-
-\section*{Unix/Linux}
-\subsection*{TeXLive - \TeX~ distribution}
-\subsubsection*{Getting the distribution:}
-\begin{enumerate}
-\item	TexLive can be downloaded from\\
-\href{http://www.tug.org/texlive/acquire-netinstall.html}
-{http://www.tug.org/texlive/acquire-netinstall.html}.
-\item	TexLive is provided by most operating system you can use (rpm,apt-get or yum) to get TexLive distributions
-\end{enumerate}
-
-\subsubsection*{Installation}
-\begin{enumerate}
-\item	Mount the ISO file in the mnt directory
-\begin{verbatim}
-mount -t iso9660 -o ro,loop,noauto /your/texlive####.iso /mnt
-\end{verbatim}
-
-\item	Install wget on your OS (use rpm, apt-get or yum install)
-\item	Run the installer script install-tl.
-\begin{verbatim}
-	cd /your/download/directory
-	./install-tl
-\end{verbatim}
-\item	Enter command `i' for installation
-
-\item	Post-Installation configuration:\\
-\href{http://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-320003.4.1}
-{http://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-320003.4.1} 
-\item	Set the path for the directory of TexLive binaries in your .bashrc file
-\end{enumerate}
-
-\subsubsection*{For 32bit OS}
-For Bourne-compatible shells such as bash, and using Intel x86 GNU/Linux and a default directory setup as an example, the file to edit might be \begin{verbatim}
-edit $~/.bashrc file and add following lines
-PATH=/usr/local/texlive/2011/bin/i386-linux:$PATH; 
-export PATH 
-MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH;
-export MANPATH 
-INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH;
-export INFOPATH
-\end{verbatim}
-\subsubsection*{For 64bit OS}
-\begin{verbatim}
-edit $~/.bashrc file and add following lines
-PATH=/usr/local/texlive/2011/bin/x86_64-linux:$PATH;
-export PATH 
-MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH;
-export MANPATH 
-INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH;
-export INFOPATH
-
-\end{verbatim}
-
-
-
-%\subsection{Installing directly using Linux packages} 
-\subsubsection*{Fedora/RedHat/CentOS:}
-\begin{verbatim} 
-sudo yum install texlive 
-sudo yum install psutils 
-\end{verbatim}
-
-
-\subsubsection*{SUSE:}
-\begin{verbatim}
-sudo zypper install texlive
-\end{verbatim}
-
-
-\subsubsection*{Debian/Ubuntu:}
-\begin{verbatim} 
-sudo apt-get install texlive texlive-latex-extra 
-sudo apt-get install psutils
-\end{verbatim}
