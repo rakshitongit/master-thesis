@@ -74,8 +74,30 @@ It consists of various sub-components for constructing UI elements, data models,
 \end{figure}
 
 \paragraph{UI Elements}
+The prototype management features a comprehensive set of UI elements designed to be reusable and easy to customize. 
+The UI Elements component represents various predefined UI elements used during the prototyping. 
+These components can be added to a screen using a simple drag-and-drop interface, allowing users to create interactive prototypes with minimal effort quickly.
+Each of our UI elements includes a range of properties that can be customized to meet the user's specific needs. 
+These properties include size, color, font, and behavior properties. 
+Providing these options allows users to create prototypes that accurately represent their vision without being limited by the tool's capabilities.
+Some UI elements we have developed include buttons, select elements, text boxes, image render, and the input element. 
+Each component is designed to be intuitive and easy to use while providing enough functionality to allow users to create complex interactions. 
 \paragraph{Data Models}
+The prototype management includes a data model component allowing users to create and manage data sets for their prototypes easily. 
+With this component, users can create data models, which are then stored in a database and can be accessed and manipulated using a model.
+Creating a data model is straightforward: users import the \ac{csv} file and then create a model for the particular data set they want to use in their prototype. 
+Once the model is created, users can iterate through the data in various forms, such as a table or a grid, and visualize how the data will be displayed in their final product.
+One of the key benefits of our data model component is how easily it can be modified and updated. 
+Users can change the data directly within the model using a table, allowing them to quickly iterate on their prototypes without constantly importing new data sets. 
+This makes it easy to test different scenarios and refine the user experience.
+Similarly, by importing real-world data sets, users can create prototypes that more closely resemble the final product, which can be valuable for testing and validation.
+
 \paragraph{Analysis}
+The prototype management includes an analysis component that enables users to combine and aggregate the results of qualitative and quantitative analyses. 
+By combining these different types of research, users can gain a more comprehensive understanding of how their prototype is performing and make data-driven decisions about how to iterate and improve it. 
+One of the key features of our analysis component is its ability to transfer the results of the winner variant back to the prototyping component. 
+It allows users to quickly iterate on their designs based on the insights gained from the analysis, ensuring that the final product is optimized for user engagement and satisfaction.\\\\
+In summary, implementing a prototyping management component simplifies the \ac{ui} prototyping, helps improve the effectiveness of the UI, allowing to add \ac{ui} elements, and data models and improves the prototype.
 
 \clearpage
 \section{UI Experimentation management}
@@ -113,9 +135,16 @@ These tasks are built and maintained in our tool by the admin user and are usefu
 So, the participants carry out the tasks, and our tool would collect their interaction details (e.g., time taken to finish the task, the path taken by the participant, number of unsuccessful attempts). 
 
 \paragraph{Qualitative Questions}
-Since we combine qualitative and quantitative analysis, our solution approach must provide a feature for creating qualitative questions for the participants. 
-The \textit{Qualitative questions} component is responsible for providing this feature to the admin user who creates these questions. 
-As for the participants, after finishing every task, the participants are asked these questions, and the tool collects the responses. 
+The experiment management includes a qualitative component that allows users to gather participant feedback through a qualitative questionnaire. 
+This component complements the quantitative component and provides users with a more holistic view of how users interact with their prototype.
+The qualitative questionnaire can be easily added to the prototype, and users can choose from various question types, including open-ended and scale-based questions. 
+It allows users to gather rich and detailed feedback from participants about their experience with the prototype.
+
+\paragraph{Quantitative analysis}
+The experiment management includes a quantitative component that allows users to collect data from user tasks, such as user clicks, user paths, and time taken. 
+By gathering this data, users can better understand how users interact with their prototypes and identify areas for improvement.
+Once the data has been gathered, the quantitative component calculates the mean for each metric. It provides users with an average value that they can use to compare different variations of their prototype and identify which one performs the best.
+Users can make data-driven decisions about their prototype using the mean and quickly iterate based on user feedback. 
 
 \paragraph{Analyze Results}
 Every experiment needs to visualize its results, and the visualization component is responsible for providing this feature of analyzing the results of the A/B testing to determine which UI variant performs better. 
@@ -181,7 +210,7 @@ It must support the deployment of many independent microservices that may be dep
 From our component diagram, we first identify the system's microservices and their dependencies, such as database components, UI prototyping management, and UI experimentation management. 
 It helps determine how the microservices should be deployed and how they should communicate.
 Next, we create Docker images for each microservice and its dependencies.
-Then, we define docker-compose files\footnote{A Docker Compose file is a YAML file that specifies the microservices, their dependencies, and how they should be deployed and connected.} in yaml\footnote{YAML format for files: \url{https://www.redhat.com/en/topics/automation/what-is-yaml}} that describe how the docker containers should be deployed and connected.
+Then, we define docker-compose files\footnote{A Docker Compose file is a YAML file that specifies the microservices, their dependencies, and how they should be deployed and connected.} in yaml\footnote{YAML format for files: \url{https://www.redhat.com/en/topics/automation/what-is-yaml}} (see Appendix \ref{appendix:one:installation}) that describe how the docker containers should be deployed and connected.
 Finally, we build the \textit{docker images} and deploy them as \textit{docker containers}. \\\\
 In summary, implementing a deployment infrastructure for a microservice architecture can simplify the deployment and management of microservices, making it easier to build and maintain complex systems.
 
