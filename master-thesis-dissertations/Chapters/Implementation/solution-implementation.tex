@@ -107,6 +107,33 @@ Based on these technologies, we build a microservice architecture explained in t
 \section{Frontend Implementation}
 \label{implementation:section:frontend}
 
+\begin{lstlisting}[language=JavaScript, caption=Abstract classes]
+export abstract class IDClass {
+    id!: string
+}
+
+export abstract class AbstractContainer extends IDClass {
+    name!: string
+    cssProperty!: CSSProperty['json']
+    type: ContainerType = ContainerType.VIEW
+    property!: AbstractProperty
+}
+
+export abstract class AbstractProperty extends IDClass {
+    name!: string
+}
+
+export abstract class AbstractUIProperty extends AbstractProperty {
+    value!: string
+    label!: string
+}
+
+export abstract class Interaction extends IDClass {
+    connectionId!: string
+    abstract canNavigate(): boolean
+}
+\end{lstlisting}
+
 \section{Database Schema}
 \label{implementation:section:database}
 
