@@ -314,6 +314,11 @@ Similarly, when a new UI element is added to the canvas, the right panel display
 Additionally, the right panel contains a function for adding new interactions to the UI element, such as \texttt{onClick} event. 
 This function allows the user to define a JavaScript function that will be executed when the UI element is clicked. 
 The function can be added to the element's properties in the right panel and saved to the database along with the other properties.
+Moreover, the template of the right panel component displays the properties of a selected UI element. 
+It is dynamically updated based on events emitted by the middle panel component. 
+When the middle panel emits an event to update the selected element, the right panel template displays the properties of that element. 
+Similarly, when the middle panel emits an event to update the canvas or screen, the right panel template updates the properties displayed on the screen. 
+Overall, the right panel template is designed to provide real-time updates to the properties of the UI element based on user actions and events.
 
 \section{Backend Implementation}
 \label{implementation:section:backend}
