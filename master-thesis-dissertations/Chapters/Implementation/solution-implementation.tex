@@ -272,37 +272,6 @@ export class MiddlePanelComponent implements OnInit {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=JavaScript, caption=right-panel.component.ts, label=listing:implementation:right]
-@Component({...})
-export class RightPanelComponent implements OnInit {
-    // Define variables
-    ...
-    constructor(...) { }
-
-    ngOnInit() {
-        // Functions for subscribing to various events
-        this.updateSelectedElement()
-        this.getProperties()
-        this.updateCanvasView()
-        this.updateDeletionUIElement()
-    }
-    async updateCanvasView() {
-        this.element = await firstValueFrom(this.shared.getCanvasView())
-        this.elementName = val.name
-        if (this.element.type == ContainerType.VIEW) {
-            this.element.cssProperty = new CSSProperty().json
-            this.element.cssProperty.height = '200'
-        }
-    }
-
-    addNewInteraction() {
-        const interaction: OnClickInteraction = new OnClickInteraction();
-        interaction.id = uuidv4();
-        this.element.interactions = [interaction]
-    }
-}    
-\end{lstlisting}
-
 \paragraph{Right Panel}
 In our implementation, the right panel component serves as a property editor for the selected UI element in the middle panel. 
 It contains various functions which are explained using the Listing \ref{listing:implementation:right}.
@@ -319,10 +288,177 @@ It is dynamically updated based on events emitted by the middle panel component.
 When the middle panel emits an event to update the selected element, the right panel template displays the properties of that element. 
 Similarly, when the middle panel emits an event to update the canvas or screen, the right panel template updates the properties displayed on the screen. 
 Overall, the right panel template is designed to provide real-time updates to the properties of the UI element based on user actions and events.
+\clearpage
+\begin{lstlisting}[language=JavaScript, caption=right-panel.component.ts, label=listing:implementation:right]
+@Component({...})
+export class RightPanelComponent implements OnInit {
+    // Define variables
+    ...
+    constructor(...) { }
 
+    ngOnInit() {
+        // Functions for subscribing to various events
+        this.updateSelectedElement()
+        this.getProperties()
+        this.updateCanvasView()
+        this.updateDeletionUIElement()
+    }
+    async updateCanvasView() {
+        this.element = 
+        await firstValueFrom(this.shared.getCanvasView())
+        this.elementName = this.element.name
+        if (this.element.type == ContainerType.VIEW) {
+            this.element.cssProperty = new CSSProperty().json
+            this.element.cssProperty.height = '200'
+        }
+    }
+
+    addNewInteraction() {
+        const interaction: OnClickInteraction = 
+        new OnClickInteraction();
+        interaction.id = uuidv4();
+        this.element.interactions = [interaction]
+    }
+}    
+\end{lstlisting}
+\clearpage
 \section{Backend Implementation}
 \label{implementation:section:backend}
+This section discusses the back-end implementation of our software tool. 
+As discussed in the previous section, we developed the backend server using \textit{Loopback} which is a popular open-source Node.js framework.
+We implemented the backend following the \ac{mvc} architecture pattern.
+According to the loopback 4 architecture (see figure \ref{implementation:fig:loopbackarchitecture} \footnote{Website of Loopback 4 architecture: \url{https://loopback.io/pages/en/lb4/imgs/loopback-overview.png}}), the backend implementation contains controllers, services, repositories, models, data sources, authentication middleware, and many more.
+But for our tool, we focus on these few components of Loopback 4. 
+The controllers are responsible for handling incoming requests and returning responses to the client. 
+Services contain the application's business logic and interact with repositories to perform CRUD operations on the data. 
+Repositories provide an interface to the data source for data storage and retrieval. 
+Models define the data schema and are used by controllers, services, and repositories to interact with the data source. 
+Data sources describe the connection details to the database where the data is stored. 
+In our case, we use MongoDB configurations. 
+Additionally, authentication middleware was implemented to secure the application by verifying the user's identity and providing access control to specific resources.
+Thus, the backend implementation provides a robust and scalable architecture to handle the application's data management and authentication needs.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.45]{lb4-overview.png}
+    \caption[Loopback Architecture]{Loopback 4 Architecture}
+    \label{implementation:fig:loopbackarchitecture}
+\end{figure}
 
+\paragraph{MoongoDb Datasource}
+In the backend implementation using LoopBack 4, we used a MongoDB database as the data source for our application. 
+LoopBack 4 provides an easy way to create and configure data sources using its \ac{cli}.
+We used the \ac{cli} to generate a MongoDB data source for our application by running the command \texttt{lb4 datasource}. 
+It generated a data source file (see Listing \ref{listing:implementation:lb4Mongo}) with the necessary configuration for connecting to our MongoDB instance.
+We customized the data source configuration to include the database name and other options, such as the connection string, username, and password in an env variable \texttt{DB\_CONNECTION}.
+
+\begin{lstlisting}[language=JavaScript, caption=lb-4-mongo.datasource.ts, label=listing:implementation:lb4Mongo]
+// imports
+const config = {
+  name: 'mongo',
+  connector: 'mongodb',
+  url: process.env.DB_CONNECTION,
+  useNewUrlParser: true
+};
+// Observe application's life cycle to disconnect datasource when application is stopped
+@lifeCycleObserver('datasource')
+export class MongoDataSource extends juggler.DataSource
+  implements LifeCycleObserver {
+  static dataSourceName = 'mongo';
+  static readonly defaultConfig = config;
+    
+  constructor(@inject('datasources.config.mongo', {optional: true})
+       dsConfig: object = config) {
+    super(dsConfig);
+  }
+}
+\end{lstlisting}
+
+\paragraph{REST Controller}
+Using Loopback 4, we created RESTful APIs for our application. 
+The REST controller was generated using the LoopBack \ac{cli} tool, which provided a boilerplate code structure for creating REST endpoints.
+To connect the REST controller to our application's business logic, we connected it to the repository and services. 
+It allowed us to define the operations that could be performed on the model and provide implementation details.
+We also implemented APIs for file uploads (see the Listing \ref{listing:implementation:fileUpload}), specifically images, necessary for our prototyping tool. 
+We created a function called \texttt{fileUpload}, which takes in a \texttt{@requestBody} containing the file to be uploaded. 
+This function used the Nginx File input module to process file upload. 
+Once the file is uploaded, we save it to our server folder.
+
+\begin{lstlisting}[language=JavaScript, caption=file-upload.controller.ts, label=listing:implementation:fileUpload]
+// imports ...
+export class FileUploadController {
+    constructor(...) {}
+    
+    @post('/files/{key}', {
+        responses: {...},
+    })
+    async fileUpload(
+        @requestBody.file()
+        request: Request,
+        @inject(RestBindings.Http.RESPONSE) response: Response,
+        @param.path.string('key') key: string,
+    ): Promise<object> {
+        this.handler(request, response, async (err: unknown) => {
+        this.uploadCsv(files["files"][0]["path"], key)
+        })
+    }
+
+    private uploadCsv(file: File) {
+        ...
+    }
+}
+\end{lstlisting}
+
+\paragraph{Model for data}
+In our implementation, we used the CLI to generate our data model.
+A data model in Loopback is essentially an entity representing a collection of data or a resource. It can have various properties that define its schema, such as the data type, validation rules, default values, etc.
+In our implementation, we defined our data model with various properties (as shown in Listing \ref{listing:implementation:datamodel}) like \texttt{id} of type \textit{string}, texttt{key} of type \textit{string} an \textit{array} of \texttt{data} and some other properties.
+We also defined validation rules and default values for some of these properties.
+Overall, a model in Loopback 4 provides a structured way of organizing and storing data in our application.
+
+\paragraph{Other components}
+We implemented a \textit{Middleware} using the \texttt{@authenticate(`jwt')} decorator to secure the API endpoints and authenticate the user. 
+This decorator validates the JWT token sent in the request header and authenticates the user based on the token's validity. 
+If the token is valid, the user can access the endpoint; otherwise, a 401 unauthorized error is returned.
+\textit{OpenAPI} is a specification that allows developers to define, create, and consume RESTful APIs. 
+We used the Loopback OpenAPI specification to generate API documentation for our application. 
+The OpenAPI specification defines the API's endpoints, parameters, request and response bodies, and authentication requirements. 
+The specification generates interactive documentation, client libraries, and code snippets to help developers integrate with the API. 
+We configured the OpenAPI specification by defining the application's metadata, security schemes, and endpoints in the Loopback configuration file.
+Finally, we used a predefined docker file generated from the Loopback CLI to deploy the application. 
+The file specified the base image, environment variables, exposed ports, and dependencies required to run the application. 
+The docker file contained all the necessary instructions to build and run the application in a containerized environment.
+
+\begin{lstlisting}[language=JavaScript, caption=data.model.ts, label=listing:implementation:datamodel]
+@model({ settings: { strict: false } })
+export class DataModel extends Entity {
+    @property({
+        type: 'string',
+        id: true,
+        generated: true
+    })
+    id?: string;
+
+    @property({
+        type: 'string'
+    })
+    key?: string;
+
+    @property({
+        type: 'array',
+        itemType: 'object',
+        required: false,
+        default: []
+    })
+    data: any;
+
+    [prop: string]: any;
+
+    constructor(data?: Partial<DataModel>) {
+        super(data);
+    }
+}
+\end{lstlisting}
+\clearpage
 \section{Database Schema}
 \label{implementation:section:database}
 
