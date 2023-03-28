@@ -3,41 +3,115 @@
 %****************************** Related Work Chapter **********************************
 %*******************************************************************************
 \chapter{Related Work}
+\label{chap:relatedWork}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 % **************************** Define Graphics Path **************************
 \ifpdf
     \graphicspath{{Chapters/Related-work/Figs/}{Chapters/Related-work/Figs/}{Chapters/Related-work/Figs/}}
 \else
     \graphicspath{{Chapters/Related-work/Figs/}{Chapters/Related-work/Figs/}}
 \fi
+A review informed the design and evaluation of our tool of existing tools and research technologies in UI prototyping and usability testing. 
+This chapter will present a comprehensive overview of the related work in two sections. 
+The first section (see section \ref{section:related-word:tools}) will discuss the tools and state-of-the-art research technologies commonly used for UI prototyping and UI split testing. 
+We will provide an in-depth analysis of the strengths and limitations of each tool and highlight its unique features and functionalities.
+The next section (see section \ref{section:related-word:comparison}) focuses on comparing our tool with the existing ones. 
+We compare different \ac{dr}s we developed in chapter \ref{chap:design} with the other available tools. 
+The comparison will help us identify the gaps and limitations of existing tools and evaluate our tool's uniqueness and innovation. 
+Through this review, we aim to provide a comprehensive understanding of the existing tools and technologies and highlight our tool's contributions to the field of UI prototyping and UI split testing.
 
-\section{State of the Art Research}
+\section{Current Tools}
+\label{section:related-word:tools}
+This section will explore some of the existing softwares or \ac{ra} available in the market.
+We have identified some existing tools that are commonly used for UI prototyping and A/B testing.
+UX designers widely use these tools to create and test UI prototypes with users. 
+Some of these tools are industry-standard and have been around for many years, while others are relatively new.
+We will briefly describe each tool's key features and capabilities to provide a comprehensive understanding of the tools we will be comparing.
+
+\paragraph{\ac{ra}1 Figma:} 
+Figma\footnote{Website for Figma: \url{https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma}} is a widely popular user interface design tool designers and design teams use for prototyping, UI design, and collaborative work. 
+It has gained popularity due to its versatile features, user-friendly interface, and real-time collaboration capabilities, making it a go-to tool for many designers.
+Figma has a broad range of features that allow designers to create complex UI designs easily. 
+It includes an extensive library of UI elements, customizable templates, and vector networks to make designing more manageable. 
+Additionally, it offers prototyping features that allow designers to simulate complex user interactions and animations, which can help designers validate their decisions quickly. 
+Figma is an excellent tool for teams working on the same design project, as it offers real-time collaboration. 
+Designers can work together on the same design file, share feedback, and update the design in real-time, making it an efficient and collaborative tool for design teams.
+
+\paragraph{\ac{ra}2 InVision:}
+InVision\footnote{Website for InVision: \url{https://www.invisionapp.com/defined/prototype}} is a UI prototyping and collaboration platform that allows designers to create interactive and animated prototypes for web and mobile applications. 
+It offers a range of features, including vector-based design tools, advanced animations and interactions, and an extensive library of pre-built UI components.
+Its design tools are based on vector graphics, allowing for easy scaling and resizing of elements.
+The platform also offers various commenting and annotation tools, making it easy for team members to communicate and collaborate on design decisions.
+InVision also offers advanced animation and interaction capabilities, allowing designers to create complex, engaging interactions that simulate real-world user experiences. This feature includes support for animations, transitions, and gestures and the ability to create interactive elements such as buttons, menus, and forms.
+
+\paragraph{\ac{ra}3 Axure:}
+Axure\footnote{Website for InVision: \url{https://www.axure.com/prototype}} is another popular prototyping tool used in the industry. 
+It is a wireframing and prototyping tool that allows designers to create complex interactions and dynamic content. 
+With Axure, designers can create interactive prototypes with conditional logic, animations, and data-driven interactions. 
+It also offers collaboration features, which enable teams to work together on the same project in real-time.
+Its ability to handle complex logic and conditional interactions sets it apart from many other prototyping tools. 
+However, the learning curve can be steep, and there may be better choices for designers looking for a quick and easy way to create simple prototypes.
+Finally, Axure offers integrations with other design and collaboration tools, which can benefit teams using multiple tools in their workflow.
+
+\paragraph{\ac{ra}4 Adobe XD:}
+Adobe XD\footnote{Website for Adobe XD: \url{https://www.adobe.com/products/xd/learn/get-started-xd-prototype.html}} is a popular tool for designing and prototyping digital products, including websites, mobile apps, and other interactive experiences. 
+It is widely used by UX designers, product managers, and other professionals in the design industry. 
+One of the key features of Adobe XD is its ability to create interactive prototypes. 
+With XD, designers can create clickable, interactive mockups of their designs, allowing them to test user flows and interactions before writing any code. 
+These prototypes can also be shared with stakeholders and users for feedback.
+In addition to prototyping, it is possible to integrate external plugins to conduct A/B testing in Adobe XD. 
+One such plugin is UserTesting, which allows designers to recruit participants and set up tasks for A/B testing directly within Adobe XD. 
+
+\paragraph{\ac{ra}5 Proto.io:} 
+Proto.io\footnote{Website for Adobe XD: \url{https://proto.io/developers/}} is a powerful UI prototyping tool widely used in the industry. 
+It offers a variety of features to create interactive prototypes, including the ability to add animations, transitions, and gestures. 
+Proto.io provides an intuitive drag-and-drop interface and supports multiple platforms, including iOS, Android, and the web.
+One of the standout features of Proto.io is its ability to simulate the final product. 
+This feature allows designers to create prototypes that look and feel like the final product, providing a more realistic user experience. 
+Proto.io also provides advanced collaboration features, making sharing and collaborating on designs with team members and stakeholders easy.
+Another key feature of Proto.io is its ability to create A/B tests. The tool offers a dedicated A/B testing feature, which allows designers to create multiple versions of a design and test them against each other. The tool also provides detailed analytics and user feedback, helping designers make informed design decisions.
+
+\ac{ra}6 - Google Optimize\footnote{https://developers.google.com/optimize/devguides/experiments?technology=ga4}, \\
+\ac{ra}7 - VWO\footnote{https://help.vwo.com/hc/en-us/articles/360021171954-How-to-Create-an-A-B-Test-in-VWO-}, \\
+\ac{ra}8 - Convertize\footnote{https://docs.convertize.io/docs/how-to-do-ab-testing/}, \\
+\ac{ra}9 - Freshmarketer\footnote{https://support.freshmarketer.com/en/support/solutions/folders/50000000186/page/3}, \\ 
+\ac{ra}10 - Zoho PageSense\footnote{https://help.zoho.com/portal/en/kb/pagesense/run-a-b-and-split-url-tests/create-and-launch-a-test/articles/a-b-test}, \\
 
 \section{Comparison}
-\ac{sa}
-\begin{enumerate}\setcounter{enumi}{2}
-  \item Do not use `ditto' signs or any other such convention to
-      repeat a previous value. In many circumstances, a blank
-      will serve just as well. If it won't, then repeat the value.
-\end{enumerate}
+\label{section:related-word:comparison}
 
 
 \begin{table}[htbp!]
   \centering
-  \begin{tabular}{| m{2em} || m{1.8em} | m{1.8em} | m{1.8em} | m{1.8em} | m{1.8em} | m{1.8em} | m{1.8em} | m{1.8em} | m{1.8em} | m{2.2em} |}
+  \begin{tabular}{| M{2em} || M{2em} | M{2em} | M{2em} | M{2.1em} | M{2.1em} | M{2.1em} | M{2em} | M{2em} | M{2em} | M{2.2em} |}
   \hline 
-  \multicolumn{11}{|c|}{\textbf{Comparison between different tools}} \\ 
+  \multicolumn{11}{|c|}{\textbf{Comparison between different \ac{ra}}} \\ 
   \hline
   \textbf{Tool} & \textbf{DR1} & \textbf{DR2} & \textbf{DR3} & \textbf{DR4} & \textbf{DR5} & \textbf{DR6} & \textbf{DR7} & \textbf{DR8} & \textbf{DR9} & \textbf{DR10} \\
   \hline
-  \ac{sa}1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+  \ac{ra}1 & \priority{50} & \priority{100} & \priority{100} & \priority{50} & \priority{0} & \priority{0} & \priority{0} & \priority{50} & \priority{0} & \priority{50} \\
   \hline
-  \ac{sa}2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+  \ac{ra}2 & \priority{50} & \priority{100} & \priority{100} & \priority{50} & \priority{50} & \priority{50} & \priority{0} & \priority{50} & \priority{0} & \priority{50} \\
   \hline
-  \ac{sa}3 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+  \ac{ra}3 & \priority{50} & \priority{100} & \priority{100} & \priority{100} & \priority{0} & \priority{0} & \priority{0} & \priority{50} & \priority{0} & \priority{50} \\
   \hline
-  \multicolumn{1}{|c}{Legend} & \multicolumn{3}{c}{No Fulfillment (\priority{0})} & \multicolumn{3}{c}{Partial Fulfilment (\priority{50})} & \multicolumn{4}{c|}{Complete Fulfilment (\priority{100})} \\
+  \ac{ra}4 & \priority{50} & \priority{100} & \priority{100} & \priority{50} & \priority{50} & \priority{50} & \priority{0} & \priority{50} & \priority{50} & \priority{50} \\
+  \hline
+  \ac{ra}5 & \priority{100} & \priority{100} & \priority{100} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{50} & \priority{100} \\
+  \hline
+  \ac{ra}6 & \priority{100} & \priority{100} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{100} & \priority{100} \\
+  \hline                                   
+  \ac{ra}7 & \priority{50} & \priority{100} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{50} & \priority{100} \\
+  \hline
+  \ac{ra}8 & \priority{50} & \priority{50} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{50} & \priority{50} \\
+  \hline
+  \ac{ra}9 & \priority{100} & \priority{100} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{100} & \priority{100} & \priority{50} & \priority{50} \\
+  \hline
+  \ac{ra}10 & \priority{100} & \priority{100} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{100} & \priority{100} & \priority{50} & \priority{100} \\
+  \hline
+  \multicolumn{1}{|c}{Legend:} & \multicolumn{3}{c}{No Fulfillment (\priority{0})} & \multicolumn{3}{c}{Partial Fulfilment (\priority{50})} & \multicolumn{4}{c|}{Complete Fulfilment (\priority{100})} \\
   \hline
   \end{tabular}
-  \caption[Comparison between different approaches]{Table comparing different \ac{sa}s against \ac{dr}s}
+  \caption[Comparison between different approaches]{Table comparing different \ac{ra}s against \ac{dr}s}
   \label{table:related:work:comparision}
 \end{table}

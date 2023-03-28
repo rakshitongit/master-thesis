@@ -75,6 +75,53 @@ Moreover, this section describes the \ac{df}s for our \ac{poc} solution tool.
 
 \section{Software Tool}
 \label{implementation:section:tool}
+The software tool developed for this research project is a \ac{poc} UI prototyping tool that offers design features to create, customize, and test user interfaces. 
+The tool was developed to help UX designers prototype and test different UI versions using split tests or A/B testing methods. 
+The tool provides a simple and user-friendly interface for creating UI prototypes. 
+It offers a variety of design features, such as customizable UI elements, data modeling, and experiment creation, to help designers create and test UI designs efficiently. 
+In this section, with the help of the tool's screenshots, we will explain the features and functionalities in detail, including how to use the tool to create UI prototypes, set up experiments, and analyze the results.
+The tool also offers an experiment creation feature that allows designers to create split tests or A/B testing methods to test different versions of their UI prototypes. 
+Designers can create multiple experiments and define experiment tasks, such as finding a movie to watch, to gather quantitative data from participants.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{DFs/prototyping.png}
+    \caption{Prototyping Page of the Tool}
+    \label{implementation:fig:prototypingSol}
+\end{figure}
+
+First, the UX designer needs to create an account as the admin user of the tool. After successful login, the tool provides a headstart option that generates an example movie-streaming UI prototype to help designers jump-start quickly. 
+The generated prototype (see figure \ref{implementation:fig:prototypingSol}) includes a basic layout and a set of UI elements that can be customized to fit the designer's needs.
+Next, designers can create data models (see figure \ref{implementation:fig:datamodels}) for their UI prototypes by adding, modifying, or deleting data fields using the data model feature. 
+This feature allows designers to test and manipulate data in their UI prototypes, making creating realistic and functional prototypes easy.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{DFs/data-models.png}
+    \caption{Data Models Page of the Tool}
+    \label{implementation:fig:datamodels}
+\end{figure}
+The tool also offers an experiment creation feature (see figure \ref{implementation:fig:experiments}) that allows designers to create split tests or A/B testing methods to test different versions of their UI prototypes. 
+Designers can create multiple experiments and define experiment tasks, such as finding a movie to watch, to gather quantitative data from participants.
+Similarly, to gather participant feedback, designers can create custom questionnaires, such as open-ended or scale-based questions, and participants can answer them after completing experiment tasks.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{DFs/experiments.png}
+    \caption{UI Experiments Page of the Tool}
+    \label{implementation:fig:experiments}
+\end{figure}
+
+Finally, the tool provides an analytics page (see figure \ref{implementation:fig:analysis}) to help designers analyze the results of their experiments and decide which version of their UI prototype is more effective and, improve the original prototype. 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{DFs/analysis.png}
+    \caption{Experiment analysis Page of the Tool}
+    \label{implementation:fig:analysis}
+\end{figure}
+
+It is important to note that the tool is a proof of concept rather than industry-ready. 
+It was developed using the \ac{df}s to create a simple and user-friendly interface for prototyping and testing UI designs. 
+The tool's functionalities are limited and may need to be more suitable for complex UI design projects. 
+However, it can be a starting point for further development and refinement of UI prototyping and testing tools.
 
 \clearpage
 \section{Technologies Used}
@@ -119,7 +166,7 @@ In each application, a root module is launched at the start of the application a
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.5]{angular-architecture.png}
+    \includegraphics[scale=0.48]{angular-architecture.png}
     \caption[Angular Architecture]{Angular Architecture}
     \label{implementation:fig:angulararchitecture}
 \end{figure}
@@ -135,14 +182,16 @@ Finally, the \textit{Drag and Drop module}\footnote{Website for the Angular mate
 Utilizing this module can provide a more interactive and dynamic user experience for prototyping.
 
 \begin{lstlisting}[language=JavaScript, caption=all-component.module.ts, label=listing:implementation:allmodule]
-// Components
+// import Components
 import { LoginComponent } from './components/login/login';
 ...
-// Modules
+
+// import Modules
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from '../app-routing.module';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
-// Material design
+
+// import Material design
 import { MatSidenavModule } from '@angular/material/sidenav';
 ...
 
@@ -163,7 +212,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         ...
     ]
 })
-export class AllComponentModule { }  
+
+export class AllComponentModule { }
 \end{lstlisting}
 
 Our implementation focuses on the \ac{mvc} architecture, which contains services and directives to talk to the server and some middleware to add a user token to every request to authenticate the user. In the next section, we explain how we implemented the \textit{UI Prototyping component}.
@@ -397,6 +447,7 @@ Once the file is uploaded, we save it to our server folder.
 export class FileUploadController {
     constructor(...) {}
     
+    @authenticate('jwt')
     @post('/files/{key}', {
         responses: {...},
     })
@@ -410,7 +461,6 @@ export class FileUploadController {
         this.uploadCsv(files["files"][0]["path"], key)
         })
     }
-
     private uploadCsv(file: File) {
         ...
     }
@@ -477,7 +527,7 @@ MongoDB is a NoSQL database management system that uses a document-oriented data
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{mongo-architecture.png}
-    \caption[MOngoDB Architecture]{Peer-to-peer architecture of our MongoDB implementation}
+    \caption[MongoDB Architecture]{Peer-to-peer architecture of our MongoDB implementation}
     \label{implementation:fig:mongoarchitecture}
 \end{figure}
 
