@@ -11,14 +11,12 @@
 \else
     \graphicspath{{Chapters/Related-work/Figs/}{Chapters/Related-work/Figs/}}
 \fi
-A review informed the design and evaluation of our tool of existing tools and research technologies in UI prototyping and usability testing. 
-This chapter will present a comprehensive overview of the related work in two sections. 
+In the previous chapter we explained the evaluation of our solution approach and the tool we developed.
+In this chapter, we present a comprehensive overview of the related work in two sections. 
 The first section (see section \ref{section:related-word:tools}) will discuss the tools and state-of-the-art research technologies commonly used for UI prototyping and UI split testing. 
 We will provide an in-depth analysis of the strengths and limitations of each tool and highlight its unique features and functionalities.
 The next section (see section \ref{section:related-word:comparison}) focuses on comparing our tool with the existing ones. 
-We compare different \ac{dr}s we developed in chapter \ref{chap:design} with the other available tools. 
-The comparison will help us identify the gaps and limitations of existing tools and evaluate our tool's uniqueness and innovation. 
-Through this review, we aim to provide a comprehensive understanding of the existing tools and technologies and highlight our tool's contributions to the field of UI prototyping and UI split testing.
+We compare different \ac{dr}s we developed in chapter \ref{chap:design} with the other available tools.
 
 \section{Current Tools}
 \label{section:related-word:tools}
@@ -27,6 +25,8 @@ We have identified some existing tools that are commonly used for UI prototyping
 UX designers widely use these tools to create and test UI prototypes with users. 
 Some of these tools are industry-standard and have been around for many years, while others are relatively new.
 We will briefly describe each tool's key features and capabilities to provide a comprehensive understanding of the tools we will be comparing.
+The comparison will help us identify the gaps and limitations of existing tools and evaluate our tool's uniqueness and innovation. 
+Through this section, we aim to provide a comprehensive understanding of the existing tools and technologies and highlight our tool's contributions to the field of UI prototyping and UI split testing.
 
 \paragraph{\ac{ra}1 Figma:} 
 Figma\footnote{Website for Figma: \url{https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma}} is a widely popular user interface design tool designers and design teams use for prototyping, UI design, and collaborative work. 
@@ -71,12 +71,52 @@ This feature allows designers to create prototypes that look and feel like the f
 Proto.io also provides advanced collaboration features, making sharing and collaborating on designs with team members and stakeholders easy.
 Another key feature of Proto.io is its ability to create A/B tests. The tool offers a dedicated A/B testing feature, which allows designers to create multiple versions of a design and test them against each other. The tool also provides detailed analytics and user feedback, helping designers make informed design decisions.
 
-\ac{ra}6 - Google Optimize\footnote{https://developers.google.com/optimize/devguides/experiments?technology=ga4}, \\
-\ac{ra}7 - VWO\footnote{https://help.vwo.com/hc/en-us/articles/360021171954-How-to-Create-an-A-B-Test-in-VWO-}, \\
-\ac{ra}8 - Convertize\footnote{https://docs.convertize.io/docs/how-to-do-ab-testing/}, \\
-\ac{ra}9 - Freshmarketer\footnote{https://support.freshmarketer.com/en/support/solutions/folders/50000000186/page/3}, \\ 
-\ac{ra}10 - Zoho PageSense\footnote{https://help.zoho.com/portal/en/kb/pagesense/run-a-b-and-split-url-tests/create-and-launch-a-test/articles/a-b-test}, \\
+\paragraph{\ac{ra}6 Google Optimize}
+Google Optimize\footnote{Website for Google Optimize: \url{https://developers.google.com/optimize/devguides/experiments?technology=ga4}} is an A/B testing and personalization tool developed by Google. 
+It is a cloud-based tool that can help businesses optimize their website or app by creating and running experiments. 
+Google Optimize has a user-friendly interface allowing users to create experiments without coding knowledge. 
+One of the key features of Google Optimize is the ability to create A/B tests with different variations of a website or app. 
+Users can set up experiments to test various elements of their website or app, such as headlines, images, or calls to action. 
+Google Optimize also allows users to create multivariate tests that test multiple elements simultaneously.
+Another important feature of Google Optimize is the ability to create personalization experiments. 
+Users can create targeted experiences for specific audiences based on location, behavior, or demographics. 
+This allows businesses to create more relevant and engaging experiences for their users.
+Google Optimize also integrates with other Google products, such as Google Analytics, allowing users to analyze experiment results and gain insights into user behavior. 
+Additionally, Google Optimize supports third-party integrations.
 
+\paragraph{\ac{ra}7 VWO}
+VWO\footnote{Website for VWO: \url{https://help.vwo.com/hc/en-us/articles/360021171954-How-to-Create-an-A-B-Test-in-VWO-}} (Visual Website Optimizer) is another popular tool for A/B testing and conversion rate optimization. 
+It is a cloud-based platform that enables users to run experiments on their websites or mobile apps to improve the user experience and increase conversions.
+VWO offers a variety of features for A/B testing, including split URL testing, heatmaps, session recordings, surveys, and personalization. 
+Users can create and run experiments with a simple WYSIWYG\footnote{Website for WYSIWYG\url{https://www.howtogeek.com/752396/what-is-a-wysiwyg-editor/}} editor or use custom code for more advanced experiments.
+VWO also provides a powerful targeting engine that allows users to target specific segments of their audience, such as first-time visitors, returning visitors, or users who have abandoned a shopping cart. 
+This targeting engine helps to ensure that experiments are relevant to the user and are more likely to lead to a positive outcome.
+
+\paragraph{\ac{ra}8 Convertize}
+Convertize\footnote{Website for Convertize: \url{https://docs.convertize.io/docs/how-to-do-ab-testing/}} is a website optimization tool that provides a wide range of features for A/B testing, personalization, and targeting. 
+It enables marketers to create and test multiple websites or landing page versions to determine which design, layout, or content performs best for their target audience.
+Convertize offers a visual editor allowing users to create different variations of their website without coding skills. 
+Users can drag and drop elements, such as images, text, and buttons, to create different versions of their websites, which can then be tested against each other.
+One of the unique features of Convertize is its AI-powered Autopilot mode, which allows users to automate the optimization process. With Autopilot, Convertize automatically adapts the website to each visitor by personalizing the content, design, and layout to maximize conversions.
+Another notable feature of Convertize is its SmartEditor, which uses a library of pre-built templates and machine learning algorithms to recommend changes to website elements, such as headlines, images, and CTAs, that will likely improve conversions.
+
+\paragraph{\ac{ra}9 Freshmarketer}
+Freshmarketer\footnote{Website for Freshmarketer: \url{https://support.freshmarketer.com/en/support/solutions/folders/50000000186/page/3}} is a comprehensive conversion optimization suite that offers a range of tools to help businesses optimize their website and improve their online performance. 
+It allows users to create and execute A/B tests, track visitor behavior, and gather customer feedback from a single platform. 
+Freshmarketer's A/B testing tool enables users to create multiple webpage variants and test them against each other to determine which is most effective at achieving a specific goal, such as increasing conversions or decreasing bounce rates. 
+The platform also offers advanced targeting options to help users deliver personalized experiences to particular audience segments.
+In addition to A/B testing, Freshmarketer offers a range of other optimization tools, including heatmaps, session replays, and form analytics, to help users gain deeper insights into visitor behavior and identify areas for improvement. 
+Freshmarketer's customer feedback tools, such as surveys and polls, allow users to collect valuable customer insights and use that feedback to inform future optimization efforts. 
+
+\paragraph{\ac{ra}10 Zoho PageSense}
+Zoho PageSense\footnote{Website for Zoho Pagesense: \url{https://help.zoho.com/portal/en/kb/pagesense/run-a-b-and-split-url-tests/create-and-launch-a-test/articles/a-b-test}} is a web optimization tool designed to help businesses optimize their website's user experience, increase visitor engagement, and boost conversions. 
+Zoho PageSense offers many features to help businesses optimize their website, including A/B testing, heatmaps, funnel analysis, and more.
+With Zoho PageSense's A/B testing feature, businesses can create multiple variations of their website pages and test them against each other to determine which performs best. 
+Zoho PageSense offers a visual editor that allows users to create and edit website page variations without requiring coding knowledge.
+In addition to A/B testing, Zoho PageSense offers heatmaps, allowing businesses to visualize how users interact with their website pages. 
+This feature enables companies to identify areas of their website that are not performing well and make data-driven decisions to improve the user experience.
+
+\clearpage
 \section{Comparison}
 \label{section:related-word:comparison}
 
@@ -97,7 +137,7 @@ Another key feature of Proto.io is its ability to create A/B tests. The tool off
   \hline
   \ac{ra}4 & \priority{50} & \priority{100} & \priority{100} & \priority{50} & \priority{50} & \priority{50} & \priority{0} & \priority{50} & \priority{50} & \priority{50} \\
   \hline
-  \ac{ra}5 & \priority{100} & \priority{100} & \priority{100} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{50} & \priority{100} \\
+  \ac{ra}5 & \priority{100} & \priority{50} & \priority{100} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{50} & \priority{100} \\
   \hline
   \ac{ra}6 & \priority{100} & \priority{100} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{100} & \priority{100} & \priority{100} \\
   \hline                                   
