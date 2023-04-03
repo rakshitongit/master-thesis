@@ -16,7 +16,7 @@ This chapter motivates the readers about the topic (see section~\ref{introductio
 \section{Motivation} % Section - 1.1 
 \label{introduction:section:motivation}
 
-Over the last decade, software development had a tremendous impact with increasing customer demand and requirements \cite{article:swdemand:ahmed}, which increases product complexity and ambiguity, significantly impacting software development.  
+Over the last decade, software development had a tremendous impact with increasing customer demand and requirements \cite{article:swdemand:ahmed}, which further increased product complexity and ambiguity, significantly impacting software development.  
 Therefore, the developers have come up with different techniques to meet this requirement criteria.
 Early user feedback from potential customers in the industry is crucial for creating successful software products because of the growing market uncertainties, and consumers' desire to receive integrated solutions to their issues rather than unique software developments \cite{misc:businessmodels:teece}.
 With the increasing complexity of products, it becomes challenging to determine user requirements making it more difficult for developers to assess their opinions.
@@ -68,14 +68,14 @@ Therefore, finding a solution that combines qualitative and quantitative data an
 The process of creating experiments and testing their variants is usually not systematically arranged, creating anomalies, and leading to unsuccessful experiments.
 Therefore, this section identifies the research question (RQ) and defines an approach to answer the question.
 
-\paragraph{RQ:} \textit{How to develop a platform suitable for product designers to conduct experiments on UI prototypes, increasing its usability and, simultaneously, independent of developers?}\\
+\paragraph{RQ:} \textit{How to develop software suitable for product designers to conduct experiments on UI prototypes, increasing its usability and, simultaneously, independent of developers?}\\
 
-Prescriptive knowledge about the design of artifacts, such as software techniques, models, or concepts, is what design science research (DSR) aims to provide.
+Prescriptive knowledge about the design of artifacts, such as software techniques, models, or concepts, is what design science research (DSR) aims to provide.
 Due to this design knowledge, future projects can design artifacts methodically and scientifically with the aid of study and practice \cite{paper:designprinciple:vk}. 
 Therefore, we will conduct a design science research (DSR) study to answer our research question and obtain abstract design knowledge and an implementation tool. 
 From the abstracted knowledge, we will obtain some Design Principles (DPs) defined for the whole process of experimentation \cite{paper:designprinciple:vk}.
 In this design, the product designers will iteratively validate their prototypes with the users (or the crowds). 
-Here, DPs capture and codify that knowledge by focussing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. 
+Here, DPs capture and codify that knowledge by focusing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. 
 The DPs explain the design information that develops features for software applications.
 We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{paper:designprinciple:vk} consisting of five iteratively conducted steps (see figure \ref{intro:fig:dps}). 
 % First, we identify the 
@@ -121,7 +121,7 @@ Because of using the models, it is easier to store the prototypes in the databas
     \label{intro:fig:lean}
 \end{figure}
 
-In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development as it is used to develop customers friendly products \cite{article:lean:hart}.
+In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development as it is used to develop user friendly products \cite{article:lean:hart}.
 Using LEAN, the company creates a Minimum Viable Product (MVP) throughout development, tests it with potential customers, and leverages their input to make incremental changes.
 While this technique can be used for every product, there are also approaches specific to software products.
 LEAN development technique can be divided into a Build, Measure, and Learn cycle. 
@@ -133,10 +133,20 @@ As per figure \ref{intro:fig:lean}, we complete one cycle of iteration and start
 \clearpage
 
 \section{Thesis Structure}
-This thesis presents the\dots
+The structure of our thesis is designed to provide a comprehensive overview of our research and solution approach.
+The \textit{\hyperref[chap:introduction]{(1) Introduction}} chapter includes a detailed analysis of the problem statement, motivation, research question, and our research and solution approach.
+
 \begin{figure}[htbp!]
     \centering
-    \includegraphics[scale=0.2]{Structure_thesis.png}
+    \includegraphics[scale=0.2]{Structure.png}
     \caption{Thesis Structure}
     \label{intro:fig:structure}
 \end{figure}
+
+Next, the \textit{\hyperref[chap:foundations]{(2) Foundations}} chapter is used to gain the knowledge required to understand the scope of our work, which includes UI prototyping, low/no code development, model-based software engineering, task-based usability testing, UI experimentation, and LEAN development.
+The \textit{\hyperref[chap:design]{(3) Solution Design}} chapter outlines the design requirements, design principles, and overall solution design. 
+Similarly, the \textit{\hyperref[chap:concept]{(4) Solution Concept}} chapter presents the software architecture, UI prototype management, UI experimentation management, persistence infrastructure, deployment infrastructure, and security infrastructure.
+Next, the \textit{\hyperref[chap:implementation]{(5) Solution Implementation}} chapter provides detailed insights into the tool design features, explains the software tool we developed, technologies used, frontend and backend implementation, and database schema. 
+Next, the \textit{\hyperref[chap:evaluation]{(6) Evaluation}} chapter showcases the user case study, experimental design, execution, analysis, and interpretation. 
+Next, the \textit{\hyperref[chap:relatedWork]{(7) Related Work}} section discusses current tools and state-of-the-art technologies and compares them with our DRs.
+Finally, in the \textit{\hyperref[chap:conclusion]{(8) Conclusion}} chapter, we summarize our work, future work, and research contributions.

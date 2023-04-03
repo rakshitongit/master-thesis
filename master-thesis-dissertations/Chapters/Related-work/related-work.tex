@@ -11,11 +11,12 @@
 \else
     \graphicspath{{Chapters/Related-work/Figs/}{Chapters/Related-work/Figs/}}
 \fi
-In the previous chapter we explained the evaluation of our solution approach and the tool we developed.
+In the previous chapter, we explained the evaluation of our solution approach and the tool we developed.
 In this chapter, we present a comprehensive overview of the related work in two sections. 
-The first section (see section \ref{section:related-word:tools}) will discuss the tools and state-of-the-art research technologies commonly used for UI prototyping and UI split testing. 
+The first section (see section \ref{section:related-word:tools}) will discuss the tools commonly used for UI prototyping and UI split testing. 
 We will provide an in-depth analysis of the strengths and limitations of each tool and highlight its unique features and functionalities.
 The next section (see section \ref{section:related-word:comparison}) focuses on comparing our tool with the existing ones. 
+Similarly, in the sections \ref{section:related-word:sota} and \ref{section:related-word:soacomparison} we will discuss some \ac{soa} technologies and compare them. 
 We compare different \ac{dr}s we developed in chapter \ref{chap:design} with the other available tools.
 
 \section{Current Tools}
@@ -88,7 +89,7 @@ Additionally, Google Optimize supports third-party integrations.
 VWO\footnote{Website for VWO: \url{https://help.vwo.com/hc/en-us/articles/360021171954-How-to-Create-an-A-B-Test-in-VWO-}} (Visual Website Optimizer) is another popular tool for A/B testing and conversion rate optimization. 
 It is a cloud-based platform that enables users to run experiments on their websites or mobile apps to improve the user experience and increase conversions.
 VWO offers a variety of features for A/B testing, including split URL testing, heatmaps, session recordings, surveys, and personalization. 
-Users can create and run experiments with a simple WYSIWYG\footnote{Website for WYSIWYG\url{https://www.howtogeek.com/752396/what-is-a-wysiwyg-editor/}} editor or use custom code for more advanced experiments.
+Users can create and run experiments with a simple WYSIWYG\footnote{Website for WYSIWYG: \url{https://www.howtogeek.com/752396/what-is-a-wysiwyg-editor/}} editor or use custom code for more advanced experiments.
 VWO also provides a powerful targeting engine that allows users to target specific segments of their audience, such as first-time visitors, returning visitors, or users who have abandoned a shopping cart. 
 This targeting engine helps to ensure that experiments are relevant to the user and are more likely to lead to a positive outcome.
 
@@ -117,15 +118,23 @@ In addition to A/B testing, Zoho PageSense offers heatmaps, allowing businesses 
 This feature enables companies to identify areas of their website that are not performing well and make data-driven decisions to improve the user experience.
 
 \clearpage
-\section{Comparison}
+\section{Comparison of tools}
 \label{section:related-word:comparison}
-
+In comparing the different tools based on the \ac{dr}s (see table \ref{table:related:work:comparision}), we can see that only some tools fulfilled all the \ac{dr}s. 
+\ac{ra}5 and \ac{ra}6 fulfilled the most \ac{dr}s, with \ac{ra}5 fulfilling five out of ten \ac{dr}s and \ac{ra}6 fulfilling six out of ten DRs.
+For \textit{Heterogeneous Users (DR1)}, only \ac{ra}5, \ac{ra}6, \ac{ra}9, and \ac{ra}10 fulfilled this requirement completely. Most of the other tools only partially fulfilled this requirement.
+Most tools fulfilled this requirement for \textit{Iterative Design (DR2)}, but some only partially fulfilled it.
+For \textit{Easy Development (DR3)}, \ac{ra}1, \ac{ra}2, \ac{ra}3, \ac{ra}4, and \ac{ra}5 fulfilled this requirement. 
+The rest of the tools did not fulfill it.
+For \textit{Integrate Data Models (DR4)}, only \ac{ra}3 fulfilled this requirement completely. 
+Most of the other tools only partially fulfilled this requirement.
+For \textit{Classified UI Variants (DR5)} and \textit{Conduct Split Tests (DR6)}, \ac{ra}5, \ac{ra}6, \ac{ra}7, \ac{ra}8, \ac{ra}9, and \ac{ra}10 fulfilled this requirement, but the rest of the tools still need to.
 
 \begin{table}[htbp!]
   \centering
   \begin{tabular}{| M{2em} || M{2em} | M{2em} | M{2em} | M{2.1em} | M{2.1em} | M{2.1em} | M{2em} | M{2em} | M{2em} | M{2.2em} |}
   \hline 
-  \multicolumn{11}{|c|}{\textbf{Comparison between different \ac{ra}}} \\ 
+  \multicolumn{11}{|c|}{\textbf{Comparison between different Tools}} \\ 
   \hline
   \textbf{Tool} & \textbf{DR1} & \textbf{DR2} & \textbf{DR3} & \textbf{DR4} & \textbf{DR5} & \textbf{DR6} & \textbf{DR7} & \textbf{DR8} & \textbf{DR9} & \textbf{DR10} \\
   \hline
@@ -149,9 +158,102 @@ This feature enables companies to identify areas of their website that are not p
   \hline
   \ac{ra}10 & \priority{100} & \priority{100} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{100} & \priority{100} & \priority{50} & \priority{100} \\
   \hline
+  \hline
   \multicolumn{1}{|c}{Legend:} & \multicolumn{3}{c}{No Fulfillment (\priority{0})} & \multicolumn{3}{c}{Partial Fulfilment (\priority{50})} & \multicolumn{4}{c|}{Complete Fulfilment (\priority{100})} \\
   \hline
   \end{tabular}
   \caption[Comparison between different approaches]{Table comparing different \ac{ra}s against \ac{dr}s}
   \label{table:related:work:comparision}
 \end{table}
+
+For \textit{Conduct User Tasks (DR7)}, only \ac{ra}9 and \ac{ra}10 fulfilled this requirement completely. The rest of the tools only partially fulfilled this requirement or did not fulfill it.
+Similarly, for \textit{Collect User Feedback (DR8)}, most tools partially fulfilled this requirement, except for \ac{ra}5, \ac{ra}6, \ac{ra}7, \ac{ra}9, and \ac{ra}10 which fulfilled this requirement completely.
+For \textit{Aggregated Feedback (DR9)}, most tools only partially or still need to fulfill this requirement. 
+Only \ac{ra}5 fulfilled this requirement completely.
+For \textit{Improvement (DR10)}, most of the tools only partially fulfilled this requirement or still need to fulfill it. 
+Only \ac{ra}5, \ac{ra}6, \ac{ra}7, and \ac{ra}10 fulfilled this requirement completely.
+Overall, each tool had its strengths and weaknesses in fulfilling the different DRs, and no tool could completely fulfill all our DRs.
+
+\clearpage
+
+\section{State-of-the-art technologies (SOAT)}
+\label{section:related-word:sota}
+This section explores some \ac{soa} or cutting-edge technologies for UI prototyping and A/B testing of UI. 
+UX designers widely use these technologies to create and test UI prototypes with users. 
+This section aims to provide a comprehensive understanding of the existing \ac{soa} and highlight our technology's contributions to UI prototyping and UI split testing using the \ac{dr}s. 
+We will provide a comprehensive overview of each technology's key features and capabilities to understand the these technologies we will compare comprehensively. 
+The comparison will help us identify the gaps and limitations of existing technologies and evaluate our technology's uniqueness and innovation.
+
+\paragraph{RA11 Rapid software prototyping approach}
+L. Luqi et al. \cite{paper:prototyping:luqi} propose a rapid software prototyping methodology that utilizes a visual design tool and object-oriented technology. 
+The authors argue that traditional software development methodologies need to provide adequate support for rapidly creating prototypes that can be used to communicate design ideas with stakeholders. 
+To address this issue, they propose a framework that combines a visual design tool for creating user interfaces with object-oriented technology to build functional prototypes quickly. 
+The authors demonstrate the effectiveness of their methodology through a case study, which shows that the proposed framework can significantly reduce the time and effort required to develop functional prototypes.
+
+\paragraph{RA12 Continuous Prototyping approach}
+Lukas Alperowitz et al. \cite{misc:prototyping:lukas} propose a continuous prototyping approach to bridge the gap between design and development in continuous software engineering. 
+The authors argue that traditional software development methodologies must provide adequate support for continuous prototyping, a critical aspect of iterative design and development processes. 
+To address this issue, they propose a framework that enables designers and developers to continuously prototype and refine their design ideas as part of the software development process. 
+The authors demonstrate the effectiveness of their approach through a case study, which shows that continuous prototyping can significantly improve the quality and speed of software development and increase stakeholder satisfaction.
+
+\paragraph{RA13 Data-Driven Approaches to User Interface Design}
+Pimenov et al. \cite{misc:data-driven:pimenov} present a case study on data-driven approaches to user interface design. 
+The authors argue that traditional user interface design methods rely on expert opinions and intuition, which may not always reflect the actual needs and preferences of users. 
+To address this issue, they propose a data-driven approach that utilizes user feedback and analytics to inform design decisions. 
+The authors demonstrate the effectiveness of their approach through a case study, which shows that data-driven design can lead to significant improvements in user satisfaction and task completion rates. 
+The paper provides insights into the potential of data-driven approaches to user interface design and highlights the importance of incorporating user feedback and analytics in the design process.
+
+\paragraph{RA14 A Tool for Online Experiment-Driven Adaptation}
+Ilias Gerostathopoulos et al. \cite{misc:experiment:ilias} propose a tool for online experiment-driven adaptation. 
+The authors argue that traditional software development approaches must provide adequate support for online experimentation and transformation, which are critical for improving the UX and achieving business goals. 
+To address this issue, they propose a framework that enables developers and designers to create and deploy online experiments that can be used to test and optimize different aspects of the software system. 
+The authors demonstrate the effectiveness of their approach through a case study, which shows that the proposed tool can significantly improve the effectiveness of online experimentation and adaptation. 
+The paper provides insights into the potential of experiment-driven transformation to improve software systems and highlights the importance of incorporating data-driven approaches in software development.
+
+\paragraph{RA15 A promising tool for customer value evaluation}
+Peitsa Hynninen et al. \cite{misc:abtest:marjo} propose using A/B testing as a promising tool for evaluating customer value. 
+The authors argue that traditional methods of customer value evaluation, such as surveys and focus groups, may not provide accurate or reliable results due to biases and limitations. 
+To address this issue, they propose the use of A/B testing, which is a randomized experiment that compares the effectiveness of two or more alternatives in achieving a specific goal. 
+The authors demonstrate the effectiveness of A/B testing through a case study, which shows that A/B testing can provide valuable insights into customer preferences and behavior. 
+The paper provides insights into the potential of A/B testing as a tool for customer value evaluation. 
+It highlights the importance of incorporating data-driven approaches in marketing and customer experience strategies. 
+
+\clearpage
+\section{Comparison}
+\label{section:related-word:soacomparison}
+In our chapter on design chapter \ref{chap:design}, we identified 10 DRs for the development of effective user interfaces. To evaluate the state-of-the-art research (SOAT) based on these DRs, we analyzed five studies, namely SOAT11, SOAT12, SOAT13, SOAT14, and SOAT15 (see table \ref{table:related:work:soacomparision}).
+\begin{table}[htbp!]
+  \centering
+  \begin{tabular}{| M{3em} || M{2em} | M{2em} | M{2em} | M{2.1em} | M{2.1em} | M{2.1em} | M{2em} | M{2em} | M{2em} | M{2.2em} |}
+  \hline 
+  \multicolumn{11}{|c|}{\textbf{Comparison between different \ac{soa}}} \\ 
+  \hline
+  \textbf{Tool} & \textbf{DR1} & \textbf{DR2} & \textbf{DR3} & \textbf{DR4} & \textbf{DR5} & \textbf{DR6} & \textbf{DR7} & \textbf{DR8} & \textbf{DR9} & \textbf{DR10} \\
+  \hline
+  \ac{soa}11 & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{0} & \priority{0} & \priority{0} & \priority{0} & \priority{0} & \priority{100} \\
+  \hline
+  \ac{soa}12 & \priority{0} & \priority{100} & \priority{100} & \priority{100} & \priority{50} & \priority{0} & \priority{0} & \priority{50} & \priority{0} & \priority{100} \\
+  \hline
+  \ac{soa}13 & \priority{50} & \priority{50} & \priority{50} & \priority{100} & \priority{0} & \priority{0} & \priority{50} & \priority{100} & \priority{100} & \priority{50} \\
+  \hline
+  \ac{soa}14 & \priority{100} & \priority{50} & \priority{0} & \priority{0} & \priority{50} & \priority{100} & \priority{50} & \priority{100} & \priority{50} & \priority{50} \\
+  \hline
+  \ac{soa}15 & \priority{100} & \priority{50} & \priority{0} & \priority{0} & \priority{100} & \priority{100} & \priority{50} & \priority{50} & \priority{50} & \priority{50} \\
+  \hline
+  \hline
+  \multicolumn{1}{|c}{Legend:} & \multicolumn{3}{c}{No Fulfillment (\priority{0})} & \multicolumn{3}{c}{Partial Fulfilment (\priority{50})} & \multicolumn{4}{c|}{Complete Fulfilment (\priority{100})} \\
+  \hline
+  \end{tabular}
+  \caption[Comparison between different \ac{soa} approaches]{Table comparing different \ac{soa}s against \ac{dr}s}
+  \label{table:related:work:soacomparision}
+\end{table}
+
+\ac{soa}11 fulfilled DR2, DR3, and DR10, partially fulfilled DR4, and failed to fulfill DR1, DR5, DR6, DR7, DR8, and DR9. 
+\ac{soa}12 fulfilled DR2, DR3, DR4, and DR10, partially fulfilled DR5 and DR8, and failed to fulfill DR1, DR6, DR7, DR9. 
+\ac{soa}13 partially fulfilled DR1, DR2, DR3, DR7, DR8, and DR10, fulfilled DR4 and DR8, and failed to fulfill DR5 and DR6. 
+\ac{soa}14 fulfilled DR1, DR6, and DR8, partially fulfilled DR2, DR5, DR7, and DR9, and failed to fulfill DR3 and DR4. 
+Finally, \ac{soa}15 fulfilled DR1, DR5, DR6, and DR10, partially fulfilled DR2, DR7, DR8, and DR9, and failed to fulfill DR3 and DR4.
+
+Overall, we observed that none of the \ac{soa}s fully fulfilled our identified DRs. 
+However, \ac{soa}15 achieved the most DRs, with four fulfilled and four partially fulfilled, while \ac{soa}11 and \ac{soa}12 each achieved three fulfilled DRs. 
+Our analysis demonstrates the need for continued research in developing effective user interfaces that fulfill all identified DRs.

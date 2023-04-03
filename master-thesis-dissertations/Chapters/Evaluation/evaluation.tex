@@ -80,7 +80,7 @@ This method helped us efficiently reach out to potential participants and allowe
 
 Secondly, we used the Lime survey, hosted on the Paderborn University server, to conduct a survey questionnaire to collect qualitative and quantitative feedback from the participants. 
 The questionnaire was divided into three sections. 
-The first section contained the System Usability Score (SUS) questionnaire, a widely used and reliable tool for measuring the usability of software systems. 
+The first section contained the \ac{sus} questionnaire, a widely used and reliable tool for measuring the usability of software systems. 
 This section aimed to collect quantitative feedback from the participants regarding the usability of our prototype tool. 
 The second section contained questions about the design principles we proposed in our thesis. 
 This section aimed to collect participants' ratings and opinions on the effectiveness and feasibility of the design principles. 
@@ -100,10 +100,196 @@ He also created a set of questionnaires, including open-ended and scale-based qu
 In the fourth phase, John recruited participants or used dummy users generated from the tool to test the experiments and monitor the results. 
 After completing the experiment, John navigated to the experiments page and analyzed the statistics to determine which version of the app's interface was more effective.
 Based on the feedback from the usability tests and questionnaires, John iterated on the app's design and updated the prototype in the tool. 
-Overall, the execution of the experiment involved prototyping, split testing, task creation, and feedback gathering to design and improve the movie-streaming app's interface.
+Overall, the execution of the experiment involved prototyping, split testing, task creation, and feedback gathering to design and improve the movie-streaming app's interface. 
+An example prototype, created by one of the user participants is shown in Appendix \ref{appendix:three:caseStudy}.
 
 \clearpage
 \section{Analysis}
 \label{evaluation:section:analysis}
+After collecting the data through LimeSurvey and the tool, we analyzed the feedback and results to draw insights and conclusions about the effectiveness of our research questions and the software tool we designed. 
+We also examined the qualitative feedback from the participants to gain a deeper understanding of their preferences and needs. 
+Next, we explain the qualitative and quantitative analysis of the data collected from the participants in detail.
+
+\paragraph{Quantitative analysis}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{SUS.png}
+    \caption{System Usability score (SUS) of our tool}
+    \label{evaluation:fig:sus}
+\end{figure}
+In the first part of the quantitative section of our analysis, we utilized the \ac{sus} to gather feedback on the usability of our tool. 
+The \ac{sus} is a widely used and well-established questionnaire for assessing the usability of a system. 
+It consists of 10 statements that participants rate on a 5-point scale from 1 (strongly disagree) to 5 (strongly agree). 
+The scores from each report are then combined and transformed to create a final \ac{sus} score ranging from 0 to 100.
+After administering the \ac{sus} questionnaire to our participants, we computed the average score to obtain a quantitative measure of the usability of our tool. 
+We also analyzed the individual scores for each statement to identify areas where the tool performed well and where improvements could be made. 
+It allowed us to gain insights into the strengths and weaknesses of our tool from a quantitative perspective. 
+It provided a basis for making data-driven decisions about improving the tool's usability. 
+Our analysis of the \ac{sus} survey responses revealed an average score of \textit{74} (see figure \ref{evaluation:fig:sus}), indicating that the overall usability of the app prototype was rated as ``\textit{good}'' by the participants.
+This score is above the average \ac{sus} score of 68, suggesting that the app prototype had a high level of usability.
+
+The second part of our survey focused on rating the DPs of the solution tool using a 5-point scale. 
+Participants were asked to rate their agreement with statements related to each DP. 
+To analyze the data, we calculated the mean and standard deviation for each DP, as well as plotted a boxplot (see figure \ref{evaluation:fig:boxplot}) to visualize the distribution of responses. 
+The boxplot showed that the majority of participants had a positive rating for all DPs, with some variability in the extent of agreement. 
+Overall, the results indicated that the design principles were well-received by participants and can be considered strengths of the app's design.
+
+\begin{figure}[ht]
+    \centering
+\begin{tikzpicture}
+    \begin{axis}[
+        boxplot/draw direction=y,
+        enlarge y limits,
+        xtick={1,2,3,4,5,6,7,8,9},
+        xticklabel style = {align=center, font=\small},
+        xticklabels={DP1, DP2, DP3, DP4, DP5, DP6, DP7, DP8, DP9},
+    ]
+    %   [
+    %   xtick={1,2,3},
+    %   xticklabels={DP1, DP2, DP3},
+    %   ]
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=5,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=3
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=5,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=3
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=4,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=2
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=4,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=4
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=4,
+        upper quartile=4.5,
+        lower quartile=3.5,
+        upper whisker=5,
+        lower whisker=2
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=4,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=3
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=4,
+        upper quartile=4.5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=1
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[draw=black, solid,
+      boxplot prepared={
+        median=4,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=3
+      }, fill=lightgray
+      ] coordinates {};
+      \addplot+[mark=*, draw=black, solid,
+      boxplot prepared={
+        median=5,
+        upper quartile=5,
+        lower quartile=4,
+        upper whisker=5,
+        lower whisker=3
+      }, fill=lightgray
+      ] coordinates {};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Box Plot analysis of the \ac{dp}s}
+  \label{evaluation:fig:boxplot}
+\end{figure}
+
+\paragraph{Qualitative analysis}
+For the qualitative analysis, we had three open-ended questions in the survey. 
+The first question asked participants if they could complete their scenario efficiently using the software and, if not, what difficulties they encountered. 
+Many participants noted that they could complete their scenario without any issues, while a few mentioned that they had trouble navigating the software or understanding how to use certain features.
+The second question asked participants if there were any areas where the tool could be improved to meet their needs better. 
+Several participants suggested adding more customization options for UI elements.
+The third question asked participants if they would recommend this UI prototyping tool to others and why or why not. 
+Many participants said they would recommend the tool, citing its ease of use and ability to create and test UI prototypes quickly. 
+Some participants noted that the tool could be improved in certain areas but still felt it was valuable overall.
+
+\clearpage
 \section{Interpretation}
 \label{evaluation:section:interpretation}
+In this section, we interpret the feedback obtained from the user case study and analyze the quantitative and qualitative analysis. 
+The feedback and user comments will be used to identify the areas where the tool can be improved to better meet the needs of its users. 
+We will also discuss the lessons learned from the feedback and analysis and how they can be applied to future tool iterations. 
+The insights gained from this section will be valuable in guiding the development and improvement of the tool to provide an optimal user experience for its users.
+
+\paragraph{Quantitative data}
+The \ac{sus} is a widely used measure of the perceived usability of a system. 
+The average SUS score of 74 (see figure \ref{evaluation:fig:sus}) indicates that the users found the tool reasonably usable. 
+However, the score could be higher, suggesting that there is still room for improvement. 
+The \ac{sus} score provides a broad measure of overall usability but does not provide specific details on areas that may require improvement. 
+Therefore, it is necessary to look at the individual user feedback and the box plots of the \ac{dp}s to identify areas that need improvement.
+
+To further analyze, we looked at the individual DPs box plots (see figure \ref{evaluation:fig:boxplot}). 
+Box plots are a way of graphically representing the distribution of data. 
+The box represents the middle 50\% of the data, with the median value marked by a line in the box. 
+The whiskers extend to the highest and lowest data points within 1.5 times the upper and lower quartiles' interquartile range (IQR). 
+Any data points beyond the whiskers are marked as outliers.
+Looking at the box plots for the DPs, we can see that DP1, DP2, DP6, DP8, and DP9 all have similar distributions with median scores of 4 or 5, upper quartiles of 5, and lower quartiles of 4. 
+These DPs were generally well-received by users, with most participants rating them as good or excellent.
+On the other hand, DP3, DP5, and DP7 have lower median scores of 4, indicating that users rated them as slightly less usable than the other DPs. 
+DP3 and DP5 have wider distributions, with lower quartiles of 2 and 3.5, respectively, indicating that some users found them particularly challenging. 
+DP7 has a particularly low lower quartile of 1, meaning that some users found it very difficult to use.
+Overall, the box plot analysis suggests that some areas of the tool are particularly challenging for users, and these should be the focus of improvement efforts. 
+Specifically, improvements to DP3, DP5, and DP7 could be prioritized to make them more usable and user-friendly.
+
+\paragraph{Qualitative data}
+Three open-ended questions were asked to the participants from the responses to the question \textit{Were there any areas where the tool could be improved to better meet your needs?}, we received 15 responses. 
+A few respondents didn't have any specific suggestions (A$_1$ and A$_2$) (here \textit{A$_n$} means answer from nth participant). 
+However, some participants recommended adding new features or enhancing the existing ones. 
+For instance, A$_3$ suggested including the ability to configure whether users can go back in the questionnaire, editing, and reordering created tasks and questionnaires, and providing more data analysis options. 
+A$_4$ proposed adding a more intuitive button to extend experiments or tasks. 
+A$_5$ and A$_6$ recommended adding the ability to see how much space UI components take when creating views and improving the analysis graph's size and readability. 
+A$_7$ suggested enhancing the tool's appearance to make it more attractive. 
+A$_8$ recommended making the User Guide more intuitive and easier to follow, possibly with examples. 
+A$_9$ suggested improving the aesthetics and reducing the complexity of certain features. 
+A$_{10}$ recommended adding more variations for UI elements, such as drop-downs, and refining the result analysis to be more visually appealing. 
+A$_{11}$ suggested several improvements, such as providing freedom to change the size of elements in a view, displaying the tasks in the testing view, and reducing the number of feedback confirmations during tasks.
+A$_{12}$ suggested improving the data model and views sections' explanations.
+A$_{13}$ recommended improving the image variable. 
+A$_{14}$ and A$_{15}$ suggested providing clearer instructions to make the tool easier to use.
+
+Based on these responses, the tool has several areas for improvement. 
+Some participants suggested adding new features, while others recommended improving existing features' usability and aesthetics. 
+Some of the most common suggestions included improving the appearance and usability of the tool, refining the result analysis, and providing more thorough explanations of features in the User Guide. 
+The development team can use these suggestions to enhance the tool's functionality and make it more user-friendly for future users. 
