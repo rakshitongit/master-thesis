@@ -5,12 +5,109 @@
 
 \chapter{Conclusion}
 \label{chap:conclusion}
+In the previous chapter we did a comparative study of different tools and technologies. 
+Consequently, this chapter summarizes the key findings, contributions, limitations and potential areas for further research. 
+The first section summarizes and provides an overview of the research and its contributions (see section \ref{section:conclusion:summary}). 
+In contrast, the next section discusses the challenges and shortcomings encountered during the study (see section \ref{section:conclusion:limitations}). 
+Finally, the last section explains the possible improvements and extensions that can be made to the software tool, as well as the research questions that can be explored in future studies (see section \ref{section:conclusion:futurework}).
+
 \ifpdf
     \graphicspath{{Chapters/Conclusion/Figs/}{Chapters/Conclusion/Figs/}{Chapters/Conclusion/Figs/}}
 \else
     \graphicspath{{Chapters/Conclusion/Figs/}{Chapters/Conclusion/Figs/}}
 \fi
 
+\section{Summary}
+\label{section:conclusion:summary}
+In our master thesis, we identified the problems related to UI prototyping and UI experimentation and formulated a \textit{\hyperref[introduction:section:research]{Research Question}} to address these issues. 
+To solve this problem, we followed the \hyperref[introduction:section:research]{\ac{dsr}} approach and conducted the first cycle of \ac{dsr} in our thesis.
+As part of this approach, we conducted a \textit{\hyperref[evaluation:section:casestudy]{User case study}} to evaluate the effectiveness of our \hyperref[design:section:designprinciple]{\ac{dp}s} and identify any necessary corrections. 
+The outcome of the \ac{dsr} was more \textit{\hyperref[evaluation:section:interpretation]{refined \ac{dp}s}} which can be used to develop a tool for UI prototyping and experimentation using a data-driven approach for user feedback.
 
-\section{Conclusion}
+\paragraph{Software Tool:}
+The tool is designed to provide an easy and efficient way for developers to prototype and experiment with UI designs, allowing them to receive feedback quickly and make adjustments as necessary. 
+Similarly, the tool is designed to incorporate all the DPs as DFs and uses modern technologies to build the solution. 
+We implemented the tool using MVC architecture and used docker and micro-service architecture for deployment.
+\clearpage
+
+\section{Limitations}
+\label{section:conclusion:limitations}
+As with any research study, some limitations must be considered while interpreting the results. 
+While we have made every effort to design and implement rigorous research, several potential shortcomings need to be acknowledged.
+It is important to understand these limitations to avoid any misconceptions about the scope and applicability of our research. 
+In this section, we will discuss the limitations of our master thesis, which may have affected the generalizability and validity of our findings.
+
+\paragraph{Limited prototype creation:}
+One limitation of our software tool is that it only allows the user to add one prototype at a time. 
+This limitation is due to the deployment and docker multiple instance creations during runtime, which makes it challenging to scale up the number of prototypes. 
+It can be frustrating for users who must work on multiple prototypes simultaneously, as they would have to close one prototype before working on another. 
+Additionally, the inability to add multiple prototypes simultaneously can slow the user's workflow and limit their productivity.
+
+\paragraph{Generalizability of Findings:}
+Conducting only one user case study in our master thesis may limit the generalizability of our results and conclusions. 
+Since the case study was conducted with a specific set of users and a specific problem, the findings may not apply to different contexts or user groups. 
+Additionally, the case study may have yet to capture the full range of issues and challenges users may face when using the tool. 
+As a result, it may not be easy to draw robust and generalizable conclusions from the study.
+However, our thesis aimed not to provide a comprehensive evaluation of the tool but to demonstrate the feasibility of our DSR approach and the potential of our tool for UI prototyping and experimentation. 
+Therefore, while the limitation of a single case study is acknowledged, it does not invalidate our research findings.
+
+\paragraph{Usability}
+Although we conducted a user case study to evaluate the usability of our software tool, it is important to note that the survey only provided us with a limited scope of feedback. 
+Some aspects of the tool's usability were not addressed in the study, so there could be additional usability issues that were not identified. In some scenarios, the study's results may only partially reflect the tool's usability.
+Some users may find the tool difficult to use or may prefer other tools for UI prototyping and experimentation.
+Thus, the results could have been influenced by factors such as the participants' prior experience with similar tools, their level of expertise, or their personal preferences.
+
+\clearpage
 \section{Future Work}
+\label{section:conclusion:futurework}
+The software tool developed in this thesis has significantly contributed to UI prototyping and UI experimentation. 
+However, there are some areas where further improvements and developments can be made. 
+In this section, we discuss potential future works that can enhance the functionality and performance of the software tool. 
+These future works include the ability to layout different screen sizes and scale them, implementing voice-to-text conversion to automatically create prototypes and experiments with the user's voice instructions, extracting intelligence from data collected from user feedback, and allowing multiple users to collaborate at the same time. 
+We also discuss the potential technologies that can be utilized to implement these future works.
+
+\paragraph{Layouting for differnent screens:}
+In future work, an essential feature to be added to the tool could be the ability to design for different screen sizes and scale them effectively. 
+With the advent of smartphones and tablets, users access software applications on various devices, which differ in screen size and resolution. 
+Therefore, the ability to design for different screen sizes is crucial to ensure that the software tool is accessible and usable on other devices.
+To achieve this, the software tool could provide pre-defined templates for popular devices or enable users to define custom screen sizes. 
+The tool could also have a preview mode that allows the user to see how the design looks on different screen sizes, with the ability to adjust elements as needed. 
+Additionally, the tool could automatically scale elements based on the screen size to ensure the design is proportionate and aesthetically pleasing. 
+Incorporating these features would enhance the usability of the software tool and improve its functionality.
+
+\paragraph{Voice-to-text Conversion and Coding:}
+Incorporating voice-to-text conversion capability into the software tool could significantly improve its usability and efficiency. 
+With this feature, users can easily create prototypes and experiments by dictating their instructions to the tool. 
+This feature could reduce the time and effort required to develop and modify UI designs, especially for users who may have difficulty with traditional keyboard and mouse inputs.
+One technology that could be used for implementing this feature is natural language processing (NLP) algorithms. 
+NLP is a field of artificial intelligence that focuses on analyzing and understanding human language. 
+With NLP, the software tool could recognize and interpret user voice commands, converting them into actionable tasks. 
+Additionally, machine learning techniques could be applied to improve the accuracy of the voice-to-text conversion over time as the tool learns to recognize different user accents and speech patterns.
+Overall, incorporating voice-to-text conversion could significantly improve the software tool, making it more accessible and user-friendly. 
+Further research and development in the area of NLP could be a fruitful area of future work for the continued improvement of the tool.
+
+\paragraph{Extract Intelligence from User feedbacks:}
+Another future work for the software tool can involve implementing a data analysis component to extract intelligence from the data collected from user feedback. 
+This component can process user feedback data in real time and provide insights into user behavior, preferences, and needs. 
+The tool can dynamically adjust the prototypes and experiments with the insights provided to better match the user's expectations and preferences.
+Machine learning technologies such as sentiment analysis can be employed to implement this. 
+Sentiment analysis can gauge the overall sentiment of the user feedback and continuously improve the prototype. 
+Additionally, clustering and classification algorithms can group similar feedback and identify patterns that can help improve the tool's design and functionality.
+The software tool can improve its user-centered approach and enhance the overall user experience by incorporating this feature. 
+The extracted intelligence can be used to identify areas for improvement and help guide the design decisions in future iterations of the tool.
+
+\paragraph{Real-time collaboration:}
+One potential future work for the software tool is enabling real-time collaboration among multiple users. 
+This feature would allow different users to work on the same project simultaneously, making it easier for teams to collaborate on complex design projects. 
+This functionality could be achieved by integrating a collaborative platform that allows multiple users to work on a single document simultaneously. 
+Additionally, a chat or messaging feature would enable team members to communicate in real-time as they work on the project.
+Another technology that could be used to enable collaboration is real-time collaborative editing software. 
+These tools allow multiple users to work on the same document simultaneously. 
+One such technology is the Operational Transformation (OT) algorithm, which enables multiple users to make simultaneous edits to a document and ensures that those edits are synchronized across all users in real-time. 
+Integrating this technology into the software tool would enable users to collaborate on a project in real time, providing an efficient and streamlined workflow for design teams.
+
+\paragraph{Multiple prototypes}
+To overcome the limitation \textit{Limited prototype creation}, one possible future work and solution could be to explore container orchestration technologies such as Kubernetes\footnote{Website for Kubernetes: \url{https://kubernetes.io/}}. 
+Kubernetes allows for the management of containerized applications, making it easier to deploy and manage multiple prototype instances. 
+This solution would enable our software tool to support the addition of numerous prototypes, thereby improving the user experience and increasing productivity. 
+By implementing Kubernetes, we could also ensure that our software tool can scale up as more users start using it, making it a more robust and reliable tool for UI prototyping and experimentation.
