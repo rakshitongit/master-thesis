@@ -10,14 +10,15 @@
 \else
     \graphicspath{{Chapters/Background/Figs/}{Chapters/Background/Figs/}}
 \fi
-The foundation of this research is built upon the existing knowledge and theories developed in the field of Software Engineering.
+In the previous chapter, we defined the problems for software development and presented an overview of our solution.
+Consequently, this chapter is built upon the existing knowledge and theories developed in the field of Software Engineering.
 This chapter provides an overview of the relevant literature and identifies the key concepts and theories necessary for the research. 
-Firstly in section \ref{background:section:uiprototyping}, we will discuss \textit{UI Prototyping} explaining the creation of a \ac{ui} simulation and testing and refining the design ideas and user requirements.
+Firstly in section \ref{background:section:uiprototyping}, we will discuss \textit{\ac{ui} Prototyping} explaining the creation of a \ac{ui} simulation and testing for refining the design ideas and user requirements.
 Then, in section \ref{background:section:lowcode}, we explain \textit{Low/No-code methods} and citizen development of the software products. 
 Then, in section \ref{background:section:mbse}, we describe the \textit{\ac{mbse}} approaches and meta-models.
-In section \ref{background:section:task}, we clarify \textit{Task-based Usability Testing} for reviewing and refining the product. 
-Later in section \ref{background:section:experimentproduct}, we define the concept of \textit{Experimentation} and \textit{A/B testing}. 
-Finally, in section \ref{background:section:lean}, we explain the \textit{LEAN software development process}, explaining the Build, Measure and Learn phases.
+In section \ref{background:section:task}, we clarify \textit{Task-Based Usability Testing} for reviewing and refining the product. 
+Later in section \ref{background:section:experimentproduct}, we define the concept of \textit{\ac{ui} Experimentation} and \textit{A/B testing}. 
+Finally, in section \ref{background:section:lean}, we explain the \textit{LEAN software development process}, explaining the \textit{Build, Measure} and \textit{Learn} phases.
 
 % To build the foundation of our approach, we present UI Prototyping (see section \ref{background:section:uiprototyping}), Low and No code (see section \ref{background:section:lowcode}), Model-Based Software Engineering (MBSE) (see section ), Task-Based Usability Testing (see section \ref{background:section:task}), and Experimental Product Design (see section \ref{background:section:experimentproduct}) and derive some Design Requirements (see section \ref{background:section:designReqs}).
 %********************************** % Crowdsourcing of Software Products **************************************
@@ -53,8 +54,8 @@ Finally, in section \ref{background:section:lean}, we explain the \textit{LEAN s
 \section{UI Prototyping}
 \label{background:section:uiprototyping}
 
-UI prototyping creates a simplified \ac{ui} version to test and iterate on design ideas before building the final product.
-UI prototyping is a valuable tool for designers, allowing them to quickly and easily test and refine \ac{ui} designs \cite{article:prototyping:gould}.
+\ac{ui} prototyping creates a simplified \ac{ui} version to test and iterate on design ideas before building the final product.
+\ac{ui} prototyping is a valuable tool for designers, allowing them to quickly and easily test and refine \ac{ui} designs \cite{article:prototyping:gould}.
 It also helps gather feedback from users and stakeholders \cite{misc:prorotypes:lauff} and identify any usability issues before investing significant time and resources into the final product.
 From paper to \ac{html} code, everything could be a prototype, including various techniques like \texttt{Paper Prototypes}\footnote{\textbf{Paper prototyping:} It is a method of creating a preliminary version of a \ac{ui} using paper and pen.}, \texttt{Wireframes}\footnote{\textbf{Wireframe:} A wireframe is an essential visual representation of the layout and structure of a product, showing the placement of text, images, and buttons.}, \texttt{Mockups}\footnote{\textbf{Mockup:} A mockup is a more detailed version of a wireframe, typically created in color and with more realistic graphics and images.} and \texttt{Interactive Prototypes}\footnote{\textbf{Interactive Prototype:} An interactive prototype is a fully functional representation of a product, design, or feature.}.
 Moreover, \ac{ui} Prototypes can be classified as \textit{High-Fidelity} and \textit{Low-Fidelity} prototypes.
@@ -75,16 +76,16 @@ Similarly, the disadvantages include limited error checking, difficulty with usa
   \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{paperprototyping.png}
-    \caption{Sketches and whiteboard for prototyping}
+    \caption{Sketches and Whiteboard for Prototyping}
     \label{fig:background:paperPrototyping}   
   \end{subfigure}             
   \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{paperstepsprototypes.png}
-    \caption[Paper based prototypes]{Example on how the paper-based prototypes are developed  \cite{misc:prototyping:uxpin}}
+    \caption[Paper-Based Prototypes]{Example on How the Paper-Based Prototypes Are Developed  \cite{misc:prototyping:uxpin}}
     \label{fig:background:paperprototypes}
   \end{subfigure}             
-  \caption[Low fidelity prototyping]{Low fidelity prototyping}
+  \caption[Low Fidelity Prototyping]{Low Fidelity Prototyping}
   \label{fig:background:lowfidelity}
 \end{figure}
 \paragraph*{High-Fidelity Prototypes:}
@@ -101,16 +102,16 @@ Overall, low-fidelity prototypes and high-fidelity prototypes are both valuable 
   \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{high-fidelity-prototyping.png}
-    \caption{Prototyping page of a cake company}
+    \caption{Prototyping Page of a Cake Company}
     \label{fig:background:high1}   
   \end{subfigure}
   \begin{subfigure}[b]{0.5\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{high-fidelity-2.png}
-    \caption{Prototyping page to customize a cake}
+    \caption{Prototyping Page to Customize a Cake}
     \label{fig:background:high2}   
   \end{subfigure} 
-  \caption[High Fidelity prototyping]{High Fidelity prototype: Model-based UI Prototyping \cite{misc:prototyping:hfp}}
+  \caption[High Fidelity prototyping]{High Fidelity prototype: Model-Based UI Prototyping \cite{misc:prototyping:hfp}}
   \label{fig:background:uiPrototyping}
 \end{figure}
 
@@ -124,7 +125,7 @@ Therefore, designing \ac{ui} prototypes enables designers and stakeholders to co
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.6\textwidth]{PrototypingSteps.png}
-  \caption[Steps of Prototyping]{Prototyping steps for an iterative development}
+  \caption[Steps of Prototyping]{Prototyping Steps for an Iterative Development}
   \label{fig:background:stepsPrototyping}
 \end{figure}
 Similarly, an interactive prototype helps visualize design concepts and communicate new requirements and expectations about a prospective system.
@@ -145,24 +146,25 @@ By iterating and refining their prototypes throughout the design process, design
 
 %********************************** % Low code **************************************
 
-\section{Low Code / No Code Development Platform}
+\section{Low-Code / No-Code Development Platform}
 \label{background:section:lowcode}
-Low code is a software development method that uses less human coding to enable users to construct and manage programs efficiently rather than writing extensive amounts of code \cite{article:nocode:sahina}.
-It is a technique used by developers to help non-developers design and develop software applications using a \textit{Graphical User Interface} (GUI) supported by a \textit{\ac{lcdp}}.
+Low-code is a software development method that uses less human coding to enable users to construct and manage programs efficiently rather than writing extensive amounts of code \cite{article:nocode:sahina}.
+It is a technique used by developers to help non-developers design and develop software applications using a \textit{\ac{gui}} supported by a \textit{\ac{lcdp}}.
 An \ac{lcdp} allows developers to create, deploy, and manage applications quickly and easily using high-level programming languages and techniques such as model-driven and metadata-based programming \cite{misc:lowcode:platforms}.
 It simplifies building and deploying applications using declarative programming abstractions and one-step deployments.
 \ac{lcdp} provides pre-built components, templates, and other resources that companies can quickly assemble to create functional applications.
 These platforms are designed to accelerate the development process and enable companies to quickly build and deploy custom software solutions.
 Similarly, there is another technique called \textit{No-code development} supported by the \textit{\ac{ncdp}} \cite{article:nocode:miller}.
-Unlike low code, no-code platforms require no programming skills because they offer drag-and-drop techniques for building the apps.
-The non-developers can easily pick up the components which fit the \ac{ui} and drag and drop them to the screen and finally create an entire application using this technique.
-Using the user interface and ready-made automatic tools on these application development platforms, it is feasible to create apps relatively quickly. 
+Unlike low-code, no-code platforms require no programming skills because they offer drag-and-drop techniques for building the apps.
+The non-developers can easily pick up the components which fit the \ac{ui} and drag-and-drop them to the screen and finally create an entire application using this technique.
+Using the \ac{ui} and ready-made automatic tools on these application development platforms, it is feasible to create apps relatively quickly. 
 Due to its simplicity, flexibility, and low cost, companies have started using this platform to meet the high demands of software development and digitalization \cite{article:nocode:sahina}.
 Additionally, with its self-configurable components, it lowers the expenses associated with initial installation, training, distribution, and maintenance \cite{article:nocode:sanchi}.
 
-\paragraph*{High-level architecture of \ac{lcdp}:}
+\paragraph*{High-Level Architecture of \ac{lcdp}:}
 As shown in figure \ref{fig:background:architecture}, an \ac{lcdp} is divided into small modules independent of the other components.
 Bock et al. \cite{misc:lowcode:platforms} have classified these modules according to the three main approaches to systems development: \textit{the static perspective}, \textit{the functional perspective}, and \textit{the dynamic view}.
+
 \paragraph*{Static Perspective:}
 \ac{lcdp}s typically allow data to be stored either in an internal \ac{dbms} or in external systems (see the first part of figure \ref{fig:background:architecture}). 
 Many of these features/components commonly found in \ac{lcdp}s fall under the \textit{static perspective}. 
@@ -173,7 +175,7 @@ A common feature of \ac{lcdp}s is the ability to access external data sources us
 \begin{figure}[htbp!]
   \centering
   \includegraphics[width=0.73\textwidth]{LCDP-architecture.png}
-  \caption[LCDP architecture]{High-level architecture of Low code Development platform}
+  \caption[LCDP Architecture]{High-Level Architecture of Low Code Development Platform}
   \label{fig:background:architecture}
 \end{figure}
 \paragraph*{Functional Perspective:}
@@ -220,7 +222,7 @@ Additionally, a variety of options are provided for developers with little progr
 Overall, low-code/no-code development platforms are valuable for organizations looking to build and deploy custom applications quickly and efficiently that can help organizations of all sizes and industries bring their ideas to life.
 \clearpage
 %********************************** % Model-Based Software Engineering **************************************
-\section{Model-based Software Engineering}
+\section{Model-Based Software Engineering}
 \label{background:section:mbse}
 \ac{mbse} refers to maintaining and developing software while reusing existing code.
 Similarly, \ac{mdse} is the term used to cover various techniques for creating software using codified models.
@@ -228,7 +230,7 @@ At the same time, for creating models, the \ac{mof} has defined four levels sepa
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.5\textwidth]{mof-meta-modelling.png}
-  \caption[MOF levels]{Model Object Facility (MOF) levels}
+  \caption[MOF Levels]{Model Object Facility (MOF) levels}
   \label{fig:background:moflevels}
 \end{figure}
 
@@ -277,7 +279,7 @@ Once the lower-level details of the meta-model have been defined, they can be or
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.9\textwidth]{meta-models.png}
-  \caption[Meta models]{Meta models and Models}
+  \caption[Meta Models]{Meta Models and Models}
   \label{fig:background:m1m2}
 \end{figure}
 
@@ -304,7 +306,7 @@ Therefore, for our research, we use a recent method \cite{article:mbse:bexiga}, 
 
 \clearpage
 %********************************** % Task-based Usability Testing **************************************
-\section{Task-based Usability Testing}
+\section{Task-Based Usability Testing}
 \label{background:section:task}
 The main focus of usability testing is that seeing someone use an interface is the best approach to determine what functions well and what doesn't. 
 It would help if you offered the participants some assignments to observe them. 
@@ -347,7 +349,7 @@ If the task scenario is unclear enough, the participant may ask for more informa
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.6\textwidth]{task-based-cycle.png}
-  \caption[Tasks steps]{Task-based Usability Testing steps}
+  \caption[Tasks Steps]{Task-Based Usability Testing Steps}
   \label{fig:background:taskssteps}
 \end{figure}
 The fundamental principle of usability testing is to have actual users attempt to carry out essential tasks or assignments on your software, websites, mobile applications, or gadgets.
@@ -372,7 +374,7 @@ By focusing on specific tasks that users need to complete, we can gather valuabl
 \clearpage
 
 %********************************** % Experimentation **************************************
-\section{Experimentation}
+\section{UI Experimentation}
 \label{background:section:experimentproduct}
 In this section, we discuss the role that experimentation plays in the software development process and how designers can ``prototype with real data'' to improve the usability of the \ac{ui}.
 Experimentation is a vital part of the design process for \ac{ui} products. 
@@ -416,7 +418,7 @@ Overall, \ac{ce} is a critical approach to take when developing \ac{ui}s for pro
 It allows designers and developers to gather valuable feedback and data and use it to improve their products' design and \ac{ux}.
 \clearpage
 
-\section{LEAN Development process}
+\section{LEAN Development Process}
 \label{background:section:lean}
 LEAN development is a software development methodology that emphasizes continuous improvement and eliminating waste to deliver customer value as efficiently as possible. 
 It is one method within Agile development \cite{misc:lean:tutorial}.
@@ -429,7 +431,7 @@ The goal is to minimize waste and optimize the use of resources to deliver high-
 \begin{figure}[htbp!]
   \centering    
   \includegraphics[width=0.7\textwidth]{LEAN.png}
-  \caption[LEAN development cycle]{LEAN development cycle\footnotemark[6]}
+  \caption[LEAN Development Cycle]{LEAN Development Cycle\footnotemark[6]}
   \label{fig:background:lean}
 \end{figure}
 

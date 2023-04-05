@@ -17,7 +17,7 @@ Next, the description of the technology stack and development tools is explained
 The chapter includes a detailed explanation of the critical features and functionality of the system and the processes used in frontend implementation (see section \ref{implementation:section:frontend}), database implementation (see section \ref{implementation:section:database}) backend implementation (see section \ref{implementation:section:backend}), and the software tool (see section \ref{implementation:section:tool}).
 Through this chapter, readers will understand how we brought the proposed solution to reality and its potential for real-world applications.
 
-\section{Tool Design Features (DFs)}
+\section{Tool Design Features}
 \label{implementation:section:designfeatures}
 Our \ac{dsr} aims to produce a tangible outcome, such as a new software tool, a process improvement, or a theoretical framework with the derived \ac{df}s.
 It often involves multiple cycles of design, evaluation, and redesign, allowing for constant improvement of the artifact.
@@ -31,22 +31,22 @@ As shown in the figure \ref{fig:implementation:hierarchy}, we see that the \ac{d
     \begin{subfigure}[b]{1.0\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{DFs_hierarchy_build.png}
-    \caption{A hierarchical diagram of \ac{df}s from \textit{Build} phase}
+    \caption{A Hierarchical Diagram Of \ac{df}s from \textit{Build} phase}
     \label{fig:implementation:hierarchy:build}
     \end{subfigure}
     \begin{subfigure}[b]{1.0\textwidth}
     \centering
     \includegraphics[width=1.1\textwidth]{DFs_hierarchy_measure.png}
-    \caption{A hierarchical diagram of \ac{df}s from \textit{Measure} phase}
+    \caption{A Hierarchical Diagram Of \ac{df}s from \textit{Measure} phase}
     \label{fig:implementation:hierarchy:measure} 
     \end{subfigure}             
     \begin{subfigure}[b]{0.8\textwidth}
     \centering
     \includegraphics[width=1.0\textwidth]{DFs_hierarchy_learn.png}
-    \caption{A hierarchical diagram of \ac{df}s from \textit{Learn} phase}
+    \caption{A Hierarchical Diagram Of \ac{df}s from \textit{Learn} phase}
     \label{fig:implementation:hierarchy:learn}
     \end{subfigure}
-    \caption[A map between \ac{dp}s and \ac{df}s]{Hierarchical structure of \ac{df}s}
+    \caption[A Map Between DPs and DFs]{Hierarchical Structure of \ac{df}s}
     \label{fig:implementation:hierarchy}
 \end{figure}
 \paragraph{Build:}
@@ -181,7 +181,7 @@ This module allows users to upload files directly from their local device, enabl
 Finally, the \textit{Drag and Drop module}\footnote{Website for the Angular material Drag and drop \url{https://v7.material.angular.io/cdk/drag-drop/api}} allows users to easily rearrange elements on the \ac{ui} by dragging and dropping them to their desired location. 
 Utilizing this module can provide a more interactive and dynamic user experience for prototyping.
 
-\begin{lstlisting}[language=JavaScript, caption=all-component.module.ts, label=listing:implementation:allmodule]
+\begin{lstlisting}[language=JavaScript, caption=The File Defining All the Modules, label=listing:implementation:allmodule]
 // import Components
 import { LoginComponent } from './components/login/login';
 ...
@@ -220,7 +220,7 @@ Our implementation focuses on the \ac{mvc} architecture, which contains services
 In this section, we explain as an example the implemented \textit{left-panel}, \textit{middle-panel}, and \textit{right-panel} components. 
 Similarly, we use the \textit{observer pattern}\footnote{Website for Observer pattern: \url{https://refactoring.guru/design-patterns/observer}} for the interaction between these components and various services to interact with the server.
 
-\begin{lstlisting}[language=JavaScript, caption=left-panel.component.ts, label=listing:implementation:left]
+\begin{lstlisting}[language=JavaScript, caption=The Typescript File for the Left Panel, label=listing:implementation:left]
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
 ...
@@ -284,7 +284,7 @@ The user can place UI elements within the box by dragging and dropping them onto
 These elements are provided by the left panel component and can be customized using the properties panel component on the right. 
 The middle panel component subscribes to events emitted by the left and right panel components, allowing it to update the screen in real-time.
 
-\begin{lstlisting}[language=JavaScript, caption=middle-panel.component.ts, label=listing:implementation:middle]
+\begin{lstlisting}[language=JavaScript, caption=The Typescript File for the Middle Panel, label=listing:implementation:middle]
 @Component({...})
 export class MiddlePanelComponent implements OnInit {
     // Define variables
@@ -343,7 +343,7 @@ When the middle panel emits an event to update the selected element, the right p
 Similarly, when the middle panel emits an event to update the canvas or screen, the right panel template updates the properties displayed on the screen. 
 Overall, the right panel template is designed to provide real-time updates to the properties of the UI element based on user actions and events.
 \clearpage
-\begin{lstlisting}[language=JavaScript, caption=right-panel.component.ts, label=listing:implementation:right]
+\begin{lstlisting}[language=JavaScript, caption=The Typescript File for the Right Panel, label=listing:implementation:right]
 // imports ...
 
 @Component({...})
@@ -408,7 +408,7 @@ We used the \ac{cli} to generate a MongoDB data source for our application by ru
 It generated a data source file (see Listing \ref{listing:implementation:lb4Mongo}) with the necessary configuration for connecting to our MongoDB instance.
 We customized the data source configuration to include the database name and other options, such as the connection string, username, and password in an env variable \texttt{DB\_CONNECTION}.
 
-\begin{lstlisting}[language=JavaScript, caption=lb-4-mongo.datasource.ts, label=listing:implementation:lb4Mongo]
+\begin{lstlisting}[language=JavaScript, caption=The Typescript File for the MongoDB Datasource, label=listing:implementation:lb4Mongo]
 // imports ...
 
 const config = {
@@ -442,7 +442,7 @@ We created a function called \texttt{fileUpload}, which takes in a \texttt{@requ
 This function used the Nginx File input module to process file upload. 
 Once the file is uploaded, we save it to our server folder.
 
-\begin{lstlisting}[language=JavaScript, caption=file-upload.controller.ts, label=listing:implementation:fileUpload]
+\begin{lstlisting}[language=JavaScript, caption=The Typescript File for the Rest Controller for File Upload, label=listing:implementation:fileUpload]
 // imports ...
 export class FileUploadController {
     constructor(...) {}
@@ -487,7 +487,7 @@ Finally, we used a predefined docker file generated from the Loopback CLI to dep
 The file specified the base image, environment variables, exposed ports, and dependencies required to run the application. 
 The docker file contained all the necessary instructions to build and run the application in a containerized environment.
 
-\begin{lstlisting}[language=JavaScript, caption=data.model.ts, label=listing:implementation:datamodel]
+\begin{lstlisting}[language=JavaScript, caption=The Typescript File for the Data Model, label=listing:implementation:datamodel]
 @model({ settings: { strict: false } })
 export class DataModel extends Entity {
     @property({

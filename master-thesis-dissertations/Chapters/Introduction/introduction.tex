@@ -10,13 +10,14 @@
 \else
     \graphicspath{{Chapters/Introduction/Figs/}{Chapters/Introduction/Figs/}}
 \fi
+In this thesis, we explain our approach to improving \ac{ui} prototyping and \ac{ui} experimentation.
 This chapter motivates the readers about the topic (see section~\ref{introduction:section:motivation}), explains the problems faced by the companies during software development (see section~\ref{introduction:section:problems}), our research approach (see section~\ref{introduction:section:research}), and finally, our solution approach (see section~\ref{introduction:section:solution}).
 
 %********************************** % Motivation  **************************************
 \section{Motivation} % Section - 1.1 
 \label{introduction:section:motivation}
 
-Over the last decade, software development had a tremendous impact with increasing customer demand and requirements \cite{article:swdemand:ahmed}, which further increased product complexity and ambiguity, significantly impacting software development.  
+Over the last decade, software development had a tremendous impact with increasing customer demand and requirements \cite{article:swdemand:ahmed}, further increasing product complexity and ambiguity, significantly impacting software development.  
 Therefore, the developers have come up with different techniques to meet this requirement criteria.
 Early user feedback from potential customers in the industry is crucial for creating successful software products because of the growing market uncertainties, and consumers' desire to receive integrated solutions to their issues rather than unique software developments \cite{misc:businessmodels:teece}.
 With the increasing complexity of products, it becomes challenging to determine user requirements making it more difficult for developers to assess their opinions.
@@ -62,7 +63,7 @@ Therefore, finding a solution that combines qualitative and quantitative data an
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.2]{DSRcycle.png}
-    \caption{Design Science Research Cycle \cite{paper:designprinciple:vk}}
+    \caption[Design Science Research Cycle]{Design Science Research Cycle \cite{paper:designprinciple:vk}}
     \label{intro:fig:dps}
 \end{figure}
 The process of creating experiments and testing their variants is usually not systematically arranged, creating anomalies, and leading to unsuccessful experiments.
@@ -70,13 +71,13 @@ Therefore, this section identifies the research question (RQ) and defines an app
 
 \paragraph{RQ:} \textit{How to develop software suitable for product designers to conduct experiments on UI prototypes, increasing its usability and, simultaneously, independent of developers?}\\
 
-Prescriptive knowledge about the design of artifacts, such as software techniques, models, or concepts, is what design science research (DSR) aims to provide.
+Prescriptive knowledge about the design of artifacts, such as software techniques, models, or concepts, is what \ac{dsr} aims to provide.
 Due to this design knowledge, future projects can design artifacts methodically and scientifically with the aid of study and practice \cite{paper:designprinciple:vk}. 
-Therefore, we will conduct a design science research (DSR) study to answer our research question and obtain abstract design knowledge and an implementation tool. 
-From the abstracted knowledge, we will obtain some Design Principles (DPs) defined for the whole process of experimentation \cite{paper:designprinciple:vk}.
-In this design, the product designers will iteratively validate their prototypes with the users (or the crowds). 
-Here, DPs capture and codify that knowledge by focusing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. 
-The DPs explain the design information that develops features for software applications.
+Therefore, we will conduct a \ac{dsr} study to answer our research question and obtain abstract design knowledge and an implementation tool. 
+From the abstracted knowledge, we will obtain some \ac{dp} defined for the whole process of experimentation \cite{paper:designprinciple:vk}.
+In this design, the product designers will iteratively validate their prototypes with the users or the participants. 
+Here, \ac{dp}s capture and codify that knowledge by focusing on the implementer, the aim, the user, the context, the mechanism, the enactors, and the rationale \cite{paper:designprinciple:gregor}. 
+The \ac{dp}s explain the design information that develops features for software applications.
 We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{paper:designprinciple:vk} consisting of five iteratively conducted steps (see figure \ref{intro:fig:dps}). 
 % First, we identify the 
 % \texttt{(1) Awareness of the Problem} and provide a
@@ -89,35 +90,36 @@ As a result, this design and application may provide design-focused information 
 Every element within a DSR project is built upon and systematically analyzed to add to the overall DSR knowledge corpus.
 Therefore through the use of DSR, a group of issues is resolved by concentrating on a single issue and abstracting the consequences of the resolution.
 
-\paragraph*{Design Requirements (DRs):}
-In design science research, abstracted \textit{Design Requirements (DRs)} refer to the general, high-level requirements that a design must meet to succeed. 
-These requirements are typically derived from the research question identified as relevant to the problem.
-Abstracted design requirements provide a broad framework for the design process and help to ensure that the design solution addresses the key issues and challenges identified in the research problem. 
+\paragraph*{Design Requirements:}
+In design science research, abstracted \ac{dr} refer to the general, high-level requirements that a design must meet to succeed. 
+These requirements are typically derived from the RQ identified as relevant to the problem.
+Abstracted \ac{dr}s provide a broad framework for the design process and help to ensure that the design solution addresses the key issues and challenges identified in the research problem. 
 They can also help guide the evaluation of the design solution and ensure that the solution is grounded in the design principles identified as necessary.
 
-\paragraph*{Design Principles (DPs):}
-In design science research, concrete \textit{Design Principles (DPs)} refer to specific, detailed guidelines that a design must follow to be successful. 
-These principles are derived from the abstract design requirements identified as relevant to the research problem and provide more specific guidance on how the design should be implemented.
+\paragraph*{Design Principles:}
+In design science research, concrete \ac{dp}s refer to specific, detailed guidelines that a design must follow to be successful. 
+These principles are derived from the abstract \ac{dr}s identified as relevant to the research problem and provide more specific guidance on how the design should be implemented.
 DPs can also be defined as the codification of our knowledge during the design study while identifying the DRs. 
-Concrete DPs are essential in DSR as they help ensure that the design solution meets the needs and goals of the research problem and is grounded in the design principles we identified as necessary \cite{misc:dsr:webster}.
+Concrete DPs are essential in DSR as they help ensure that the design solution meets the needs and goals of the research problem and is grounded in the design principles we identified as necessary \cite{misc:dsr:webster}.\\\\
 More details about the DRs and DPs can be found in section \ref{design:section:solutiondesign}.
+
 \section{Solution Approach}
 \label{introduction:section:solution}
 
 To solve the problems mentioned above, the designers should be able to create UI prototypes and experiments on their own on a set of users.
 Since we do not have a large set of users for testing the prototypes, we use supervised task-based usability testing \cite{article:dataanalysis:supervisedtest}.
 The fundamental principle of task-based usability testing is to have the users attempt to use the prototypes to do certain activities or tasks (e.g., Locate a movie M1) and get feedback (e.g., the time required for the task to be completed by the user).
-We propose to use \texttt{Low-code} or \texttt{No-Code} approach to achieve this.
+We propose to use low-code or no-code approach to achieve this.
 This approach helps to have a UI for the designers to understand, develop, and create experiments and tasks with the software prototypes \cite{paper:lowcode:khorram}.
 So, the designers would be able to create the UI prototypes and their variants, assign them to the users in an experiment, get feedback from the users and decide on the best prototype.
-At the same time, the low-code has become more accessible for Model-driven development \cite{article:lowcode:modeldriven}.
+At the same time, the low-code has become more accessible for model-driven development \cite{article:lowcode:modeldriven}.
 Therefore, we plan to create models for the UI prototypes and have the feasibility for creating experiments and tasks. 
 Because of using the models, it is easier to store the prototypes in the database and conduct experiments with the users. 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.15]{LEAN.png}
-    \caption{LEAN Development technique}
+    \caption{LEAN Development Technique}
     \label{intro:fig:lean}
 \end{figure}
 
@@ -125,9 +127,9 @@ In our solution, we use the LEAN development technique (see figure \ref{intro:fi
 Using LEAN, the company creates a Minimum Viable Product (MVP) throughout development, tests it with potential customers, and leverages their input to make incremental changes.
 While this technique can be used for every product, there are also approaches specific to software products.
 LEAN development technique can be divided into a Build, Measure, and Learn cycle. 
-In the \texttt{(1) Build} phase, we plan to create the \texttt{UI Prototypes}, \texttt{Models}, \texttt{Experiments}, and \texttt{Tasks} for the users.
-In the \texttt{(2) Measure} phase, we plan to assign the Experiments and Tasks to the users and measure the \texttt{Task and the Experiment measurements} and perform some analysis on the data received. 
-And finally, in the \texttt{(3) Learn} phase, we display the \texttt{Analyses results}, \texttt{Tune} our models to decide the better variant among the others, and \texttt{Modify} the prototype.
+In the \textit{(1) Build} phase, we plan to create the UI prototypes, models, UI experiments, and user tasks.
+In the \textit{(2) Measure} phase, we plan to assign the experiments and tasks to the users and measure the task and the experiment measurements and perform some analysis on the data received. 
+And finally, in the \textit{(3) Learn} phase, we display the analyses results, tune our models to decide the better variant among the others, and modify the prototype.
 As per figure \ref{intro:fig:lean}, we complete one cycle of iteration and start a new one with the updated prototype.
 
 \clearpage

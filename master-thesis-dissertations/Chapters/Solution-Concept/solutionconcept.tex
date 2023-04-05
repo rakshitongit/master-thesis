@@ -36,7 +36,7 @@ The models used in the architecture are the \ac{ui} view for prototyping and the
 \begin{figure}[htbp!]
     \centering    
     \includegraphics[width=0.9\textwidth]{MVC.png} 
-    \caption[MVC Architecture of System]{MVC Architecture of our UI Prototyping tool}
+    \caption[MVC Architecture of the System]{MVC Architecture of our UI Prototyping tool}
     \label{fig:sc:componentD}
 \end{figure}
 The diagram (see figure \ref{fig:sc:componentD}) shows the different modules and components of the \ac{ui} prototyping tool and how they interact with each other during the execution of the tool.
@@ -100,7 +100,7 @@ It allows users to quickly iterate on their designs based on the insights gained
 In summary, implementing a prototyping management component simplifies the \ac{ui} prototyping, helps improve the effectiveness of the UI, allowing to add \ac{ui} elements, and data models and improves the prototype.
 
 \clearpage
-\section{UI Experimentation management}
+\section{UI Experimentation Management}
 \label{sc:section:experimentation}
 In our solution approach, we must have features for creating various \ac{ui} variants and conducting experiments of A/B testing. 
 Therefore, as shown in figure \ref{fig:sc:experiments}, using this component, we allow the admin users to create experiments on the UI as defined in the UI prototype.
@@ -153,7 +153,7 @@ Once we receive the details of the winner variant from this component, the tool 
 In summary, implementing an experiments management component simplifies the A/B testing, helps improve the effectiveness of the UI, and allows you to manage and track the different interface variations.
 
 \clearpage
-\section{Persistence}
+\section{Persistence Infrastructure}
 \label{sc:section:persistance}
 In our solution approach, we must have features for persisting the data in our database.
 Therefore, as shown in figure \ref{fig:sc:database}, using this component, we store the data from the models from our \ac{mvc} architecture.
@@ -162,21 +162,21 @@ It consists of a \textit{Persistence infrastructure} for providing various featu
 \begin{figure}[htbp!]
     \centering    
     \includegraphics[width=0.6\textwidth]{Database.png} 
-    \caption[Details of Database management]{Details of Database Management}
+    \caption[Details of Database Management]{Details of Database Management}
     \label{fig:sc:database}
 \end{figure}
 
-\paragraph{Persistence infrastructure}
+\paragraph{Persistence Infrastructure}
 A persistence infrastructure is necessary for our software to manage a system's data storage and retrieval. 
 When a model needs to store data for later use or retrieve data that has been previously stored, a persistence infrastructure can provide the necessary functionality to accomplish this.
 
-\paragraph{Database connection}
+\paragraph{Database Connection}
 Our persistence infrastructure provides database connectivity for a non-relational database by using a MongoDB driver or library to interact with the database. 
 We install and configure MongoDB on the appropriate servers or cloud-based environments\footnote{Cloud-based environment: \url{https://cloud.mongodb.com/}}.
 Then we select a proper driver or library, configure the connection details, and use the driver or library to interact with the database in the components of the system\footnote{How to connect to cloud-based deployed MongoDB instance: \url{https://www.mongodb.com/docs/atlas/connect-to-database-deployment/}}.
 Utilizing the driver or library, we interact with the non-relational database in the components of the system. It typically involves defining data models, creating, reading, updating, and deleting documents or records, and querying the database using the appropriate syntax and commands.
 
-\paragraph{Data persistance}
+\paragraph{Data Persistance}
 After setting up the necessary drivers or libraries to connect to the MongoDB instance from the components in the system, we define the necessary CRUD (create, read, update, delete) operations for the data models.
 These include methods for inserting, updating, deleting, and retrieving data from the database. 
 It also provides the necessary validation and error handling for the data models and CRUD operations.\\\\
@@ -193,7 +193,7 @@ We use a no-code platform and microservice architecture to simplify deployment i
 \begin{figure}[htbp!]
     \centering    
     \includegraphics[width=0.6\textwidth]{Deployment.png} 
-    \caption[Details of Deployment components]{Details of Deployment components}
+    \caption[Details of Deployment Components]{Details of Deployment Components}
     \label{fig:sc:deployment}
 \end{figure}
 
@@ -225,18 +225,18 @@ Our security infrastructure, therefore, provides access control and some authent
 \begin{figure}[htbp!]
     \centering    
     \includegraphics[width=0.6\textwidth]{Security.png} 
-    \caption[Details of Security components]{Details of Security components}
+    \caption[Details of Security Components]{Details of Security Components}
     \label{fig:sc:security}
 \end{figure}
 
-\paragraph{Access control}
+\paragraph{Access Control}
 Access control involves defining policies and rules determining who can access resources under what circumstances.
 Therefore we implement access control mechanisms using role-based access control (RBAC) and then allowing or denying access based on those roles or groups.
 So, we first identify the roles or groups requiring system access, including participants, administrators, and other users\footnote{This may include different stakeholders like designers, product managers, developers, etc.}. 
 Then we define the access rights (e.g., the UI prototyping management should only be accessible to the admin users).
 Finally, we implement a mechanism that checks the user roles and then accesses the data or services accordingly. 
 
-\paragraph{Authentication mechanisms}
+\paragraph{Authentication Mechanisms}
 Authentication involves verifying the identity of users and ensuring that they have the appropriate permissions to access the system.
 We provide an authentication mechanism using a password and username. 
 It ensures that only authorized users can access our tool.
