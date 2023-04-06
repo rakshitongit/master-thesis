@@ -11,31 +11,38 @@
     \graphicspath{{Chapters/Solution-Concept/Figs/}{Chapters/Solution-Concept/Figs/}}
 \fi
 In the previous chapter, we defined different \ac{dr}s and \ac{dp}s for our solution approach. 
-Based on that, in this chapter, we present the conceptual design of the solution, which outlines the system's key features, components, and functionalities. 
-For that, the introduction section (see section \ref{sc:section:introduction}) introduces the reader to the chapter details completing our solution concept, next section explains the core architecture of our solution approach and then the next sections explains the architecture in details. 
-
-\section{Introduction}
-\label{sc:section:introduction}
-The Solution Concept chapter in software engineering provides a comprehensive understanding of the proposed solution approach. 
-This chapter bridges the gap between the solution design and the actual implementation of the solution by providing a detailed description of the solution approach. 
-It lays the groundwork for the development process, including the design decisions, and technologies used to build the software implementation. 
-Overall, in this chapter, our solution approach is based on the LEAN development cycle we defined in the previous chapter.
+Consequently, in this chapter, we present the conceptual design of the solution, which outlines the system's key features, components, and functionalities. 
+This chapter bridges the gap between the solution design and the actual implementation of the solution by providing a detailed description of the solution approach.
 To visualize the system's architecture and interactions between components, we have defined software architecture (see section \ref{sc:section:architecture}) to facilitate better planning and implementation decisions.
 In the next sections, we explain the different components we used for building our solution approach (our UI Prototyping tool). 
+In section \ref{sc:section:prototyping}, we explain \ac{ui} prototyping component in detail. 
+Similarly, in section \ref{sc:section:experimentation}, we explain how to create experiments and connect participant users to experiments using our tool.
 In section \ref{sc:section:persistance}, we explain how data is stored in our database using the data models. 
-% In section \ref{sc:section:security}, we explain how access control for various users is managed in our security infrastructure. 
-In section \ref{sc:section:experimentation}, we explain the \ac{ui} of the tool on how to create experiments and connect participant users to experiments using our tool.
-In section \ref{sc:section:security}, we explain \ac{ui} interacts with the database. 
-Finally, in section \ref{sc:section:deployment}, we explain the code generation and other deployment processes required to build our tool from a prototype to working software.
+In section \ref{sc:section:deployment}, we explain the code generation and other deployment processes required to build our tool from a prototype to working software.
+Finally, in section \ref{sc:section:security}, we explain how access control for various users is managed in our security infrastructure.
+
+% \section{Introduction}
+% \label{sc:section:introduction}
+% The Solution Concept chapter in software engineering provides a comprehensive understanding of the proposed solution approach. 
+% This chapter bridges the gap between the solution design and the actual implementation of the solution by providing a detailed description of the solution approach. 
+% It lays the groundwork for the development process, including the design decisions, and technologies used to build the software implementation. 
+% Overall, in this chapter, our solution approach is based on the LEAN development cycle we defined in the previous chapter.
+% To visualize the system's architecture and interactions between components, we have defined software architecture (see section \ref{sc:section:architecture}) to facilitate better planning and implementation decisions.
+% In the next sections, we explain the different components we used for building our solution approach (our UI Prototyping tool). 
+% In section \ref{sc:section:persistance}, we explain how data is stored in our database using the data models. 
+% % In section \ref{sc:section:security}, we explain how access control for various users is managed in our security infrastructure. 
+% In section \ref{sc:section:experimentation}, we explain the \ac{ui} of the tool on how to create experiments and connect participant users to experiments using our tool.
+% In section \ref{sc:section:security}, we explain \ac{ui} interacts with the database. 
+% Finally, in section \ref{sc:section:deployment}, we explain the code generation and other deployment processes required to build our tool from a prototype to working software.
 
 \section{Software Architecture}
-\label{sc:section:architecture} 
+\label{sc:section:architecture}
 In this section, we will discuss the software architecture of a \ac{ui} prototyping tool with provisions for split and task-based usability tests. 
 The software tool uses the \ac{mvc} architecture, with the main views being the \ac{ui} prototyping management and the \ac{ui} experiments management. 
 The models used in the architecture are the \ac{ui} view for prototyping and the \ac{ui} experiment for split tests. 
 \begin{figure}[htbp!]
     \centering    
-    \includegraphics[width=0.9\textwidth]{MVC.png} 
+    \includegraphics[width=1.0\textwidth]{MVC.png} 
     \caption[MVC Architecture of the System]{MVC Architecture of our UI Prototyping tool}
     \label{fig:sc:componentD}
 \end{figure}
@@ -51,14 +58,14 @@ The \textit{UI View} model is connected to the prototyping view, and the \textit
 The \textit{UI prototyping} and \textit{Experiment} controllers are the main controllers for handling user input and updating the models and views accordingly.
 For the database, we use a NoSQL database that provides flexibility and scalability for applications with changing data requirements. 
 
-The \textit{admin} user is responsible for prototyping and creating user experiments and scenarios. 
-The \textit{admin} user can access all the tool's features and create, edit, and delete prototypes and experiments.
+The \textit{UX designer} is responsible for prototyping and creating user experiments and scenarios. 
+That user can access all the tool's features and create, edit, and delete prototypes and experiments.
 Finally, for deployment, we have one component that includes all the files and dependencies required to run the application. 
 This component contains the server-side code, the client-side code, and the necessary libraries and dependencies. 
 The deployment component is responsible for packaging the application and deploying it to the target environment.
 
-In summary, the software architecture for our \ac{ui} prototyping tool is designed using the \ac{mvc} architecture, with the details explained in the next sections. 
-Similarly, the role of the \textit{admin}, the user responsible for prototyping and creating user experiments and scenarios, is also explained in the next section in detail.
+% In summary, the software architecture for our \ac{ui} prototyping tool is designed using the \ac{mvc} architecture, with the details explained in the next sections. 
+% Similarly, the role of the UX designer, the user responsible for prototyping and creating user experiments and scenarios, is also explained in the next section in detail.
 
 \clearpage
 \section{UI Prototype Management}
@@ -68,7 +75,7 @@ Therefore, using this component, we allow the admin users to create \ac{ui} prot
 It consists of various sub-components for constructing UI elements, data models, and analyzing results.
 \begin{figure}[htbp!]
     \centering    
-    \includegraphics[width=0.9\textwidth]{UI_Prototyping.png} 
+    \includegraphics[width=0.8\textwidth]{UI_Prototyping.png} 
     \caption[Details of UI Prototyping Management]{Details of UI Prototyping Management connecting to a Database}
     \label{fig:sc:prototyping}
 \end{figure}
