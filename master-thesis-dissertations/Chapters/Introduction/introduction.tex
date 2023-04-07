@@ -88,28 +88,35 @@ We propose to use the variation of the cycle of Kuechler and Vaishnavi \cite{pap
 % From each step of the DSR, we have an iteration cycle and an outcome (e.g., Awareness of the Problem leads to finding Design Requirements, Design Principles (DPs) can be found from the Suggestion of the solution, Development of the software artifact leads to finding the Design Features and the Prototype, etc.) as shown in figure \ref{intro:fig:dps}.
 As a result, this design and application may provide design-focused information that adds to the DSR knowledge corpus \cite{misc:dsr:henver}.
 Every element within a DSR project is built upon and systematically analyzed to add to the overall DSR knowledge corpus.
-Therefore through the use of DSR, a group of issues is resolved by concentrating on a single issue and abstracting the consequences of the resolution.
+Therefore through the use of \ac{dsr}, a group of issues is resolved by concentrating on a single issue and abstracting the consequences of the resolution.
 
 \paragraph*{Design Requirements:}
-In design science research, abstracted \ac{dr} refer to the general, high-level requirements that a design must meet to succeed. 
+In \ac{dsr}, abstracted \ac{dr} refer to the general, high-level requirements that a design must meet to succeed \cite{misc:dsr:webster}. 
 These requirements are typically derived from the RQ identified as relevant to the problem.
 Abstracted \ac{dr}s provide a broad framework for the design process and help to ensure that the design solution addresses the key issues and challenges identified in the research problem. 
 They can also help guide the evaluation of the design solution and ensure that the solution is grounded in the design principles identified as necessary.
 
 \paragraph*{Design Principles:}
-In design science research, concrete \ac{dp}s refer to specific, detailed guidelines that a design must follow to be successful. 
+In \ac{dsr}, concrete \ac{dp}s refer to specific, detailed guidelines that a design must follow to be successful \cite{misc:dsr:webster}. 
 These principles are derived from the abstract \ac{dr}s identified as relevant to the research problem and provide more specific guidance on how the design should be implemented.
 DPs can also be defined as the codification of our knowledge during the design study while identifying the DRs. 
-Concrete DPs are essential in DSR as they help ensure that the design solution meets the needs and goals of the research problem and is grounded in the design principles we identified as necessary \cite{misc:dsr:webster}.\\\\
-More details about the DRs and DPs can be found in section \ref{design:section:solutiondesign}.
+Concrete DPs are essential in DSR as they help ensure that the design solution meets the needs and goals of the research problem and is grounded in the \ac{dp}s we identified as necessary.
 
+\paragraph{Design Features:}
+In \ac{dsr}, \ac{df} refer to the characteristics of the artifacts or solutions created through the process \cite{misc:dsr:webster}. 
+These \ac{df}s provide a means of evaluating the solution's effectiveness and can serve as guidelines for others who may want to adopt or modify the solution.
+\ac{df}s typically include both functional and non-functional aspects of the solution. 
+Functional features relate to the specific capabilities and functionalities that the solution provides whereas, non-functional features relate to characteristics such as usability, scalability, etc. 
+By explicitly specifying these \ac{df}s, DSR researchers can ensure that their solutions are aligned with the stakeholders' needs and meet the necessary standards of quality and effectiveness.
+
+\clearpage
 \section{Solution Approach}
 \label{introduction:section:solution}
 
 To solve the problems mentioned above, the designers should be able to create UI prototypes and experiments on their own on a set of users.
 Since we do not have a large set of users for testing the prototypes, we use supervised task-based usability testing \cite{article:dataanalysis:supervisedtest}.
 The fundamental principle of task-based usability testing is to have the users attempt to use the prototypes to do certain activities or tasks (e.g., Locate a movie M1) and get feedback (e.g., the time required for the task to be completed by the user).
-We propose to use low-code or no-code approach to achieve this.
+We propose to use a low-code or no-code approach to achieve this.
 This approach helps to have a UI for the designers to understand, develop, and create experiments and tasks with the software prototypes \cite{paper:lowcode:khorram}.
 So, the designers would be able to create the UI prototypes and their variants, assign them to the users in an experiment, get feedback from the users and decide on the best prototype.
 At the same time, the low-code has become more accessible for model-driven development \cite{article:lowcode:modeldriven}.
@@ -123,13 +130,13 @@ Because of using the models, it is easier to store the prototypes in the databas
     \label{intro:fig:lean}
 \end{figure}
 
-In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development as it is used to develop user friendly products \cite{article:lean:hart}.
+In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development as it is used to develop user-friendly products \cite{article:lean:hart}.
 Using LEAN, the company creates a Minimum Viable Product (MVP) throughout development, tests it with potential customers, and leverages their input to make incremental changes.
 While this technique can be used for every product, there are also approaches specific to software products.
 LEAN development technique can be divided into a Build, Measure, and Learn cycle. 
 In the \textit{(1) Build} phase, we plan to create the UI prototypes, models, UI experiments, and user tasks.
-In the \textit{(2) Measure} phase, we plan to assign the experiments and tasks to the users and measure the task and the experiment measurements and perform some analysis on the data received. 
-And finally, in the \textit{(3) Learn} phase, we display the analyses results, tune our models to decide the better variant among the others, and modify the prototype.
+In the \textit{(2) Measure} phase, we plan to assign the experiments and tasks to the users and measure the task and the experimental measurements and perform some analysis on the data received. 
+And finally, in the \textit{(3) Learn} phase, we display the analysis results, tune our models to decide the better variant among the others and modify the prototype.
 As per figure \ref{intro:fig:lean}, we complete one cycle of iteration and start a new one with the updated prototype.
 
 \clearpage

@@ -30,20 +30,20 @@ As shown in the figure \ref{fig:implementation:hierarchy}, we see that the \ac{d
     \centering
     \begin{subfigure}[b]{1.0\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{DFs_hierarchy_build.png}
-    \caption{A Hierarchical Diagram Of \ac{df}s from \textit{Build} phase}
+    \includegraphics[width=0.95\textwidth]{DFs_hierarchy_build.png}
+    \caption{A Hierarchical Diagram of \ac{df}s from \textit{Build} phase}
     \label{fig:implementation:hierarchy:build}
     \end{subfigure}
     \begin{subfigure}[b]{1.0\textwidth}
     \centering
-    \includegraphics[width=0.98\textwidth]{DFs_hierarchy_measure.png}
-    \caption{A Hierarchical Diagram Of \ac{df}s from \textit{Measure} phase}
+    \includegraphics[width=0.95\textwidth]{DFs_hierarchy_measure.png}
+    \caption{A Hierarchical Diagram of \ac{df}s from \textit{Measure} phase}
     \label{fig:implementation:hierarchy:measure} 
     \end{subfigure}             
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{1.0\textwidth}
     \centering
-    \includegraphics[width=1.0\textwidth]{DFs_hierarchy_learn.png}
-    \caption{A Hierarchical Diagram Of \ac{df}s from \textit{Learn} phase}
+    \includegraphics[width=0.93\textwidth]{DFs_hierarchy_learn.png}
+    \caption{A Hierarchical Diagram of \ac{df}s from \textit{Learn} phase}
     \label{fig:implementation:hierarchy:learn}
     \end{subfigure}
     \caption[A Map Between DPs and DFs]{Hierarchical Structure of \ac{df}s}
@@ -51,7 +51,7 @@ As shown in the figure \ref{fig:implementation:hierarchy}, we see that the \ac{d
 \end{figure}
 
 \paragraph{Build:}
-In the \textit{Build} phase of the LEAN development cycle, based on the \textbf{\ac{dp}1: Modeling}, the solution tool provides features for creating the models (\textit{\ac{df}1}) useful for persisting data in the database and updating them (\textit{\ac{df}2}) by iterating and improving the models with the results of the experiments.
+In the building phase of the LEAN development cycle, based on the \textbf{\ac{dp}1: Modeling}, the solution tool provides features for creating the models (\textit{\ac{df}1}) useful for persisting data in the database and updating them (\textit{\ac{df}2}) by iterating and improving the models with the results of the experiments.
 It helps to create our prototypes in a model-based approach and improve our prototypes by improving the models throughout the LEAN development cycle.
 With the \textbf{\ac{dp}2: User Variety}, the key features of our solution tool for the \ac{ui} prototyping tool include registration for diverse users using a registration form (\textit{\ac{df}3}) and user management, i.e., features that enable team members to create and manage user accounts (\textit{\ac{df}4}), assign different levels of access and permissions (\textit{\ac{df}5}).
 The user module maintains all these features and also the user authentication, authorization, and user profile management.
@@ -60,13 +60,13 @@ The tool also provides a feature to add custom data i.e., creating data models b
 Next, based on the \textbf{\ac{dp}4: User tasks Refinement}, the \ac{ux} designer creates user tasks for the users using the features of our solution tool, which includes creating tasks for users depending on the data model (\textit{\ac{df}11}) and independent of data models (\textit{\ac{df}12}), and assign the task to the experiments (\textit{\ac{df}13}).
 
 \paragraph{Measure:}
-In the \textit{Measure} phase of the LEAN development cycle, based on the \textbf{\ac{dp}5: Split Tests}, the \ac{ux} designer would be able to create A/B tests or \ac{ui} experimentation (\textit{\ac{df}14}) using the features of our solution tool, which includes creating and modifying the experiments (\textit{\ac{df}15}), creating and updating the \ac{ui} variants (\textit{\ac{df}16}), and modifying the variants' prototypes such that each variant has a unique view (\textit{\ac{df}17}).
+In the measuring phase of the LEAN development cycle, based on the \textbf{\ac{dp}5: Split Tests}, the \ac{ux} designer would be able to create A/B tests or \ac{ui} experimentation (\textit{\ac{df}14}) using the features of our solution tool, which includes creating and modifying the experiments (\textit{\ac{df}15}), creating and updating the \ac{ui} variants (\textit{\ac{df}16}), and modifying the variants' prototypes such that each variant has a unique view (\textit{\ac{df}17}).
 Next, based on the \textbf{\ac{dp}6: Qualitative Analysis}, the \ac{ux} designer would be able to do qualitative analysis on the users using the features of our solution tool, which includes creating the custom qualitative questionnaire with options in the answering formats like \textit{scale-based}, i.e., the users will have to choose from options 1 to 10 (\textit{\ac{df}18}) and open-ended questions, i.e., the users will have the freedom to answer whatever they think (\textit{\ac{df}19}). 
 And, the user participants will answer these qualitative questions after finishing the tasks with a modal appearing with different questions (\textit{\ac{df}20}). 
 Similarly, based on the \textbf{\ac{dp}7: Quantitative Analysis}, the \ac{ux} designer creates quantitative analysis on the users using the features of our solution tool, which includes collecting the task data feedback, i.e., collecting the time taken to finish the task, number of unsuccessful attempts, the path taken by the users to complete the task, etc. (\textit{\ac{df}21}), and aggregating these feedback data (\textit{\ac{df}22}). 
 
 \paragraph{Learn:}
-In the \textit{Learn} phase of the \textit{LEAN} development cycle, based on the \textbf{\ac{dp}8: Diversity in Analysis}, the \ac{ux} designer compares the statistics using the features of our solution tool, which includes showing the results of the experiment (\textit{\ac{df}23}), combining qualitative and quantitative analysis of each variant (\textit{\ac{df}24}), and a graphical view to see the results (\textit{\ac{df}25}). 
+In the learning phase of the LEAN development cycle, based on the \textbf{\ac{dp}8: Diversity in Analysis}, the \ac{ux} designer compares the statistics using the features of our solution tool, which includes showing the results of the experiment (\textit{\ac{df}23}), combining qualitative and quantitative analysis of each variant (\textit{\ac{df}24}), and a graphical view to see the results (\textit{\ac{df}25}). 
 Finally, based on the \textbf{\ac{dp}9: Continuous Design}, the \ac{ux} designer should be able to analyze the results of the \ac{ui} experiments (\textit{\ac{df}26}) and update the original prototype with the results from the experiment (\textit{\ac{df}27}) for continuous improvement.
 
 Overall, the design features section in DSR delivers a comprehensive overview of the solution tool to address the identified problem or research question. 
@@ -96,16 +96,17 @@ Next, designers can create data models (see figure \ref{implementation:fig:datam
 This feature allows designers to test and manipulate data in their UI prototypes, making creating realistic and functional prototypes easy.
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.3]{DFs/data-models.png}
+    \includegraphics[scale=0.308]{DFs/data-models.png}
     \caption{Data Models Page of the Tool}
     \label{implementation:fig:datamodels}
 \end{figure}
+
 The tool also offers an experiment creation feature (see figure \ref{implementation:fig:experiments}) that allows designers to create split tests or A/B testing methods to test different versions of their UI prototypes. 
 Designers can create multiple experiments and define experiment tasks, such as finding a movie to watch, to gather quantitative data from participants.
 Similarly, to gather participant feedback, designers can create custom questionnaires, such as open-ended or scale-based questions, and participants can answer them after completing experiment tasks.
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.32]{DFs/experiments.png}
+    \includegraphics[scale=0.306]{DFs/experiments.png}
     \caption{UI Experiments Page of the Tool}
     \label{implementation:fig:experiments}
 \end{figure}
@@ -151,19 +152,19 @@ We have created a software tool that allows us to test the features (\ac{df}s) a
 To test our solution approach, we developed a rapid prototyping tool for the first cycle of our \ac{dsr}. 
 
 The implementation of our UI Prototyping Tool uses various technologies.
-Our UI prototyping tool was developed using Angular\footnote{A framework of javascript: \url{https://angular.io/}}, Loopback\footnote{A framework of the NodeJS \url{https://loopback.io/}}, and MongoDB\footnote{A non-relational database \url{https://www.mongodb.com/}}.
-Angular is a JavaScript framework used for building web-based applications.
+Our UI prototyping tool was developed using Angular\footnote{Website on Angular: \url{https://angular.io/}}, Loopback\footnote{Website of Loopback 4: \url{https://loopback.io/}}, and MongoDB\footnote{Website of MongoDB: \url{https://www.mongodb.com/}}.
+Angular is a \ac{js} framework used for building web-based applications.
 It provides comprehensive tools for creating dynamic and responsive UI components and handling user interactions.
-With Angular, we are using several other UI components which are available on Node package manager (npm)\footnote{NPM: \url{https://www.npmjs.com/}}.
+With Angular, we are using several other UI components which are available on \ac{npm}\footnote{Website of NPM: \url{https://www.npmjs.com/}}.
 
-Loopback is a Node.js\footnote{NodeJS: \url{https://nodejs.org/en/}} framework used for building RESTful APIs. 
+Loopback is a Node.js\footnote{Website of NodeJS: \url{https://nodejs.org/en/}} framework used for building RESTful APIs. 
 It provides an intuitive interface for creating API endpoints and managing data persistence. 
 Loopback's support for various data sources, including relational and NoSQL databases, makes it a versatile choice for web applications. 
 We connect our database using the data managers provided by the loopback framework.
 The framework's ability to generate API documentation and testing tools simplifies our development process.
 
 MongoDB is a NoSQL document-oriented database used for storing unstructured data. 
-We store our prototyping tool's data using a JSON\footnote{What is JSON: \url{https://developer.mozilla.org/en-US/docs/Glossary/JSON}} format in an unstructured manner.
+We store our prototyping tool's data using a JSON\footnote{Website of JSON: \url{https://developer.mozilla.org/en-US/docs/Glossary/JSON}} format in an unstructured manner.
 It provides a scalable and flexible solution for managing volumes of data. 
 MongoDB's support for automatic sharding and replication ensures high availability and fault tolerance. 
 The database's dynamic schema and rich query language make it easy to adapt to changing data requirements.
@@ -188,7 +189,7 @@ In each application, a root module is launched at the start of the application a
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.54]{angular-architecture.png}
-    \caption[Angular Architecture]{Angular Architecture}
+    \caption[Angular Architecture]{Angular Architecture\footnotemark[7]}
     \label{implementation:fig:angulararchitecture}
 \end{figure}
 
@@ -408,7 +409,7 @@ This section discusses the backend implementation of our software tool.
 As discussed in the previous section, we developed the backend server using \textit{Loopback v4}, a popular open-source Node.js framework.
 We implemented the backend following the \ac{mvc} architecture pattern. 
 In our implementation, we have leveraged the core concepts of LoopBack 4 to create a scalable and modular architecture for our application.
-According to the loopback 4 architecture (see figure \ref{implementation:fig:loopbackarchitecture} \footnote{Website of Loopback 4 architecture: \url{https://loopback.io/pages/en/lb4/imgs/loopback-overview.png}}), the backend implementation contains controllers, services, repositories, models, data sources, authentication middleware, and many more.
+According to the loopback 4 architecture (see figure \ref{implementation:fig:loopbackarchitecture} \footnote{Image adapted from: \url{https://loopback.io/pages/en/lb4/imgs/loopback-overview.png}}), the backend implementation contains controllers, services, repositories, models, data sources, authentication middleware, and many more.
 One of the key concepts we utilized was the ability to generate these components using the LoopBack 4 \ac{cli}.
 This approach allowed us to quickly and easily create the necessary components of our backend and reduce development time.
 Another important concept we incorporated was the use of decorators to define the various endpoints and routes for our application. 
@@ -430,7 +431,7 @@ Thus, the backend implementation provides a robust and scalable architecture to 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.48]{lb4-architecture.png}
-    \caption[Loopback Architecture]{Loopback 4 Architecture}
+    \caption[Loopback Architecture]{Loopback 4 Architecture\footnotemark[12]}
     \label{implementation:fig:loopbackarchitecture}
 \end{figure}
 
@@ -567,7 +568,8 @@ MongoDB is a NoSQL database management system that uses a document-oriented data
 MongoDB follows a peer-to-peer architecture (see figure \ref{implementation:fig:mongoarchitecture}\footnote{Website for MongoDB architecture: \url{https://www.mongodb.com/basics/database-architecture}}), where each node can act as a client, server, or both, and nodes can communicate directly.
 Our implementation architecture includes using MongoDB Atlas, a cloud-based service for managing MongoDB databases. It allows us to easily manage and scale our database with features such as automatic scaling and backups.
 The data is stored in a collection of documents, which can be considered similar to rows in a traditional relational database. Each document consists of a set of key-value pairs and can have a flexible schema, allowing for dynamic data structures. It is in contrast to a traditional relational database with a fixed schema.
-We have implemented a 3-tier architecture for our application, with the frontend, backend, and database layers. Using JavaScript code allows us to perform CRUD (Create, Read, Update, Delete) operations on the database.
+We have implemented a 3-tier architecture for our application, with the frontend, backend, and database layers. 
+Using \ac{js} code allows us to perform \ac{crud} operations on the database.
 
 We created two main tables, \textit{View} and \textit{Experiment} (see figure \ref{implementation:fig:erdb} containing the Entity Relationship diagram), to store the data for our prototype and experimentation phases. 
 The first table we created is called \textit{View} and is used to store the various UI screens in our application for the prototyping section. 
@@ -575,7 +577,7 @@ The \textit{View} table in our database schema is a crucial component of the pro
 It stores various UI screens with properties like \textit{ID, Name, property, elements, and children}. 
 The ID and Name are both strings and ID is used for uniquely identifying each view. 
 The \textit{property} is a JSON object storing different properties like CSS properties, screen dimension properties, etc. 
-Similarly, the \textit{elements} property persists an array of UI elements that are part of that view. 
+Similarly, the \textit{elements} property persists in an array of UI elements that are part of that view. 
 These UI elements have properties like \textit{ID, Name, cssProperties, interactions}, etc.
 
 \begin{figure}[ht]

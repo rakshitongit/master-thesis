@@ -37,8 +37,8 @@ Finally, in section \ref{sc:section:security}, we explain how access control for
 \section{Software Architecture}
 \label{sc:section:architecture}
 In this section, we will discuss the software architecture of a \ac{ui} prototyping tool with provisions for split and task-based usability tests. 
-The software tool uses the \ac{mvc} architecture, with the main views being the \ac{ui} prototyping management and the \ac{ui} experiments management. 
-The models used in the architecture are the \ac{ui} view for prototyping and the \ac{ui} experiment for split tests. 
+The software tool uses the \ac{mvc} architecture, with the main components being the \textit{\ac{ui} Prototype Management} and the \textit{\ac{ui} Experiment Management}. 
+The models used in the architecture are the \textit{\ac{ui} Prototype} for prototyping and the \textit{\ac{ui} Experiment} for conducting the split tests. 
 \begin{figure}[htbp!]
     \centering    
     \includegraphics[width=1.0\textwidth]{MVC.png} 
@@ -51,27 +51,29 @@ The model component represents the data and the business logic of the applicatio
 The view component represents the application's \ac{ui}, and the controller component handles the user input and updates the model and the view. 
 The separation of these components allows for easier application maintenance, scalability, and modifiability.
 
-As shown in figure \ref{fig:sc:componentD}, the \textit{UI prototype management} and the \textit{UI experiments management} are the two main views of the tool.
-The \textit{UI prototype management} view manages the prototyping process, while the \textit{UI experiments management} view manages split tests and task-based usability tests. 
-The \textit{UI View} model is connected to the prototyping view, and the \textit{UI experiment} model is used for split tests. 
-The \textit{UI prototyping} and \textit{Experiment} controllers are the main controllers for handling user input and updating the models and views accordingly.
-For the database, we use a NoSQL database that provides flexibility and scalability for applications with changing data requirements. 
+As shown in figure \ref{fig:sc:componentD}, the \textit{UI Prototype Management} component manages the prototyping process creating different \ac{ui} screens and adding \ac{ui} elements. 
+Conversely, the \textit{UI Experiment Management} component manages split tests and task-based usability tests.
+Both of these components contain the controller and the view and are explained in detail in the next sections. 
+These controllers are used for handling user input and updating the models and views accordingly.
+The \textit{UI Prototype} model is connected to the \textit{UI Prototype Management} component, and the \textit{UI Experiment} model is connected to the \textit{UI Experiment Management} component. 
+Similarly, the \textit{User} model is responsible for providing the user participants for the experiments component and at the same time providing a UX designer for executing our tool.
+As per the \ac{mvc} architecture, the data is then persisted into the database using a service, at the same time, the user is also allowed to do the \ac{crud} operations.  
+Finally, for the database, we use a \textit{NoSQL} database that provides flexibility and scalability for applications with changing data requirements. 
 
 The \textit{UX designer} is responsible for prototyping and creating user experiments and scenarios. 
 That user can access all the tool's features and create, edit, and delete prototypes and experiments.
 Finally, for deployment, we have one component that includes all the files and dependencies required to run the application. 
 This component contains the server-side code, the client-side code, and the necessary libraries and dependencies. 
-The deployment component is responsible for packaging the application and deploying it to the target environment.
-
-% In summary, the software architecture for our \ac{ui} prototyping tool is designed using the \ac{mvc} architecture, with the details explained in the next sections. 
-% Similarly, the role of the UX designer, the user responsible for prototyping and creating user experiments and scenarios, is also explained in the next section in detail.
+The deployment component is responsible for packaging the application and deploying it to the target environment.\\\\
+In summary, the software architecture for our \ac{ui} prototyping tool is designed using the \ac{mvc} architecture, with the details explained in the next sections. 
+Similarly, the role of the UX designer, the user responsible for prototyping and creating user experiments and scenarios, is also explained in the next section in detail.
 
 \clearpage
 \section{UI Prototype Management}
 \label{sc:section:prototyping}
 In our solution approach, we must have features for creating various \ac{ui} prototypes.
-Therefore, using this component, we allow the admin users to create \ac{ui} prototypes as shown in the figure \ref{fig:sc:prototyping}.
-It consists of various sub-components for constructing UI elements, data models, and analyzing results.
+Therefore, using this component, we allow the \ac{ux} designers to create \ac{ui} prototypes as shown in figure \ref{fig:sc:prototyping}.
+It consists of various sub-components for constructing \ac{ui} elements, data models, and analyzing results.
 \begin{figure}[htbp!]
     \centering    
     \includegraphics[width=0.9\textwidth]{UI_Prototyping.png} 
@@ -80,36 +82,59 @@ It consists of various sub-components for constructing UI elements, data models,
 \end{figure}
 
 \paragraph{UI Elements}
-The prototype management features a comprehensive set of UI elements designed to be reusable and easy to customize. 
-The UI Elements component represents various predefined UI elements used during the prototyping. 
-These components can be added to a screen using a simple drag-and-drop interface, allowing users to create interactive prototypes with minimal effort quickly.
+The \textit{UI elements} component of figure \ref{fig:sc:prototyping} provides a collection of reusable and flexible UI elements that can be easily used in creating new UI prototypes.
+These UI elements include buttons, input fields, dropdown menus, and many others, and are typically organized into categories for easy access and management. 
 Each of our UI elements includes a range of properties that can be customized to meet the user's specific needs. 
-These properties include size, color, font, and behavior properties. 
 Providing these options allows users to create prototypes that accurately represent their vision without being limited by the tool's capabilities.
-Some UI elements we have developed include buttons, select elements, text boxes, image render, and the input element. 
-Each component is designed to be intuitive and easy to use while providing enough functionality to allow users to create complex interactions. 
-\paragraph{Data Models}
-The prototype management includes a data model component allowing users to create and manage data sets for their prototypes easily. 
-With this component, users can create data models, which are then stored in a database and can be accessed and manipulated using a model.
-Creating a data model is straightforward: users import the \ac{csv} file and then create a model for the particular data set they want to use in their prototype. 
-Once the model is created, users can iterate through the data in various forms, such as a table or a grid, and visualize how the data will be displayed in their final product.
-One of the key benefits of our data model component is how easily it can be modified and updated. 
-Users can change the data directly within the model using a table, allowing them to quickly iterate on their prototypes without constantly importing new data sets. 
-This makes it easy to test different scenarios and refine the user experience.
-Similarly, by importing real-world data sets, users can create prototypes that more closely resemble the final product, which can be valuable for testing and validation.
+Therefore, this component is crucial for quickly and efficiently creating new UI prototypes as it eliminates the need for developers and designers to recreate the same UI elements whenever they start a new project.
+
+% The prototype management features a comprehensive set of UI elements designed to be reusable and easy to customize. 
+% The UI Elements component represents various predefined UI elements used during the prototyping. 
+% These components can be added to a screen using a simple drag-and-drop interface, allowing users to create interactive prototypes with minimal effort quickly.
+% Each of our UI elements includes a range of properties that can be customized to meet the user's specific needs. 
+% These properties include size, color, font, and behavior properties. 
+% Providing these options allows users to create prototypes that accurately represent their vision without being limited by the tool's capabilities.
+% Some UI elements we have developed include buttons, select elements, text boxes, image render, and the input element. 
+% Each component is designed to be intuitive and easy to use while providing enough functionality to allow users to create complex interactions. 
+\paragraph{Data Model}
+The \textit{Data Model} component of figure \ref{fig:sc:prototyping} provides a way to customize the data used in iterating the design of the UI prototype. 
+This component allows designers to define custom data models, which are then stored in a database and can be accessed and manipulated using a model.  
+Similarly, these models are defined for their UI prototypes, which can be used to simulate real-world data and test the UI design in different scenarios. 
+With this component, users can create data models, which are then stored in a database and can be accessed and manipulated using a model. 
+This component is essential for creating realistic and comprehensive UI prototypes that more closely resemble the final product and accurately reflect the end users' needs.
+
+% The prototype management includes a data model component allowing users to create and manage data sets for their prototypes easily. 
+% With this component, users can create data models, which are then stored in a database and can be accessed and manipulated using a model.
+% Creating a data model is straightforward: users import the \ac{csv} file and then create a model for the particular data set they want to use in their prototype. 
+% Once the model is created, users can iterate through the data in various forms, such as a table or a grid, and visualize how the data will be displayed in their final product.
+% One of the key benefits of our data model component is how easily it can be modified and updated. 
+% Users can change the data directly within the model using a table, allowing them to quickly iterate on their prototypes without constantly importing new data sets. 
+% This makes it easy to test different scenarios and eases the \ac{ux} designers to use the data models in the prototyping.
+% Similarly, by importing real-world data sets, users can create prototypes that more closely resemble the final product, which can be valuable for testing and validation.
 
 \paragraph{Analysis}
-The prototype management includes an analysis component that enables users to combine and aggregate the results of qualitative and quantitative analyses. 
-By combining these different types of research, users can gain a more comprehensive understanding of how their prototype is performing and make data-driven decisions about how to iterate and improve it. 
-One of the key features of our analysis component is its ability to transfer the results of the winner variant back to the prototyping component. 
-It allows users to quickly iterate on their designs based on the insights gained from the analysis, ensuring that the final product is optimized for user engagement and satisfaction.\\\\
+The \textit{Analysis} component of figure \ref{fig:sc:prototyping} provides a way to analyze the results of the experiments conducted by the UX designer. 
+This component enables users to combine and aggregate the results of qualitative and quantitative analyses.
+This component allows designers to evaluate their UI prototypes' success, identify improvement areas, and make data-driven decisions about how to iterate and improve it. 
+The analysis component can provide a range of data, including user feedback, metrics, and analytics, which can help designers to make informed decisions about the UI design.
+It allows users to quickly iterate on their designs based on the insights gained from the analysis, ensuring that the final product is optimized.
+
+% The prototype management includes an analysis component that enables users to combine and aggregate the results of qualitative and quantitative analyses. 
+% By combining these different types of research, users can gain a more comprehensive understanding of how their prototype is performing and make data-driven decisions about how to iterate and improve it. 
+% One of the key features of our analysis component is its ability to transfer the results of the winner variant back to the prototyping component. 
+% It allows users to quickly iterate on their designs based on the insights gained from the analysis, ensuring that the final product is optimized for user engagement and satisfaction.\\\\
+\paragraph{Prototyping}
+The \textit{Prototyping} component of figure \ref{fig:sc:prototyping} requires using all the other components mentioned above. 
+The central component provides a way to create, manage, and test UI prototypes. 
+By integrating the UI elements, data models, and analysis components, designers can create highly effective UI prototypes that meet the needs of the end users. 
+The prototyping component typically includes features like drag-and-drop UI design tools, data uploading features, and the ability to quickly iterate and experiment with different UI design ideas.\\\\
 In summary, implementing a prototyping management component simplifies the \ac{ui} prototyping, helps improve the effectiveness of the UI, allowing to add \ac{ui} elements, and data models and improves the prototype.
 
 \clearpage
 \section{UI Experimentation Management}
 \label{sc:section:experimentation}
 In our solution approach, we must have features for creating various \ac{ui} variants and conducting experiments of A/B testing. 
-Therefore, as shown in figure \ref{fig:sc:experiments}, using this component, we allow the admin users to create experiments on the UI as defined in the UI prototype.
+Therefore, as shown in figure \ref{fig:sc:experiments}, using this component, we allow the \ac{ux} designers to create experiments on the UI as defined in the UI prototype.
 It consists of various sub-components for constructing UI variants, assigning participants to experiments, managing participants' tasks, including qualitative questions, and collecting quantitative feedback.
 
 \begin{figure}[htbp!]
@@ -119,82 +144,108 @@ It consists of various sub-components for constructing UI variants, assigning pa
     \label{fig:sc:experiments}
 \end{figure}
 
-\paragraph{Constructing UI Variants}
-The UI Variants component represents the different variations of a \ac{ui} that are used in A/B testing. 
-Here, we compare two or more UI variations or variants to determine which performs better regarding user engagement and conversion rates. 
-Firstly, the admin user is responsible for creating an experiment and its other variants. 
-Then we modify the UI prototype for each variant to have some differences and uniqueness. 
-Hence, using our interactive prototyping tool, the admin user should be able to design each variant accurately.
-In the end, we have a unique prototype for each \ac{ui} variant.
+\paragraph{UI Variants}
+The \textit{UI variants component} of figure \ref{fig:sc:experiments} allows the creation of multiple prototype variants, allowing for A/B testing and comparison between different design approaches. 
+UX designers can easily customize these variants to create unique user experiences.
+This component provides a range of prototype variants that UX designers can customize to suit their specific needs. 
+These variants can be created and saved in the system for easy access and modification and reused across multiple experiments. 
+This component ensures that designers have access to various UI variants that can be easily modified to test different hypotheses or design options.
 
-\paragraph{Participants Assignments}
+\paragraph{Users}
 An important aspect while experimenting or A/B Testing is the users' participation. 
-The admin user is responsible for assigning the participants to their variants. 
-Therefore, we need to specify the percentage of participants allocated to an experiment variant during an experiment. 
-For our solution approach, we use the between-group study such that different participants test each UI variant so that each person is only exposed to a single variant. 
+The \textit{Users} component provides the ability to manage user participants in UI experiments. 
+It enables UX designers to create user profiles with specific characteristics and demographics and assign them to particular experiments. 
+This component also provides user management functionality, including adding, removing, and editing user profiles and the ability to group users for specific experiments.
 
-\paragraph{Task Management}
-We need to assign them certain user tasks to get quantitative feedback from the participants. 
-It means the admin user must create certain tasks before the start of the experiment.
-Our solution approach has a \textit{Tasks} component that provides a feature for creating user tasks for every UI experiment. 
-These tasks are built and maintained in our tool by the admin user and are useful while collecting user feedback. 
-So, the participants carry out the tasks, and our tool would collect their interaction details (e.g., time taken to finish the task, the path taken by the participant, number of unsuccessful attempts). 
+% The admin user is responsible for assigning the participants to their variants. 
+% Therefore, we need to specify the percentage of participants allocated to an experiment variant during an experiment. 
+% For our solution approach, we use the between-group study such that different participants test each UI variant so that each person is only exposed to a single variant. 
 
-\paragraph{Qualitative Questions}
-The experiment management includes a qualitative component that allows users to gather participant feedback through a qualitative questionnaire. 
-This component complements the quantitative component and provides users with a more holistic view of how users interact with their prototype.
-The qualitative questionnaire can be easily added to the prototype, and users can choose from various question types, including open-ended and scale-based questions. 
-It allows users to gather rich and detailed feedback from participants about their experience with the prototype.
+\paragraph{User Tasks}
+The \textit{User Tasks} component allows UX designers to create and manage tasks for participants to complete during UI experiments. These tasks can be customized to fit specific user scenarios and test different aspects of the UI design.
+This component provides a task management system for participants in UI experiments. 
+It allows designers to create and assign tasks to specific users and track their progress and completion. 
+Tasks can be simple, such as clicking on a button or filling out a form, or more complex, such as completing a series of steps or navigating a website. 
+This component ensures the UX designer can measure user performance and satisfaction by assigning tasks during the UI experimentation process.
 
-\paragraph{Quantitative analysis}
-The experiment management includes a quantitative component that allows users to collect data from user tasks, such as user clicks, user paths, and time taken. 
-By gathering this data, users can better understand how users interact with their prototypes and identify areas for improvement.
-Once the data has been gathered, the quantitative component calculates the mean for each metric. It provides users with an average value that they can use to compare different variations of their prototype and identify which one performs the best.
-Users can make data-driven decisions about their prototype using the mean and quickly iterate based on user feedback. 
+% We need to assign them certain user tasks to get quantitative feedback from the participants. 
+% It means the admin user must create certain tasks before the start of the experiment.
+% Our solution approach has a \textit{Tasks} component that provides a feature for creating user tasks for every UI experiment. 
+% These tasks are built and maintained in our tool by the admin user and are useful while collecting user feedback. 
+% So, the participants carry out the tasks, and our tool would collect their interaction details (e.g., time taken to finish the task, the path taken by the participant, number of unsuccessful attempts). 
+\paragraph{Quantitative}
+The \textit{Quantitative} component provides a mechanism for collecting user feedback on specific UI elements from tasks and experiments. 
+This feedback can make data-driven decisions and inform future design iterations.
+This analysis can include metrics such as time to complete a task, success rates, or user satisfaction ratings. 
+The feedback can be used to evaluate the effectiveness of different design options and identify improvement areas. 
+This component ensures that designers have access to quantitative data that can be used to make informed decisions during the UI experimentation process.
 
-\paragraph{Analyze Results}
-Every experiment needs to visualize its results, and the visualization component is responsible for providing this feature of analyzing the results of the A/B testing to determine which UI variant performs better. 
-This component compares the user engagement and conversion rates for each variant (e.g., time to finish the task, unsuccessful attempts, etc.) and identifies the factors contributing to the performance differences. 
-Once we receive the details of the winner variant from this component, the tool sends these details to the original UI prototyping management to iterate and refine the UI variants based on the experiment's results. \\\\
+\paragraph{Qualitative}
+The \textit{Qualitative} component provides custom questions for the experiment and allows for gathering qualitative data from participants. 
+These questions can be designed to gain insight into user perceptions, opinions, and attitudes toward the UI prototype.
+These questions can be used to gather qualitative feedback from participants, such as their opinions or impressions of the design, or to elicit specific information, such as their understanding of a particular feature. 
+This component ensures that designers can capture user feedback specific to the experiment.
+Moreover, this component complements the quantitative component and provides users with a more holistic view of how users interact with their prototype.
+% The experiment management includes a qualitative component that allows users to gather participant feedback through a qualitative questionnaire. 
+% This component complements the quantitative component and provides users with a more holistic view of how users interact with their prototype.
+% The qualitative questionnaire can be easily added to the prototype, and users can choose from various question types, including open-ended and scale-based questions. 
+% It allows users to gather rich and detailed feedback from participants about their experience with the prototype.
+
+% The experiment management includes a quantitative component that allows users to collect data from user tasks, such as user clicks, user paths, and time taken. 
+% By gathering this data, users can better understand how users interact with their prototypes and identify areas for improvement.
+% Once the data has been gathered, the quantitative component calculates the mean for each metric. It provides users with an average value that they can use to compare different variations of their prototype and identify which one performs the best.
+% Users can make data-driven decisions about their prototype using the mean and quickly iterate based on user feedback. 
+
+\paragraph{UI Experiments}
+The \textit{UI Experiments} component ties the above sub-components together, providing a seamless experience for conducting UI experiments. 
+Integrating all these components allows for efficient management of UI experiments and provides data analysis capabilities for informed decision-making.
+This component ensures that designers have a streamlined way to manage the entire UI experimentation process, from UI variants creation to data analysis. 
+It allows designers to create and execute experiments, assigning users, tasks, and prototype variants. 
+Conversely, it provides an analysis of the results of the experiments, including both qualitative and quantitative data, and stores the data in a database for future use.\\\\
 In summary, implementing an experiments management component simplifies the A/B testing, helps improve the effectiveness of the UI, and allows you to manage and track the different interface variations.
 
 \clearpage
-\section{Persistence Infrastructure}
+\section{Database Components}
 \label{sc:section:persistance}
 In our solution approach, we must have features for persisting the data in our database.
 Therefore, as shown in figure \ref{fig:sc:database}, using this component, we store the data from the models from our \ac{mvc} architecture.
-It consists of a \textit{Persistence infrastructure} for providing various features like \textit{database connection}, and \textit{data persistence}.
+In the component diagram, the database components are represented by \textit{MongoDB} component and a \textit{Persistence Infrastructure}.
 
 \begin{figure}[htbp!]
     \centering    
-    \includegraphics[width=0.6\textwidth]{Database.png} 
+    \includegraphics[width=0.65\textwidth]{Database.png} 
     \caption[Details of Database Management]{Details of Database Management}
     \label{fig:sc:database}
 \end{figure}
 
 \paragraph{Persistence Infrastructure}
-A persistence infrastructure is necessary for our software to manage a system's data storage and retrieval. 
-When a model needs to store data for later use or retrieve data that has been previously stored, a persistence infrastructure can provide the necessary functionality to accomplish this.
+The \textit{Persistence Infrastructure} component is responsible for ensuring that the data in the database is persistent and available for future use.
+Therefore, a persistence infrastructure is necessary for our software to manage a system's data storage and retrieval. 
+It provides a layer of abstraction between the application and the database, which enables us to easily switch between different database types and optimize the data storage for our needs. 
+The component ensures data consistency and reliability, even during system failures or errors. 
+It provides a set of APIs and tools for data access and manipulation, including \ac{crud} operations in the database.
 
-\paragraph{Database Connection}
-Our persistence infrastructure provides database connectivity for a non-relational database by using a MongoDB driver or library to interact with the database. 
-We install and configure MongoDB on the appropriate servers or cloud-based environments\footnote{Cloud-based environment: \url{https://cloud.mongodb.com/}}.
-Then we select a proper driver or library, configure the connection details, and use the driver or library to interact with the database in the components of the system\footnote{How to connect to cloud-based deployed MongoDB instance: \url{https://www.mongodb.com/docs/atlas/connect-to-database-deployment/}}.
-Utilizing the driver or library, we interact with the non-relational database in the components of the system. It typically involves defining data models, creating, reading, updating, and deleting documents or records, and querying the database using the appropriate syntax and commands.
-
-\paragraph{Data Persistance}
-After setting up the necessary drivers or libraries to connect to the MongoDB instance from the components in the system, we define the necessary CRUD (create, read, update, delete) operations for the data models.
-These include methods for inserting, updating, deleting, and retrieving data from the database. 
-It also provides the necessary validation and error handling for the data models and CRUD operations.\\\\
+\clearpage
+\paragraph{MongoDB}
+\textit{MongoDB} component represents the database components.
+It is a NoSQL database that stores data in collections instead of tables, allowing for flexible and scalable data storage. 
+In our \ac{mvc} architecture, MongoDB provides the application's database connection, allowing it to store and retrieve data. 
+MongoDB is also known for its ability to handle large amounts of unstructured data, making it a popular choice for modern web applications.\\\\
 In summary, when implementing a persistence infrastructure for a non-relational database like MongoDB, we developed the structure and functionality of the database and designed the persistence layer accordingly. 
 Therefore, the system can store and retrieve data in an efficient, scalable, and reliable way.
+
+% \paragraph{Data Persistance}
+% After setting up the necessary drivers or libraries to connect to the MongoDB instance from the components in the system, we define the necessary CRUD (create, read, update, delete) operations for the data models.
+% These include methods for inserting, updating, deleting, and retrieving data from the database. 
+% It also provides the necessary validation and error handling for the data models and CRUD operations.
 
 \clearpage
 \section{Deployment Infrastructure}
 \label{sc:section:deployment}
 A deployment infrastructure is necessary for ensuring that the system is deployed and running in a secure, scalable, and reliable way. 
 A deployment infrastructure is responsible for managing the deployment of components, ensuring that they are running on the appropriate servers or cloud-based environments, and monitoring their performance.
-We use a no-code platform and microservice architecture to simplify deployment infrastructure implementation. It allows for the creation of deployment pipelines and automates many of the processes involved in deploying components.
+We use a no-code approach and microservice architecture to simplify deployment infrastructure implementation. 
+It allows for the creation of deployment pipelines and automates many of the processes involved in deploying components.
 
 \begin{figure}[htbp!]
     \centering    
@@ -203,14 +254,14 @@ We use a no-code platform and microservice architecture to simplify deployment i
     \label{fig:sc:deployment}
 \end{figure}
 
-\paragraph{Code Generation}
+\paragraph{Deployment Infrastructure}
 We use a no-code approach using code generation to simplify the implementation of our deployment infrastructure by automating many of the tasks involved in deploying the system.
 So, we define a set of rules and templates for automatic code generation and generate some reusable components as defined by the UI prototyping management. 
 These components' implementation uses templates containing its code (e.g., for a button element defined in the UI prototype, a template is generated containing all its properties and logic).
 Then, the code generator takes input data, including configuration files, database schemas, and models of system components and their interactions. 
 Finally, the code will be generated using the templates and rules defined in the previous steps, and we will containerize the generated code. 
 
-\paragraph{Containerization}
+\paragraph{Docker}
 Containerization plays an even more important role in using a microservice architecture. 
 It must support the deployment of many independent microservices that may be deployed across multiple servers or databases.
 From our component diagram, we first identify the system's microservices and their dependencies, such as database components, UI prototyping management, and UI experimentation management. 
@@ -226,7 +277,7 @@ In summary, implementing a deployment infrastructure for a microservice architec
 Security infrastructure is essential to protect the system from unauthorized access and attacks. 
 By implementing security measures, such as access control, we limit access to sensitive information and functions to only authorized users.
 Similarly, authentication is one of the fundamental security mechanisms used to verify the identity of users.
-Our security infrastructure, therefore, provides access control and some authentication mechanisms.
+Our security infrastructure, therefore, provides access control and some authentication mechanisms (see figure \ref{fig:sc:security}).
 
 \begin{figure}[htbp!]
     \centering    
@@ -235,15 +286,15 @@ Our security infrastructure, therefore, provides access control and some authent
     \label{fig:sc:security}
 \end{figure}
 
-\paragraph{Access Control}
+\paragraph{Security}
+The \textit{Security Infrastructure} provides access control and authentication mechanisms.
 Access control involves defining policies and rules determining who can access resources under what circumstances.
 Therefore we implement access control mechanisms using role-based access control (RBAC) and then allowing or denying access based on those roles or groups.
-So, we first identify the roles or groups requiring system access, including participants, administrators, and other users\footnote{This may include different stakeholders like designers, product managers, developers, etc.}. 
-Then we define the access rights (e.g., the UI prototyping management should only be accessible to the admin users).
+So, we first identify the roles or groups requiring system access, including participants, \ac{ux} designers, and other users\footnote{This may include different stakeholders like product managers, developers, etc.}. 
+Then we define the access rights (e.g., the UI prototyping management should only be accessible to the \ac{ux} deginers).
 Finally, we implement a mechanism that checks the user roles and then accesses the data or services accordingly. 
 
-\paragraph{Authentication Mechanisms}
-Authentication involves verifying the identity of users and ensuring that they have the appropriate permissions to access the system.
+Next, authentication involves verifying the identity of users and ensuring that they have the appropriate permissions to access the system.
 We provide an authentication mechanism using a password and username. 
 It ensures that only authorized users can access our tool.
 Moreover, we define some validators for password strength to make sure the passwords are strong.\\\\
