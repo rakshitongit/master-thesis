@@ -6,103 +6,225 @@
 \chapter{Evaluation}
 \label{chap:evaluation}
 In the previous chapter, we explained the implementation of our tool. 
-Based on that, in this chapter, we will discuss the details of the evaluation process, including the user case study (see section \ref{evaluation:section:casestudy}), experimental design (see section \ref{evaluation:section:design}), execution (see section \ref{evaluation:section:execution}), analysis (see section \ref{evaluation:section:analysis}), and interpretation (see section \ref{evaluation:section:interpretation}) of the results. 
-For the setup, we recruited participants from Paderborn University.
+Based on that, in this chapter, we will discuss the details of the evaluation process, including a user study we performed. 
+Firstly, we explain the experimental design (see section \ref{evaluation:section:design}), which focuses on the planning and design of the user study. 
+Next, we explain the execution section (see section \ref{evaluation:section:execution}) that involves the actual implementation of the study. 
+Next, we explain the analysis section (see section \ref{evaluation:section:analysis}) discussing the processing of the data collected during the study and the results of the study. 
+Finally, in the interpretation section (see section \ref{evaluation:section:interpretation}), we aim to draw conclusions from the analysis and determine the study's implications.
+For the setup, we recruited participants from \ac{upb}\footnote{Website of Paderborn University: \url{https://www.uni-paderborn.de/}}.
 \ifpdf
     \graphicspath{{Chapters/Evaluation/Figs/}{Chapters/Evaluation/Figs/}{Chapters/Evaluation/Figs/}}
 \else
     \graphicspath{{Chapters/Evaluation/Figs/}{Chapters/Evaluation/Figs/}}
 \fi
 
-\section{User Case Study}
-\label{evaluation:section:casestudy}
-To evaluate the effectiveness of our approach, we conducted a case study that involved recruiting participants, developing prototypes, and working on user scenarios. 
-We recruited 15 participants who are students at Paderborn University. 
-The case study is based on the evaluation stage of the first cycle of our DSR (as discussed in section \ref{introduction:section:research}). 
-In conducting and reporting our case study research, we followed the established guidelines of Runeson and Höst \cite{eval:guidlines:runeson} (see figure \ref{evaluation:fig:casestudy}) to increase the quality of the study outcomes. 
-These guidelines helped ensure our research was rigorous, transparent, and credible. 
-By adhering to these guidelines, we aimed to provide a detailed and comprehensive account of our case study, enabling others to replicate our research and build upon our findings.
-This case study also aims to develop the RQ as explained in the next section.
-
-\clearpage
 \section{Experimental Design}
 \label{evaluation:section:design}
-In this section, as per Runeson and Höst, we first define the objective, case study, research questions, and the methods we follow to complete the evaluation.
+The experimental design is a crucial aspect of any user study as it determines the effectiveness and reliability of the study.
+In conducting and reporting our user study research, we followed the established guidelines of Runeson and Höst \cite{eval:guidlines:runeson} (see figure \ref{evaluation:fig:casestudy}) to increase the quality of the study outcomes.
+The experimental design comprises three main components: defining an objective, user scenario and research questions, establishing a study protocol, and addressing ethical concerns.
+
+% To evaluate the effectiveness of our approach, we conducted a case study that involved recruiting participants, developing prototypes, and working on user scenarios. 
+% We recruited 15 participants who are students at Paderborn University. 
+% The case study is based on the evaluation stage of the first cycle of our DSR (as discussed in section \ref{introduction:section:research}).
+% These guidelines helped ensure our research was rigorous, transparent, and credible. 
+% By adhering to these guidelines, we aimed to provide a detailed and comprehensive account of our case study, enabling others to replicate our research and build upon our findings.
+% This case study also aims to develop the RQ as explained in the next section.
+% In this section, as per Runeson and Höst, we first define the objective, case study, research questions, and the methods we follow to complete the evaluation.
 
 \paragraph{Objective:}
-The objective of the user case study was to evaluate a \ac{poc} tool for creating and testing UI designs. 
-The goal was to assess the tool's ability to generate UI prototypes, create split or A/B tests, and collect participant feedback to select the best variant.
-
-\paragraph{Case Study:}
-The case study involved a user scenario where John, a UX designer, was responsible for designing the UI for a new movie-streaming app. John used the \ac{poc} tool to create UI prototypes and perform split tests to select the best variant.
-
-\paragraph{Research Questions (RQs):}
-For the case study, we defined a couple of research questions. \\
-\textbf{RQ1:} Can a \ac{poc} tool be used to prototype the UI of a new movie-streaming app and create split or A/B tests to select the best variant of the app's interface design? \\
-\textbf{RQ2:} What feedback can be gathered from participants to evaluate the effectiveness of different app interface design variants?
+The user study aims to evaluate the usability and effectiveness of our model-based UI prototyping experimentation approach. 
+Additionally, the study aims to identify any usability issues or limitations of the approach through user testing. 
+Furthermore, the study aims to test the effectiveness of the \ac{dp}s suggested by our approach in terms of the participants' ease of use and understandability. 
+Through the evaluation, we hope to gain insights into the strengths and weaknesses of the approach and provide recommendations for further improvement.
+Based on these objectives, we define some \ac{rq}s in the next section.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.25]{case-study.png}
-    \caption{User Case Study for Analysis}
-    \label{evaluation:fig:casestudy}
+  \centering
+  \includegraphics[scale=0.25]{case-study.png}
+  \caption{User Case Study for Analysis}
+  \label{evaluation:fig:casestudy}
 \end{figure}
 
-\paragraph{Method:}
-For the User Case Study, we aimed to recruit diverse participants from different courses enrolled at Paderborn University to ensure a wide range of perspectives and experiences on UI prototyping and UI Experimentation. 
-We wanted to include individuals with varying levels of experience in prototyping and user scenario development, from beginners to experts. 
-To recruit participants, we used Doodle\footnote{Website for Doodle: \url{https://doodle.com/}}, an online tool for setting up the appointment, and a Line survey\footnote{Website for the survey: \url{https://umfragen.uni-paderborn.de/admin/}} hosted by our university for creating the questionnaire.
+\paragraph{Research Questions:}
+Based on the main \textit{\hyperref[introduction:section:research]{\ac{rq}}}, we defined a couple of research questions for the user study. \\
+\textbf{RQ1:} How effective is the model-based UI prototyping experimentation approach in enabling product designers to conduct experiments on UI prototypes independently of developers? \\
+\textbf{RQ2:} What \ac{dp}s are suitable for product designers to develop UI prototypes in the model-based UI prototyping experimentation approach?
 
-We developed a user scenario that required participants to use our UI prototyping tool hosted on the Paderborn University server. 
-Therefore to access our tool, the participants needed to turn on the VPN\footnote{Website for University Paderborn VPN config: \url{https://imt.uni-paderborn.de/vpn-zugang/}} provided by the University. 
-We also examined them using an open BigBlueButton\footnote{Website for BBB: \url{https://open-bbb.uni-paderborn.de/}} video conference session. 
-We also considered the ethical clarifications by informing the participants that we were not recording the video conference session and that the survey was anonymous to ensure their privacy and encourage honest feedback while mentioning our data collection and storage strategy.
+\paragraph{Study Protocol:}
+For the user study, we aimed to recruit diverse participants from different courses enrolled at \ac{upb} to ensure a wide range of perspectives and experiences on UI prototyping and UI Experimentation. 
+We wanted to include individuals with varying experience in prototyping and user scenario development, from beginners to experts.
+To recruit participants, we first sent an invitation message and email (see figure \ref{evaluation:fig:invitation}) to our research group and other groups at the university. 
+The invitation message included a Doodle\footnote{Website for Doodle: \url{https://doodle.com/}} link, an online tool for setting up the appointment.
+The potential study participants clicked on the link and selected a one-hour slot for the study. 
+After booking the slot, the participants received a detailed invitation email  (see appendix \ref{appendix:three:caseStudy} for details), which specified the location of the study, prerequisites, and a user scenario.
+\begin{figure}[ht]
+  \centering
+  \begin{tcolorbox}[title=\texttt{From: Rakshit\\ To: various groups\\ Subject: Invitation to Participate in a User Study}]
+  Hello,\\
+    
+  my name is Rakshit Bhat, and I am inviting you to participate in my user study, which is a part of my master's thesis evaluation. 
+  The study is based on a UI prototyping tool with an option to create different UI variants and find the best fit for the prototype.
+  Your participation in this study will greatly help me evaluate the effectiveness and contribute to advancing UI prototyping tools.\\
 
-After using the tool, participants were asked to answer a questionnaire in the survey to provide qualitative and quantitative feedback for our tool and the \ac{dp}s we developed. 
-The questionnaire was designed to evaluate the usability, effectiveness, and overall satisfaction with our tool. 
-We also asked for suggestions for improvement and gathered additional comments and feedback from the participants to gain a deeper understanding of their experiences.
+  The study will require about \textit{45-60} minutes, during which you will be asked to perform some tasks using the tool and provide your feedback.\\
+  Your participation in this study will be highly appreciated.\\
+  If you are interested in participating, please schedule a session using the Doodle link at your convenience. (Please try to select the empty spots)\\
+  If these slots do not fit you, you can always contact me, and we can find some slots.\\
+
+  After selecting the slots, an invitation email will be sent to you with further details.\\
+  Thank you for considering.\\
+  
+  \textbf{Link for Doodle:}
+  <<Doodle Link>>
+    
+  Cheers,\\
+  Rakshit
+  \end{tcolorbox}  
+  \caption{Recruiting the Participants for User Study}
+  \label{evaluation:fig:invitation}
+\end{figure}
+
+Since our tool was hosted online at the \ac{upb} server, we used \ac{bbb}\footnote{Website for BBB: \url{https://open-bbb.uni-paderborn.de/}}, an open-source web conferencing system, to monitor participants during our user study.
+We chose \ac{bbb} because it is easy to use, reliable, and provides all the required features for our study. 
+We conducted the study remotely, and \ac{bbb} allowed us to interact seamlessly with the participants during the study. 
+As the \ac{bbb} service is also provided by our \ac{upb}, we did not have to worry about additional costs or compatibility issues. 
+Therefore, \ac{bbb} was a valuable tool for monitoring the participants during our study.
+
+For our user study, there were a few prerequisites that the participants needed to fulfill. 
+Firstly, since our tool was hosted on the \ac{upb} server, participants were required to have access to the \ac{vpn}\footnote{Website for University Paderborn VPN config: \url{https://imt.uni-paderborn.de/vpn-zugang/}} to access the tool. 
+The \ac{vpn} ensured that only authorized individuals could access the tool.
+Secondly, the participants needed a good internet connection as the tool was web-based and required a stable internet connection for smooth functioning. 
+Lastly, although the participants did not need any prior experience with \ac{ui} prototyping or \ac{ui} experiments, they required very basic knowledge, which we also explained before starting the study. 
+It ensured they could understand the tasks and provide meaningful feedback during the study.
+
+After finishing the user scenario, the participants were asked to fill out a questionnaire to provide us the qualitative and quantitative feedback.
+This questionnaire was created using Limesurvey\footnote{Website for UPB hosted Limesurvey: \url{https://umfragen.uni-paderborn.de}}, an open-source online survey tool that is a service provided by UPB for surveys. 
+The questionnaire consisted of three parts. 
+The first part included the \ac{sus}, a standardized questionnaire for assessing the usability of a system. 
+The second part included a Likert scale (1-5) for participants to rate the effectiveness of our \ac{dp}s in improving the usability of the prototyping experimentation approach. 
+In the third part, we included three open-ended questions to gather qualitative feedback from participants on the strengths, weaknesses, and suggestions for improvement of the approach.
+
+% We developed a user scenario that required participants to use our UI prototyping tool hosted on the Paderborn University server. 
+% Therefore to access our tool, the participants needed to turn on the VPN\footnote{Website for University Paderborn VPN config: \url{https://imt.uni-paderborn.de/vpn-zugang/}} provided by the University. 
+% We also examined them using an open BigBlueButton\footnote{Website for BBB: \url{https://open-bbb.uni-paderborn.de/}} video conference session. 
+% We also considered the ethical clarifications by informing the participants that we were not recording the video conference session and that the survey was anonymous to ensure their privacy and encourage honest feedback while mentioning our data collection and storage strategy.
+
+% After using the tool, participants were asked to answer a questionnaire in the survey to provide qualitative and quantitative feedback for our tool and the \ac{dp}s we developed. 
+% The questionnaire was designed to evaluate the usability, effectiveness, and overall satisfaction with our tool. 
+% We also asked for suggestions for improvement and gathered additional comments and feedback from the participants to gain a deeper understanding of their experiences.
+
+
+\paragraph{User Scenario:}
+To conduct the user scenario, we gave the participants a hypothetical situation where they had to imagine themselves as John, a UX designer, creating a movie-streaming app. 
+We then guided them through a set of tasks to prototype the UI and create split or A/B tests to select the best variant. 
+Finally, we asked them to gather feedback through a set of questionnaires and monitor the results to see which version of the app's interface was more effective.
+
+\paragraph{Ethical considerations:}
+Finally, for ethical considerations, we took steps to ensure the privacy and anonymity of the participants. 
+During the user study, we used BBB and informed the users that we were not recording the session. 
+We only stored the user's department at the university to ensure diversity in the user case study. Additionally, we made the survey questionnaire anonymous to ensure participants could answer honestly without fear of repercussions. These steps confirmed that the user study was conducted ethically and respected the participants' privacy.
 
 \clearpage
 \section{Execution}
 \label{evaluation:section:execution}
-In this section, we explain the execution of our user case study in detail. 
-First, we explain the planning phase of the execution and then explain the methodology of how we conducted the survey.
+The execution phase of our user study involved several key steps. 
+We conducted pilot testing to ensure our user scenario was well-designed and effective. 
+Following this, we recruited participants through various channels and scheduled one-hour appointments with each of them. 
+During these appointments, we collected data and observed as the participants executed the user scenario we had created. 
+In this section, we will discuss each of these steps in more detail, including our pilot testing, recruitment, and data collection process. 
+We will also provide an example scenario to illustrate one participant's experience with our prototyping tool.
 
-\paragraph{Planning:}
-Before conducting the user case study, we carefully planned the experimental design to ensure the validity and reliability of our results.
-First, we defined a hypothesis to be tested. We wanted our POC tool to fulfill the Design principles and validate the DPs. 
-To achieve this, we developed a user scenario that involved the participants using our tool to create a prototype and conduct a user scenario. 
-We recruited diverse participants enrolled in various courses at Paderborn University, with varying experience in prototyping and user scenario development.
-To recruit participants for our case study, we shared a Doodle link via different communication channels, such as email and social media. 
-The Doodle link contained the necessary information about the study, including the purpose, duration, and requirements. 
-It also offered different time slots for the participants, ensuring that the survey could accommodate a diverse group of participants with varying schedules. 
-This method helped us efficiently reach out to potential participants and allowed them to select a time that suited them best.
+\paragraph{Pilot Testing:}
+Before the actual execution of the user study, we conducted pilot testing to ensure that the user scenario and the tool were easy to understand and use. 
+Initially, we did the pilot testing ourselves to identify potential issues and gather feedback. 
+Later, we also asked two friends to test the tool and scenario to get additional feedback.
+Based on the feedback during the pilot testing, we made some updates and improvements to the tool and the user scenario. 
+We addressed the bugs pointed out to us and made some changes to improve the tool's usability. 
+The changes were made to ensure the participants' smooth experience during the actual user study.
 
-Secondly, we used the Lime survey, hosted on the Paderborn University server, to conduct a survey questionnaire to collect qualitative and quantitative feedback from the participants. 
-The questionnaire was divided into three sections. 
-The first section contained the \ac{sus} questionnaire, a widely used and reliable tool for measuring the usability of software systems. 
-This section aimed to collect quantitative feedback from the participants regarding the usability of our prototype tool. 
-The second section contained questions about the design principles we proposed in our thesis. 
-This section aimed to collect participants' ratings and opinions on the effectiveness and feasibility of the design principles. 
-The third section contained open-ended questions to gather participants' qualitative feedback and suggestions for improving our prototype tool and the \ac{dp}s. 
-We used the Lime survey to facilitate the data collection process and to ensure anonymity and privacy for the participants.
+\paragraph{Recruitment:}
+Recruitment is an essential part of conducting a user study as it determines the quality and representativeness of the data collected. 
+After completing the pilot study, we initiated the recruitment process for our user study. 
+We sent an invitation email to various groups and channels that we believed would be interested in participating. 
+The email included a Doodle link where potential participants could select their preferred time slots.
+The study lasted one hour for each participant, and as the participants selected different slots, the entire user study continued for two weeks. 
+After agreeing to participate and giving their verbal consent, we sent the user scenario to each participant.
+We received a response from 17 participants who agreed to participate and selected their preferred slots for the study. 
+Unfortunately, two participants later backed out for reasons beyond our control. 
+After reading the user scenario, one participant did not like the study, and another fell sick before their scheduled slot.
+The recruitment process was conducted carefully to ensure that we had a diverse range of participants. 
+We confirmed that the participants represented different departments in the university to ensure we had a good mix of perspectives. 
+We also ensured that the study was voluntary and participants could opt out at any point. 
+We provided anonymity for all participants by not recording any personal information, and we also ensured that the survey questionnaire was anonymous.
 
-\paragraph{Methodology:}
-The methodology of our user case study involved using a proof of concept tool accessible via UPB VPN that combined qualitative and quantitative data collection and analysis techniques. The participants were then asked to conduct a user scenario using our tool while being observed through an open BBB video conference session.
+
+\paragraph{Data Collection: User Participation and Observation}
+For the data collection step, firstly we started the \ac{bbb} session at the appointed time, and the participant joined us. 
+Before beginning the session, we informed the participant that we would not be recording the session. 
+We then asked the participant to share their screen while executing the user scenario.
+During the session, we observed the participant performing the scenario and took notes wherever necessary. 
+We made sure to inform the participant before the start of the session that we would be taking notes to avoid any discomfort. 
+The first two participants had doubts about the scenario, so after their participation, we had to update the scenario to improve it. 
+The remaining thirteen participants had slightly different scenarios from the first two.
+After completing the scenario, we asked the participant to stop sharing the screen and answer the questionnaire or the survey on Limesurvey. 
+The survey questionnaire was anonymous to maintain the participants' confidentiality. 
+The survey asked questions about the user's experience and the tool's usability.
+After the session, we thanked all the participants for their valuable time and participation in our study. 
+After the successful participation of all 15 candidates, we gathered all the notes and survey responses for analysis.
+
+% \paragraph{Planning:}
+% Before conducting the user case study, we carefully planned the experimental design to ensure the validity and reliability of our results.
+% First, we defined a hypothesis to be tested. We wanted our POC tool to fulfill the Design principles and validate the DPs. 
+% To achieve this, we developed a user scenario that involved the participants using our tool to create a prototype and conduct a user scenario. 
+% We recruited diverse participants enrolled in various courses at Paderborn University, with varying experience in prototyping and user scenario development.
+% To recruit participants for our case study, we shared a Doodle link via different communication channels, such as email and social media. 
+% The Doodle link contained the necessary information about the study, including the purpose, duration, and requirements. 
+% It also offered different time slots for the participants, ensuring that the survey could accommodate a diverse group of participants with varying schedules. 
+% This method helped us efficiently reach out to potential participants and allowed them to select a time that suited them best.
+
+% Secondly, we used the Lime survey, hosted on the Paderborn University server, to conduct a survey questionnaire to collect qualitative and quantitative feedback from the participants. 
+% The questionnaire was divided into three sections. 
+% The first section contained the \ac{sus} questionnaire, a widely used and reliable tool for measuring the usability of software systems. 
+% This section aimed to collect quantitative feedback from the participants regarding the usability of our prototype tool. 
+% The second section contained questions about the design principles we proposed in our thesis. 
+% This section aimed to collect participants' ratings and opinions on the effectiveness and feasibility of the design principles. 
+% The third section contained open-ended questions to gather participants' qualitative feedback and suggestions for improving our prototype tool and the \ac{dp}s. 
+% We used the Lime survey to facilitate the data collection process and to ensure anonymity and privacy for the participants.
+
+\paragraph{Example scenario:}
 The scenario was that John, a UX designer, was creating a new movie-streaming app and wanted to prototype different UI designs and conduct split tests to select the best variant. 
 The study was conducted in several phases.
-
 In the first phase, John explored the tool and generated an example movie streaming prototype using the headstart button. He then added new movies to the prototype using the data model feature.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.4]{MasterView.png}
+  \caption[Example Participant Prototype - Screen1]{Participant Master View}
+  \label{evaluation:fig:masterview}
+\end{figure}
+
 In the second phase, John created split tests for different app interface versions. 
 He used the tool's A/B testing feature to create two versions of the app's view screen and changed the UI to make some changes in the variant's prototype.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.35]{GridView.png}
+  \caption[Example Participant Prototype - Screen2]{Participant Grid View}
+  \label{evaluation:fig:gridview}
+\end{figure}
+
 In the third phase, John created tasks for participants to complete and gather feedback on the app's interface. 
 He also created a set of questionnaires, including open-ended and scale-based questions, to collect qualitative data from participants.
 In the fourth phase, John recruited participants or used dummy users generated from the tool to test the experiments and monitor the results. 
 After completing the experiment, John navigated to the experiments page and analyzed the statistics to determine which version of the app's interface was more effective.
 Based on the feedback from the usability tests and questionnaires, John iterated on the app's design and updated the prototype in the tool. 
 Overall, the execution of the experiment involved prototyping, split testing, task creation, and feedback gathering to design and improve the movie-streaming app's interface. 
-An example prototype, created by one of the user participants is shown in Appendix \ref{appendix:three:caseStudy}.
-
+An example prototype, created by one of the user participants, is shown in figures \ref{evaluation:fig:masterview}, \ref{evaluation:fig:gridview}, \ref{evaluation:fig:listview}.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.35]{ListView.png}
+  \caption[Example Participant Prototype - Screen3]{Participant List View}
+  \label{evaluation:fig:listview}
+\end{figure}
 \clearpage
 \section{Analysis}
 \label{evaluation:section:analysis}
