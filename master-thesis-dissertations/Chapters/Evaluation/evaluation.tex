@@ -228,11 +228,37 @@ An example prototype, created by one of the user participants, is shown in figur
 \clearpage
 \section{Analysis}
 \label{evaluation:section:analysis}
-After collecting the data through LimeSurvey and the tool, we analyzed the feedback and results to draw insights and conclusions about the effectiveness of our research questions and the software tool we designed. 
+After collecting the data through LimeSurvey and the tool, we analyzed the feedback and results to draw insights and conclusions about the effectiveness of our research questions and the software tool we designed.
+The analysis phase of the user study is an essential part of the research process that helps to interpret the collected data and draw meaningful conclusions. 
+This section includes the four steps in the analysis phase: data preparation, data reduction, quantitative analysis, and qualitative analysis.
 We also examined the qualitative feedback from the participants to gain a deeper understanding of their preferences and needs. 
 Next, we explain the qualitative and quantitative analysis of the data collected from the participants in detail.
 
-\paragraph{Quantitative analysis}
+\paragraph{Data Preparation:}
+We focused on data preparation in the first step of the analysis phase. 
+We collected data from different sources, including the notes taken during the BBB session and the survey responses collected using Limesurvey. 
+We first organized and cleaned the data to make it ready for analysis. 
+This step involved going through the notes and categorizing them based on the difficulties faced by participants, bugs observed during scenario execution, and ambiguity in the scenario. 
+We also exported the survey responses from Limesurvey, which were in raw form and needed to be organized to accumulate the data for analysis.
+We used the export feature of Limesurvey to get the survey responses from each participant. 
+However, the data was per participant, and we needed to accumulate the data to analyze it. 
+For example, the SUS values from section one must be collected for all participants to get an overall view of the system's usability. 
+Therefore, we had to spend some time organizing the data and getting it in a format that would be easier to analyze. 
+We used MS Excel to compile and accumulate the data. 
+This process required attention to detail, as we needed to ensure we had all the necessary data in the correct format to draw meaningful conclusions. 
+Once we had organized the data, we moved on to the next step of the analysis phase, which was data reduction.
+
+\paragraph{Data Reduction:}
+Data reduction is the next step in our user study's analysis phase. 
+The data we collected needed to be reduced to the most important aspects for analysis. 
+One of the key aspects was the \ac{sus} scores. 
+The \ac{sus} score provided a numerical value indicating the tool's usability level. 
+We also analyzed the responses to the open-ended questions in the survey to gain a deeper understanding of the participants' experiences. To group the responses from the open-ended questions, we categorized them into different themes. 
+Additionally, we focused on analyzing our \ac{dp}s as they were the foundation of our tool's design. 
+By prioritizing the most important data for analysis, we gained meaningful insights into our tool's usability and identified improvement areas.
+Once we had reduced the data, we moved on to the next step of the analysis phase, which was data analysis including qualitative and quantitative.
+
+\paragraph{Quantitative Analysis}
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{SUS.png}
@@ -243,18 +269,17 @@ In the first part of the quantitative section of our analysis, we utilized the \
 The \ac{sus} is a widely used and well-established questionnaire for assessing the usability of a system. 
 It consists of 10 statements that participants rate on a 5-point scale from 1 (strongly disagree) to 5 (strongly agree). 
 The scores from each report are then combined and transformed to create a final \ac{sus} score ranging from 0 to 100.
-After administering the \ac{sus} questionnaire to our participants, we computed the average score to obtain a quantitative measure of the usability of our tool. 
+After administering the \ac{sus} questionnaire to our participants, we computed the average score to obtain a quantitative measure of the usability of our tool (for raw data see Appendix \ref{appendix:three:caseStudy}). 
 We also analyzed the individual scores for each statement to identify areas where the tool performed well and where improvements could be made. 
 It allowed us to gain insights into the strengths and weaknesses of our tool from a quantitative perspective. 
 It provided a basis for making data-driven decisions about improving the tool's usability. 
-Our analysis of the \ac{sus} survey responses revealed an average score of \textit{74} (see figure \ref{evaluation:fig:sus}), indicating that the overall usability of the app prototype was rated as ``\textit{good}'' by the participants.
-This score is above the average \ac{sus} score of 68, suggesting that the app prototype had a high level of usability.
+Our analysis of the \ac{sus} survey responses revealed an average score of \textit{74} (see figure \ref{evaluation:fig:sus}).
 
 The second part of our survey focused on rating the DPs of the solution tool using a 5-point scale. 
 Participants were asked to rate their agreement with statements related to each DP. 
 To analyze the data, we calculated the mean and standard deviation for each DP, as well as plotted a boxplot (see figure \ref{evaluation:fig:boxplot}) to visualize the distribution of responses. 
 The boxplot showed that the majority of participants had a positive rating for all DPs, with some variability in the extent of agreement. 
-Overall, the results indicated that the design principles were well-received by participants and can be considered strengths of the app's design.
+Overall, the results indicated that the \ac{dp}s were well-received by participants and can be considered strengths of the app's design.
 
 \begin{figure}[ht]
     \centering
@@ -357,8 +382,14 @@ Overall, the results indicated that the design principles were well-received by 
   \label{evaluation:fig:boxplot}
 \end{figure}
 
-\paragraph{Qualitative analysis}
+\paragraph{Qualitative Analysis}
 For the qualitative analysis, we had three open-ended questions in the survey. 
+We used a thematic analysis approach to identify common themes among the responses \cite{misc:qualitative:thematic}. 
+After analyzing the answers, we identified four main themes: ease of use, functionality, aesthetics, and suggestions for improvement.
+We further analyzed each theme to identify specific issues or areas of improvement. 
+For example, under the theme of ease of use, we identified problems such as difficulty finding certain features or confusion in the navigation. 
+Similarly, under the theme of suggestions for improvement, we identified specific recommendations made by participants, such as adding new features or changes to existing parts.
+
 The first question asked participants if they could complete their scenario efficiently using the software and, if not, what difficulties they encountered. 
 Many participants noted that they could complete their scenario without any issues, while a few mentioned that they had trouble navigating the software or understanding how to use certain features.
 The second question asked participants if there were any areas where the tool could be improved to meet their needs better. 
@@ -366,6 +397,7 @@ Several participants suggested adding more customization options for UI elements
 The third question asked participants if they would recommend this UI prototyping tool to others and why or why not. 
 Many participants said they would recommend the tool, citing its ease of use and ability to create and test UI prototypes quickly. 
 Some participants noted that the tool could be improved in certain areas but still felt it was valuable overall.
+
 
 \clearpage
 \section{Interpretation}
@@ -375,7 +407,7 @@ The feedback and user comments will be used to identify the areas where the tool
 We will also discuss the lessons learned from the feedback and analysis and how they can be applied to future tool iterations. 
 The insights gained from this section will be valuable in guiding the development and improvement of the tool to provide an optimal user experience for its users.
 
-\paragraph{Quantitative data}
+\paragraph{Quantitative data:}
 The \ac{sus} is a widely used measure of the perceived usability of a system. 
 The average SUS score of 74 (see figure \ref{evaluation:fig:sus}) indicates that the users found the tool reasonably usable. 
 However, the score could be higher, suggesting that there is still room for improvement. 
@@ -395,19 +427,22 @@ DP7 has a particularly low lower quartile of 1, meaning that some users found it
 Overall, the box plot analysis suggests that some areas of the tool are particularly challenging for users, and these should be the focus of improvement efforts. 
 Specifically, improvements to DP3, DP5, and DP7 could be prioritized to make them more usable and user-friendly in the next cycle or iterations of the \ac{dsr}.
 
-\paragraph{Qualitative data}
-Three open-ended questions were asked to the participants from the responses to the question \textit{Were there any areas where the tool could be improved to better meet your needs?}, we received 15 responses. 
+\clearpage
+\paragraph{Qualitative data:}
+Three open-ended questions were asked to the participants from the responses to the question \textit{Were there any areas where the tool could be improved to better meet your needs?}, we received 15 responses.
+In this section, we relate the changes instructed by the participants with our \ac{df}s.
+
 A few respondents didn't have any specific suggestions (A$_1$ and A$_2$) (here \textit{A$_n$} means answer from nth participant). 
 However, some participants recommended adding new features or enhancing the existing ones. 
-For instance, A$_3$ suggested including the ability to configure whether users can go back in the questionnaire, editing, and reordering created tasks and questionnaires, and providing more data analysis options. 
-A$_4$ proposed adding a more intuitive button to extend experiments or tasks. 
-A$_5$ and A$_6$ recommended adding the ability to see how much space UI components take when creating views and improving the analysis graph's size and readability. 
+For instance, A$_3$ suggested including the ability to configure whether users can go back in the questionnaire (improving \ac{df}20), editing, and reordering created tasks (improving \ac{df}13) and questionnaires, and providing more data analysis options (improving \ac{df}25). 
+A$_4$ proposed adding a more intuitive button to extend experiments (improving \ac{df}14 \& \ac{df}16) or tasks (improving \ac{df}11 \& \ac{df}12). 
+A$_5$ and A$_6$ recommended adding the ability to see how much space UI components take when creating views (improving \ac{df}6) and improving the analysis graph's size and readability (improving \ac{df}25). 
 A$_7$ suggested enhancing the tool's appearance to make it more attractive. 
-A$_8$ recommended making the User Guide more intuitive and easier to follow, possibly with examples. 
-A$_9$ suggested improving the aesthetics and reducing the complexity of certain features. 
-A$_{10}$ recommended adding more variations for UI elements, such as drop-downs, and refining the result analysis to be more visually appealing. 
-A$_{11}$ suggested several improvements, such as providing freedom to change the size of elements in a view, displaying the tasks in the testing view, and reducing the number of feedback confirmations during tasks.
-A$_{12}$ suggested improving the data model and views sections' explanations.
+A$_8$ recommended making the user guide more intuitive and easier to follow, possibly with examples (improving \ac{df}2). 
+A$_9$ suggested improving the aesthetics and reducing the complexity of certain features (improving \ac{df}23). 
+A$_{10}$ recommended adding more variations for UI elements, such as drop-downs, and refining the result analysis to be more visually appealing (improving \ac{df}7). 
+A$_{11}$ suggested several improvements, such as providing freedom to change the size of elements in a view (improving \ac{df}6), displaying the tasks in the testing view (improving \ac{df}11), and reducing the number of feedback confirmations during tasks (improving \ac{df}13).
+A$_{12}$ suggested improving the data model and views sections' explanations (improving \ac{df}8).
 A$_{13}$ recommended improving the image variable. 
 A$_{14}$ and A$_{15}$ suggested providing clearer instructions to make the tool easier to use.
 
@@ -415,3 +450,19 @@ Based on these responses, the tool has several areas for improvement.
 Some participants suggested adding new features, while others recommended improving existing features' usability and aesthetics. 
 Some of the most common suggestions included improving the appearance and usability of the tool, refining the result analysis, and providing more thorough explanations of features in the User Guide. 
 The development team can use these suggestions to enhance the tool's functionality and make it more user-friendly for future users. 
+
+\paragraph{Validity and Limitations:}
+Internal validity refers to the degree to which the results of a study are valid within the context of the study. 
+Similarly, external validity refers to the extent to which the findings of a study can be generalized to other populations or contexts.
+In our user study, internal validity refers to how our results accurately reflect the relationship between the tool we developed and the DPs we aimed to fulfill.
+To ensure the good internal validity of our user study, we took several steps.
+Firstly, we carefully designed the user scenario to simulate realistic tasks that users might perform using the tool in a real-world context. 
+Secondly, we pilot-tested the scenario with ourselves and two other individuals to identify any potential issues or ambiguities which were addressed before recruiting participants. 
+Thirdly, we recruited diverse participants with varying experience levels in the field to ensure our results were generalizable. 
+Fourthly, we took detailed notes during each user session to accurately capture any difficulties participants encountered or issues with the tool. Finally, we used quantitative and qualitative analysis methods to analyze the data, which allowed us to triangulate our findings and ensure that the results were not skewed by any single method.
+
+However, it is important to acknowledge the limitations of our study that could have affected its validity. 
+Firstly, the sample size was relatively small, with only 15 participants completing the study. 
+It could have impacted the representativeness of our results, and larger sample sizes would have increased the generalizability of our findings. 
+Additionally, we only used one user scenario for our study, which could have limited the range of issues that participants encountered and may have yet to capture the complexity of real-world scenarios fully.
+Therefore, while we took steps to ensure validity in our user study, the study design's limitations must be considered when interpreting the results.

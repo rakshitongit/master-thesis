@@ -10,8 +10,12 @@
 \else
     \graphicspath{{Chapters/Introduction/Figs/}{Chapters/Introduction/Figs/}}
 \fi
-In this thesis, we explain our approach to improving \ac{ui} prototyping and \ac{ui} experimentation.
-This chapter motivates the readers about the topic (see section~\ref{introduction:section:motivation}), explains the problems faced by the companies during software development (see section~\ref{introduction:section:problems}), our research approach (see section~\ref{introduction:section:research}), and finally, our solution approach (see section~\ref{introduction:section:solution}).
+This chapter aims to provide an introduction to the main topics and objectives of this master thesis. 
+First, we present the motivation behind our work (see section \ref{introduction:section:motivation}), highlighting the importance of \ac{ui} design in software development and the challenges that arise in this context.
+Then, we define three problem statements (see section \ref{introduction:section:problems}) related to \ac{ui} prototyping and \ac{ui} experimentation. 
+Next, we explain our research approach (see section \ref{introduction:section:research}) based on the \ac{dsr} methodology and define the \ac{rq} that guides our investigation. 
+After that, we describe our solution approach (see section \ref{introduction:section:solution}), consisting of a systematic study using the LEAN development cycle. 
+Finally, we outline the structure of the thesis (see section \ref{introduction:section:structure}), providing an overview of the main chapters and their contents.
 
 %********************************** % Motivation  **************************************
 \section{Motivation} % Section - 1.1 
@@ -22,6 +26,7 @@ Therefore, the developers have come up with different techniques to meet this re
 Early user feedback from potential customers in the industry is crucial for creating successful software products because of the growing market uncertainties, and consumers' desire to receive integrated solutions to their issues rather than unique software developments \cite{misc:businessmodels:teece}.
 With the increasing complexity of products, it becomes challenging to determine user requirements making it more difficult for developers to assess their opinions.
 As a result, the developers of these products are biased toward some requirements and can ignore what the user wants. 
+
 So, the developers must detect the user's needs and requirements to reduce these risks early.
 Giving users a ``partially functioning'' system is the most excellent method to determine their requirements and suggestions \cite{journal:prototyping:davis}.
 This ensures that the developers with high uncertainties in the early product development phase can improve the product by testing the underlying assumptions \cite{misc:lean:steve}.
@@ -34,7 +39,7 @@ In experimentation, the product designers design different UI variants (e.g., bu
 As per some evaluation criteria (e.g., more clicks on the button), the variant with better results is deployed for the entire set of users.
 So, an experiment can be valuable when it improves the software products.
 Hence, for experiments to be successful, they should offer one or more solutions that will benefit users.
-
+\clearpage
 %********************************** % Problem Statement  *************************************
 \section{Problem Statement} % Section - 1.2
 \label{introduction:section:problems}
@@ -55,7 +60,7 @@ Some data is used in qualitative analysis, while others are in quantitative anal
 Many companies fail to reap the benefits of using both qualitative and quantitative analysis.
 Similarly, not all the data is used in the analysis phase reducing the software applications to improve based on customer feedback \cite{article:datadrive:brian}.
 Therefore, finding a solution that combines qualitative and quantitative data analysis is necessary.
-
+\clearpage
 %********************************** % Research Approach  *************************************
 \section{Research Approach}  % Section - 1.3 
 \label{introduction:section:research}
@@ -107,7 +112,7 @@ In \ac{dsr}, \ac{df} refer to the characteristics of the artifacts or solutions 
 These \ac{df}s provide a means of evaluating the solution's effectiveness and can serve as guidelines for others who may want to adopt or modify the solution.
 \ac{df}s typically include both functional and non-functional aspects of the solution. 
 Functional features relate to the specific capabilities and functionalities that the solution provides whereas, non-functional features relate to characteristics such as usability, scalability, etc. 
-By explicitly specifying these \ac{df}s, DSR researchers can ensure that their solutions are aligned with the stakeholders' needs and meet the necessary standards of quality and effectiveness.
+By explicitly specifying these \ac{df}s, \ac{dsr} researchers can ensure that their solutions are aligned with the stakeholders' needs and meet the necessary standards of quality and effectiveness.
 
 \clearpage
 \section{Solution Approach}
@@ -117,21 +122,21 @@ To solve the problems mentioned above, the designers should be able to create UI
 Since we do not have a large set of users for testing the prototypes, we use supervised task-based usability testing \cite{article:dataanalysis:supervisedtest}.
 The fundamental principle of task-based usability testing is to have the users attempt to use the prototypes to do certain activities or tasks (e.g., Locate a movie M1) and get feedback (e.g., the time required for the task to be completed by the user).
 We propose to use a low-code or no-code approach to achieve this.
-This approach helps to have a UI for the designers to understand, develop, and create experiments and tasks with the software prototypes \cite{paper:lowcode:khorram}.
-So, the designers would be able to create the UI prototypes and their variants, assign them to the users in an experiment, get feedback from the users and decide on the best prototype.
+This approach helps to have a \ac{ui} for the designers to understand, develop, and create experiments and tasks with the software prototypes \cite{paper:lowcode:khorram}.
+So, the designers would be able to create the \ac{ui} prototypes and their variants, assign them to the users in an experiment, get feedback from the users and decide on the best prototype.
 At the same time, the low-code has become more accessible for model-driven development \cite{article:lowcode:modeldriven}.
-Therefore, we plan to create models for the UI prototypes and have the feasibility for creating experiments and tasks. 
+Therefore, we plan to create models for the \ac{ui} prototypes and have the feasibility for creating experiments and tasks. 
 Because of using the models, it is easier to store the prototypes in the database and conduct experiments with the users. 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.15]{LEAN.png}
+    \includegraphics[scale=0.2]{LEAN.png}
     \caption{LEAN Development Technique}
     \label{intro:fig:lean}
 \end{figure}
 
 In our solution, we use the LEAN development technique (see figure \ref{intro:fig:lean}) for development as it is used to develop user-friendly products \cite{article:lean:hart}.
-Using LEAN, the company creates a Minimum Viable Product (MVP) throughout development, tests it with potential customers, and leverages their input to make incremental changes.
+Using LEAN, the company creates a \ac{mvp} throughout development, tests it with potential customers, and leverages their input to make incremental changes.
 While this technique can be used for every product, there are also approaches specific to software products.
 LEAN development technique can be divided into a Build, Measure, and Learn cycle. 
 In the \textit{(1) Build} phase, we plan to create the UI prototypes, models, UI experiments, and user tasks.
@@ -142,6 +147,7 @@ As per figure \ref{intro:fig:lean}, we complete one cycle of iteration and start
 \clearpage
 
 \section{Thesis Structure}
+\label{introduction:section:structure}
 The structure of our thesis is designed to provide a comprehensive overview of our research and solution approach.
 The \textit{\hyperref[chap:introduction]{(1) Introduction}} chapter includes a detailed analysis of the problem statement, motivation, research question, and our research and solution approach.
 
@@ -152,10 +158,10 @@ The \textit{\hyperref[chap:introduction]{(1) Introduction}} chapter includes a d
     \label{intro:fig:structure}
 \end{figure}
 
-Next, the \textit{\hyperref[chap:foundations]{(2) Foundations}} chapter is used to gain the knowledge required to understand the scope of our work, which includes UI prototyping, low/no code development, model-based software engineering, task-based usability testing, UI experimentation, and LEAN development.
-The \textit{\hyperref[chap:design]{(3) Solution Design}} chapter outlines the design requirements, design principles, and overall solution design. 
-Similarly, the \textit{\hyperref[chap:concept]{(4) Solution Concept}} chapter presents the software architecture, UI prototype management, UI experimentation management, persistence infrastructure, deployment infrastructure, and security infrastructure.
-Next, the \textit{\hyperref[chap:implementation]{(5) Solution Implementation}} chapter provides detailed insights into the tool design features, explains the software tool we developed, technologies used, frontend and backend implementation, and database schema. 
+Next, the \textit{\hyperref[chap:foundations]{(2) Foundations}} chapter is used to gain the knowledge required to understand the scope of our work, which includes \ac{ui} prototyping, low/no-code development, model-based software engineering, task-based usability testing, \ac{ui} experimentation, and LEAN development.
+The \textit{\hyperref[chap:design]{(3) Solution Design}} chapter outlines the \ac{dr}s, \ac{dp}s, and overall solution design. 
+Similarly, the \textit{\hyperref[chap:concept]{(4) Solution Concept}} chapter presents the software architecture, \ac{ui} prototype management, \ac{ui} experimentation management, persistence components, deployment components, and security components.
+Next, the \textit{\hyperref[chap:implementation]{(5) Solution Implementation}} chapter provides detailed insights into the tool \ac{df}s, explains the software tool we developed, technologies used, frontend and backend implementation, and database schema. 
 Next, the \textit{\hyperref[chap:evaluation]{(6) Evaluation}} chapter showcases the user study, experimental design, execution, analysis, and interpretation. 
-Next, the \textit{\hyperref[chap:relatedWork]{(7) Related Work}} section discusses current tools and state-of-the-art technologies and compares them with our DRs.
+Next, the \textit{\hyperref[chap:relatedWork]{(7) Related Work}} section discusses current tools and state-of-the-art technologies and compares them with our \ac{dr}s.
 Finally, in the \textit{\hyperref[chap:conclusion]{(8) Conclusion}} chapter, we summarize our work, future work, and research contributions.
