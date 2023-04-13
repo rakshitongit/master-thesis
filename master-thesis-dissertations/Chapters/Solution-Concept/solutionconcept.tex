@@ -11,7 +11,7 @@
     \graphicspath{{Chapters/Solution-Concept/Figs/}{Chapters/Solution-Concept/Figs/}}
 \fi
 In the previous chapter, we defined different DRs and DPs for our solution approach. 
-Consequently, this chapter presents the solution concept we developed to address the \ac{dr}s and \ac{dp}s we defined in the previous chapter.
+Consequently, this chapter presents the solution concept we developed to address these \ac{dr}s and \ac{dp}s.
 The solution concept comprises several components that work together to provide an effective and efficient solution. 
 Firstly, we define the solution architecture (see section \ref{sc:section:architecture}) based on the \ac{mvc} architecture pattern. 
 Secondly, we explain the \ac{ui} prototyping component (see section \ref{sc:section:prototyping}), which manages the \ac{ui} prototyping. 
@@ -195,7 +195,7 @@ This component ensures that designers have access to quantitative data that can 
 \paragraph{Qualitative:}
 The \textit{Qualitative} component provides custom questions for the experiment and allows for gathering qualitative data from participants. 
 These questions can be designed to gain insight into user perceptions, opinions, and attitudes toward the UI prototype.
-These questions can be used to gather qualitative feedback from participants, such as their opinions or impressions of the design, or to elicit specific information, such as their understanding of a particular feature. 
+These questions can be used to gather qualitative feedback from participants, such as their opinions or impressions of the design, or to extract specific information, such as their understanding of a particular feature. 
 This component ensures that designers can capture user feedback specific to the experiment.
 Moreover, this component complements the quantitative part and gives users a more holistic view of how they interact with their prototype.
 % The experiment management includes a qualitative component that allows users to gather participant feedback through a qualitative questionnaire. 
@@ -276,7 +276,7 @@ Finally, the code will be generated using the templates and rules defined in the
 \paragraph{Docker:}
 Containerization plays an even more important role in using a microservice architecture. 
 It must support the deployment of many independent microservices that may be deployed across multiple servers or databases.
-From our component diagram, we first identify the system's microservices and their dependencies, such as database components, UI prototyping management, and UI experimentation management. 
+From our component diagram (see figure \ref{fig:sc:componentD}), we first identify the system's microservices and their dependencies, such as database components, UI prototyping management, and UI experimentation management. 
 It helps determine how the microservices should be deployed and how they should communicate.
 Next, we create Docker images for each microservice and its dependencies.
 Then, we define docker-compose files\footnote{A Docker Compose file is a YAML file that specifies the microservices, their dependencies, and how they should be deployed and connected.} in yaml\footnote{Website for YAML format: \url{https://www.redhat.com/en/topics/automation/what-is-yaml}} (see Appendix \ref{appendix:one:installation}) that describe how the docker containers should be deployed and connected.
