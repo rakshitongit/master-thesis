@@ -14,7 +14,7 @@ This chapter aims to provide an introduction to the main topics and objectives o
 First, we present the motivation behind our work (see section \ref{introduction:section:motivation}), highlighting the importance of \ac{ui} design in software development and the challenges that arise in this context.
 Then, we define three problem statements (see section \ref{introduction:section:problems}) related to \ac{ui} prototyping and \ac{ui} experimentation. 
 Next, we explain our research approach (see section \ref{introduction:section:research}) methodology and define the \ac{rq} that guides our investigation. 
-After that, we describe our solution approach (see section \ref{introduction:section:solution}), consisting of a systematic study using the LEAN development cycle. 
+After that, we describe our solution approach (see section \ref{introduction:section:solution}), consisting of a systematic study using an iterative development cycle. 
 Finally, we outline the structure of the thesis (see section \ref{introduction:section:structure}), providing an overview of the main chapters and their contents.
 
 %********************************** % Motivation  **************************************
@@ -70,9 +70,9 @@ This section aims to highlight the three problems that arise during software dev
 \paragraph{Problem 1:} 
 Developing software products that meet customers' needs is crucial for software companies as it is challenging to determine user requirements \cite{article:experiments:lindgren}. 
 \ac{ux} designers face a significant problem as they must design software products catering to users' expectations and preferences. 
-However, it is difficult to know whether the designed product will meet users' needs without a reliable way to test user responses. 
+However, it is difficult to know whether the designed product will meet users' expectations without a reliable way to test user responses. 
 This challenge is worsened by user requirements and preferences constantly changing, requiring designers to iterate on their designs. 
-Therefore, finding a solution to test designs and gather user feedback to build software products that meet users' needs is necessary.
+Therefore, finding a solution to test designs and gather user feedback to build software products that meet users' requirements is necessary.
 
 % Product designers create many UI prototypes, and the developers implement them.
 % To determine the best variant, the developers create experiments with the users \cite{article:experiments:lindgren}. 
@@ -85,14 +85,14 @@ Therefore, finding a solution to test designs and gather user feedback to build 
 
 \paragraph{Problem 2:} Most often, the software application collects data from the experiments. 
 Some data is used in qualitative analysis, while others are in quantitative analysis.
-Many companies fail to reap the benefits of using both qualitative and quantitative analysis.
+Many companies fail to reap the benefits of using both qualitative and quantitative analysis \cite{article:qqa:young}.
 Similarly, not all the data is used in the analysis phase reducing the software applications to improve based on customer feedback \cite{article:datadrive:brian}.
 Therefore, finding a solution that combines qualitative and quantitative data analysis is necessary.
 
 \paragraph{Problem 3:} 
-The traditional iterative development approach is based on designing, prototyping, and testing multiple software product versions before arriving at a final version that meets the users' needs \cite{article:experiments:lindgren}.
+The traditional iterative development approach is based on designing, prototyping, and testing multiple software product versions before arriving at a final version that meets the users' requirements \cite{article:experiments:lindgren}.
 However, this approach can be time-consuming and inefficient in \ac{ui} prototyping and experimentation as this approach can result in biased decision-making, where developers may ignore valuable feedback from users, resulting in suboptimal results.
-Therefore, finding a solution for a more efficient and effective approach to \ac{ui} prototyping and experimentation that overcomes these challenges and ensures optimal design choices is necesary.
+Therefore, finding a solution for a more efficient and effective approach to \ac{ui} prototyping and experimentation that overcomes these challenges and ensures optimal design choices is necessary.
 
 \clearpage
 %********************************** % Research Approach  *************************************
@@ -100,7 +100,7 @@ Therefore, finding a solution for a more efficient and effective approach to \ac
 \label{introduction:section:research}
 The problems identified in the previous section highlight the need for a research approach that can help address them effectively.
 Therefore, in this section, we define \ac{rq}s and highlight our research approach. 
-We also define the meanings of \ac{dr}, \ac{dp} and \ac{df} which would be used in further sections.
+We also define the meanings of \ac{dr}, \ac{dp}, and \ac{df}, which are used in further sections.
 Our research approach aims to provide a systematic way of developing software products that meet customer needs while minimizing the risk of developing features that may not be useful to end users.
 
 \paragraph{\ac{rq}1:} \textit{What are the most effective techniques and methods for incorporating qualitative and quantitative user feedback into the design process of UI prototypes to improve \ac{ux}?}
@@ -117,14 +117,14 @@ Our research approach aims to provide a systematic way of developing software pr
 It follows a rigorous problem identification, solution design, implementation, and evaluation process, aiming to produce useful and effective artifacts that address real-world problems \cite{paper:designprinciple:gregor}. 
 The approach combines rigorous scientific methods and practical considerations to ensure that the artifacts developed are theoretically sound and useful in practice.
 It is an iterative approach involving a problem-solving cycle of developing a solution, evaluating it, and refining it based on feedback. 
-In our research, we will conduct the \textit{first} iteration of \ac{dsr} to develop and evaluate a solution that addresses the identified problems and answer the \ac{rq}s.
+In our research, we will conduct the \textit{first} iteration (see figure \ref{intro:fig:dps}) of \ac{dsr} to develop and evaluate a solution that addresses the identified problems and answer the \ac{rq}s.
 
 The DSR approach consists of five steps (see figure \ref{intro:fig:dps}), starting with problem awareness, where we define the problem and gain an understanding of it through studying relevant literature and tools. 
 The outcome of this step is the identification of \ac{dr}s. 
 In the second step, we concretize the \ac{dr}s to develop \ac{dp}s that serve as guidelines for designing the artifact. 
 In the third step, we create \ac{df}s that should be available in the artifact and build the tool.
 In the fourth step, we evaluate the tool through a user study to gather feedback and results. 
-Finally, in the fifth step, we improve our tool and re-iterate the \ac{dp}s based on the feedback received. 
+Finally, in the fifth step, we improve our tool and re-iterate the \ac{dp}s based on the feedback. 
 Through this iterative approach, we aim to develop an effective and user-friendly \ac{ui} prototyping tool that addresses the problems identified in software development.
 
 % As a result, this design and application may provide design-focused information that adds to the DSR knowledge corpus \cite{misc:dsr:henver}.
@@ -132,9 +132,9 @@ Through this iterative approach, we aim to develop an effective and user-friendl
 % Therefore through the use of \ac{dsr}, a group of issues is resolved by concentrating on a single issue and abstracting the consequences of the resolution.
 
 \paragraph{Design Requirements:}
-In \ac{dsr}, abstracted \ac{dr} refer to the general, high-level requirements that a design must meet to succeed \cite{misc:dsr:webster}. 
-These requirements are typically derived from the RQ identified as relevant to the problem.
-Abstracted \ac{dr}s provide a broad framework for the design process and help to ensure that the design solution addresses the key issues and challenges identified in the research problem. 
+In \ac{dsr}, \ac{dr}s refer to the general, high-level requirements that a design must meet to succeed \cite{misc:dsr:webster}. 
+These requirements are typically derived from the RQs identified as relevant to the problem.
+These \ac{dr}s provide a broad framework for the design process and help to ensure that the design solution addresses the key issues and challenges identified in the research problem. 
 They can also help guide the evaluation of the design solution and ensure that the solution is grounded in the \ac{dp}s identified as necessary.
 
 \paragraph{Design Principles:}
@@ -153,8 +153,8 @@ By explicitly specifying these \ac{df}s, \ac{dsr} researchers can ensure that th
 \clearpage
 \section{Solution Overview}
 \label{introduction:section:solution}
-After identifying the research approach in the previous section, we now present the solution overview of our approach using the LEAN development cycle.
-The designers should be able to create UI prototypes and experiments on their own with a set of users.
+After identifying the research approach in the previous section, we now present the solution overview of our approach using the LEAN development cycle \cite{misc:lean:toyota}.
+Normally, the designers should be able to create UI prototypes and experiments on their own with a set of users.
 Since we do not have a large set of users for testing the prototypes, we use supervised task-based usability testing \cite{article:dataanalysis:supervisedtest}.
 The fundamental principle of task-based usability testing is to have the users attempt to use the prototypes to do certain activities or tasks (e.g., Locate a comedy movie) and get feedback (e.g., the time required for the task to be completed by the user).
 We propose to use a no-code approach to achieve this.
@@ -173,11 +173,11 @@ Because of using the models, it is easier to store the prototypes in the databas
 In our solution, we adopt the LEAN development technique (see figure \ref{intro:fig:lean}) for development as it is used to develop user-friendly products \cite{article:lean:hart}.
 % Using LEAN, the company creates a \ac{mvp} throughout development, tests it with potential customers, and leverages their input to make incremental changes.
 While this technique can be used for every product, there are also approaches specific to software products.
-LEAN development technique can be divided into a Build, Measure, and Learn cycle. \\
-In the \textit{(1) building} phase, we develop the models for our approach and built a \ac{ui} prototyping tool. 
+LEAN development technique can be divided into the Build, Measure, and Learn phases. \\
+In the \textit{(1) building} phase, we develop the models for our approach and build a \ac{ui} prototyping tool. 
 We then add provisions to create \ac{ui} experiments, user tasks and custom questionnaires to collect user feedback. 
 Additionally, we include a provision to assign user participants to the UI variant in an experiment. \\
-In the \textit{(2) measurement} phase, after the completion of the experiment, we collect both the user feedback and the qualitative questionnaire answers.
+In the \textit{(2) measurement} phase, after the completion of the experiment, we collect both the user feedback and the qualitative questionnaire results.
 Therefore, the feedback will be both qualitative and quantitative.\\
 In the \textit{(3) learning} phase, we analyze the experiment results and determine the better variant based on the feedback collected. 
 Based on the findings, we will refine our model and develop the new UI prototypes. 
@@ -198,10 +198,10 @@ The \textit{\hyperref[chap:introduction]{(1) Introduction}} chapter includes a d
     \label{intro:fig:structure}
 \end{figure}
 
-Next, the \textit{\hyperref[chap:foundations]{(2) Foundations}} chapter is used to gain the knowledge required to understand the scope of our work, which includes \ac{ui} prototyping, low/no-code development, model-based software engineering, task-based usability testing, \ac{ui} experimentation, and LEAN development.
+Next, the \textit{\hyperref[chap:foundations]{(2) Foundations}} chapter is used to gain the knowledge required to understand the scope of our work, which includes \ac{ui} prototyping, low/no-code development approach, model-based software engineering, task-based usability testing, \ac{ui} experimentation, and LEAN development.
 The \textit{\hyperref[chap:design]{(3) Solution Design}} chapter outlines the \ac{dr}s, \ac{dp}s, and overall solution design. 
 Similarly, the \textit{\hyperref[chap:concept]{(4) Solution Concept}} chapter presents the software architecture, \ac{ui} prototype management, \ac{ui} experimentation management, persistence components, deployment components, and security components.
 Next, the \textit{\hyperref[chap:implementation]{(5) Solution Implementation}} chapter provides detailed insights into the tool \ac{df}s, explains the software tool we developed, technologies used, frontend and backend implementation, and database schema. 
 Next, the \textit{\hyperref[chap:evaluation]{(6) Evaluation}} chapter showcases the user study, experimental design, execution, analysis, and interpretation. 
-Next, the \textit{\hyperref[chap:relatedWork]{(7) Related Work}} section discusses current tools and state-of-the-art technologies and compares them with our \ac{dr}s.
-Finally, in the \textit{\hyperref[chap:conclusion]{(8) Conclusion}} chapter, we summarize our work, future work, and research contributions.
+Next, the \textit{\hyperref[chap:relatedWork]{(7) Related Work}} chapter discusses current tools and state-of-the-art technologies and compares them with our \ac{dr}s.
+Finally, the \textit{\hyperref[chap:conclusion]{(8) Conclusion}} chapter summarizes our work, future work, and research contributions.
