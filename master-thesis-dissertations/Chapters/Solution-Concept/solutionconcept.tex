@@ -14,11 +14,11 @@ In the previous chapter, we defined different DRs and DPs for our solution appro
 Consequently, this chapter presents the solution concept we developed to address the \ac{dr}s and \ac{dp}s we defined in the previous chapter.
 The solution concept comprises several components that work together to provide an effective and efficient solution. 
 Firstly, we define the solution architecture (see section \ref{sc:section:architecture}) based on the \ac{mvc} architecture pattern. 
-Secondly, we explain the \ac{ui} prototyping component (see section \ref{sc:section:prototyping}), which manages the prototyping of the \ac{ui}. 
-Next, we explain the \ac{ui} experimentation component (see section \ref{sc:section:experimentation}) responsible for managing the experimentation of the \ac{ui}, allowing us to test and evaluate different design choices and make data-driven decisions.
+Secondly, we explain the \ac{ui} prototyping component (see section \ref{sc:section:prototyping}), which manages the \ac{ui} prototyping. 
+Next, we present the \ac{ui} experimentation component (see section \ref{sc:section:experimentation}) responsible for managing the experimentation of the \ac{ui}, allowing us to test and evaluate different design choices and make data-driven decisions.
 After that, we discuss the database components (see section \ref{sc:section:persistance}), which involve storing and retrieving data.
 We then explain the deployment components (see section \ref{sc:section:deployment}) used to deploy the solution to the intended environment.
-Finally, we discuss the security components (see section \ref{sc:section:security}), which ensure data security and authentication within the proposed solution.
+Finally, we discuss the security components (see section \ref{sc:section:security}) which ensure data security and authentication within the proposed solution.
 
 % Consequently, in this chapter, we present the conceptual design of the solution, which outlines the system's key features, components, and functionalities. 
 % This chapter bridges the gap between the solution design and the actual implementation of the solution by providing a detailed description of the solution approach.
@@ -67,7 +67,7 @@ These controllers handle user input and update the models and views accordingly.
 The \textit{UI Prototype} model is connected to the \textit{UI Prototype Management} component, and the \textit{UI Experiment} model is connected to the \textit{UI Experiment Management} component.
 These models are responsible for providing data to their respective components.
 The prototyping data is stored in the \ac{db} using the \textit{\ac{ui} Prototype} model, and the \ac{ui} experimentation data is stored in the \ac{db} using the \textit{\ac{ui} Experiment} model.
-At the same time, the results of the experiments are also persisted in the \ac{db} using the \ac{ui} prototyping model.
+At the same time, the results of the experiments also persisted in the \ac{db} using the \ac{ui} prototyping model.
 Similarly, the \textit{User} model is responsible for providing the user participants for the experiments component while providing a UX designer for executing our tool.
 As per the \ac{mvc} architecture, the data is then persisted into the database using a service, at the same time, the user is also allowed to do the \ac{crud} operations.  
 Finally, for the database, we use a \textit{NoSQL} database that provides flexibility and scalability for applications with changing data requirements. 
@@ -78,7 +78,7 @@ Finally, for deployment, we have one component that includes all the files and d
 This component contains the server-side code, the client-side code, and the necessary libraries and dependencies. 
 The deployment component is responsible for packaging the application and deploying it to the target environment.\\\\
 In summary, the software architecture for our \ac{ui} prototyping tool is designed using the \ac{mvc} architecture, with the details explained in the next sections. 
-Similarly, the role of the UX designer, the user responsible for prototyping and creating user experiments and scenarios, is also explained in the next section in detail.
+Similarly, the role of the UX designer, the user responsible for prototyping and creating user experiments and scenarios, is also described in the next section in detail.
 
 \clearpage
 \section{UI Prototype Management}
@@ -111,7 +111,7 @@ Therefore, this component is crucial for quickly and efficiently creating new \a
 \paragraph{Data Model:}
 The \textit{Data Model} component of figure \ref{fig:sc:prototyping} provides a way to customize the data used in iterating the design of the \ac{ui} prototype. 
 This component allows designers to define custom data models, which are then stored in a database and can be accessed and manipulated using a model.  
-Similarly, these models are defined for their UI prototypes, which can be used to simulate real-world data and test the UI design in different scenarios. 
+Similarly, these models are defined by their UI prototypes, which can be used to simulate real-world data and test the UI design in different scenarios. 
 With this component, users can create data models, which are then stored in a database and can be accessed and manipulated using a model. 
 This component is essential for creating realistic and comprehensive UI prototypes that more closely resemble the final product and accurately reflect the end users' needs.
 
@@ -129,7 +129,7 @@ The \textit{Analysis} component of figure \ref{fig:sc:prototyping} provides a wa
 This component enables users to combine and aggregate the results of qualitative and quantitative analyses.
 This component allows designers to evaluate their UI prototypes' success, identify improvement areas, and make data-driven decisions about how to iterate and improve it. 
 The analysis component can provide a range of data, including user feedback, metrics, and analytics, which can help designers to make informed decisions about the UI design.
-It allows users to quickly iterate on their designs based on the insights gained from the analysis, ensuring that the final product is optimized.
+It allows users to iterate quickly on their designs based on the insights gained from the analysis, ensuring that the final product is optimized.
 
 % The prototype management includes an analysis component that enables users to combine and aggregate the results of qualitative and quantitative analyses. 
 % By combining these different types of research, users can gain a more comprehensive understanding of how their prototype is performing and make data-driven decisions about how to iterate and improve it. 
@@ -140,13 +140,13 @@ The \textit{Prototyping} component of figure \ref{fig:sc:prototyping} requires u
 The central component provides a way to create, manage, and test UI prototypes. 
 By integrating the UI elements, data models, and analysis components, designers can create highly effective UI prototypes that meet the needs of the end users. 
 The prototyping component typically includes features like drag-and-drop UI design tools, data uploading features, and the ability to quickly iterate and experiment with different UI design ideas.\\\\
-In summary, implementing a prototyping management component simplifies the \ac{ui} prototyping, helps improve the effectiveness of the UI, allowing to add \ac{ui} elements, and data models and improves the prototype.
+In summary, implementing a prototyping management component simplifies UI prototyping, and helps improve the effectiveness of the UI allowing the addition of UI elements and data models and enhancing the prototype.
 
 \clearpage
 \section{UI Experimentation Management}
 \label{sc:section:experimentation}
 In our solution approach, we must have features for creating various \ac{ui} variants and conducting experiments of A/B testing. 
-Therefore, as shown in figure \ref{fig:sc:experiments}, using this component, we allow the \ac{ux} designers to create experiments on the UI as defined in the UI prototype.
+Therefore, as shown in figure \ref{fig:sc:experiments}, using this component, we allow the \ac{ux} designers to develop experiments on the UI as defined in the UI prototype.
 It consists of various sub-components for constructing UI variants, assigning participants to experiments, managing participants' tasks, including qualitative questions, and collecting quantitative feedback.
 
 \begin{figure}[htbp!]
@@ -197,7 +197,7 @@ The \textit{Qualitative} component provides custom questions for the experiment 
 These questions can be designed to gain insight into user perceptions, opinions, and attitudes toward the UI prototype.
 These questions can be used to gather qualitative feedback from participants, such as their opinions or impressions of the design, or to elicit specific information, such as their understanding of a particular feature. 
 This component ensures that designers can capture user feedback specific to the experiment.
-Moreover, this component complements the quantitative component and provides users with a more holistic view of how users interact with their prototype.
+Moreover, this component complements the quantitative part and gives users a more holistic view of how they interact with their prototype.
 % The experiment management includes a qualitative component that allows users to gather participant feedback through a qualitative questionnaire. 
 % This component complements the quantitative component and provides users with a more holistic view of how users interact with their prototype.
 % The qualitative questionnaire can be easily added to the prototype, and users can choose from various question types, including open-ended and scale-based questions. 
